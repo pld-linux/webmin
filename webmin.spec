@@ -2,7 +2,7 @@
 # - SECURITY: http://securitytracker.com/alerts/2004/Sep/1011173.html
 # - SECURITY: http://securitytracker.com/alerts/2004/Sep/1011268.html
 # - SECURITY: http://securitytracker.com/alerts/2004/Sep/1011267.html
-%include        /usr/lib/rpm/macros.perl
+%include	/usr/lib/rpm/macros.perl
 Summary:	Webmin - web-based administration
 Summary(pl):	Webmin - administracja przez WWW
 Name:		webmin
@@ -879,13 +879,13 @@ echo os_version=1.0 		>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
 echo %{version}			> $RPM_BUILD_ROOT%{_sysconfdir}/webmin/version
 
 for a in acl apache at bind8 burner cfengine cluster-software \
-    cluster-useradmin cluster-webmin custom dhcpd exports fdisk \
-    fetchmail file fsdump grub heartbeat inittab jabber lilo lpadmin \
-    lvm majordomo man mon mysql net nis pam pap passwd postfix \
-    postgresql proc procmail proftpd pserver \
-    qmailadmin quota raid samba sendmail sentry servers shell software \
-    squid sshd status syslog telnet time useradmin usermin webmin \
-    webminlog wuftpd xinetd ; do
+	cluster-useradmin cluster-webmin custom dhcpd exports fdisk \
+	fetchmail file fsdump grub heartbeat inittab jabber lilo lpadmin \
+	lvm majordomo man mon mysql net nis pam pap passwd postfix \
+	postgresql proc procmail proftpd pserver \
+	qmailadmin quota raid samba sendmail sentry servers shell software \
+	squid sshd status syslog telnet time useradmin usermin webmin \
+	webminlog wuftpd xinetd ; do
 	./webmin-find-lang.sh $RPM_BUILD_ROOT %{_datadir}/webmin/$a $a
 done
 for a in cron inetd init mount stunnel ; do
@@ -910,7 +910,7 @@ fi
 if [ -f /var/lock/subsys/webmin ]; then
 	/etc/rc.d/init.d/webmin restart >&2
 else
-        echo "Run \"/etc/rc.d/init.d/webmin start\" to start webmin" >&2
+	echo "Run \"/etc/rc.d/init.d/webmin start\" to start webmin" >&2
 	echo "and use your web browser to go to:" >&2
 	echo "http://your_host_name:10000" >&2
 fi
@@ -920,10 +920,10 @@ allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | 
 
 %preun
 if [ "$1" = "0" ]; then
-        if [ -f /var/lock/subsys/webmin ]; then
-                /etc/rc.d/init.d/webmin stop
-        fi
-        /sbin/chkconfig	--del webmin
+	if [ -f /var/lock/subsys/webmin ]; then
+		/etc/rc.d/init.d/webmin stop
+	fi
+	/sbin/chkconfig	--del webmin
 fi
 
 %post disk-tools
