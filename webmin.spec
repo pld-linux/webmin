@@ -35,6 +35,7 @@ BuildRequires:	textutils
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Requires(post,preun):/sbin/chkconfig
+Requires:	perl-modules
 
 %description
 Webmin is a web-based interface for system administration for Unix.
