@@ -6,7 +6,7 @@ Version:	0.980
 # Current unofficial tarball version (be carefull; numberring incompatibility):
 #Version:	0.985
 %define	source_version	%{version}
-Release:	0.1
+Release:	0.2
 License:	distributable (BSD-like)
 Group:		Applications/System
 Source0:	http://www.webmin.com/webmin/download/%{name}-%{version}.tar.gz
@@ -578,6 +578,20 @@ Prereq:		webmin
 %description software
 Webmin - Software Packages.
 
+# STUNNEL
+%package stunnel
+Summary:	Webmin - SSL tunnels configuration
+Summary(pl):	Webmin - Konfiguracja tuneli SSL
+Group:		Applications/System
+Requires:	stunnel
+Prereq:		webmin
+
+%description stunnel
+Webmin - SSL tunnels configuration.
+
+%description stunnel -l pl
+Webmin - Konfiguracja tuneli SSL.
+
 # STATUS
 %package monitor
 Summary:	Webmin - Event monitor
@@ -707,19 +721,25 @@ Webmin - Dodatkowe motywy Webmina.
 %prep
 %setup -q -n %{name}-%{source_version}
 #%patch0 -p1
+
 %build
+sed "s:\./cvsweb.conf:%{_sysconfdir}/webmincnf/cvsweb.conf:g" <pserver/cvsweb.cgi >pserver/cvsweb.cgi.
+mv -f pserver/cvsweb.cgi. pserver/cvsweb.cgi
 
 %install
 
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_datadir}/webmin,/var/{log,run}/webmin} \
-	$RPM_BUILD_ROOT%{_sysconfdir}/{webmin,rc.d/init.d}
+	$RPM_BUILD_ROOT%{_sysconfdir}/{webmin,webmincnf} \
+	$RPM_BUILD_ROOT/etc/{pam.d,rc.d/init.d}
 
 cp -rp * $RPM_BUILD_ROOT%{_datadir}/webmin
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/webmin
 install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/webmin/miniserv.conf
 install %{SOURCE3} .
+install webmin-pam $RPM_BUILD_ROOT/etc/pam.d/webmin
+install pserver/cvsweb.conf $RPM_BUILD_ROOT%{_sysconfdir}/webmincnf/cvsweb.conf
 install $RPM_BUILD_ROOT%{_datadir}/webmin/miniserv.pem \
 	$RPM_BUILD_ROOT%{_sysconfdir}/webmin/miniserv.pem
 
@@ -924,6 +944,10 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
+%post stunnel
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
 %post squid
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
@@ -991,6 +1015,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %doc LICENCE.gz LICENCE.ja.gz
 %attr(750,root,root) %dir /var/log/webmin
 %attr(754,root,root) /etc/rc.d/init.d/webmin
+%attr(640,root,root) /etc/pam.d/webmin
 
 %attr(755,root,root) %{_datadir}/webmin/*.pl
 %attr(755,root,root) %{_datadir}/webmin/*.cgi
@@ -1002,6 +1027,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/version
 
 %attr(750,root,root) %dir %{_sysconfdir}/webmin
+%dir %{_sysconfdir}/webmincnf
 %config(noreplace) %{_sysconfdir}/webmin/config
 %config(noreplace) %{_sysconfdir}/webmin/miniserv.conf
 %attr(600,root,root) %config(noreplace) %{_sysconfdir}/webmin/miniserv.pem
@@ -1481,6 +1507,8 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 # NIS
 %files nis -f nis.lang
 %defattr(644,root,root,755)
+# This needs to be synced with default PLD NIS config
+#%config %{_datadir}/webmin/nis/nisupdate.conf
 %doc nis/nisupdate.conf
 %dir %{_sysconfdir}/webmin/nis
 %dir %{_datadir}/webmin/nis
@@ -1777,6 +1805,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # CVS-PSERVER #
 %files cvs-pserver -f pserver.lang
+%config(noreplace) %{_sysconfdir}/webmincnf/cvsweb.conf
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/pserver
 %dir %{_datadir}/webmin/pserver
@@ -1865,6 +1894,21 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/squid/*.risk
 %{_datadir}/webmin/squid/*.skill
 %config(noreplace) %{_sysconfdir}/webmin/squid/config
+
+# STUNNEL #
+%files stunnel -f stunnel.lang
+%defattr(644,root,root,755)
+%dir %{_sysconfdir}/webmin/stunnel
+%dir %{_datadir}/webmin/stunnel
+%attr(755,root,root) %{_datadir}/webmin/stunnel/*.cgi
+%{_datadir}/webmin/stunnel/config
+%{_datadir}/webmin/stunnel/config-*
+%{_datadir}/webmin/stunnel/config.info
+%{_datadir}/webmin/stunnel/images
+%{_datadir}/webmin/stunnel/module.info
+%{_datadir}/webmin/stunnel/*-*.pl
+%{_datadir}/webmin/stunnel/*_*.pl
+%config(noreplace) %{_sysconfdir}/webmin/stunnel/config
 
 # SSHD #
 %files sshd -f sshd.lang
