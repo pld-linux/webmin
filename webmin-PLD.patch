@@ -1,6 +1,6 @@
 diff -ruN webmin-0.79.orig/apache/config-pld-linux webmin-0.79/apache/config-pld-linux
 --- webmin-0.79.orig/apache/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.79/apache/config-pld-linux	Tue May 23 10:19:20 2000
++++ webmin-0.79/apache/config-pld-linux	Sat May 27 21:48:43 2000
 @@ -0,0 +1,7 @@
 +show_list=0
 +httpd_dir=/etc/httpd
@@ -11,19 +11,17 @@ diff -ruN webmin-0.79.orig/apache/config-pld-linux webmin-0.79/apache/config-pld
 +show_order=0
 diff -ruN webmin-0.79.orig/apache/module.info webmin-0.79/apache/module.info
 --- webmin-0.79.orig/apache/module.info	Sat Apr 15 11:14:39 2000
-+++ webmin-0.79/apache/module.info	Wed May 24 09:52:03 2000
-@@ -5,5 +5,7 @@
++++ webmin-0.79/apache/module.info	Sat May 27 21:55:25 2000
+@@ -5,5 +5,5 @@
  desc_de=Apache Webserver
  desc_fr=Serveur Web Apache
  desc_pt=Servidor Web Apache
 -os_support=solaris redhat-linux debian-linux slackware-linux suse-linux aix hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux openbsd corel-linux cobalt-linux
-+os_support=solaris redhat-linux debian-linux slackware-linux suse-linux
-+aix hpux freebsd osf1 irix unixware openserver macos open-linux
-+turbo-linux openbsd corel-linux cobalt-linux pld-linux
++os_support=solaris redhat-linux debian-linux slackware-linux suse-linux aix hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux openbsd corel-linux cobalt-linux pld-linux
  category=servers
 diff -ruN webmin-0.79.orig/bind8/config-pld-linux webmin-0.79/bind8/config-pld-linux
 --- webmin-0.79.orig/bind8/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.79/bind8/config-pld-linux	Sat Apr 15 11:14:40 2000
++++ webmin-0.79/bind8/config-pld-linux	Sat May 27 21:48:43 2000
 @@ -0,0 +1,5 @@
 +soa_style=0
 +named_path=/usr/sbin/named
@@ -32,25 +30,23 @@ diff -ruN webmin-0.79.orig/bind8/config-pld-linux webmin-0.79/bind8/config-pld-l
 +records_order=0
 diff -ruN webmin-0.79.orig/bind8/module.info webmin-0.79/bind8/module.info
 --- webmin-0.79.orig/bind8/module.info	Sat Apr 15 11:14:39 2000
-+++ webmin-0.79/bind8/module.info	Wed May 24 09:52:34 2000
-@@ -5,5 +5,7 @@
++++ webmin-0.79/bind8/module.info	Sat May 27 21:48:43 2000
+@@ -5,5 +5,5 @@
  desc_de=BIND 8 DNS Server
  desc_fr=Serveur de Noms de Domaine Bind 8
  desc_pt=Servidor de DNS BIND 8
 -os_support=slackware-linux redhat-linux solaris debian-linux suse-linux hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux openbsd corel-linux cobalt-linux/5.0
-+os_support=slackware-linux redhat-linux solaris debian-linux suse-linux
-+hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux
-+openbsd corel-linux cobalt-linux/5.0 pld-linux
++os_support=slackware-linux redhat-linux solaris debian-linux suse-linux hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux openbsd corel-linux cobalt-linux/5.0 pld-linux
  category=servers
 diff -ruN webmin-0.79.orig/config-pld-linux webmin-0.79/config-pld-linux
 --- webmin-0.79.orig/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.79/config-pld-linux	Tue May 23 10:16:20 2000
++++ webmin-0.79/config-pld-linux	Sat May 27 21:48:43 2000
 @@ -0,0 +1,2 @@
 +find_pid_command=ps auwwwx | grep NAME | grep -v grep | awk '{ print $2 }'
 +path=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin
 diff -ruN webmin-0.79.orig/cron/config-pld-linux webmin-0.79/cron/config-pld-linux
 --- webmin-0.79.orig/cron/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.79/cron/config-pld-linux	Tue May 23 10:20:30 2000
++++ webmin-0.79/cron/config-pld-linux	Sat May 27 21:48:43 2000
 @@ -0,0 +1,12 @@
 +cron_dir=/var/spool/cron
 +cron_deny_file=/etc/cron/cron.deny
@@ -66,19 +62,17 @@ diff -ruN webmin-0.79.orig/cron/config-pld-linux webmin-0.79/cron/config-pld-lin
 +cronfiles_dir=/etc/cron.d
 diff -ruN webmin-0.79.orig/cron/module.info webmin-0.79/cron/module.info
 --- webmin-0.79.orig/cron/module.info	Sat Apr 15 11:14:33 2000
-+++ webmin-0.79/cron/module.info	Wed May 24 09:53:00 2000
-@@ -5,5 +5,7 @@
++++ webmin-0.79/cron/module.info	Sat May 27 21:55:51 2000
+@@ -5,5 +5,5 @@
  desc_de=Geplante Cron Jobs
  desc_fr=Tâches Cron
  desc_pt=Tarefas Agendadas (Cron)
 -os_support=solaris slackware-linux redhat-linux debian-linux suse-linux hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux openbsd corel-linux cobalt-linux
-+os_support=solaris slackware-linux redhat-linux debian-linux suse-linux
-+hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux
-+openbsd corel-linux cobalt-linux pld-linux
++os_support=solaris slackware-linux redhat-linux debian-linux suse-linux hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux openbsd corel-linux cobalt-linux pld-linux
  category=system
 diff -ruN webmin-0.79.orig/dhcpd/config-pld-linux webmin-0.79/dhcpd/config-pld-linux
 --- webmin-0.79.orig/dhcpd/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.79/dhcpd/config-pld-linux	Tue May 23 10:21:41 2000
++++ webmin-0.79/dhcpd/config-pld-linux	Sat May 27 21:48:43 2000
 @@ -0,0 +1,4 @@
 +dhcpd_conf=/etc/dhcpd.conf
 +pid_file=/var/run/dhcpd.pid
@@ -86,7 +80,7 @@ diff -ruN webmin-0.79.orig/dhcpd/config-pld-linux webmin-0.79/dhcpd/config-pld-l
 +lease_file=/var/lib/dhcp/dhcpd.leases
 diff -ruN webmin-0.79.orig/dhcpd/module.info webmin-0.79/dhcpd/module.info
 --- webmin-0.79.orig/dhcpd/module.info	Sat Apr 15 11:14:43 2000
-+++ webmin-0.79/dhcpd/module.info	Wed May 24 09:54:21 2000
++++ webmin-0.79/dhcpd/module.info	Sat May 27 21:48:43 2000
 @@ -5,5 +5,5 @@
  desc_de=DHCP Server
  desc_fr=Serveur DHCP
@@ -96,7 +90,7 @@ diff -ruN webmin-0.79.orig/dhcpd/module.info webmin-0.79/dhcpd/module.info
  category=servers
 diff -ruN webmin-0.79.orig/dnsadmin/module.info webmin-0.79/dnsadmin/module.info
 --- webmin-0.79.orig/dnsadmin/module.info	Sat Apr 15 11:14:34 2000
-+++ webmin-0.79/dnsadmin/module.info	Wed May 24 09:54:10 2000
++++ webmin-0.79/dnsadmin/module.info	Sat May 27 21:48:43 2000
 @@ -5,6 +5,6 @@
  desc_de=BIND 4 DNS Server
  desc_fr=Serveur de Noms de Domaine Bind 4
@@ -107,14 +101,14 @@ diff -ruN webmin-0.79.orig/dnsadmin/module.info webmin-0.79/dnsadmin/module.info
  category=servers
 diff -ruN webmin-0.79.orig/exports/config-pld-linux webmin-0.79/exports/config-pld-linux
 --- webmin-0.79.orig/exports/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.79/exports/config-pld-linux	Tue May 23 10:23:07 2000
++++ webmin-0.79/exports/config-pld-linux	Sat May 27 21:48:43 2000
 @@ -0,0 +1,3 @@
 +restart_command=/etc/rc.d/init.d/nfs restart
 +exports_file=/etc/exports
 +nfs_server=rpc.nfsd
 diff -ruN webmin-0.79.orig/exports/module.info webmin-0.79/exports/module.info
 --- webmin-0.79.orig/exports/module.info	Sat Apr 15 11:14:34 2000
-+++ webmin-0.79/exports/module.info	Wed May 24 09:53:53 2000
++++ webmin-0.79/exports/module.info	Sat May 27 21:48:43 2000
 @@ -5,5 +5,5 @@
  desc_de=NFS Exporte
  desc_fr=Partage NFS
@@ -124,7 +118,7 @@ diff -ruN webmin-0.79.orig/exports/module.info webmin-0.79/exports/module.info
  category=system
 diff -ruN webmin-0.79.orig/fdisk/module.info webmin-0.79/fdisk/module.info
 --- webmin-0.79.orig/fdisk/module.info	Sat Apr 15 11:14:37 2000
-+++ webmin-0.79/fdisk/module.info	Wed May 24 09:55:07 2000
++++ webmin-0.79/fdisk/module.info	Sat May 27 21:48:43 2000
 @@ -5,6 +5,6 @@
  desc_de=Festplatten-Partitionen
  desc_fr=Partition sur Disque Local
@@ -135,7 +129,7 @@ diff -ruN webmin-0.79.orig/fdisk/module.info webmin-0.79/fdisk/module.info
  category=hardware
 diff -ruN webmin-0.79.orig/init/config-pld-linux webmin-0.79/init/config-pld-linux
 --- webmin-0.79.orig/init/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.79/init/config-pld-linux	Tue May 23 10:24:18 2000
++++ webmin-0.79/init/config-pld-linux	Sat May 27 21:48:43 2000
 @@ -0,0 +1,13 @@
 +soft_links=1
 +show_opts=0
@@ -152,20 +146,18 @@ diff -ruN webmin-0.79.orig/init/config-pld-linux webmin-0.79/init/config-pld-lin
 +desc=1
 diff -ruN webmin-0.79.orig/init/module.info webmin-0.79/init/module.info
 --- webmin-0.79.orig/init/module.info	Sat Apr 15 11:14:34 2000
-+++ webmin-0.79/init/module.info	Wed May 24 09:55:34 2000
-@@ -5,6 +5,8 @@
++++ webmin-0.79/init/module.info	Sat May 27 21:56:44 2000
+@@ -5,6 +5,6 @@
  desc_de=System Start und Stop
  desc_fr=Actions de démarrage et d'arrêt
  desc_pt=Iniciar e Encerrar
 -os_support=solaris redhat-linux debian-linux suse-linux hpux slackware-linux freebsd unixware openserver open-linux turbo-linux openbsd corel-linux cobalt-linux cobalt-linux
-+os_support=solaris redhat-linux debian-linux suse-linux hpux
-+slackware-linux freebsd unixware openserver open-linux turbo-linux
-+openbsd corel-linux cobalt-linux cobalt-linux pld-linux
++os_support=solaris redhat-linux debian-linux suse-linux hpux slackware-linux freebsd unixware openserver open-linux turbo-linux openbsd corel-linux cobalt-linux cobalt-linux pld-linux
  depends=proc
  category=system
 diff -ruN webmin-0.79.orig/inittab/module.info webmin-0.79/inittab/module.info
 --- webmin-0.79.orig/inittab/module.info	Sat Apr 15 11:14:48 2000
-+++ webmin-0.79/inittab/module.info	Wed May 24 09:55:55 2000
++++ webmin-0.79/inittab/module.info	Sat May 27 21:48:43 2000
 @@ -3,5 +3,5 @@
  desc_pt=Configuração de Inicialização SysV
  desc_es=Configuración Init de SysV
@@ -175,7 +167,7 @@ diff -ruN webmin-0.79.orig/inittab/module.info webmin-0.79/inittab/module.info
  category=system
 diff -ruN webmin-0.79.orig/lilo/module.info webmin-0.79/lilo/module.info
 --- webmin-0.79.orig/lilo/module.info	Sat Apr 15 11:14:44 2000
-+++ webmin-0.79/lilo/module.info	Wed May 24 09:56:08 2000
++++ webmin-0.79/lilo/module.info	Sat May 27 21:48:43 2000
 @@ -5,5 +5,5 @@
  desc_de=Linux Boot Konfiguration
  desc_fr=Configuration du Démarrage de Linux
@@ -185,7 +177,7 @@ diff -ruN webmin-0.79.orig/lilo/module.info webmin-0.79/lilo/module.info
  category=hardware
 diff -ruN webmin-0.79.orig/lpadmin/config-pld-linux webmin-0.79/lpadmin/config-pld-linux
 --- webmin-0.79.orig/lpadmin/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.79/lpadmin/config-pld-linux	Sat Apr 15 11:14:39 2000
++++ webmin-0.79/lpadmin/config-pld-linux	Sat May 27 21:48:43 2000
 @@ -0,0 +1,10 @@
 +iface_perms=755
 +printcap_file=/etc/printcap
@@ -199,7 +191,7 @@ diff -ruN webmin-0.79.orig/lpadmin/config-pld-linux webmin-0.79/lpadmin/config-p
 +driver_style=redhat
 diff -ruN webmin-0.79.orig/lpadmin/module.info webmin-0.79/lpadmin/module.info
 --- webmin-0.79.orig/lpadmin/module.info	Sat Apr 15 11:14:39 2000
-+++ webmin-0.79/lpadmin/module.info	Wed May 24 09:56:31 2000
++++ webmin-0.79/lpadmin/module.info	Sat May 27 21:48:43 2000
 @@ -6,5 +6,5 @@
  desc_de=Drucker Verwaltung
  desc_fr=Administration de l'Imprimante
@@ -209,7 +201,7 @@ diff -ruN webmin-0.79.orig/lpadmin/module.info webmin-0.79/lpadmin/module.info
  category=hardware
 diff -ruN webmin-0.79.orig/majordomo/module.info webmin-0.79/majordomo/module.info
 --- webmin-0.79.orig/majordomo/module.info	Sat Apr 15 11:14:44 2000
-+++ webmin-0.79/majordomo/module.info	Wed May 24 09:56:59 2000
++++ webmin-0.79/majordomo/module.info	Sat May 27 21:48:43 2000
 @@ -5,6 +5,6 @@
  desc_de=Majordomo Listenverwaltung
  desc_fr=Gestionnaire de Majordomo
@@ -220,7 +212,7 @@ diff -ruN webmin-0.79.orig/majordomo/module.info webmin-0.79/majordomo/module.in
  category=servers
 diff -ruN webmin-0.79.orig/man/config-pld-linux webmin-0.79/man/config-pld-linux
 --- webmin-0.79.orig/man/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.79/man/config-pld-linux	Tue May 23 10:25:13 2000
++++ webmin-0.79/man/config-pld-linux	Sat May 27 21:48:43 2000
 @@ -0,0 +1,4 @@
 +search_cmd=man -k PAGE
 +man_dir=/usr/share/man
@@ -228,7 +220,7 @@ diff -ruN webmin-0.79.orig/man/config-pld-linux webmin-0.79/man/config-pld-linux
 +man_cmd=man PAGE
 diff -ruN webmin-0.79.orig/man/module.info webmin-0.79/man/module.info
 --- webmin-0.79.orig/man/module.info	Sat Apr 15 11:14:47 2000
-+++ webmin-0.79/man/module.info	Wed May 24 09:57:21 2000
++++ webmin-0.79/man/module.info	Sat May 27 21:48:43 2000
 @@ -5,4 +5,4 @@
  desc_es=Páginas del Manual
  desc_ru_SU=óÔÒÁÎÉÃÙ òÕËÏ×ÏÄÓÔ×Á
@@ -237,7 +229,7 @@ diff -ruN webmin-0.79.orig/man/module.info webmin-0.79/man/module.info
 +os_support=solaris corel-linux debian-linux open-linux redhat-linux slackware-linux solaris suse-linux turbo-linux freebsd openbsd cobalt-linux pld-linux
 diff -ruN webmin-0.79.orig/mount/config-pld-linux webmin-0.79/mount/config-pld-linux
 --- webmin-0.79.orig/mount/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.79/mount/config-pld-linux	Tue May 23 10:25:33 2000
++++ webmin-0.79/mount/config-pld-linux	Sat May 27 21:48:43 2000
 @@ -0,0 +1,6 @@
 +auto_file=/etc/amd.conf
 +autofs_file=/etc/autofs/auto.master
@@ -247,7 +239,7 @@ diff -ruN webmin-0.79.orig/mount/config-pld-linux webmin-0.79/mount/config-pld-l
 +nmblookup_path=nmblookup
 diff -ruN webmin-0.79.orig/mount/module.info webmin-0.79/mount/module.info
 --- webmin-0.79.orig/mount/module.info	Sat Apr 15 11:14:35 2000
-+++ webmin-0.79/mount/module.info	Wed May 24 09:57:35 2000
++++ webmin-0.79/mount/module.info	Sat May 27 21:48:43 2000
 @@ -5,6 +5,6 @@
  desc_de=Platten- und Netzwerk-Dateisysteme
  desc_fr=Montages disques et réseaux
@@ -256,9 +248,1685 @@ diff -ruN webmin-0.79.orig/mount/module.info webmin-0.79/mount/module.info
 +os_support=slackware-linux redhat-linux solaris debian-linux suse-linux freebsd hpux unixware open-linux turbo-linux corel-linux openbsd cobalt-linux pld-linux
  depends=proc
  category=system
+diff -ruN webmin-0.79.orig/mount/pld-linux-lib.pl webmin-0.79/mount/pld-linux-lib.pl
+--- webmin-0.79.orig/mount/pld-linux-lib.pl	Thu Jan  1 01:00:00 1970
++++ webmin-0.79/mount/pld-linux-lib.pl	Sat Apr 15 11:14:35 2000
+@@ -0,0 +1,1672 @@
++# linux-lib.pl
++# Mount table functions for linux
++
++if (&has_command("amd")) {
++	local $amd = &read_amd_conf();
++	$amd_support = $amd =~ /\[\s*global\s*\]/i ? 2 : 1;
++	}
++$autofs_support = &has_command("automount");
++if (&has_command("mount.smb")) {
++	$smbfs_support = `mount.smb -v` =~ /username=/i ? 4 : 3;
++	}
++elsif (&has_command("smbmount")) {
++	$smbfs_support = `smbmount -v` =~ /Version\s+2/i ? 2 : 1;
++	}
++$swaps_support = -r "/proc/swaps";
++
++# Return information about a filesystem, in the form:
++#  directory, device, type, options, fsck_order, mount_at_boot
++# If a field is unused or ignored, a - appears instead of the value.
++# Swap-filesystems (devices or files mounted for VM) have a type of 'swap',
++# and 'swap' in the directory field
++sub list_mounts
++{
++local(@rv, @p, @o, $_, $i, $j); $i = 0;
++
++# Get /etc/fstab mounts
++open(FSTAB, $config{fstab_file});
++while(<FSTAB>) {
++	local(@o, $at_boot);
++	chop; s/#.*$//g;
++	if (!/\S/ || /\signore\s/) { next; }
++	@p = split(/\s+/, $_);
++	if ($p[2] eq "proc") { $p[0] = "proc"; }
++	elsif ($p[2] eq "auto") { $p[2] = "*"; }
++	elsif ($p[2] eq "swap") { $p[1] = "swap"; }
++	$rv[$i] = [ $p[1], $p[0], $p[2] ];
++	$rv[$i]->[5] = "yes";
++	@o = split(/,/ , $p[3] eq "defaults" ? "" : $p[3]);
++	if (($j = &indexof("noauto", @o)) >= 0) {
++		# filesytem is not mounted at boot
++		splice(@o, $j, 1);
++		$rv[$i]->[5] = "no";
++		}
++	$rv[$i]->[3] = (@o ? join(',' , @o) : "-");
++	$rv[$i]->[4] = (@p >= 5 ? $p[5] : 0);
++	$i++;
++	}
++close(FSTAB);
++
++if ($amd_support == 1) {
++	# Get old automounter configuration, as used by redhat
++	local $amd = &read_amd_conf();
++	if ($amd =~ /MOUNTPTS='(.*)'/) {
++		@p = split(/\s+/, $1);
++		for($j=0; $j<@p; $j+=2) {
++			$rv[$i++] = [ $p[$j], $p[$j+1], "auto",
++				      "-", 0, "yes" ];
++			}
++		}
++	}
++elsif ($amd_support == 2) {
++	# Guess what? There's now a *new* amd config file format, introduced
++	# in redhat 6.1 and caldera 2.3
++	local @amd = &parse_amd_conf();
++	local @sp = split(/:/, $amd[0]->{'opts'}->{'search_path'});
++	local ($am, $sp);
++	foreach $am (@amd) {
++		local $mn = $am->{'opts'}->{'map_name'};
++		if ($mn !~ /^\//) {
++			foreach $sp (@sp) {
++				if (-r "$sp/$mn") {
++					$mn = "$sp/$mn";
++					last;
++					}
++				}
++			}
++		$rv[$i++] = [ $am->{'dir'}, $mn,
++			      "auto", $am->{'opts'}, 0, "yes" ]
++			if ($am->{'dir'} ne 'global');
++		}
++	}
++
++# Get kernel automounter configuration
++if ($autofs_support) {
++	open(AUTO, $config{'autofs_file'});
++	while(<AUTO>) {
++		chop;
++		s/#.*$//g;
++		if (/^\s*(\S+)\s+(\S+)\s*(.*)$/) {
++			$rv[$i++] = [ $1, $2, "autofs",
++				      ($3 ? &autofs_options($3) : "-"),
++				      0, "yes" ];
++			}
++		}
++	close(AUTO);
++	}
++
++return @rv;
++}
++
++
++# create_mount(directory, device, type, options, fsck_order, mount_at_boot)
++# Add a new entry to the fstab file, old or new automounter file
++sub create_mount
++{
++local(@mlist, @amd, $_); local($opts);
++
++if ($_[2] eq "auto") {
++	if ($amd_support == 1) {
++		# Adding an old automounter mount
++		local $amd = &read_amd_conf();
++		local $m = "$_[0] $_[1]";
++		if ($amd =~ /MOUNTPTS=''/) {
++			$amd =~ s/MOUNTPTS=''/MOUNTPTS='$m'/;
++			}
++		else {
++			$amd =~ s/MOUNTPTS='(.*)'/MOUNTPTS='$1 $m'/;
++			}
++		&write_amd_conf($amd);
++		}
++	elsif ($amd_support == 2) {
++		# Adding a new automounter mount
++		open(AMD, ">>$config{'auto_file'}");
++		print AMD "\n";
++		print AMD "[ $_[0] ]\n";
++		print AMD "map_name = $_[1]\n";
++		close(AMD);
++		}
++	}
++elsif ($_[2] eq "autofs") {
++	# Adding a new automounter mount
++	open(AUTO, ">> $config{'autofs_file'}");
++	print AUTO "$_[0]  $_[1]";
++	if ($_[3]) { print AUTO "  ",&autofs_args($_[3]); }
++	print AUTO "\n";
++	close(AUTO);
++	}
++else {
++	# Adding a normal mount to the fstab file
++	open(FSTAB, ">> $config{fstab_file}");
++	print FSTAB "$_[1]  $_[0]  $_[2]";
++	$opts = $_[3] eq "-" ? "" : $_[3];
++	if ($_[5] eq "no") {
++		$opts = join(',' , (split(/,/ , $opts) , "noauto"));
++		}
++	if ($opts eq "") { print FSTAB "  defaults"; }
++	else { print FSTAB "  $opts"; }
++	print FSTAB "  0  ";
++	print FSTAB $_[4] eq "-" ? "0\n" : "$_[4]\n";
++	close(FSTAB);
++	}
++}
++
++
++# change_mount(num, directory, device, type, options, fsck_order, mount_at_boot)
++# Change an existing permanent mount
++sub change_mount
++{
++local($i, @fstab, $line, $opts, $j, @amd);
++$i = 0;
++
++# Update fstab file
++open(FSTAB, $config{fstab_file});
++@fstab = <FSTAB>;
++close(FSTAB);
++open(FSTAB, "> $config{fstab_file}");
++foreach (@fstab) {
++	chop; ($line = $_) =~ s/#.*$//g;
++	if ($line =~ /\S/ && $line !~ /\signore\s/ && $i++ == $_[0]) {
++		# Found the line to replace
++		print FSTAB "$_[2]  $_[1]  $_[3]";
++		$opts = $_[4] eq "-" ? "" : $_[4];
++		if ($_[6] eq "no") {
++			$opts = join(',' , (split(/,/ , $opts) , "noauto"));
++			}
++		if ($opts eq "") { print FSTAB "  defaults"; }
++		else { print FSTAB "  $opts"; }
++		print FSTAB "  0  ";
++		print FSTAB $_[5] eq "-" ? "0\n" : "$_[5]\n";
++		}
++	else { print FSTAB $_,"\n"; }
++	}
++close(FSTAB);
++
++if ($amd_support == 1) {
++	# Update older amd configuration
++	local $amd = &read_amd_conf();
++	if ($amd =~ /MOUNTPTS='(.*)'/) {
++		# found mount points line..
++		local @mpts = split(/\s+/, $1);
++		for($j=0; $j<@mpts; $j+=2) {
++			if ($i++ == $_[0]) {
++				$mpts[$j] = $_[1];
++				$mpts[$j+1] = $_[2];
++				}
++			}
++		local $mpts = join(" ", @mpts);
++		$amd =~ s/MOUNTPTS='(.*)'/MOUNTPTS='$mpts'/;
++		}
++	&write_amd_conf($amd);
++	}
++elsif ($amd_support == 2) {
++	# Update new amd configuration
++	local @amd = &parse_amd_conf();
++	local $lref = &read_file_lines($config{'auto_file'});
++	foreach $am (@amd) {
++		next if ($am->{'dir'} eq 'global');
++		if ($i++ == $_[0]) {
++			local @nl = ( "[ $_[1] ]" );
++			local %opts = %{$am->{'opts'}};
++			$opts->{'map_name'} = $_[2];
++			foreach $o (keys %opts) {
++				push(@nl, "$o = $opts{$o}");
++				}
++			splice(@$lref, $am->{'line'},
++			       $am->{'eline'} - $am->{'line'} + 1, @nl);
++			}
++		}
++	&flush_file_lines();
++	}
++
++# Update autofs configuration
++if ($autofs_support) {
++	open(AUTO, $config{'autofs_file'});
++	@auto = <AUTO>;
++	close(AUTO);
++	open(AUTO, "> $config{'autofs_file'}");
++	foreach (@auto) {
++		chop; ($line = $_) =~ s/#.*$//g;
++		if ($line =~ /\S/ && $i++ == $_[0]) {
++			print AUTO "$_[1]  $_[2]";
++			if ($_[4]) { print AUTO "  ",&autofs_args($_[4]); }
++			print AUTO "\n";
++			}
++		else { print AUTO $_,"\n"; }
++		}
++	close(AUTO);
++	}
++}
++
++
++# delete_mount(index)
++# Delete an existing permanent mount
++sub delete_mount
++{
++local($i, @fstab, $line, $opts, $j, @amd);
++$i = 0;
++
++# Update fstab file
++open(FSTAB, $config{fstab_file});
++@fstab = <FSTAB>;
++close(FSTAB);
++open(FSTAB, "> $config{fstab_file}");
++foreach (@fstab) {
++	chop; ($line = $_) =~ s/#.*$//g;
++	if ($line !~ /\S/ || $line =~ /\signore\s/ || $i++ != $_[0]) {
++		# Don't delete this line
++		print FSTAB $_,"\n";
++		}
++	}
++close(FSTAB);
++
++if ($amd_support == 1) {
++	# Update older amd configuration
++	local $amd = &read_amd_conf();
++	if ($amd =~ /MOUNTPTS='(.*)'/) {
++		# found mount points line..
++		local @mpts = split(/\s+/, $1);
++		for($j=0; $j<@mpts; $j+=2) {
++			if ($i++ == $_[0]) {
++				splice(@mpts, $j, 2);
++				}
++			}
++		local $mpts = join(" ", @mpts);
++		$amd =~ s/MOUNTPTS='(.*)'/MOUNTPTS='$mpts'/;
++		}
++	&write_amd_conf($amd);
++	}
++elsif ($amd_support == 2) {
++	# Update new amd configuration
++	local @amd = &parse_amd_conf();
++	local $lref = &read_file_lines($config{'auto_file'});
++	foreach $am (@amd) {
++		next if ($am->{'dir'} eq 'global');
++		if ($i++ == $_[0]) {
++			splice(@$lref, $am->{'line'},
++			       $am->{'eline'} - $am->{'line'} + 1);
++			}
++		}
++	&flush_file_lines();
++	}
++
++
++
++# Update AMD file
++if ($amd_support) {
++	open(AMD, $config{auto_file});
++	@amd = <AMD>;
++	close(AMD);
++	open(AMD, "> $config{auto_file}");
++	foreach (@amd) {
++		if (/MOUNTPTS='(.*)'/) {
++			# found mount points line..
++			@mpts = split(/\s+/, $1);
++			for($j=0; $j<@mpts; $j+=2) {
++				if ($i++ != $_[0]) {
++					push(@nmpts, $mpts[$j]);
++					push(@nmpts, $mpts[$j+1]);
++					}
++				}
++			print AMD "MOUNTPTS='".join(' ', @nmpts)."'\n";
++			}
++		else { print AMD $_; }
++		}
++	close(AMD);
++	}
++
++# Update autofs file
++if ($autofs_support) {
++	open(AUTO, $config{'autofs_file'});
++	@auto = <AUTO>;
++	close(AUTO);
++	open(AUTO, "> $config{'autofs_file'}");
++	foreach (@auto) {
++		chop; ($line = $_) =~ s/#.*$//g;
++		if ($line !~ /\S/ || $i++ != $_[0]) {
++			# keep this line
++			print AUTO $_,"\n";
++			}
++		}
++	close(AUTO);
++	}
++}
++
++
++# list_mounted()
++# Return a list of all the currently mounted filesystems and swap files.
++# The list is in the form:
++#  directory device type options
++sub list_mounted
++{
++local(@rv, @p, @o, $mo, $_, %smbopts);
++
++&read_smbopts();
++open(MTAB, "/etc/mtab");
++while(<MTAB>) {
++	chop;
++	s/#.*$//g; if (!/\S/) { next; }
++	@p = split(/\s+/, $_);
++	if ($p[2] eq "auto" || $p[0] =~ /^\S+:\(pid\d+\)$/) {
++		# Automounter map.. turn the map= option into the device
++		@o = split(/,/ , $p[3]);
++		($mo) = grep {/^map=/} (@o);
++		$mo =~ /^map=(.*)$/; $p[0] = $1;
++		$p[3] = join(',' , grep {!/^map=/} (@o));
++		$p[2] = "auto";
++		}
++	elsif ($p[2] eq "autofs") {
++		# Kernel automounter map.. use the pid to find the map
++		$p[0] =~ /automount\(pid(\d+)\)/ || next;
++		$out = `ps hwwww $1`;
++		$out =~ /automount\s+(.*)\s*(\S+)\s+(file|program|yp)(,\S+)?\s+(\S+)/ || next;
++		$p[0] = $5;
++		$p[3] = $1 ? &autofs_options($1) : "-";
++		}
++	elsif ($p[2] eq "smbfs") {
++		# Change from //FOO/BAR to \\foo\bar
++		$p[0] =~ s/\//\\/g;
++		$p[0] = lc($p[0]);
++		$p[3] = $smbopts{$p[1]};
++		}
++	elsif ($p[2] eq "proc") {
++		# The source for proc mounts is always proc
++		$p[0] = "proc";
++		}
++	push(@rv, [ $p[1], $p[0], $p[2], $p[3] ]);
++	}
++close(MTAB);
++open(SWAPS, "/proc/swaps");
++while(<SWAPS>) {
++	chop;
++	if (/^(\/\S+)\s+/) {
++		push(@rv, [ "swap", $1, "swap", "-" ]);
++		}
++	}
++close(SWAPS);
++return @rv;
++}
++
++
++# mount_dir(directory, device, type, options)
++# Mount a new directory from some device, with some options. Returns 0 if ok,
++# or an error string if failed
++sub mount_dir
++{
++local($out, $opts, $shar, %options, %smbopts);
++if ($_[2] eq "swap") {
++	# Use swapon to add the swap space..
++	$out = `swapon $_[1] 2>&1`;
++	if ($out =~ /Invalid argument/) {
++		# looks like this swap partition isn't ready yet.. set it up
++		$out = `mkswap $_[1] 2>&1`;
++		if ($?) { return "mkswap failed : <pre>$out</pre>"; }
++		$out = `swapon $_[1] 2>&1`;
++		}
++	if ($?) { return "<pre>$out</pre>"; }
++	}
++elsif ($_[2] eq "auto") {
++	# Old automounter filesystem
++	$out = `amd $_[0] $_[1] >/dev/null 2>/dev/null`;
++	if ($?) { return $text{'linux_eamd'}; }
++	}
++elsif ($_[2] eq "autofs") {
++	# New automounter filesystem
++	$opts = &autofs_args($_[3]);
++	$type = $_[1] !~ /^\// ? "yp" :
++		(-x $_[1]) ? "program" : "file";
++	$out = `automount $opts $_[0] $type $_[1] 2>&1`;
++	if ($?) { return &text('linux_eauto', "<pre>$out</pre>"); }
++	}
++elsif ($_[2] eq "smbfs") {
++	local $shar = $_[1];
++	$shar =~ s/\\/\//g;
++	if ($smbfs_support >= 3) {
++		# SMB filesystem mounted with mount command
++		$opts = $_[3] eq "-" ? "" : "-o \"$_[3]\"";
++		$out = `mount -t $_[2] $opts $shar $_[0] 2>&1`;
++		if ($? || $out =~ /failed/i) {
++			system("umount $_[0] >/dev/null 2>&1");
++			return "<pre>$out</pre>";
++			}
++		}
++	elsif ($smbfs_support == 2) {
++		# SMB filesystem mounted with version 2.x smbmount
++		&parse_options("smbfs", $_[3]);
++		$opts =
++		    ($options{'user'} ? "-U $options{'user'} " : "").
++		    ($options{'passwd'} ? "" : "-N ").
++		    ($options{'workgroup'} ? "-W $options{'workgroup'} " : "").
++		    ($options{'clientname'} ? "-n $options{'clientname'} " : "").
++		    ($options{'machinename'} ? "-I $options{'machinename'} " : "");
++		&foreign_require("proc", "proc-lib.pl");
++		local ($fh, $fpid) = &foreign_call(
++			"proc", "pty_process_exec", "sh", "-c",
++			"smbmount $shar $_[0] -d 0 $opts");
++		if ($options{'passwd'}) {
++			local $w = &wait_for($fh, "word:");
++			if ($w < 0) {
++				system("umount $_[0] >/dev/null 2>&1");
++				return $text{'linux_esmbconn'};
++				}
++			local $p = "$options{'passwd'}\n";
++			syswrite($fh, $p, length($p));
++			}
++		local $got;
++		while(<$fh>) {
++			$got .= $_;
++			}
++		if ($got =~ /failed/) {
++			system("umount $_[0] >/dev/null 2>&1");
++			return "<pre>$got</pre>\n";
++			}
++		close($fh);
++		}
++	elsif ($smbfs_support == 1) {
++		# SMB filesystem mounted with older smbmount
++		&parse_options("smbfs", $_[3]);
++		$shortname = &get_system_hostname();
++		if ($shortname =~ /^([^\.]+)\.(.+)$/) { $shortname = $1; }
++		$opts =
++		   ($options{servername} ? "-s $options{servername} " : "").
++		   ($options{clientname} ? "-c $options{clientname} "
++					 : "-c $shortname ").
++		   ($options{machinename} ? "-I $options{machinename} " : "").
++		   ($options{user} ? "-U $options{user} " : "").
++		   ($options{passwd} ? "-P $options{passwd} " : "-n ").
++		   ($options{uid} ? "-u $options{uid} " : "").
++		   ($options{gid} ? "-g $options{gid} " : "").
++		   ($options{fmode} ? "-f $options{fmode} " : "").
++		   ($options{dmode} ? "-d $options{dmode} " : "");
++		$out = `smbmount $shar $_[0] $opts 2>&1`;
++		if ($out) {
++			system("umount $_[0] >/dev/null 2>&1");
++			return "<pre>$out</pre>";
++			}
++		}
++	&read_smbopts();
++	$smbopts{$_[0]} = $_[3] eq "-" ? "dummy=1" : $_[3];
++	&write_smbopts();
++	}
++else {
++	# some filesystem supported by mount
++	$opts = $_[3] eq "-" ? "" : "-o \"$_[3]\"";
++	$out = `mount -t $_[2] $opts $_[1] $_[0] 2>&1`;
++	if ($?) { return "<pre>$out</pre>"; }
++	}
++return 0;
++}
++
++
++# unmount_dir(directory, device, type)
++# Unmount a directory that is currently mounted. Returns 0 if ok,
++# or an error string if failed
++sub unmount_dir
++{
++local($out, %smbopts, $dir);
++if ($_[2] eq "swap") {
++	# Use swapoff to remove the swap space..
++	$out = `swapoff $_[1]`;
++	if ($?) { return "<pre>$out</pre>"; }
++	}
++elsif ($_[2] eq "auto") {
++	# Kill the amd process
++	$dir = $_[0];
++	if (`cat /etc/mtab` =~ /:\(pid([0-9]+)\)\s+$dir\s+(auto|nfs)\s+/) {
++		kill('TERM', $1) || return $text{'linux_ekillamd'};
++		}
++	sleep(2);
++	}
++elsif ($_[2] eq "autofs") {
++	# Kill the automount process
++	$dir = $_[0];
++	`cat /etc/mtab` =~ /automount\(pid([0-9]+)\)\s+$dir\s+autofs\s+/;
++	kill('TERM', $1) || return $text{'linux_ekillauto'};
++	sleep(2);
++	}
++else {
++	$out = `umount $_[0] 2>&1`;
++	if ($?) { return "<pre>$out</pre>"; }
++	if ($_[2] eq "smbfs") {
++		# remove options from list
++		&read_smbopts();
++		delete($smbopts{$_[0]});
++		&write_smbopts();
++		}
++	}
++return 0;
++}
++
++
++# mount_modes(type)
++# Given a filesystem type, returns 4 numbers that determine how the file
++# system can be mounted, and whether it can be fsck'd
++#  0 - cannot be permanently recorded
++#	(smbfs under linux before 2.2)
++#  1 - can be permanently recorded, and is always mounted at boot
++#	(swap under linux)
++#  2 - can be permanently recorded, and may or may not be mounted at boot
++#	(most normal filesystems)
++# The second is:
++#  0 - mount is always permanent => mounted when saved
++#	(swap under linux before 2.2)
++#  1 - doesn't have to be permanent
++#	(normal fs types)
++# The third is:
++#  0 - cannot be fsck'd at boot time
++#  1 - can be be fsck'd at boot
++# The fourth is:
++#  0 - can be unmounted
++#  1 - cannot be unmounted
++sub mount_modes
++{
++if ($_[0] eq "swap")
++	{ return (1, $swaps_support ? 1 : 0, 0, 0); }
++elsif ($_[0] eq "auto" || $_[0] eq "autofs")
++	{ return (1, 1, 0, 0); }
++elsif ($_[0] eq "smbfs")
++	{ return ($smbfs_support >= 3 ? 2 : 0, 1, 0, 0); }
++elsif ($_[0] eq "ext2" || $_[0] eq "minix" || $_[0] eq "xiafs")
++	{ return (2, 1, 1, 0); }
++else
++	{ return (2, 1, 0, 0); }
++}
++
++
++# disk_space(type, directory)
++# Returns the amount of total and free space for some filesystem, or an
++# empty array if not appropriate.
++sub disk_space
++{
++if (&get_mounted($_[1], "*") < 0) { return (); }
++if ($_[0] eq "proc" || $_[0] eq "swap" ||
++    $_[0] eq "auto" || $_[0] eq "autofs") { return (); }
++`df -k $_[1]` =~ /Mounted on\n\S+\s+(\S+)\s+\S+\s+(\S+)/;
++return ($1, $2);
++}
++
++
++# list_fstypes()
++# Returns an array of all the supported filesystem types. If a filesystem is
++# found that is not one of the supported types, generate_location() and
++# generate_options() will not be called for it.
++sub list_fstypes
++{
++local @sup = ("ext2", "minix", "msdos", "nfs", "iso9660", "ext", "xiafs",
++	      "hpfs", "fat", "vfat", "umsdos", "sysv", "reiserfs");
++push(@sup, "smbfs") if ($smbfs_support);
++push(@sup, "auto") if ($amd_support);
++push(@sup, "autofs") if ($autofs_support);
++push(@sup, "swap");
++return @sup;
++}
++
++
++# fstype_name(type)
++# Given a short filesystem type, return a human-readable name for it
++sub fstype_name
++{
++local(%fsmap);
++%fsmap = ("ext2","Linux Native Filesystem",
++	  "minix","Minix Filesystem",
++	  "msdos","MS-DOS Filesystem",
++	  "nfs","Network Filesystem",
++	  "smbfs","Windows Networking Filesystem",
++	  "iso9660","ISO9660 CD-ROM",
++	  "ext","Old EXT Linux Filesystem",
++	  "xiafs","Old XIAFS Linux Filesystem",
++	  "hpfs","OS/2 Filesystem",
++	  "fat","MS-DOS Filesystem",
++	  "vfat","Windows 95 Filesystem",
++	  "umsdos","Linux on top of MS-DOS Filesystem",
++	  "sysv","System V Filesystem",
++	  "swap","Virtual Memory",
++	  "proc","Kernel Filesystem",
++	  "devpts","PTS Filesystem",
++	  "auto",($autofs_support ? "Old " : "")."Automounter Filesystem",
++	  "reiserfs","Reiser Filesystem",
++	  "autofs","New Automounter Filesystem");
++return $config{long_fstypes} && $fsmap{$_[0]} ? $fsmap{$_[0]} : uc($_[0]);
++}
++
++
++# multiple_mount(type)
++# Returns 1 if filesystems of this type can be mounted multiple times, 0 if not
++sub multiple_mount
++{
++return ($_[0] eq "nfs" || $_[0] eq "auto" || $_[0] eq "autofs");
++}
++
++
++# generate_location(type, location)
++# Output HTML for editing the mount location of some filesystem.
++sub generate_location
++{
++if ($_[0] eq "nfs") {
++	# NFS mount from some host and directory
++	$_[1] =~ /^([^:]+):(.*)$/;
++	print "<tr> <td><b>$text{'linux_nfshost'}</b></td>\n";
++	print "<td><input name=nfs_host size=20 value=\"$1\">\n";
++	&nfs_server_chooser_button("nfs_host");
++	print "&nbsp;<b>$text{'linux_nfsdir'}</b>\n";
++	print "<input name=nfs_dir size=20 value=\"$2\">\n";
++	&nfs_export_chooser_button("nfs_host", "nfs_dir");
++	print "</td> </tr>\n";
++	}
++elsif ($_[0] eq "auto") {
++	# Using some automounter map
++	print "<tr> <td><b>$text{'linux_map'}</b></td>\n";
++	print "<td><input name=auto_map size=20 value=\"$_[1]\">\n";
++	print &file_chooser_button("auto_map", 0);
++	print "</td> <td colspan=2></td> </tr>\n";
++	}
++elsif ($_[0] eq "autofs") {
++	# Using some kernel automounter map
++	print "<tr> <td><b>$text{'linux_map'}</b></td>\n";
++	print "<td><input name=autofs_map size=20 value=\"$_[1]\">\n";
++	print &file_chooser_button("autofs_map", 0);
++	print "</td> <td colspan=2></td> </tr>\n";
++	}
++elsif ($_[0] eq "swap") {
++	# Swap file or device
++	&foreign_require("fdisk", "fdisk-lib.pl");
++	printf "<tr> <td valign=top><b>$text{'linux_swapfile'}</b></td>\n";
++	print "<td colspan=3>\n";
++	local $found;
++	local $sel = &foreign_call("fdisk", "partition_select", "lnx_disk",
++				   $_[1], 3, \$found);
++	printf "<input type=radio name=lnx_dev value=0 %s> %s %s<br>\n",
++		$found ? "checked" : "", $text{'linux_disk'}, $sel;
++	printf "<input type=radio name=lnx_dev value=1 %s> %s\n",
++		$found ? "" : "checked", $text{'linux_swapfile'};
++	printf "<input name=lnx_other size=35 value='%s'><br>\n",
++		$found ? "" : $_[1];
++	print "</td> </tr>\n";
++	}
++elsif ($_[0] eq "smbfs") {
++	# Windows filesystem
++	$_[1] =~ /^\\\\(.*)\\(.*)$/;
++	print "<tr> <td><b>$text{'linux_smbserver'}</b></td>\n";
++	print "<td><input name=smbfs_server value=\"$1\" size=20>\n";
++	&smb_server_chooser_button("smbfs_server");
++	print "</td>\n";
++	print "<td><b>$text{'linux_smbshare'}</b></td>\n";
++	print "<td><input name=smbfs_share value=\"$2\" size=20>\n";
++	&smb_share_chooser_button("smbfs_server", "smbfs_share");
++	print "</td> </tr>\n";
++	}
++else {
++	# This is some linux disk-based filesystem
++	&foreign_require("fdisk", "fdisk-lib.pl");
++	printf "<tr> <td valign=top><b>%s</b></td>\n", &fstype_name($_[0]);
++	print "<td colspan=3>\n";
++	local ($found, $rfound, $rsel, $c);
++	local $sel = &foreign_call("fdisk", "partition_select", "lnx_disk",
++				   $_[1], 0, \$found);
++	printf "<input type=radio name=lnx_dev value=0 %s> %s %s<br>\n",
++		$found ? "checked" : "", $text{'linux_disk'}, $sel;
++
++	&foreign_require("raid", "raid-lib.pl");
++	local $conf = &foreign_call("raid", "get_raidtab");
++	foreach $c (@$conf) {
++		if ($c->{'active'}) {
++			$rsel .= sprintf "<option value=%s %s>%s\n",
++				$c->{'value'},
++				$_[1] eq $c->{'value'} ? 'selected' : '',
++				&text('linux_rdev', substr($c->{'value'}, -1));
++			$rfound++ if ($_[1] eq $c->{'value'});
++			}
++		}
++	if ($rsel) {
++		printf "<input type=radio name=lnx_dev value=2 %s> %s\n",
++			$rfound ? "checked" : " ", $text{'linux_raid'};
++		print "<select name=lnx_raid>\n",$rsel,"</select><br>\n";
++		}
++
++	printf "<input type=radio name=lnx_dev value=1 %s> %s\n",
++		$found || $rfound ? "" : "checked", $text{'linux_other'};
++	printf "<input name=lnx_other size=35 value='%s'><br>\n",
++		$found || $rfound ? "" : $_[1];
++	print "</td> </tr>\n";
++	}
++}
++
++
++# generate_options(type, newmount)
++# Output HTML for editing mount options for a particular filesystem 
++# under this OS
++sub generate_options
++{
++if ($_[0] ne "swap" && $_[0] ne "auto" &&
++    $_[0] ne "autofs" && $_[0] ne "smbfs") {
++	# Lots of options are common to all linux filesystems
++	print "<tr> <td><b>$text{'linux_ro'}</b></td>\n";
++	printf "<td nowrap><input type=radio name=lnx_ro value=1 %s> $text{'yes'}\n",
++		defined($options{"ro"}) ? "checked" : "";
++	printf "<input type=radio name=lnx_ro value=0 %s> $text{'no'}</td>\n",
++		defined($options{"ro"}) ? "" : "checked";
++
++	print "<td><b>$text{'linux_sync'}</b></td>\n";
++	printf"<td nowrap><input type=radio name=lnx_sync value=0 %s> $text{'yes'}\n",
++		defined($options{"sync"}) ? "" : "checked";
++	printf "<input type=radio name=lnx_sync value=1 %s> $text{'no'}</td> </tr>\n",
++		defined($options{"sync"}) ? "checked" : "";
++
++	print "<tr> <td><b>$text{'linux_nodev'}</b></td>\n";
++	printf "<td nowrap><input type=radio name=lnx_nodev value=0 %s> $text{'yes'}\n",
++		defined($options{"nodev"}) ? "" : "checked";
++	printf "<input type=radio name=lnx_nodev value=1 %s> $text{'no'}</td>\n",
++		defined($options{"nodev"}) ? "checked" : "";
++
++	print "<td><b>$text{'linux_noexec'}</b></td>\n";
++	printf"<td nowrap><input type=radio name=lnx_noexec value=0 %s> $text{'yes'}\n",
++		defined($options{"noexec"}) ? "" : "checked";
++	printf "<input type=radio name=lnx_noexec value=1 %s> $text{'no'}</td> </tr>\n",
++		defined($options{"noexec"}) ? "checked" : "";
++
++	print "<tr> <td><b>$text{'linux_nosuid'}</b></td>\n";
++	printf "<td nowrap><input type=radio name=lnx_nosuid value=1 %s> $text{'yes'}\n",
++		defined($options{"nosuid"}) ? "checked" : "";
++	printf "<input type=radio name=lnx_nosuid value=0 %s> $text{'no'}</td>\n",
++		defined($options{"nosuid"}) ? "" : "checked";
++
++	print "<td><b>$text{'linux_user'}</b></td>\n";
++	printf"<td nowrap><input type=radio name=lnx_user value=1 %s> $text{'yes'}\n",
++		defined($options{"user"}) ? "checked" : "";
++	printf "<input type=radio name=lnx_user value=0 %s> $text{'no'}</td> </tr>\n",
++		defined($options{"user"}) ? "" : "checked";
++	}
++	
++if ($_[0] eq "ext2") {
++	# Ext2 has lots more options..
++	print "<tr> <td><b>$text{'linux_check'}</b></td>\n";
++	print "<td><select name=ext2_check>\n";
++	printf "<option value=normal %s> $text{'linux_normal'}\n",
++		$options{"check"} eq "" || $options{"check"} eq "normal" ?
++			"selected" : "";
++	printf "<option value=strict %s> $text{'linux_strict'}\n",
++		$options{"check"} eq "strict" ? "selected" : "";
++	printf "<option value=none %s> $text{'linux_none'}\n",
++		$options{"check"} eq "none" || defined($options{"nocheck"}) ?
++			"selected" : "";
++	print "</select></td>\n";
++
++	print "<td><b>$text{'linux_errors'}</b></td>\n";
++	print "<td><select name=ext2_errors>\n";
++	printf "<option value=default %s> $text{'default'}\n",
++		!defined($options{"errors"}) ? "selected" : "";
++	printf "<option value=continue %s> $text{'linux_continue'}\n",
++		$options{"error"} eq "continue" ? "selected" : "";
++	printf "<option value=remount-ro %s> $text{'linux_remount_ro'}\n",
++		$options{"error"} eq "remount-ro" ? "selected" : "";
++	printf "<option value=panic %s> $text{'linux_panic'}\n",
++		$options{"error"} eq "panic" ? "selected" : "";
++	print "</select></td> </tr>\n";
++
++	print "<tr> <td><b>$text{'linux_grpid'}</b></td>\n";
++	printf "<td nowrap><input type=radio name=ext2_grpid value=0 %s> $text{'yes'}\n",
++		defined($options{"grpid"}) || defined($options{"bsdgroups"}) ?
++			"" : "checked";
++	printf "<input type=radio name=ext2_grpid value=1 %s> $text{'no'}</td>\n",
++		defined($options{"grpid"}) || defined($options{"bsdgroups"}) ?
++			"checked" : "";
++
++	print "<td><b>$text{'linux_quotas'}</b></td>\n";
++	local $usrquota = defined($options{"usrquota"});
++	local $grpquota = defined($options{"grpquota"});
++	print "<td nowrap><select name=ext2_quota>\n";
++	printf "<option value=0 %s> $text{'no'}\n",
++		$usrquota || $grpquota ? "" : "selected";
++	printf "<option value=1 %s> $text{'linux_usrquota'}\n",
++		$usrquota && !$grpquota ? "selected" : "";
++	printf "<option value=2 %s> $text{'linux_grpquota'}\n",
++		$grpquota && !$usrquota ? "selected" : "";
++	if (`uname -r` =~ /^2\.0\.(\d+)/ && $1 < 31) {
++		printf "<option value=3 %s> $text{'linux_usrgrpquota2'}\n",
++			$usrquota && $grpquota ? "selected" : "";
++		}
++	else {
++		printf "<option value=3 %s> $text{'linux_usrgrpquota'}\n",
++			$usrquota && $grpquota ? "selected" : "";
++		}
++	print "</select></td> </tr>\n";
++
++	print "<tr> <td><b>$text{'linux_resuid'}</b></td>\n";
++	printf "<td><input name=ext2_resuid size=8 value=\"%s\">\n",
++		defined($options{"resuid"}) ? getpwuid($options{"resuid"}) : "";
++	print &user_chooser_button("ext2_resuid", 0),"</td>\n";
++
++	print "<td><b>$text{'linux_resgid'}</b></td>\n";
++	printf "<td><input name=ext2_resgid size=8 value=\"%s\">\n",
++		defined($options{"resgid"}) ? getgrgid($options{"resgid"}) : "";
++	print &group_chooser_button("ext2_resgid", 0),"</td> </tr>\n";
++	}
++elsif ($_[0] eq "nfs") {
++	# Linux nfs has some more options...
++	print "<tr> <td><b>$text{'linux_bg'}</b></td>\n";
++	printf "<td nowrap><input type=radio name=nfs_bg value=1 %s> $text{'yes'}\n",
++		defined($options{"bg"}) ? "checked" : "";
++	printf "<input type=radio name=nfs_bg value=0 %s> $text{'no'}</td>\n",
++		defined($options{"bg"}) ? "" : "checked";
++
++	print "<td><b>$text{'linux_soft'}</b></td>\n";
++	printf "<td nowrap><input type=radio name=nfs_soft value=1 %s> $text{'yes'}\n",
++		defined($options{"soft"}) ? "checked" : "";
++	printf "<input type=radio name=nfs_soft value=0 %s> $text{'no'}</td> </tr>\n",
++		defined($options{"soft"}) ? "" : "checked";
++
++	print "<tr> <td><b>$text{'linux_timeo'}</b></td>\n";
++	printf "<td nowrap><input type=radio name=nfs_timeo_def value=1 %s> $text{'default'}\n",
++		defined($options{"timeo"}) ? "" : "checked";
++	printf "<input type=radio name=nfs_timeo_def value=0 %s>\n",
++		defined($options{"timeo"}) ? "checked" : "";
++	printf "<input size=5 name=nfs_timeo value=$options{timeo}></td>\n";
++
++	print "<td><b>$text{'linux_retrans'}</b></td>\n";
++	printf "<td nowrap><input type=radio name=nfs_retrans_def value=1 %s> $text{'default'}\n",
++		defined($options{"retrans"}) ? "" : "checked";
++	printf "<input type=radio name=nfs_retrans_def value=0 %s>\n",
++		defined($options{"retrans"}) ? "checked" : "";
++	print "<input size=5 name=nfs_retrans value=$options{retrans}></td> </tr>\n";
++
++	print "<tr> <td><b>$text{'linux_vers'}</b></td>\n";
++	printf "<td nowrap><input type=radio name=nfs_vers_def value=1 %s> $text{'linux_high'}\n",
++		defined($options{"nfsvers"}) ? "" : "checked";
++	printf "<input type=radio name=nfs_vers_def value=0 %s>\n",
++		defined($options{"nfsvers"}) ? "checked" : "";
++	print "<input size=1 name=nfsvers value=$options{nfsvers}></td>\n";
++
++	print "<td><b>$text{'linux_port'}</b></td>\n";
++	printf "<td nowrap><input type=radio name=nfs_port_def value=1 %s> $text{'default'}\n",
++		defined($options{"port"}) ? "" : "checked";
++	printf "<input type=radio name=nfs_port_def value=0 %s>\n",
++		defined($options{"port"}) ? "checked" : "";
++	print "<input size=5 name=nfs_port value=$options{port}></td> </tr>\n";
++
++	print "<tr> <td><b>$text{'linux_intr'}</b></td>\n";
++	printf "<td nowrap><input type=radio name=nfs_intr value=1 %s> $text{'yes'}\n",
++		defined($options{"intr"}) ? "checked" : "";
++	printf "<input type=radio name=nfs_intr value=0 %s> $text{'no'}</td>\n",
++		defined($options{"intr"}) ? "" : "checked";
++
++	print "<td><b>$text{'linux_tcp'}</b></td>\n";
++	printf "<td nowrap><input type=radio name=nfs_tcp value=1 %s> TCP\n",
++		defined($options{"tcp"}) ? "checked" : "";
++	printf "<input type=radio name=nfs_tcp value=0 %s> UDP</td> </tr>\n",
++		defined($options{"tcp"}) ? "" : "checked";
++	}
++elsif ($_[0] eq "fat" || $_[0] eq "vfat" || $_[0] eq "msdos" || $_[0] eq "umsdos"){
++	# All dos-based filesystems share some options
++	print "<tr> <td><b>$text{'linux_uid'}</b></td>\n";
++	printf "<td><input name=fat_uid size=8 value=\"%s\">\n",
++		defined($options{'uid'}) ? getpwuid($options{'uid'}) : "";
++	print &user_chooser_button("fat_uid", 0),"</td>\n";
++
++	print "<td><b>$text{'linux_gid'}</b></td>\n";
++	printf "<td><input name=fat_gid size=8 value=\"%s\">\n",
++		defined($options{'gid'}) ? getgrgid($options{'gid'}) : "";
++	print &group_chooser_button("fat_gid", 0),"</td> </tr>\n";
++
++	print "<tr> <td><b>$text{'linux_rules'}</b></td>\n";
++	print "<td><select name=fat_check>\n";
++	printf "<option value=\"\" %s> $text{'default'}\n",
++		defined($options{"check"}) ? "" : "selected";
++	printf "<option value=r %s> $text{'linux_relaxed'}\n",
++		$options{"check"} =~ /^r/ ? "selected" : "";
++	printf "<option value=n %s> $text{'linux_normal'}\n",
++		$options{"check"} =~ /^n/ ? "selected" : "";
++	printf "<option value=s %s> $text{'linux_strict'}\n",
++		$options{"check"} =~ /^s/ ? "selected" : "";
++	print "</select></td>\n";
++
++	print "<td><b>$text{'linux_conv'}</b></td>\n";
++	print "<td><select name=fat_conv>\n";
++	printf "<option value=\"\" %s> $text{'linux_none'}\n",
++		$options{"conv"} =~ /^b/ || !defined($options{"conv"}) ?
++		"selected" : "";
++	printf "<option value=t %s> $text{'linux_allfiles'}\n",
++		$options{"conv"} =~ /^t/ ? "selected" : "";
++	printf "<option value=a %s> $text{'linux_textfiles'}\n",
++		$options{"conv"} =~ /^a/ ? "selected" : "";
++	print "</select></td> </tr>\n";
++
++	print "<tr> <td><b>$text{'linux_umask'}</b></td>\n";
++	printf "<td><input type=radio name=fat_umask_def value=1 %s> $text{'default'}\n",
++		defined($options{"umask"}) ? "" : "checked";
++	printf "<input type=radio name=fat_umask_def value=0 %s>\n",
++		defined($options{"umask"}) ? "checked" : "";
++	print "<input size=5 name=fat_umask value=\"$options{umask}\"></td>\n";
++
++	print "<td><b>$text{'linux_quiet'}</b></td>\n";
++	printf "<td nowrap><input type=radio name=fat_quiet value=0 %s> $text{'yes'}\n",
++		defined($options{"quiet"}) ? "" : "checked";
++	printf "<input type=radio name=fat_quiet value=1 %s> $text{'no'}</td> </tr>\n",
++		defined($options{"quiet"}) ? "checked" : "";
++
++	if ($_[0] eq "vfat") {
++		# vfat has some extra options beyond fat
++		print "<tr> <td><b>$text{'linux_uni_xlate'}</b></td>\n";
++		printf "<td><input type=radio name=fat_uni_xlate value=1 %s> $text{'yes'}\n",
++			defined($options{"uni_xlate"}) ? "checked" : "";
++		printf "<input type=radio name=fat_uni_xlate value=0 %s> $text{'no'}</td>\n",
++			defined($options{"uni_xlate"}) ? "" : "checked";
++
++		print "<td><b>$text{'linux_posix'}</b></td>\n";
++		printf "<td nowrap><input type=radio name=fat_posix value=1 %s> $text{'yes'}\n",
++			defined($options{"posix"}) ? "checked" : "";
++		printf "<input type=radio name=fat_posix value=0 %s> $text{'no'}</td> </tr>\n",
++			defined($options{"posix"}) ? "" : "checked";
++		}
++	}
++elsif ($_[0] eq "hpfs") {
++	# OS/2 filesystems has some more options..
++	print "<tr> <td><b>$text{'linux_uid'}</b></td>\n";
++	printf "<td><input name=hpfs_uid size=8 value=\"%s\">\n",
++		defined($options{"uid"}) ? getpwuid($options{"uid"}) : "";
++	print &user_chooser_button("hpfs_uid", 0),"</td>\n";
++
++	print "<td><b>$text{'linux_gid'}</b></td>\n";
++	printf "<td><input name=hpfs_gid size=8 value=\"%s\">\n",
++		defined($options{"gid"}) ? getgrgid($options{"gid"}) : "";
++	print &group_chooser_button("hpfs_gid", 0),"</td> </tr>\n";
++
++	print "<tr> <td><b>$text{'linux_umask'}</b></td>\n";
++	printf"<td><input type=radio name=hpfs_umask_def value=1 %s> Default\n",
++		defined($options{"umask"}) ? "" : "checked";
++	printf "<input type=radio name=hpfs_umask_def value=0 %s>\n",
++		defined($options{"umask"}) ? "checked" : "";
++	print "<input size=5 name=hpfs_umask value=\"$options{umask}\"></td>\n";
++
++	print "<td><b>$text{'linux_conv2'}</b></td>\n";
++	print "<td><select name=hpfs_conv>\n";
++	printf "<option value=b %s> $text{'linux_none'}\n",
++		$options{"conv"} =~ /^b/ || !defined($options{"conv"}) ?
++		"selected" : "";
++	printf "<option value=t %s> $text{'linux_allfiles'}\n",
++		$options{"conv"} =~ /^t/ ? "selected" : "";
++	printf "<option value=a %s> $text{'linux_textfiles'}\n",
++		$options{"conv"} =~ /^a/ ? "selected" : "";
++	print "</select></td> </tr>\n";
++	}
++elsif ($_[0] eq "iso9660") {
++	# CD-ROM filesystems have some more options..
++	print "<tr> <td><b>$text{'linux_uid'}</b></td>\n";
++	printf "<td><input name=iso9660_uid size=8 value=\"%s\">\n",
++		defined($options{"uid"}) ? getpwuid($options{"uid"}) : "";
++	print &user_chooser_button("iso9660_uid", 0),"</td>\n";
++
++	print "<td><b>$text{'linux_gid'}</b></td>\n";
++	printf "<td><input name=iso9660_gid size=8 value=\"%s\">\n",
++		defined($options{"gid"}) ? getgrgid($options{"gid"}) : "";
++	print &group_chooser_button("iso9660_gid", 0),"</td>\n";
++
++	print "<tr> <td><b>$text{'linux_rock'}</b></td>\n";
++	printf "<td><input type=radio name=iso9660_norock value=1 %s> $text{'yes'}\n",
++		defined($options{"norock"}) ? "checked" : "";
++	printf "<input type=radio name=iso9660_norock value=0 %s> $text{'no'}</td>\n",
++		defined($options{"norock"}) ? "" : "checked";
++
++	print "<td><b>$text{'linux_mode'}</b></td>\n";
++	printf"<td><input size=10 name=iso9660_mode value=\"%s\"></td> </tr>\n",
++		defined($options{"mode"}) ? $options{"mode"} : "444";
++	}
++elsif ($_[0] eq "auto") {
++	# Don't know how to set options for auto filesystems yet..
++	print "<tr> <td><i>$text{'linux_noopts'}</i></td> </tr>\n";
++	}
++elsif ($_[0] eq "autofs") {
++	print "<tr> <td><b>$text{'linux_timeout'}</b></td> <td>\n";
++	printf"<input type=radio name=autofs_timeout_def value=1 %s> $text{'default'}\n",
++		defined($options{'timeout'}) ? "" : "checked";
++	printf "<input type=radio name=autofs_timeout_def value=0 %s>\n",
++		defined($options{'timeout'}) ? "checked" : "";
++	printf "<input name=autofs_timeout size=5 value=\"%s\"> $text{'linux_secs'}</td>\n",
++		$options{'timeout'};
++
++	print "<td><b>$text{'linux_pid_file'}</b>?</td>\n";
++	printf"<td><input type=radio name=autofs_pid-file_def value=1 %s> $text{'no'}\n",
++		defined($options{'pid-file'}) ? "" : "checked";
++	printf "<input type=radio name=autofs_pid-file_def value=0 %s> $text{'yes'}\n",
++		defined($options{'pid-file'}) ? "checked" : "";
++	printf "<input name=autofs_pid-file size=20 value=\"%s\">\n",
++		$options{'pid-file'};
++	print &file_chooser_button("autofs_pid-file", 1);
++	print "</td> </tr>\n";
++	}
++elsif ($_[0] eq "swap") {
++	# Swap has no options..
++	print "<tr> <td><i>$text{'linux_noopts'}</i></td> </tr>\n";
++	}
++elsif ($_[0] eq "smbfs") {
++	# SMB filesystems have a few options..
++	if (keys(%options) == 0 && !$_[1]) {
++		print "<tr> <td colspan=4><i>$text{'linux_smbwarn'}</i></td> </tr>\n";
++		}
++
++	print "<tr> <td><b>$text{'linux_username'}</b></td>\n";
++	printf "<td><input name=smbfs_user size=15 value=\"%s\"></td>\n",
++		$smbfs_support == 4 ? $options{'username'} : $options{'user'};
++
++	print "<td><b>$text{'linux_password'}</b></td>\n";
++	printf "<td><input type=password name=smbfs_passwd size=15 value=\"%s\"></td> </tr>\n",
++		$smbfs_support == 4 ? $options{'password'} : $options{'passwd'};
++
++	if ($smbfs_support != 2) {
++		print "<tr> <td><b>$text{'linux_uid'}</b></td>\n";
++		printf "<td><input name=smbfs_uid size=8 value=\"%s\">\n",
++			defined($options{"uid"}) ? getpwuid($options{"uid"}) : "";
++		print &user_chooser_button("smbfs_uid", 0),"</td>\n";
++
++		print "<td><b>$text{'linux_gid'}</b></td>\n";
++		printf "<td><input name=smbfs_gid size=8 value=\"%s\">\n",
++			defined($options{"gid"}) ? getgrgid($options{"gid"}) : "";
++		print &group_chooser_button("smbfs_gid", 0),"</td>\n";
++		}
++
++	if ($smbfs_support == 1) {
++		print "<tr> <td><b>$text{'linux_sname'}</b></td>\n";
++		printf "<td><input type=radio name=smbfs_sname_def value=1 %s> $text{'linux_auto'}\n",
++			defined($options{"servername"}) ? "" : "checked";
++		printf "<input type=radio name=smbfs_sname_def value=0 %s>\n",
++			defined($options{"servername"}) ? "checked" : "";
++		print "<input size=10 name=smbfs_sname value=\"$options{servername}\"></td>\n";
++		}
++	elsif ($smbfs_support == 2) {
++		print "<tr> <td><b>$text{'linux_wg'}</b></td>\n";
++		printf "<td><input type=radio name=smbfs_wg_def value=1 %s> $text{'linux_auto'}\n",
++			defined($options{"workgroup"}) ? "" : "checked";
++		printf "<input type=radio name=smbfs_wg_def value=0 %s>\n",
++			defined($options{"workgroup"}) ? "checked" : "";
++		print "<input size=10 name=smbfs_wg value=\"$options{'workgroup'}\"></td>\n";
++		}
++
++	if ($smbfs_support < 3) {
++		print "<td><b>$text{'linux_cname'}</b></td>\n";
++		printf "<td><input type=radio name=smbfs_cname_def value=1 %s> $text{'linux_auto'}\n",
++			defined($options{"clientname"}) ? "" : "checked";
++		printf "<input type=radio name=smbfs_cname_def value=0 %s>\n",
++			defined($options{"clientname"}) ? "checked" : "";
++		print "<input size=10 name=smbfs_cname value=\"$options{clientname}\"></td> </tr>\n";
++
++		print "<tr> <td><b>$text{'linux_mname'}</b></td>\n";
++		printf "<td colspan=3><input type=radio name=smbfs_mname_def value=1 %s> %s\n",
++			defined($options{"machinename"}) ? "" : "checked", $text{'linux_auto'};
++		printf "<input type=radio name=smbfs_mname_def value=0 %s>\n",
++			defined($options{"machinename"}) ? "checked" : "";
++		print "<input size=30 name=smbfs_mname value=\"$options{machinename}\"></td> </tr>\n";
++		}
++
++	if ($smbfs_support == 1) {
++		print "<tr> <td><b>$text{'linux_fmode'}</b></td>\n";
++		printf
++		    "<td><input name=smbfs_fmode size=5 value=\"%s\"></td>\n",
++		    defined($options{'fmode'}) ? $options{'fmode'} : "755";
++
++		print "<td><b>$text{'linux_dmode'}</b></td>\n";
++		printf
++		    "<td><input name=smbfs_dmode size=5 value=\"%s\"></td>\n",
++		    defined($options{'dmode'}) ? $options{'dmode'} : "755";
++		print "</tr>\n";
++		}
++	elsif ($smbfs_support >= 3) {
++		print "<tr> <td><b>$text{'linux_ro'}</b></td>\n";
++		printf "<td><input type=radio name=lnx_ro value=1 %s> $text{'yes'}\n",
++			defined($options{"ro"}) ? "checked" : "";
++		printf "<input type=radio name=lnx_ro value=0 %s> $text{'no'}</td>\n",
++			defined($options{"ro"}) ? "" : "checked";
++		print "</tr>\n";
++		}
++	}
++elsif ($_[0] eq "reiserfs") {
++	# Reiserfs is a new super-efficient filesystem
++	print "<tr> <td><b>$text{'linux_notail'}</b></td>\n";
++	printf "<td><input type=radio name=lnx_notail value=1 %s> $text{'yes'}\n",
++		defined($options{"notail"}) ? "checked" : "";
++	printf "<input type=radio name=lnx_notail value=0 %s> $text{'no'}</td> </tr>\n",
++		defined($options{"notail"}) ? "" : "checked";
++	}
++}
++
++
++# check_location(type)
++# Parse and check inputs from %in, calling &error() if something is wrong.
++# Returns the location string for storing in the fstab file
++sub check_location
++{
++if ($_[0] eq "nfs") {
++	local($out, $temp, $mout, $dirlist);
++
++	if (&has_command("showmount")) {
++		# Use ping and showmount to see if the host exists and is up
++		if ($in{nfs_host} !~ /^\S+$/) {
++			&error(&text('linux_ehost', $in{'nfs_host'}));
++			}
++		$out = `ping -c 1 '$in{nfs_host}' 2>&1`;
++		if ($out =~ /unknown host/) {
++			&error(&text('linux_ehost2', $in{'nfs_host'}));
++			}
++		elsif ($out =~ /100\% packet loss/) {
++			&error(&text('linux_edown', $in{'nfs_host'}));
++			}
++		$out = `showmount -e '$in{nfs_host}' 2>&1`;
++		if ($out =~ /Unable to receive/) {
++			&error(&text('linux_enfs', $in{'nfs_host'}));
++			}
++		elsif ($?) {
++			&error(&text('linux_elist', $out));
++			}
++
++		# Validate directory name
++		foreach (split(/\n/, $out)) {
++			if (/^(\/\S+)/) { $dirlist .= "$1\n"; }
++			}
++		if ($in{nfs_dir} !~ /^\/\S+$/) {
++			&error(&text('linux_enfsdir', $in{'nfs_dir'},
++				     $in{'nfs_host'}, "<pre>$dirlist</pre>"));
++			}
++		}
++
++	# Try a test mount to see if filesystem is available
++	$temp = &tempname();
++	mkdir($temp, 0755);
++	$mout = `mount $in{nfs_host}:$in{nfs_dir} $temp 2>&1`;
++	if ($mout =~ /No such file or directory/i) {
++		rmdir($temp);
++		&error(&text('linux_enfsdir', $in{'nfs_dir'},
++			     $in{'nfs_host'}, "<pre>$dirlist</pre>"));
++		}
++	elsif ($mout =~ /Permission denied/i) {
++		rmdir($temp);
++		&error(&text('linux_enfsperm', $in{'nfs_dir'}, $in{'nfs_host'}));
++		}
++	elsif ($?) {
++		rmdir($temp);
++		&error(&text('linux_enfsmount', "<tt>$mout</tt>"));
++		}
++	# It worked! unmount
++	`umount $temp`;
++	rmdir($temp);
++
++	return "$in{nfs_host}:$in{nfs_dir}";
++	}
++elsif ($_[0] eq "auto") {
++	# Check if the automounter map exists..
++	(-r $in{auto_map}) || &error(&text('linux_eautomap', $in{'auto_map'}));
++	return $in{auto_map};
++	}
++elsif ($_[0] eq "autofs") {
++	# Check if the map exists (if it is a file)
++	if ($in{'autofs_map'} =~ /^\// && !(-r $in{'autofs_map'})) {
++		&error(&text('linux_eautomap', $in{'autofs_map'}));
++		}
++	return $in{autofs_map};
++	}
++elsif ($_[0] eq "smbfs") {
++	# No checking done
++	return "\\\\".lc($in{'smbfs_server'})."\\".lc($in{'smbfs_share'});
++	}
++else {
++	# This is some kind of disk-based linux filesystem.. get the device name
++	if ($in{'lnx_dev'} == 0) {
++		$dv = $in{'lnx_disk'};
++		}
++	elsif ($in{'lnx_dev'} == 2) {
++		$dv = $in{'lnx_raid'};
++		}
++	else {
++		$dv = $in{'lnx_other'};
++		$dv || &error($text{'linux_edev'});
++		}
++
++	# If the device entered is a symlink, follow it
++	if ($dvlink = readlink($dv)) {
++		if ($dvlink =~ /^\//) { $dv = $dvlink; }
++		else {	$dv =~ /^(.*\/)[^\/]+$/;
++			$dv = $1.$dvlink;
++			}
++		}
++
++	# Check if the device actually exists and uses the right filesystem
++	if (!(-r $dv)) {
++		if ($_[0] eq "swap" && $dv !~ /\/dev/) {
++			&swap_form($dv);
++			}
++		else {
++			&error(&text('linux_edevfile', $dv));
++			}
++		}
++	return $dv;
++	}
++}
++
++# check_options(type, device, directory)
++# Read options for some filesystem from %in, and use them to update the
++# %options array. Options handled by the user interface will be set or
++# removed, while unknown options will be left untouched.
++sub check_options
++{
++local($k, @rv);
++
++# Parse the common options first..
++if ($_[0] ne "swap" && $_[0] ne "auto" &&
++    $_[0] ne "autofs" && $_[0] ne "smbfs") {
++	delete($options{"ro"}); delete($options{"rw"});
++	if ($in{lnx_ro}) { $options{"ro"} = ""; }
++
++	delete($options{"sync"}); delete($options{"async"});
++	if ($in{lnx_sync}) { $options{"sync"} = ""; }
++
++	delete($options{"dev"}); delete($options{"nodev"});
++	if ($in{lnx_nodev}) { $options{"nodev"} = ""; }
++
++	delete($options{"exec"}); delete($options{"noexec"});
++	if ($in{lnx_noexec}) { $options{"noexec"} = ""; }
++
++	delete($options{"suid"}); delete($options{"nosuid"});
++	if ($in{lnx_nosuid}) { $options{"nosuid"} = ""; }
++
++	delete($options{"user"}); delete($options{"nouser"});
++	if ($in{lnx_user}) { $options{"user"} = ""; }
++	}
++
++if ($_[0] eq "nfs") {
++	# NFS has a few specific options..
++	delete($options{"bg"}); delete($options{"fg"});
++	if ($in{nfs_bg}) { $options{"bg"} = ""; }
++
++	delete($options{"soft"}); delete($options{"hard"});
++	if ($in{nfs_soft}) { $options{"soft"} = ""; }
++
++	delete($options{"timeo"});
++	if (!$in{nfs_timeo_def}) { $options{"timeo"} = $in{nfs_timeo}; }
++
++	delete($options{"nfsvers"});
++	if (!$in{nfs_vers_def}) { $options{"nfsvers"} = $in{nfs_vers}; }
++
++	delete($options{"port"});
++	if (!$in{nfs_port_def}) { $options{"port"} = $in{nfs_port}; }
++
++	delete($options{"intr"}); delete($options{"nointr"});
++	if ($in{nfs_intr}) { $options{"intr"} = ""; }
++
++	delete($options{"tcp"}); delete($options{"udp"});
++	if ($in{nfs_tcp}) { $options{"tcp"} = ""; }
++	}
++elsif ($_[0] eq "ext2") {
++	# More options for ext2..
++	delete($options{"check"}); delete($options{"nocheck"});
++	if ($in{ext2_check} ne "normal") {
++		$options{"check"} = $in{ext2_check};
++		}
++
++	delete($options{"errors"});
++	if ($in{ext2_errors} ne "default") {
++		$options{"errors"} = $in{ext2_errors};
++		}
++
++	delete($options{"grpid"}); delete($options{"bsdgroups"});
++	delete($options{"sysvgroups"}); delete($options{"nogrpid"});
++	if ($in{ext2_grpid}) {
++		$options{"grpid"} = "";
++		}
++
++	delete($options{"resuid"}); delete($options{"resgid"});
++	if ($in{'ext2_resuid'})
++		{ $options{"resuid"} = getpwnam($in{'ext2_resuid'}); }
++	if ($in{'ext2_resgid'})
++		{ $options{"resgid"} = getgrnam($in{'ext2_resgid'}); }
++
++	delete($options{"quota"}); delete($options{"noquota"});
++	delete($options{"usrquota"}); delete($options{"grpquota"});
++	if ($in{'ext2_quota'} == 1) { $options{'usrquota'} = ""; }
++	elsif ($in{'ext2_quota'} == 2) { $options{'grpquota'} = ""; }
++	elsif ($in{'ext2_quota'} == 3)
++		{ $options{'usrquota'} = $options{'grpquota'} = ""; }
++	}
++elsif ($_[0] eq "fat" || $_[0] eq "vfat" ||
++       $_[0] eq "msdos" || $_[0] eq "umsdos") {
++	# All dos-based filesystems have similar options
++	delete($options{"uid"}); delete($options{"gid"});
++	if ($in{fat_uid} ne "") { $options{"uid"} = getpwnam($in{'fat_uid'}); }
++	if ($in{fat_gid} ne "") { $options{"gid"} = getgrnam($in{'fat_gid'}); }
++
++	delete($options{"check"});
++	if ($in{fat_check} ne "") { $options{"check"} = $in{fat_check}; }
++
++	delete($options{"conv"});
++	if ($in{fat_conv} ne "") { $options{"conv"} = $in{fat_conv}; }
++
++	delete($options{"umask"});
++	if (!$in{fat_umask_def}) {
++		$in{fat_umask} =~ /^[0-7]{3}$/ ||
++			&error(&text('linux_emask', $in{'fat_umask'}));
++		$options{"umask"} = $in{fat_umask};
++		}
++
++	delete($options{"quiet"});
++	if ($in{fat_quiet}) {
++		$options{"quiet"} = "";
++		}
++
++	if ($_[0] eq "vfat") {
++		# Parse extra vfat options..
++		delete($options{"uni_xlate"});
++		if ($in{fat_uni_xlate}) { $options{"uni_xlate"} = ""; }
++
++		delete($options{"posix"});
++		if ($in{fat_posix}) { $options{"posix"} = ""; }
++		}
++	}
++elsif ($_[0] eq "hpfs") {
++	# OS/2 filesystem options..
++	delete($options{"uid"}); delete($options{"gid"});
++	if ($in{hpfs_uid} ne "") { $options{"uid"} = getpwnam($in{hpfs_uid}); }
++	if ($in{hpfs_gid} ne "") { $options{"gid"} = getgrnam($in{hpfs_gid}); }
++
++	delete($options{"umask"});
++	if (!$in{hpfs_umask_def}) {
++		$in{hpfs_umask} =~ /^[0-7]{3}$/ ||
++			&error(&text('linux_emask', $in{'hpfs_umask'}));
++		$options{"umask"} = $in{hpfs_umask};
++		}
++
++	delete($options{"conv"});
++	if ($in{hpfs_conv} ne "") { $options{"conv"} = $in{hpfs_conv}; }
++	}
++elsif ($_[0] eq "iso9660") {
++	# Options for iso9660 cd-roms
++	delete($options{"uid"}); delete($options{"gid"});
++	if ($in{iso9660_uid} ne "")
++		{ $options{"uid"} = getpwnam($in{iso9660_uid}); }
++	if ($in{iso9660_gid} ne "")
++		{ $options{"gid"} = getgrnam($in{iso9660_gid}); }
++
++	delete($options{"norock"});
++	if ($in{iso9660_norock}) { $options{"norock"} = ""; }
++
++	delete($options{"mode"});
++	$in{iso9660_mode} =~ /^[0-7]{3}$/ ||
++		&error(&text('linux_emask', $in{'iso9660_mode'}));
++	$options{"mode"} = $in{iso9660_mode};
++	}
++elsif ($_[0] eq "autofs") {
++	# Options for automounter filesystems
++	delete($options{'timeout'});
++	if (!$in{'autofs_timeout_def'}) {
++		$in{'autofs_timeout'} =~ /^\d+$/ ||
++			&error(&text('linux_etimeout', $in{'autofs_timeout'}));
++		$options{'timeout'} = $in{'autofs_timeout'};
++		}
++	delete($options{'pid-file'});
++	if (!$in{'autofs_pid-file_def'}) {
++		$in{'autofs_pid-file'} =~ /^\/\S+$/ ||
++		       &error(&text('linux_epidfile', $in{'autofs_pid-file'}));
++		$options{'pid-file'} = $in{'autofs_pid-file'};
++		}
++	}
++elsif ($_[0] eq "smbfs") {
++	# Options for smb filesystems..
++	delete($options{'user'}); delete($options{'username'});
++	if ($in{smbfs_user}) {
++		$options{$smbfs_support == 4 ? 'username' : 'user'} = $in{smbfs_user};
++		}
++
++	delete($options{'passwd'}); delete($options{'password'});
++	if ($in{smbfs_passwd}) {
++		$options{$smbfs_support == 4 ? 'password' : 'passwd'} = $in{smbfs_passwd};
++		}
++
++	if ($smbfs_support != 2) {
++		delete($options{uid});
++		if ($in{smbfs_uid} ne "") { $options{uid} = getpwnam($in{smbfs_uid}); }
++
++		delete($options{gid});
++		if ($in{smbfs_gid} ne "") { $options{gid} = getgrnam($in{smbfs_gid}); }
++		}
++
++	if ($smbfs_support == 1) {
++		delete($options{servername});
++		if (!$in{smbfs_sname_def})
++			{ $options{servername} = $in{smbfs_sname}; }
++		}
++	elsif ($smbfs_support == 2) {
++		delete($options{workgroup});
++		if (!$in{smbfs_wg_def})
++			{ $options{workgroup} = $in{smbfs_wg}; }
++		}
++
++	if ($smbfs_support < 3) {
++		delete($options{clientname});
++		if (!$in{smbfs_cname_def})
++			{ $options{clientname} = $in{smbfs_cname}; }
++
++		delete($options{machinename});
++		if (!$in{smbfs_mname_def})
++			{ $options{machinename} = $in{smbfs_mname}; }
++		elsif (!gethostbyname($in{'smbfs_server'})) {
++			# No hostname found for the server.. try to guess
++			local($out, $sname);
++			$sname = $in{'smbfs_server'};
++			$out = `$config{'nmblookup_path'} -d 0 $sname 2>&1`;
++			if (!$? && $out =~ /^([0-9\.]+)\s+$sname\n/) {
++				$options{machinename} = $1;
++				}
++			}
++		}
++
++	if ($smbfs_support == 1) {
++		delete($options{fmode});
++		if ($in{smbfs_fmode} !~ /^[0-7]{3}$/) {
++			&error(&text('linux_efmode', $in{'smbfs_fmode'}));
++			}
++		elsif ($in{smbfs_fmode} ne "755")
++			{ $options{fmode} = $in{smbfs_fmode}; }
++
++		delete($options{dmode});
++		if ($in{smbfs_dmode} !~ /^[0-7]{3}$/) {
++			&error(&text('linux_edmode', $in{'smbfs_dmode'}));
++			}
++		elsif ($in{smbfs_dmode} ne "755")
++			{ $options{dmode} = $in{smbfs_dmode}; }
++		}
++	elsif ($smbfs_support >= 3) {
++		delete($options{'ro'}); delete($options{'rw'});
++		if ($in{'ro'}) { $options{'ro'} = ''; }
++		}
++	}
++elsif ($_[0] eq "reiserfs") {
++	# Save reiserfs options
++	delete($options{'notail'});
++	$options{'notail'} = "" if ($in{'lnx_notail'});
++	}
++
++# Add loop option if mounting a normal file
++if ($_[0] ne "swap" && $_[0] ne "auto" && $_[0] ne "autofs" &&
++    $_[0] ne "smbfs" && $_[0] ne "nfs") {
++	local(@st);
++	@st = stat($_[1]);
++	if (@st && ($st[2] & 0xF000) == 0x8000) {
++		# a regular file.. add the loop option
++		if (!$options{'loop'}) {
++			$options{'loop'} = "";
++			}
++		}
++	}
++
++# Return options string
++foreach $k (keys %options) {
++	if ($options{$k} eq "") { push(@rv, $k); }
++	else { push(@rv, "$k=$options{$k}"); }
++	}
++return @rv ? join(',' , @rv) : "-";
++}
++
++
++# Get the smbfs options from 'smbfs_opts' file in the current directory. This
++# is sadly necessary because there is no way to get the current options for
++# an existing smbfs mount... so webmin has to save them in a file when
++# mounting. Blech.
++sub read_smbopts
++{
++local($_);
++open(SMBOPTS, "$module_config_directory/smbfs");
++while(<SMBOPTS>) {
++	/^(\S+)\s+(\S+)$/;
++	$smbopts{$1} = $2;
++	}
++close(SMBOPTS);
++}
++
++sub write_smbopts
++{
++local($_);
++open(SMBOPTS, "> $module_config_directory/smbfs");
++foreach (keys %smbopts) {
++	print SMBOPTS "$_\t$smbopts{$_}\n";
++	}
++close(SMBOPTS);
++}
++
++
++# create_swap(file, size, units)
++# Calls dd and mkswap to setup a swap file
++sub create_swap
++{
++local($out, $bl);
++$bl = $_[1] * ($_[2] eq "m" ? 1024 : 1);
++$out = `dd if=/dev/zero of=$_[0] bs=1024 count=$bl 2>&1`;
++if ($?) { return "dd failed : $out"; }
++$out = `mkswap $_[0] $bl 2>&1`;
++if ($?) { return "mkswap failed : $out"; }
++system("sync >/dev/null 2>&1");
++return 0;
++}
++
++# exports_list(host, dirarray, clientarray)
++# Fills the directory and client array references with exports from some
++# host. Returns an error string if something went wrong
++sub exports_list
++{
++local($dref, $cref, $out, $_);
++$dref = $_[1]; $cref = $_[2];
++$out = `showmount -e $_[0] 2>&1`;
++if ($?) { return $out; }
++foreach (split(/\n/, $out)) {
++	if (/^(\/\S*)\s+(.*)$/) {
++		push(@$dref, $1); push(@$cref, $2);
++		}
++	}
++return undef;
++}
++
++# broadcast_addr()
++# Returns a useable broadcast address for finding NFS servers
++sub broadcast_addr
++{
++local($out);
++$out = `ifconfig -a 2>&1`;
++if ($out =~ /(eth|tr)\d\s+.*\n.*Bcast:(\S+)\s+/) { return $2; }
++return "255.255.255.255";
++}
++
++# autofs_options(string)
++# Converts a string of options line --timeout 60 to something like timeout=60
++sub autofs_options
++{
++local(@options);
++if ($_[0] =~ /--timeout\s+(\d+)/ || $_[0] =~ /-t\s+(\d+)/) {
++	push(@options, "timeout=$1");
++	}
++if ($_[0] =~ /--pid-file\s+(\S+)/ || $_[0] =~ /-p\s+(\d+)/) {
++	push(@options, "pid-file=$1");
++	}
++return join(',', @options);
++}
++
++# autofs_args(string)
++# Convert a comma-separated options string into args for automount
++sub autofs_args
++{
++local(%options, $args);
++&parse_options("autofs", $_[0]);
++if (defined($options{'timeout'})) {
++	$args .= " --timeout $options{'timeout'}";
++	}
++if (defined($options{'pid-file'})) {
++	$args .= " --pid-file $options{'pid-file'}";
++	}
++return $args;
++}
++
++# read_amd_conf()
++# Returns the entire amd config file as a string
++sub read_amd_conf
++{
++local $sl = $/;
++$/ = undef;
++open(AMD, $config{'auto_file'});
++local $rv = <AMD>;
++close(AMD);
++$/ = $sl;
++return $rv;
++}
++
++# write_amd_conf(text)
++sub write_amd_conf
++{
++open(AMD, ">$config{'auto_file'}");
++print AMD $_[0];
++close(AMD);
++}
++
++# parse_amd_conf()
++# Parses a new-style amd.conf file into a hashtable
++sub parse_amd_conf
++{
++local (@rv, $str, $lnum);
++open(AMD, $config{'auto_file'});
++while(<AMD>) {
++	s/\r|\n//g;
++	s/#*$//g;
++	if (/\[\s*(\S+)\s*\]/) {
++		$str = { 'dir' => $1,
++			 'line' => $lnum,
++			 'eline' => $lnum };
++		push(@rv, $str);
++		}
++	elsif (/(\S+)\s*=\s*"(.*)"/ || /(\S+)\s*=\s*(\S+)/) {
++		$str->{'opts'}->{$1} = $2;
++		$str->{'eline'} = $lnum;
++		}
++	$lnum++;
++	}
++close(AMD);
++return @rv;
++}
++
++# device_name(device)
++# Converts a device name to a human-readable form
++sub device_name
++{
++if (!$text{'select_part'}) {
++	local %flang = &load_language('fdisk');
++	$text{'select_part'} = $flang{'select_part'};
++	$text{'select_mpart'} = $flang{'select_mpart'};
++	$text{'select_device'} = $flang{'select_device'};
++	$text{'select_fd'} = $flang{'select_fd'};
++	}
++return $_[0] =~ /^\/dev\/(s|h)d([a-z])(\d+)$/ ?
++	&text('select_part', $1 eq 's' ? 'SCSI' : 'IDE', uc($2), "$3") :
++       $_[0] =~ /^\/dev\/(s|h)d([a-z])$/ ?
++	&text('select_device', $1 eq 's' ? 'SCSI' : 'IDE', uc($2)) :
++       $_[0] =~ /rd\/c(\d+)d(\d+)p(\d+)$/ ?
++	&text('select_mpart', "$1", "$2", "$3") :
++       $_[0] =~ /fd(\d+)$/ ?
++	&text('select_fd', "$1") :
++       $_[0] =~ /md(\d+)$/ ?
++	&text('linux_rdev', "$1") :
++	$_[0];
++}
++
++1;
++
 diff -ruN webmin-0.79.orig/mysql/config-pld-linux webmin-0.79/mysql/config-pld-linux
 --- webmin-0.79.orig/mysql/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.79/mysql/config-pld-linux	Sat Apr 15 11:14:47 2000
++++ webmin-0.79/mysql/config-pld-linux	Sat May 27 21:48:43 2000
 @@ -0,0 +1,7 @@
 +start_cmd=/etc/rc.d/init.d/mysql start
 +stop_cmd=/etc/rc.d/init.d/mysql stop
@@ -269,12 +1937,12 @@ diff -ruN webmin-0.79.orig/mysql/config-pld-linux webmin-0.79/mysql/config-pld-l
 +perpage=25
 diff -ruN webmin-0.79.orig/net/config-pld-linux webmin-0.79/net/config-pld-linux
 --- webmin-0.79.orig/net/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.79/net/config-pld-linux	Sat Apr 15 11:14:43 2000
++++ webmin-0.79/net/config-pld-linux	Sat May 27 21:48:43 2000
 @@ -0,0 +1 @@
 +hosts_file=/etc/hosts
 diff -ruN webmin-0.79.orig/net/module.info webmin-0.79/net/module.info
 --- webmin-0.79.orig/net/module.info	Sat Apr 15 11:14:43 2000
-+++ webmin-0.79/net/module.info	Wed May 24 09:57:55 2000
++++ webmin-0.79/net/module.info	Sat May 27 21:48:43 2000
 @@ -5,5 +5,5 @@
  desc_de=Netzwerk Konfiguration
  desc_fr=Configuration Réseau
@@ -284,7 +1952,7 @@ diff -ruN webmin-0.79.orig/net/module.info webmin-0.79/net/module.info
  category=hardware
 diff -ruN webmin-0.79.orig/net/pld-linux-lib.pl webmin-0.79/net/pld-linux-lib.pl
 --- webmin-0.79.orig/net/pld-linux-lib.pl	Thu Jan  1 01:00:00 1970
-+++ webmin-0.79/net/pld-linux-lib.pl	Tue May 23 10:26:58 2000
++++ webmin-0.79/net/pld-linux-lib.pl	Sat May 27 21:48:43 2000
 @@ -0,0 +1,458 @@
 +# redhat-linux-lib.pl
 +# Networking functions for redhat linux
@@ -746,7 +2414,7 @@ diff -ruN webmin-0.79.orig/net/pld-linux-lib.pl webmin-0.79/net/pld-linux-lib.pl
 +
 diff -ruN webmin-0.79.orig/os_list.txt webmin-0.79/os_list.txt
 --- webmin-0.79.orig/os_list.txt	Sat Apr 15 11:14:32 2000
-+++ webmin-0.79/os_list.txt	Tue May 23 10:17:17 2000
++++ webmin-0.79/os_list.txt	Sat May 27 21:48:43 2000
 @@ -15,6 +15,7 @@
  Redhat Linux			6.0	redhat-linux	6.0	$etc_issue =~ /red\s*hat.*\s6\.0/i || `cat /etc/redhat-release` =~ /6\.0/
  Redhat Linux			6.1	redhat-linux	6.1	$etc_issue =~ /red\s*hat.*\s6\.1/i || `cat /etc/redhat-release` =~ /6\.1/
@@ -757,13 +2425,13 @@ diff -ruN webmin-0.79.orig/os_list.txt webmin-0.79/os_list.txt
  Slackware Linux			3.4	slackware-linux	3.4
 diff -ruN webmin-0.79.orig/pap/config-pld-linux webmin-0.79/pap/config-pld-linux
 --- webmin-0.79.orig/pap/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.79/pap/config-pld-linux	Sat Apr 15 11:14:38 2000
++++ webmin-0.79/pap/config-pld-linux	Sat May 27 21:48:43 2000
 @@ -0,0 +1,2 @@
 +pap_file=/etc/ppp/pap-secrets
 +encrypt_pass=0
 diff -ruN webmin-0.79.orig/pap/module.info webmin-0.79/pap/module.info
 --- webmin-0.79.orig/pap/module.info	Sat Apr 15 11:14:38 2000
-+++ webmin-0.79/pap/module.info	Wed May 24 09:58:08 2000
++++ webmin-0.79/pap/module.info	Sat May 27 21:48:43 2000
 @@ -5,5 +5,5 @@
  desc_de=PPP Benutzer und Passw&ouml;rter
  desc_fr=Usagers et mots de passes PPP
@@ -773,14 +2441,14 @@ diff -ruN webmin-0.79.orig/pap/module.info webmin-0.79/pap/module.info
  category=servers
 diff -ruN webmin-0.79.orig/proc/config-pld-linux webmin-0.79/proc/config-pld-linux
 --- webmin-0.79.orig/proc/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.79/proc/config-pld-linux	Sat Apr 15 11:14:37 2000
++++ webmin-0.79/proc/config-pld-linux	Sat May 27 21:48:43 2000
 @@ -0,0 +1,3 @@
 +default_mode=last
 +ps_style=linux
 +base_ppid=1
 diff -ruN webmin-0.79.orig/proc/module.info webmin-0.79/proc/module.info
 --- webmin-0.79.orig/proc/module.info	Sat Apr 15 11:14:37 2000
-+++ webmin-0.79/proc/module.info	Wed May 24 09:58:17 2000
++++ webmin-0.79/proc/module.info	Sat May 27 21:48:43 2000
 @@ -5,6 +5,6 @@
  desc_de=Laufende Prozesse
  desc_fr=Gestionnaire de processus
@@ -791,7 +2459,7 @@ diff -ruN webmin-0.79.orig/proc/module.info webmin-0.79/proc/module.info
  category=system
 diff -ruN webmin-0.79.orig/quota/config-pld-linux webmin-0.79/quota/config-pld-linux
 --- webmin-0.79.orig/quota/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.79/quota/config-pld-linux	Sat Apr 15 11:14:38 2000
++++ webmin-0.79/quota/config-pld-linux	Sat May 27 21:48:43 2000
 @@ -0,0 +1,16 @@
 +display_max=100
 +user_grace_command=edquota -u -t
@@ -811,7 +2479,7 @@ diff -ruN webmin-0.79.orig/quota/config-pld-linux webmin-0.79/quota/config-pld-l
 +group_quotaoff_command=quotaoff -g
 diff -ruN webmin-0.79.orig/quota/module.info webmin-0.79/quota/module.info
 --- webmin-0.79.orig/quota/module.info	Sat Apr 15 11:14:38 2000
-+++ webmin-0.79/quota/module.info	Wed May 24 09:58:27 2000
++++ webmin-0.79/quota/module.info	Sat May 27 21:48:43 2000
 @@ -5,6 +5,6 @@
  desc_de=Festplatten-Quotas
  desc_fr=Quotas des Disques
@@ -822,7 +2490,7 @@ diff -ruN webmin-0.79.orig/quota/module.info webmin-0.79/quota/module.info
  category=system
 diff -ruN webmin-0.79.orig/quota/pld-linux-lib.pl webmin-0.79/quota/pld-linux-lib.pl
 --- webmin-0.79.orig/quota/pld-linux-lib.pl	Thu Jan  1 01:00:00 1970
-+++ webmin-0.79/quota/pld-linux-lib.pl	Sat Apr 15 11:14:38 2000
++++ webmin-0.79/quota/pld-linux-lib.pl	Sat May 27 21:48:43 2000
 @@ -0,0 +1,391 @@
 +# linux-lib.pl
 +# Quota functions for all linux version
@@ -1217,7 +2885,7 @@ diff -ruN webmin-0.79.orig/quota/pld-linux-lib.pl webmin-0.79/quota/pld-linux-li
 +
 diff -ruN webmin-0.79.orig/raid/module.info webmin-0.79/raid/module.info
 --- webmin-0.79.orig/raid/module.info	Sat Apr 15 11:14:48 2000
-+++ webmin-0.79/raid/module.info	Wed May 24 09:58:36 2000
++++ webmin-0.79/raid/module.info	Sat May 27 21:48:43 2000
 @@ -2,5 +2,5 @@
  desc=Linux RAID
  desc_pt=RAID do Linux
@@ -1227,7 +2895,7 @@ diff -ruN webmin-0.79.orig/raid/module.info webmin-0.79/raid/module.info
  category=hardware
 diff -ruN webmin-0.79.orig/samba/config-pld-linux webmin-0.79/samba/config-pld-linux
 --- webmin-0.79.orig/samba/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.79/samba/config-pld-linux	Tue May 23 10:30:09 2000
++++ webmin-0.79/samba/config-pld-linux	Sat May 27 21:48:43 2000
 @@ -0,0 +1,12 @@
 +list_printers_command=lpc status | grep "[A-z0-9]:" | sed -e 's/://g'
 +smb_passwd=/etc/samba/smbpasswd
@@ -1243,7 +2911,7 @@ diff -ruN webmin-0.79.orig/samba/config-pld-linux webmin-0.79/samba/config-pld-l
 +sort_mode=0
 diff -ruN webmin-0.79.orig/samba/module.info webmin-0.79/samba/module.info
 --- webmin-0.79.orig/samba/module.info	Sat Apr 15 11:14:36 2000
-+++ webmin-0.79/samba/module.info	Wed May 24 09:58:51 2000
++++ webmin-0.79/samba/module.info	Sat May 27 21:48:43 2000
 @@ -5,6 +5,6 @@
  desc_de=Windows Dateifreigabe
  desc_fr=Partage Windows avec Samba
@@ -1254,7 +2922,7 @@ diff -ruN webmin-0.79.orig/samba/module.info webmin-0.79/samba/module.info
  category=servers
 diff -ruN webmin-0.79.orig/sendmail/config-pld-linux webmin-0.79/sendmail/config-pld-linux
 --- webmin-0.79.orig/sendmail/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.79/sendmail/config-pld-linux	Tue May 23 10:30:53 2000
++++ webmin-0.79/sendmail/config-pld-linux	Sat May 27 21:48:43 2000
 @@ -0,0 +1,10 @@
 +sendmail_cf=/etc/sendmail.cf
 +sendmail_pid=/var/run/sendmail.pid
@@ -1268,7 +2936,7 @@ diff -ruN webmin-0.79.orig/sendmail/config-pld-linux webmin-0.79/sendmail/config
 +order_mail=0
 diff -ruN webmin-0.79.orig/sendmail/module.info webmin-0.79/sendmail/module.info
 --- webmin-0.79.orig/sendmail/module.info	Sat Apr 15 11:14:42 2000
-+++ webmin-0.79/sendmail/module.info	Wed May 24 09:59:03 2000
++++ webmin-0.79/sendmail/module.info	Sat May 27 21:48:43 2000
 @@ -5,5 +5,5 @@
  desc_de=Sendmail Konfiguration
  desc_fr=Configuration de Sendmail
@@ -1278,12 +2946,12 @@ diff -ruN webmin-0.79.orig/sendmail/module.info webmin-0.79/sendmail/module.info
  category=servers
 diff -ruN webmin-0.79.orig/software/config-pld-linux webmin-0.79/software/config-pld-linux
 --- webmin-0.79.orig/software/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.79/software/config-pld-linux	Sat Apr 15 11:14:38 2000
++++ webmin-0.79/software/config-pld-linux	Sat May 27 21:48:43 2000
 @@ -0,0 +1 @@
 +package_system=rpm
 diff -ruN webmin-0.79.orig/software/module.info webmin-0.79/software/module.info
 --- webmin-0.79.orig/software/module.info	Sat Apr 15 11:14:38 2000
-+++ webmin-0.79/software/module.info	Wed May 24 09:59:16 2000
++++ webmin-0.79/software/module.info	Sat May 27 21:48:43 2000
 @@ -5,5 +5,5 @@
  desc_de=Software Pakete
  desc_fr=Composants Logiciels
@@ -1293,7 +2961,7 @@ diff -ruN webmin-0.79.orig/software/module.info webmin-0.79/software/module.info
  category=system
 diff -ruN webmin-0.79.orig/squid/config-pld-linux webmin-0.79/squid/config-pld-linux
 --- webmin-0.79.orig/squid/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.79/squid/config-pld-linux	Tue May 23 10:31:41 2000
++++ webmin-0.79/squid/config-pld-linux	Sat May 27 21:48:43 2000
 @@ -0,0 +1,8 @@
 +log_dir=/var/log/squid
 +squid_path=squid
@@ -1305,7 +2973,7 @@ diff -ruN webmin-0.79.orig/squid/config-pld-linux webmin-0.79/squid/config-pld-l
 +squid_stop=/etc/rc.d/init.d/squid stop
 diff -ruN webmin-0.79.orig/squid/module.info webmin-0.79/squid/module.info
 --- webmin-0.79.orig/squid/module.info	Sat Apr 15 11:14:42 2000
-+++ webmin-0.79/squid/module.info	Wed May 24 09:59:26 2000
++++ webmin-0.79/squid/module.info	Sat May 27 21:48:43 2000
 @@ -5,5 +5,5 @@
  desc_de=Squid Proxy Server
  desc_fr=Serveur Proxy Squid
@@ -1315,7 +2983,7 @@ diff -ruN webmin-0.79.orig/squid/module.info webmin-0.79/squid/module.info
  category=servers
 diff -ruN webmin-0.79.orig/syslog/config-pld-linux webmin-0.79/syslog/config-pld-linux
 --- webmin-0.79.orig/syslog/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.79/syslog/config-pld-linux	Sat Apr 15 11:14:47 2000
++++ webmin-0.79/syslog/config-pld-linux	Sat May 27 21:48:43 2000
 @@ -0,0 +1,12 @@
 +pri_all=1
 +syslogd=/sbin/syslogd
@@ -1331,7 +2999,7 @@ diff -ruN webmin-0.79.orig/syslog/config-pld-linux webmin-0.79/syslog/config-pld
 +lines=20
 diff -ruN webmin-0.79.orig/syslog/module.info webmin-0.79/syslog/module.info
 --- webmin-0.79.orig/syslog/module.info	Sat Apr 15 11:14:47 2000
-+++ webmin-0.79/syslog/module.info	Wed May 24 09:59:36 2000
++++ webmin-0.79/syslog/module.info	Sat May 27 21:48:43 2000
 @@ -4,5 +4,5 @@
  desc_pt=Historiais do Sistema
  desc_es=Historiales del Sistema
@@ -1341,7 +3009,7 @@ diff -ruN webmin-0.79.orig/syslog/module.info webmin-0.79/syslog/module.info
  category=system
 diff -ruN webmin-0.79.orig/time/module.info webmin-0.79/time/module.info
 --- webmin-0.79.orig/time/module.info	Sat Apr 15 11:14:44 2000
-+++ webmin-0.79/time/module.info	Wed May 24 09:59:46 2000
++++ webmin-0.79/time/module.info	Sat May 27 21:48:43 2000
 @@ -5,5 +5,5 @@
  desc_es=Hora del Sistema
  desc_pt=Tempo do Sistema
@@ -1351,7 +3019,7 @@ diff -ruN webmin-0.79.orig/time/module.info webmin-0.79/time/module.info
  category=hardware
 diff -ruN webmin-0.79.orig/useradmin/config-pld-linux webmin-0.79/useradmin/config-pld-linux
 --- webmin-0.79.orig/useradmin/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.79/useradmin/config-pld-linux	Tue May 23 10:32:30 2000
++++ webmin-0.79/useradmin/config-pld-linux	Sat May 27 21:48:43 2000
 @@ -0,0 +1,17 @@
 +homedir_perms=0751
 +display_max=400
@@ -1372,7 +3040,7 @@ diff -ruN webmin-0.79.orig/useradmin/config-pld-linux webmin-0.79/useradmin/conf
 +passwd_stars=0
 diff -ruN webmin-0.79.orig/useradmin/module.info webmin-0.79/useradmin/module.info
 --- webmin-0.79.orig/useradmin/module.info	Sat Apr 15 11:14:36 2000
-+++ webmin-0.79/useradmin/module.info	Wed May 24 09:59:55 2000
++++ webmin-0.79/useradmin/module.info	Sat May 27 21:48:43 2000
 @@ -5,5 +5,5 @@
  desc_de=Benutzer und Gruppen
  desc_fr=Utilisateurs et groupes
@@ -1382,7 +3050,7 @@ diff -ruN webmin-0.79.orig/useradmin/module.info webmin-0.79/useradmin/module.in
  category=system
 diff -ruN webmin-0.79.orig/useradmin/pld-linux-lib.pl webmin-0.79/useradmin/pld-linux-lib.pl
 --- webmin-0.79.orig/useradmin/pld-linux-lib.pl	Thu Jan  1 01:00:00 1970
-+++ webmin-0.79/useradmin/pld-linux-lib.pl	Sat Apr 15 11:14:36 2000
++++ webmin-0.79/useradmin/pld-linux-lib.pl	Sat May 27 21:48:43 2000
 @@ -0,0 +1,157 @@
 +# linux-lib.pl
 +# Functions for reading linux format last output
@@ -1543,7 +3211,7 @@ diff -ruN webmin-0.79.orig/useradmin/pld-linux-lib.pl webmin-0.79/useradmin/pld-
 +1;
 diff -ruN webmin-0.79.orig/wuftpd/config-pld-linux webmin-0.79/wuftpd/config-pld-linux
 --- webmin-0.79.orig/wuftpd/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.79/wuftpd/config-pld-linux	Tue May 23 10:33:38 2000
++++ webmin-0.79/wuftpd/config-pld-linux	Sat May 27 21:48:43 2000
 @@ -0,0 +1,7 @@
 +ftpgroups=/etc/ftpgroups
 +ftpd_path=/usr/sbin/wu.ftpd
@@ -1554,7 +3222,7 @@ diff -ruN webmin-0.79.orig/wuftpd/config-pld-linux webmin-0.79/wuftpd/config-pld
 +ftpaccess=/etc/ftpaccess
 diff -ruN webmin-0.79.orig/wuftpd/module.info webmin-0.79/wuftpd/module.info
 --- webmin-0.79.orig/wuftpd/module.info	Sat Apr 15 11:14:45 2000
-+++ webmin-0.79/wuftpd/module.info	Wed May 24 10:00:03 2000
++++ webmin-0.79/wuftpd/module.info	Sat May 27 21:48:43 2000
 @@ -5,5 +5,5 @@
  desc_es=Servidor FTP
  desc_pt=Servidor FTP
