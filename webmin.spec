@@ -1404,7 +1404,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/mon/config.info
 %{_datadir}/webmin/mon/images
 %{_datadir}/webmin/mon/module.info
-#%{_datadir}/webmin/mon/monshowrc
+#%%{_datadir}/webmin/mon/monshowrc
 %{_datadir}/webmin/mon/*-*.pl
 %{_datadir}/webmin/mon/*_*.pl
 %{_datadir}/webmin/mon/moncmd.pl
@@ -1436,7 +1436,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/init/config-*
 %{_datadir}/webmin/init/config.info
 %{_datadir}/webmin/init/defaultacl
-#%{_datadir}/webmin/init/help
+#%%{_datadir}/webmin/init/help
 %{_datadir}/webmin/init/images
 %{_datadir}/webmin/init/module.info
 %{_datadir}/webmin/init/*-*.pl
@@ -1451,7 +1451,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %attr(755,root,root) %{_datadir}/webmin/inittab/*.cgi
 %{_datadir}/webmin/inittab/config
 %{_datadir}/webmin/inittab/config.info
-#%{_datadir}/webmin/inittab/defaultacl
+#%%{_datadir}/webmin/inittab/defaultacl
 %{_datadir}/webmin/inittab/images
 %{_datadir}/webmin/inittab/module.info
 %{_datadir}/webmin/inittab/*-*.pl
@@ -1464,12 +1464,12 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %attr(755,root,root) %{_datadir}/webmin/mount/*.cgi
 %{_datadir}/webmin/mount/config-*
 %{_datadir}/webmin/mount/config.info
-#%{_datadir}/webmin/mount/help
+#%%{_datadir}/webmin/mount/help
 %{_datadir}/webmin/mount/images
 %{_datadir}/webmin/mount/module.info
 %{_datadir}/webmin/mount/*-*.pl
 %{_datadir}/webmin/mount/*_*.pl
-#%{_datadir}/webmin/mount/*.risk
+#%%{_datadir}/webmin/mount/*.risk
 %{_datadir}/webmin/mount/*.skill
 %config(noreplace) %{_sysconfdir}/webmin/mount/config
 
@@ -1532,7 +1532,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/useradmin/module.info
 %{_datadir}/webmin/useradmin/*-*.pl
 %{_datadir}/webmin/useradmin/*_*.pl
-#%{_datadir}/webmin/useradmin/*.risk
+#%%{_datadir}/webmin/useradmin/*.risk
 %{_datadir}/webmin/useradmin/*.skill
 %config(noreplace) %{_sysconfdir}/webmin/useradmin/config
 
@@ -1768,7 +1768,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/cron/config-*
 %{_datadir}/webmin/cron/config.info
 %{_datadir}/webmin/cron/defaultacl
-#%{_datadir}/webmin/cron/help
+#%%{_datadir}/webmin/cron/help
 %{_datadir}/webmin/cron/images
 %{_datadir}/webmin/cron/module.info
 %{_datadir}/webmin/cron/*-*.pl
@@ -2031,7 +2031,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/squid/module.info
 %{_datadir}/webmin/squid/*-*.pl
 %{_datadir}/webmin/squid/*_*.pl
-#%{_datadir}/webmin/squid/*.risk
+#%%{_datadir}/webmin/squid/*.risk
 %{_datadir}/webmin/squid/*.skill
 %config(noreplace) %{_sysconfdir}/webmin/squid/config
 
@@ -2100,7 +2100,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %dir %{_datadir}/webmin/caldera
 %attr(755,root,root) %{_datadir}/webmin/caldera/*.cgi
 %{_datadir}/webmin/caldera/*[^i]
-#%{_datadir}/webmin/kdestyle
+#%%{_datadir}/webmin/kdestyle
 %dir %{_datadir}/webmin/mscstyle3
 %attr(755,root,root) %{_datadir}/webmin/mscstyle3/*.cgi
 %attr(755,root,root) %{_datadir}/webmin/mscstyle3/*.pl
