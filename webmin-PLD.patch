@@ -1,6 +1,6 @@
-diff -uNr webmin-0.980.orig/apache/config-pld-linux webmin-0.980/apache/config-pld-linux
---- webmin-0.980.orig/apache/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/apache/config-pld-linux	Wed Jun 26 20:43:17 2002
+diff -uNr webmin-0.990.orig/apache/config-pld-linux webmin-0.990/apache/config-pld-linux
+--- webmin-0.990.orig/apache/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/apache/config-pld-linux	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1,7 @@
 +show_list=0
 +httpd_dir=/etc/httpd
@@ -9,75 +9,75 @@ diff -uNr webmin-0.980.orig/apache/config-pld-linux webmin-0.980/apache/config-p
 +start_cmd=/etc/rc.d/init.d/httpd start
 +stop_cmd=/etc/rc.d/init.d/httpd stop
 +show_order=0
-diff -uNr webmin-0.980.orig/apache/module.info webmin-0.980/apache/module.info
---- webmin-0.980.orig/apache/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/apache/module.info	Wed Jun 26 20:43:17 2002
+diff -uNr webmin-0.990.orig/apache/module.info webmin-0.990/apache/module.info
+--- webmin-0.990.orig/apache/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/apache/module.info	Mon Jul  1 11:20:31 2002
 @@ -10,7 +10,7 @@
  desc_zh_CN=Apache ·þÎñÆ÷
  category=servers
  desc_tr=Apache Web Sunucusu
--os_support=solaris redhat-linux mandrake-linux debian-linux slackware-linux suse-linux aix hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux openbsd corel-linux cobalt-linux lfs-linux netbsd msc-linux generic-linux
-+os_support=solaris redhat-linux mandrake-linux debian-linux slackware-linux suse-linux aix hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux openbsd corel-linux cobalt-linux lfs-linux netbsd msc-linux generic-linux pld-linux
+-os_support=solaris redhat-linux mandrake-linux debian-linux slackware-linux suse-linux aix hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux openbsd corel-linux cobalt-linux lfs-linux netbsd msc-linux generic-linux gentoo-linux
++os_support=solaris redhat-linux mandrake-linux debian-linux slackware-linux suse-linux aix hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux openbsd corel-linux cobalt-linux lfs-linux netbsd msc-linux generic-linux gentoo-linux pld-linux
  desc=Apache Webserver
  desc_es=Servidor Web Apache
  desc_sv=Apache Webserver
-diff -uNr webmin-0.980.orig/at/module.info webmin-0.980/at/module.info
---- webmin-0.980.orig/at/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/at/module.info	Wed Jun 26 20:43:17 2002
+diff -uNr webmin-0.990.orig/at/module.info webmin-0.990/at/module.info
+--- webmin-0.990.orig/at/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/at/module.info	Mon Jul  1 11:20:46 2002
 @@ -1,6 +1,6 @@
  category=system
  desc_zh_TW.Big5=«ü¥O±Æµ{
--os_support=solaris slackware-linux redhat-linux mandrake-linux debian-linux suse-linux open-linux turbo-linux corel-linux msc-linux freebsd netbsd generic-linux openserver macos
-+os_support=solaris slackware-linux redhat-linux mandrake-linux debian-linux suse-linux open-linux turbo-linux corel-linux msc-linux freebsd netbsd generic-linux openserver macos pld-linux
+-os_support=solaris slackware-linux redhat-linux mandrake-linux debian-linux suse-linux open-linux turbo-linux corel-linux msc-linux freebsd netbsd generic-linux openserver macos gentoo-linux
++os_support=solaris slackware-linux redhat-linux mandrake-linux debian-linux suse-linux open-linux turbo-linux corel-linux msc-linux freebsd netbsd generic-linux openserver macos gentoo-linux pld-linux
  desc_pl=Zlecone polecenia
  desc=Scheduled Commands
  desc_de=Geplante AT-Auftr&auml;ge
-diff -uNr webmin-0.980.orig/bind8/config-pld-linux webmin-0.980/bind8/config-pld-linux
---- webmin-0.980.orig/bind8/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/bind8/config-pld-linux	Wed Jun 26 20:43:17 2002
+diff -uNr webmin-0.990.orig/bind8/config-pld-linux webmin-0.990/bind8/config-pld-linux
+--- webmin-0.990.orig/bind8/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/bind8/config-pld-linux	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1,5 @@
 +soa_style=0
 +named_path=/usr/sbin/named
 +named_conf=/etc/named.conf
 +show_list=0
 +records_order=0
-diff -uNr webmin-0.980.orig/bind8/module.info webmin-0.980/bind8/module.info
---- webmin-0.980.orig/bind8/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/bind8/module.info	Wed Jun 26 20:43:17 2002
+diff -uNr webmin-0.990.orig/bind8/module.info webmin-0.990/bind8/module.info
+--- webmin-0.990.orig/bind8/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/bind8/module.info	Mon Jul  1 11:20:56 2002
 @@ -10,7 +10,7 @@
  desc_pt_BR=Servidor de DNS BIND
  category=servers
  desc_tr=BIND DNS Sunucusu
--os_support=slackware-linux redhat-linux mandrake-linux solaris debian-linux suse-linux hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux openbsd corel-linux cobalt-linux/5.0 cobalt-linux/6.0 aix netbsd msc-linux generic-linux
-+os_support=slackware-linux redhat-linux mandrake-linux solaris debian-linux suse-linux hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux openbsd corel-linux cobalt-linux/5.0 cobalt-linux/6.0 aix netbsd msc-linux generic-linux pld-linux
+-os_support=slackware-linux redhat-linux mandrake-linux solaris debian-linux suse-linux hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux openbsd corel-linux cobalt-linux/5.0 cobalt-linux/6.0 aix netbsd msc-linux generic-linux gentoo-linux
++os_support=slackware-linux redhat-linux mandrake-linux solaris debian-linux suse-linux hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux openbsd corel-linux cobalt-linux/5.0 cobalt-linux/6.0 aix netbsd msc-linux generic-linux gentoo-linux pld-linux
  desc=BIND DNS Server
  desc_es=Servidor de DNS BIND
  desc_sv=BIND DNS-server
-diff -uNr webmin-0.980.orig/cluster-software/module.info webmin-0.980/cluster-software/module.info
---- webmin-0.980.orig/cluster-software/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/cluster-software/module.info	Wed Jun 26 20:42:05 2002
+diff -uNr webmin-0.990.orig/cluster-software/module.info webmin-0.990/cluster-software/module.info
+--- webmin-0.990.orig/cluster-software/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/cluster-software/module.info	Mon Jul  1 11:21:17 2002
 @@ -1,6 +1,6 @@
  category=cluster
- depends=software servers 0.980
+ depends=software servers 0.990
 -os_support=cobalt-linux mandrake-linux redhat-linux open-linux msc-linux suse-linux turbo-linux debian-linux solaris openserver
 +os_support=cobalt-linux mandrake-linux redhat-linux open-linux msc-linux suse-linux turbo-linux debian-linux solaris openserver pld-linux
  desc=Cluster Software Packages
- version=0.980
+ version=0.990
  desc_hu=Klaszter szoftver csomag
-diff -uNr webmin-0.980.orig/cluster-useradmin/module.info webmin-0.980/cluster-useradmin/module.info
---- webmin-0.980.orig/cluster-useradmin/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/cluster-useradmin/module.info	Wed Jun 26 20:42:18 2002
+diff -uNr webmin-0.990.orig/cluster-useradmin/module.info webmin-0.990/cluster-useradmin/module.info
+--- webmin-0.990.orig/cluster-useradmin/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/cluster-useradmin/module.info	Mon Jul  1 11:21:25 2002
 @@ -1,6 +1,6 @@
  category=cluster
- depends=useradmin servers 0.980
+ depends=useradmin servers 0.990
 -os_support=slackware-linux redhat-linux mandrake-linux solaris debian-linux suse-linux hpux freebsd osf1 open-linux unixware turbo-linux openbsd corel-linux cobalt-linux irix netbsd msc-linux aix generic-linux openserver macos
 +os_support=slackware-linux redhat-linux mandrake-linux solaris debian-linux suse-linux hpux freebsd osf1 open-linux unixware turbo-linux openbsd corel-linux cobalt-linux irix netbsd msc-linux aix generic-linux openserver macos pld-linux
  desc=Cluster Users and Groups
- version=0.980
+ version=0.990
  desc_ca=Usuaris i Grups de Cluster
-diff -uNr webmin-0.980.orig/config-pld-linux webmin-0.980/config-pld-linux
---- webmin-0.980.orig/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/config-pld-linux	Wed Jun 26 20:11:59 2002
+diff -uNr webmin-0.990.orig/config-pld-linux webmin-0.990/config-pld-linux
+--- webmin-0.990.orig/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/config-pld-linux	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1,6 @@
 +find_pid_command=ps auwwwx | grep NAME | grep -v grep | awk '{ print $2 }'
 +path=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin
@@ -85,9 +85,9 @@ diff -uNr webmin-0.980.orig/config-pld-linux webmin-0.980/config-pld-linux
 +passwd_file=/etc/shadow
 +passwd_uindex=0
 +passwd_pindex=1
-diff -uNr webmin-0.980.orig/cron/config-pld-linux webmin-0.980/cron/config-pld-linux
---- webmin-0.980.orig/cron/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/cron/config-pld-linux	Wed Jun 26 20:43:29 2002
+diff -uNr webmin-0.990.orig/cron/config-pld-linux webmin-0.990/cron/config-pld-linux
+--- webmin-0.990.orig/cron/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/cron/config-pld-linux	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1,12 @@
 +cron_dir=/var/spool/cron
 +cron_deny_file=/etc/cron/cron.deny
@@ -101,94 +101,94 @@ diff -uNr webmin-0.980.orig/cron/config-pld-linux webmin-0.980/cron/config-pld-l
 +cron_get_command=crontab -u USER -l
 +run_parts=run-parts
 +cronfiles_dir=/etc/cron.d
-diff -uNr webmin-0.980.orig/cron/module.info webmin-0.980/cron/module.info
---- webmin-0.980.orig/cron/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/cron/module.info	Wed Jun 26 20:43:29 2002
+diff -uNr webmin-0.990.orig/cron/module.info webmin-0.990/cron/module.info
+--- webmin-0.990.orig/cron/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/cron/module.info	Mon Jul  1 11:21:37 2002
 @@ -10,7 +10,7 @@
  desc_zh_CN=Cron ÈÎÎñµ÷¶È
  category=system
  desc_tr=Zamanlandýrýlmýþ Görevler
--os_support=solaris slackware-linux redhat-linux mandrake-linux debian-linux suse-linux hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux openbsd corel-linux cobalt-linux aix netbsd msc-linux generic-linux
-+os_support=solaris slackware-linux redhat-linux mandrake-linux debian-linux suse-linux hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux openbsd corel-linux cobalt-linux aix netbsd msc-linux generic-linux pld-linux
+-os_support=solaris slackware-linux redhat-linux mandrake-linux debian-linux suse-linux hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux openbsd corel-linux cobalt-linux aix netbsd msc-linux generic-linux gentoo-linux
++os_support=solaris slackware-linux redhat-linux mandrake-linux debian-linux suse-linux hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux openbsd corel-linux cobalt-linux aix netbsd msc-linux generic-linux gentoo-linux pld-linux
  desc=Scheduled Cron Jobs
  desc_es=Tareas Planificadas de Cron
  desc_sv=Schemalagda cronjobb
-diff -uNr webmin-0.980.orig/dhcpd/config-pld-linux webmin-0.980/dhcpd/config-pld-linux
---- webmin-0.980.orig/dhcpd/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/dhcpd/config-pld-linux	Wed Jun 26 20:43:29 2002
+diff -uNr webmin-0.990.orig/dhcpd/config-pld-linux webmin-0.990/dhcpd/config-pld-linux
+--- webmin-0.990.orig/dhcpd/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/dhcpd/config-pld-linux	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1,4 @@
 +dhcpd_conf=/etc/dhcpd.conf
 +pid_file=/var/run/dhcpd.pid
 +dhcpd_path=/usr/sbin/dhcpd
 +lease_file=/var/lib/dhcp/dhcpd.leases
-diff -uNr webmin-0.980.orig/dhcpd/module.info webmin-0.980/dhcpd/module.info
---- webmin-0.980.orig/dhcpd/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/dhcpd/module.info	Wed Jun 26 20:43:29 2002
+diff -uNr webmin-0.990.orig/dhcpd/module.info webmin-0.990/dhcpd/module.info
+--- webmin-0.990.orig/dhcpd/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/dhcpd/module.info	Mon Jul  1 11:21:50 2002
 @@ -10,7 +10,7 @@
  desc_pt=Servidor de DHCP
  category=servers
  desc_tr=DHCP Sunucusu
--os_support=debian-linux freebsd osf1 redhat-linux mandrake-linux slackware-linux solaris suse-linux unixware openserver open-linux turbo-linux openbsd corel-linux cobalt-linux irix netbsd msc-linux generic-linux
-+os_support=debian-linux freebsd osf1 redhat-linux mandrake-linux slackware-linux solaris suse-linux unixware openserver open-linux turbo-linux openbsd corel-linux cobalt-linux irix netbsd msc-linux generic-linux pld-linux
+-os_support=debian-linux freebsd osf1 redhat-linux mandrake-linux slackware-linux solaris suse-linux unixware openserver open-linux turbo-linux openbsd corel-linux cobalt-linux irix netbsd msc-linux generic-linux gentoo-linux
++os_support=debian-linux freebsd osf1 redhat-linux mandrake-linux slackware-linux solaris suse-linux unixware openserver open-linux turbo-linux openbsd corel-linux cobalt-linux irix netbsd msc-linux generic-linux gentoo-linux pld-linux
  desc=DHCP Server
  desc_es=Servidor de DHCP
  desc_sv=DHCP-server
-diff -uNr webmin-0.980.orig/exports/config-pld-linux webmin-0.980/exports/config-pld-linux
---- webmin-0.980.orig/exports/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/exports/config-pld-linux	Wed Jun 26 20:43:29 2002
+diff -uNr webmin-0.990.orig/exports/config-pld-linux webmin-0.990/exports/config-pld-linux
+--- webmin-0.990.orig/exports/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/exports/config-pld-linux	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1,3 @@
 +restart_command=/etc/rc.d/init.d/nfs restart
 +exports_file=/etc/exports
 +nfs_server=rpc.nfsd
-diff -uNr webmin-0.980.orig/exports/module.info webmin-0.980/exports/module.info
---- webmin-0.980.orig/exports/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/exports/module.info	Wed Jun 26 20:43:29 2002
+diff -uNr webmin-0.990.orig/exports/module.info webmin-0.990/exports/module.info
+--- webmin-0.990.orig/exports/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/exports/module.info	Mon Jul  1 11:22:00 2002
 @@ -9,7 +9,7 @@
  desc_pt=Exportações de NFS
  category=system
  desc_tr=NFS Sunumlarý
--os_support=slackware-linux redhat-linux mandrake-linux debian-linux suse-linux open-linux turbo-linux corel-linux cobalt-linux aix msc-linux generic-linux
-+os_support=slackware-linux redhat-linux mandrake-linux debian-linux suse-linux open-linux turbo-linux corel-linux cobalt-linux aix msc-linux generic-linux pld-linux
+-os_support=slackware-linux redhat-linux mandrake-linux debian-linux suse-linux open-linux turbo-linux corel-linux cobalt-linux aix msc-linux generic-linux gentoo-linux
++os_support=slackware-linux redhat-linux mandrake-linux debian-linux suse-linux open-linux turbo-linux corel-linux cobalt-linux aix msc-linux generic-linux gentoo-linux pld-linux
  desc=NFS Exports
  desc_es=Exportaciones de NFS
  desc_sv=NFS-exportering
-diff -uNr webmin-0.980.orig/fdisk/module.info webmin-0.980/fdisk/module.info
---- webmin-0.980.orig/fdisk/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/fdisk/module.info	Wed Jun 26 20:43:29 2002
+diff -uNr webmin-0.990.orig/fdisk/module.info webmin-0.990/fdisk/module.info
+--- webmin-0.990.orig/fdisk/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/fdisk/module.info	Mon Jul  1 11:22:08 2002
 @@ -9,7 +9,7 @@
  desc_pt=Partições em Discos Locais
  category=hardware
  desc_tr=Yerel Diskteki Bölümler
--os_support=redhat-linux mandrake-linux slackware-linux debian-linux suse-linux open-linux turbo-linux corel-linux cobalt-linux msc-linux generic-linux
-+os_support=redhat-linux mandrake-linux slackware-linux debian-linux suse-linux open-linux turbo-linux corel-linux cobalt-linux msc-linux generic-linux pld-linux
+-os_support=redhat-linux mandrake-linux slackware-linux debian-linux suse-linux open-linux turbo-linux corel-linux cobalt-linux msc-linux generic-linux gentoo-linux
++os_support=redhat-linux mandrake-linux slackware-linux debian-linux suse-linux open-linux turbo-linux corel-linux cobalt-linux msc-linux generic-linux gentoo-linux pld-linux
  desc=Partitions on Local Disks
  desc_es=Particiones en Discos Locales
  desc_sv=Partitionshanterare
-diff -uNr webmin-0.980.orig/fsdump/module.info webmin-0.980/fsdump/module.info
---- webmin-0.980.orig/fsdump/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/fsdump/module.info	Wed Jun 26 20:41:22 2002
+diff -uNr webmin-0.990.orig/fsdump/module.info webmin-0.990/fsdump/module.info
+--- webmin-0.990.orig/fsdump/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/fsdump/module.info	Mon Jul  1 11:22:17 2002
 @@ -1,6 +1,6 @@
  category=system
  desc_zh_TW.Big5=ÀÉ®×¨t²Î³Æ¥÷
--os_support=redhat-linux mandrake-linux slackware-linux debian-linux suse-linux open-linux turbo-linux corel-linux cobalt-linux msc-linux generic-linux solaris freebsd macos
-+os_support=redhat-linux mandrake-linux slackware-linux debian-linux suse-linux open-linux turbo-linux corel-linux cobalt-linux msc-linux generic-linux solaris freebsd macos pld-linux
+-os_support=redhat-linux mandrake-linux slackware-linux debian-linux suse-linux open-linux turbo-linux corel-linux cobalt-linux msc-linux generic-linux solaris freebsd macos gentoo-linux
++os_support=redhat-linux mandrake-linux slackware-linux debian-linux suse-linux open-linux turbo-linux corel-linux cobalt-linux msc-linux generic-linux solaris freebsd macos gentoo-linux pld-linux
  desc=Filesystem Backup
  name=Dump
- depends=mount cron proc 0.980
-diff -uNr webmin-0.980.orig/heartbeat/module.info webmin-0.980/heartbeat/module.info
---- webmin-0.980.orig/heartbeat/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/heartbeat/module.info	Wed Jun 26 20:42:38 2002
+ depends=mount cron proc 0.990
+diff -uNr webmin-0.990.orig/heartbeat/module.info webmin-0.990/heartbeat/module.info
+--- webmin-0.990.orig/heartbeat/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/heartbeat/module.info	Mon Jul  1 11:22:24 2002
 @@ -1,6 +1,6 @@
  category=cluster
- depends=init 0.980
+ depends=init 0.990
 -os_support=msc-linux redhat-linux open-linux slackware-linux debian-linux suse-linux corel-linux turbo-linux cobalt-linux mandrake-linux debian-linux freebsd generic-linux
 +os_support=msc-linux redhat-linux open-linux slackware-linux debian-linux suse-linux corel-linux turbo-linux cobalt-linux mandrake-linux debian-linux freebsd generic-linux pld-linux
  desc=Heartbeat Monitor
- version=0.980
+ version=0.990
  desc_ca=Monitor Heartbeat
-diff -uNr webmin-0.980.orig/inetd/config-pld-linux webmin-0.980/inetd/config-pld-linux
---- webmin-0.980.orig/inetd/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/inetd/config-pld-linux	Wed Jun 26 20:43:29 2002
+diff -uNr webmin-0.990.orig/inetd/config-pld-linux webmin-0.990/inetd/config-pld-linux
+--- webmin-0.990.orig/inetd/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/inetd/config-pld-linux	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1,14 @@
 +show_empty=1
 +services_file=/etc/services
@@ -204,9 +204,9 @@ diff -uNr webmin-0.980.orig/inetd/config-pld-linux webmin-0.980/inetd/config-pld
 +deny_file=/etc/tcpd/hosts.deny
 +sort_mode=0
 +ipv6=1
-diff -uNr webmin-0.980.orig/init/config-pld-linux webmin-0.980/init/config-pld-linux
---- webmin-0.980.orig/init/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/init/config-pld-linux	Wed Jun 26 20:43:29 2002
+diff -uNr webmin-0.990.orig/init/config-pld-linux webmin-0.990/init/config-pld-linux
+--- webmin-0.990.orig/init/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/init/config-pld-linux	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1,13 @@
 +soft_links=1
 +show_opts=0
@@ -221,9 +221,9 @@ diff -uNr webmin-0.980.orig/init/config-pld-linux webmin-0.980/init/config-pld-l
 +subsys=/var/lock/subsys
 +expert=0
 +desc=1
-diff -uNr webmin-0.980.orig/init/module.info webmin-0.980/init/module.info
---- webmin-0.980.orig/init/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/init/module.info	Wed Jun 26 20:43:29 2002
+diff -uNr webmin-0.990.orig/init/module.info webmin-0.990/init/module.info
+--- webmin-0.990.orig/init/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/init/module.info	Mon Jul  1 11:15:43 2002
 @@ -9,7 +9,7 @@
  desc_pt=Iniciar e Encerrar
  category=system
@@ -233,21 +233,21 @@ diff -uNr webmin-0.980.orig/init/module.info webmin-0.980/init/module.info
  desc=Bootup and Shutdown
  desc_es=Arranque y Parada
  desc_sv=Start och avstängning
-diff -uNr webmin-0.980.orig/inittab/module.info webmin-0.980/inittab/module.info
---- webmin-0.980.orig/inittab/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/inittab/module.info	Wed Jun 26 20:43:29 2002
+diff -uNr webmin-0.990.orig/inittab/module.info webmin-0.990/inittab/module.info
+--- webmin-0.990.orig/inittab/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/inittab/module.info	Mon Jul  1 11:22:34 2002
 @@ -9,7 +9,7 @@
  desc_pt=Configuração de Inicialização SysV
  category=system
  desc_tr=SysV Açýlýþ Yapýlandýrmasý
--os_support=solaris redhat-linux mandrake-linux debian-linux suse-linux hpux slackware-linux unixware openserver open-linux turbo-linux msc-linux generic-linux aix
-+os_support=solaris redhat-linux mandrake-linux debian-linux suse-linux hpux slackware-linux unixware openserver open-linux turbo-linux msc-linux generic-linux aix pld-linux
+-os_support=solaris redhat-linux mandrake-linux debian-linux suse-linux hpux slackware-linux unixware openserver open-linux turbo-linux msc-linux generic-linux aix gentoo-linux
++os_support=solaris redhat-linux mandrake-linux debian-linux suse-linux hpux slackware-linux unixware openserver open-linux turbo-linux msc-linux generic-linux aix gentoo-linux pld-linux
  desc=SysV Init Configuration
  desc_es=Configuración Init de SysV
  desc_sv=Startinställningar för SysV
-diff -uNr webmin-0.980.orig/lilo/module.info webmin-0.980/lilo/module.info
---- webmin-0.980.orig/lilo/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/lilo/module.info	Wed Jun 26 20:43:29 2002
+diff -uNr webmin-0.990.orig/lilo/module.info webmin-0.990/lilo/module.info
+--- webmin-0.990.orig/lilo/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/lilo/module.info	Mon Jul  1 11:27:06 2002
 @@ -9,7 +9,7 @@
  desc_pt=Configuração de Arranque do Linux
  category=hardware
@@ -257,9 +257,9 @@ diff -uNr webmin-0.980.orig/lilo/module.info webmin-0.980/lilo/module.info
  desc=Linux Bootup Configuration
  desc_es=Configuración del Arranque de Linux
  desc_sv=Inställningar för start av Linux
-diff -uNr webmin-0.980.orig/lpadmin/config-pld-linux webmin-0.980/lpadmin/config-pld-linux
---- webmin-0.980.orig/lpadmin/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/lpadmin/config-pld-linux	Wed Jun 26 20:43:29 2002
+diff -uNr webmin-0.990.orig/lpadmin/config-pld-linux webmin-0.990/lpadmin/config-pld-linux
+--- webmin-0.990.orig/lpadmin/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/lpadmin/config-pld-linux	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1,10 @@
 +iface_perms=755
 +printcap_file=/etc/printcap
@@ -271,51 +271,51 @@ diff -uNr webmin-0.980.orig/lpadmin/config-pld-linux webmin-0.980/lpadmin/config
 +smbclient_path=smbclient
 +print_style=linux
 +driver_style=redhat
-diff -uNr webmin-0.980.orig/lvm/module.info webmin-0.980/lvm/module.info
---- webmin-0.980.orig/lvm/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/lvm/module.info	Wed Jun 26 20:40:18 2002
+diff -uNr webmin-0.990.orig/lvm/module.info webmin-0.990/lvm/module.info
+--- webmin-0.990.orig/lvm/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/lvm/module.info	Mon Jul  1 11:22:58 2002
 @@ -1,6 +1,6 @@
  category=hardware
  desc_zh_TW.Big5=ÅÞ¿èºÞ²z¨t²Î
--os_support=redhat-linux mandrake-linux slackware-linux debian-linux suse-linux open-linux turbo-linux corel-linux cobalt-linux msc-linux generic-linux
-+os_support=redhat-linux mandrake-linux slackware-linux debian-linux suse-linux open-linux turbo-linux corel-linux cobalt-linux msc-linux generic-linux pld-linux
+-os_support=redhat-linux mandrake-linux slackware-linux debian-linux suse-linux open-linux turbo-linux corel-linux cobalt-linux msc-linux generic-linux gentoo-linux
++os_support=redhat-linux mandrake-linux slackware-linux debian-linux suse-linux open-linux turbo-linux corel-linux cobalt-linux msc-linux generic-linux gentoo-linux pld-linux
  desc=Logical Volume Management
  name=LVM
- depends=mount fdisk 0.980
-diff -uNr webmin-0.980.orig/man/config-pld-linux webmin-0.980/man/config-pld-linux
---- webmin-0.980.orig/man/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/man/config-pld-linux	Wed Jun 26 20:43:29 2002
+ depends=mount fdisk 0.990
+diff -uNr webmin-0.990.orig/man/config-pld-linux webmin-0.990/man/config-pld-linux
+--- webmin-0.990.orig/man/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/man/config-pld-linux	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1,4 @@
 +search_cmd=man -k PAGE
 +man_dir=/usr/share/man
 +man_cmd_sect=man SECTION PAGE
 +man_cmd=man PAGE
-diff -uNr webmin-0.980.orig/man/module.info webmin-0.980/man/module.info
---- webmin-0.980.orig/man/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/man/module.info	Wed Jun 26 20:43:29 2002
+diff -uNr webmin-0.990.orig/man/module.info webmin-0.990/man/module.info
+--- webmin-0.990.orig/man/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/man/module.info	Mon Jul  1 11:23:13 2002
 @@ -9,7 +9,7 @@
  desc_pt=Páginas do Manual
  category=system
  desc_tr=Kýlavuz Sayfalar
--os_support=solaris corel-linux debian-linux open-linux redhat-linux mandrake-linux slackware-linux solaris suse-linux turbo-linux freebsd openbsd cobalt-linux lfs-linux irix aix hpux macos netbsd msc-linux osf1 generic-linux openserver
-+os_support=solaris corel-linux debian-linux open-linux redhat-linux mandrake-linux slackware-linux solaris suse-linux turbo-linux freebsd openbsd cobalt-linux lfs-linux irix aix hpux macos netbsd msc-linux osf1 generic-linux openserver pld-linux
+-os_support=solaris corel-linux debian-linux open-linux redhat-linux mandrake-linux slackware-linux solaris suse-linux turbo-linux freebsd openbsd cobalt-linux lfs-linux irix aix hpux macos netbsd msc-linux osf1 generic-linux openserver gentoo-linux
++os_support=solaris corel-linux debian-linux open-linux redhat-linux mandrake-linux slackware-linux solaris suse-linux turbo-linux freebsd openbsd cobalt-linux lfs-linux irix aix hpux macos netbsd msc-linux osf1 generic-linux openserver gentoo-linux pld-linux
  desc=System Documentation
  desc_es=Páginas del Manual
  desc_sv=Systemdokumentation
-diff -uNr webmin-0.980.orig/mon/module.info webmin-0.980/mon/module.info
---- webmin-0.980.orig/mon/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/mon/module.info	Wed Jun 26 20:41:42 2002
+diff -uNr webmin-0.990.orig/mon/module.info webmin-0.990/mon/module.info
+--- webmin-0.990.orig/mon/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/mon/module.info	Mon Jul  1 11:23:21 2002
 @@ -1,6 +1,6 @@
  category=system
- depends=init 0.980
--os_support=msc-linux redhat-linux open-linux slackware-linux debian-linux suse-linux corel-linux turbo-linux cobalt-linux mandrake-linux debian-linux generic-linux
-+os_support=msc-linux redhat-linux open-linux slackware-linux debian-linux suse-linux corel-linux turbo-linux cobalt-linux mandrake-linux debian-linux generic-linux pld-linux
+ depends=init 0.990
+-os_support=msc-linux redhat-linux open-linux slackware-linux debian-linux suse-linux corel-linux turbo-linux cobalt-linux mandrake-linux debian-linux generic-linux gentoo-linux
++os_support=msc-linux redhat-linux open-linux slackware-linux debian-linux suse-linux corel-linux turbo-linux cobalt-linux mandrake-linux debian-linux generic-linux gentoo-linux pld-linux
  desc=MON Service Monitor
- version=0.980
+ version=0.990
  desc_ca=Monitor de Serveis MON
-diff -uNr webmin-0.980.orig/mount/config-pld-linux webmin-0.980/mount/config-pld-linux
---- webmin-0.980.orig/mount/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/mount/config-pld-linux	Wed Jun 26 20:43:29 2002
+diff -uNr webmin-0.990.orig/mount/config-pld-linux webmin-0.990/mount/config-pld-linux
+--- webmin-0.990.orig/mount/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/mount/config-pld-linux	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1,6 @@
 +auto_file=/etc/amd.conf
 +autofs_file=/etc/autofs/auto.master
@@ -323,21 +323,21 @@ diff -uNr webmin-0.980.orig/mount/config-pld-linux webmin-0.980/mount/config-pld
 +fstab_file=/etc/fstab
 +smbclient_path=smbclient
 +nmblookup_path=nmblookup
-diff -uNr webmin-0.980.orig/mount/module.info webmin-0.980/mount/module.info
---- webmin-0.980.orig/mount/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/mount/module.info	Wed Jun 26 20:43:29 2002
+diff -uNr webmin-0.990.orig/mount/module.info webmin-0.990/mount/module.info
+--- webmin-0.990.orig/mount/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/mount/module.info	Mon Jul  1 11:23:30 2002
 @@ -9,7 +9,7 @@
  desc_pt=Sistema de Ficheiros de Disco e Rede
  category=system
  desc_tr=Disk ve Að Dosya Sistemi
--os_support=slackware-linux redhat-linux mandrake-linux solaris debian-linux suse-linux freebsd hpux unixware open-linux turbo-linux corel-linux openbsd cobalt-linux lfs-linux msc-linux generic-linux
-+os_support=slackware-linux redhat-linux mandrake-linux solaris debian-linux suse-linux freebsd hpux unixware open-linux turbo-linux corel-linux openbsd cobalt-linux lfs-linux msc-linux generic-linux pld-linux
+-os_support=slackware-linux redhat-linux mandrake-linux solaris debian-linux suse-linux freebsd hpux unixware open-linux turbo-linux corel-linux openbsd cobalt-linux lfs-linux msc-linux generic-linux gentoo-linux
++os_support=slackware-linux redhat-linux mandrake-linux solaris debian-linux suse-linux freebsd hpux unixware open-linux turbo-linux corel-linux openbsd cobalt-linux lfs-linux msc-linux generic-linux gentoo-linux pld-linux
  desc=Disk and Network Filesystems
  desc_es=Sistemas de Archivo de Disco y Red
  desc_sv=Filsystem för diskar och nätverk
-diff -uNr webmin-0.980.orig/mount/pld-linux-lib.pl webmin-0.980/mount/pld-linux-lib.pl
---- webmin-0.980.orig/mount/pld-linux-lib.pl	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/mount/pld-linux-lib.pl	Wed Jun 26 20:43:29 2002
+diff -uNr webmin-0.990.orig/mount/pld-linux-lib.pl webmin-0.990/mount/pld-linux-lib.pl
+--- webmin-0.990.orig/mount/pld-linux-lib.pl	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/mount/pld-linux-lib.pl	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1,1672 @@
 +# linux-lib.pl
 +# Mount table functions for linux
@@ -2011,9 +2011,9 @@ diff -uNr webmin-0.980.orig/mount/pld-linux-lib.pl webmin-0.980/mount/pld-linux-
 +
 +1;
 +
-diff -uNr webmin-0.980.orig/mysql/config-pld-linux webmin-0.980/mysql/config-pld-linux
---- webmin-0.980.orig/mysql/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/mysql/config-pld-linux	Wed Jun 26 20:43:29 2002
+diff -uNr webmin-0.990.orig/mysql/config-pld-linux webmin-0.990/mysql/config-pld-linux
+--- webmin-0.990.orig/mysql/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/mysql/config-pld-linux	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1,7 @@
 +start_cmd=/etc/rc.d/init.d/mysql start
 +stop_cmd=/etc/rc.d/init.d/mysql stop
@@ -2022,26 +2022,26 @@ diff -uNr webmin-0.980.orig/mysql/config-pld-linux webmin-0.980/mysql/config-pld
 +mysqladmin=/usr/bin/mysqladmin
 +mysqlshow=/usr/bin/mysqlshow
 +perpage=25
-diff -uNr webmin-0.980.orig/net/config-pld-linux webmin-0.980/net/config-pld-linux
---- webmin-0.980.orig/net/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/net/config-pld-linux	Wed Jun 26 20:43:29 2002
+diff -uNr webmin-0.990.orig/net/config-pld-linux webmin-0.990/net/config-pld-linux
+--- webmin-0.990.orig/net/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/net/config-pld-linux	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1 @@
 +hosts_file=/etc/hosts
-diff -uNr webmin-0.980.orig/net/module.info webmin-0.980/net/module.info
---- webmin-0.980.orig/net/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/net/module.info	Wed Jun 26 20:43:29 2002
+diff -uNr webmin-0.990.orig/net/module.info webmin-0.990/net/module.info
+--- webmin-0.990.orig/net/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/net/module.info	Mon Jul  1 11:23:38 2002
 @@ -9,7 +9,7 @@
  desc_pt=Configuração de Rede
  category=hardware
  desc_tr=Að Yapýlandýrmasý
--os_support=solaris redhat-linux/5.0 redhat-linux/5.1 redhat-linux/5.2 redhat-linux/6.0 redhat-linux/6.1 redhat-linux/6.2 redhat-linux/7.0 redhat-linux/7.1 redhat-linux/7.2 redhat-linux/7.3 mandrake-linux suse-linux/6.0 suse-linux/6.1 suse-linux/6.2 suse-linux/6.3 suse-linux/6.4 suse-linux/7.0 suse-linux/7.1 suse-linux/7.2 suse-linux/7.3 suse-linux/8.0 open-linux unixware turbo-linux/4.0 freebsd/3.4 freebsd/3.3 freebsd/3.2 freebsd/4.0 freebsd/4.1 freebsd/4.2 freebsd/4.3 freebsd/4.4 freebsd/4.5 freebsd/5.0 openbsd debian-linux/2.2 debian-linux/3.0 cobalt-linux/2.2 cobalt-linux/4.0 cobalt-linux/5.0 cobalt-linux/6.0 msc-linux
-+os_support=solaris redhat-linux/5.0 redhat-linux/5.1 redhat-linux/5.2 redhat-linux/6.0 redhat-linux/6.1 redhat-linux/6.2 redhat-linux/7.0 redhat-linux/7.1 redhat-linux/7.2 redhat-linux/7.3 mandrake-linux suse-linux/6.0 suse-linux/6.1 suse-linux/6.2 suse-linux/6.3 suse-linux/6.4 suse-linux/7.0 suse-linux/7.1 suse-linux/7.2 suse-linux/7.3 suse-linux/8.0 open-linux unixware turbo-linux/4.0 freebsd/3.4 freebsd/3.3 freebsd/3.2 freebsd/4.0 freebsd/4.1 freebsd/4.2 freebsd/4.3 freebsd/4.4 freebsd/4.5 freebsd/5.0 openbsd debian-linux/2.2 debian-linux/3.0 cobalt-linux/2.2 cobalt-linux/4.0 cobalt-linux/5.0 cobalt-linux/6.0 msc-linux pld-linux
+-os_support=solaris redhat-linux/5.0 redhat-linux/5.1 redhat-linux/5.2 redhat-linux/6.0 redhat-linux/6.1 redhat-linux/6.2 redhat-linux/7.0 redhat-linux/7.1 redhat-linux/7.2 redhat-linux/7.3 mandrake-linux suse-linux/6.0 suse-linux/6.1 suse-linux/6.2 suse-linux/6.3 suse-linux/6.4 suse-linux/7.0 suse-linux/7.1 suse-linux/7.2 suse-linux/7.3 suse-linux/8.0 open-linux unixware turbo-linux/4.0 freebsd/3.4 freebsd/3.3 freebsd/3.2 freebsd/4.0 freebsd/4.1 freebsd/4.2 freebsd/4.3 freebsd/4.4 freebsd/4.5 freebsd/4.6 freebsd/5.0 openbsd debian-linux/2.2 debian-linux/3.0 cobalt-linux/2.2 cobalt-linux/4.0 cobalt-linux/5.0 cobalt-linux/6.0 msc-linux
++os_support=solaris redhat-linux/5.0 redhat-linux/5.1 redhat-linux/5.2 redhat-linux/6.0 redhat-linux/6.1 redhat-linux/6.2 redhat-linux/7.0 redhat-linux/7.1 redhat-linux/7.2 redhat-linux/7.3 mandrake-linux suse-linux/6.0 suse-linux/6.1 suse-linux/6.2 suse-linux/6.3 suse-linux/6.4 suse-linux/7.0 suse-linux/7.1 suse-linux/7.2 suse-linux/7.3 suse-linux/8.0 open-linux unixware turbo-linux/4.0 freebsd/3.4 freebsd/3.3 freebsd/3.2 freebsd/4.0 freebsd/4.1 freebsd/4.2 freebsd/4.3 freebsd/4.4 freebsd/4.5 freebsd/4.6 freebsd/5.0 openbsd debian-linux/2.2 debian-linux/3.0 cobalt-linux/2.2 cobalt-linux/4.0 cobalt-linux/5.0 cobalt-linux/6.0 msc-linux pld-linux
  desc=Network Configuration
  desc_es=Configuración de Red
  desc_sv=Nätverkskonfigurering
-diff -uNr webmin-0.980.orig/net/pld-linux-lib.pl webmin-0.980/net/pld-linux-lib.pl
---- webmin-0.980.orig/net/pld-linux-lib.pl	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/net/pld-linux-lib.pl	Wed Jun 26 20:43:29 2002
+diff -uNr webmin-0.990.orig/net/pld-linux-lib.pl webmin-0.990/net/pld-linux-lib.pl
+--- webmin-0.990.orig/net/pld-linux-lib.pl	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/net/pld-linux-lib.pl	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1,458 @@
 +# redhat-linux-lib.pl
 +# Networking functions for redhat linux
@@ -2501,80 +2501,81 @@ diff -uNr webmin-0.980.orig/net/pld-linux-lib.pl webmin-0.980/net/pld-linux-lib.
 +
 +1;
 +
-diff -uNr webmin-0.980.orig/nis/module.info webmin-0.980/nis/module.info
---- webmin-0.980.orig/nis/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/nis/module.info	Wed Jun 26 20:22:13 2002
-@@ -1,6 +1,6 @@
+diff -uNr webmin-0.990.orig/nis/module.info webmin-0.990/nis/module.info
+--- webmin-0.990.orig/nis/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/nis/module.info	Mon Jul  1 11:23:44 2002
+@@ -1,7 +1,7 @@
  category=system
  desc_ko_KR.euc=NIS Å¬¶óÀÌ¾ðÆ® ¹× ¼­¹ö
+ desc_zh_TW.Big5=NIS «È¤áºÝ©M¦øªA¾¹
 -os_support=redhat-linux mandrake-linux open-linux debian-linux suse-linux solaris msc-linux
 +os_support=redhat-linux mandrake-linux open-linux debian-linux suse-linux solaris msc-linux pld-linux
  desc=NIS Client and Server
  desc_pl=Klient i&nbsp;serwer NIS
  desc_de=NIS-Client und -Server
-diff -uNr webmin-0.980.orig/os_list.txt webmin-0.980/os_list.txt
---- webmin-0.980.orig/os_list.txt	Wed Jun  5 01:42:55 2002
-+++ webmin-0.980/os_list.txt	Thu Jun 27 01:03:31 2002
-@@ -111,6 +111,7 @@
+diff -uNr webmin-0.990.orig/os_list.txt webmin-0.990/os_list.txt
+--- webmin-0.990.orig/os_list.txt	Mon Jul  1 07:03:51 2002
++++ webmin-0.990/os_list.txt	Mon Jul  1 11:18:40 2002
+@@ -113,6 +113,7 @@
  Yellow Dog Linux		2.1	redhat-linux	7.1	$etc_issue =~ /Yellow\s+Dog\s+Linux\s+release\s+2\.1\s+/i || `cat /etc/yellowdog-release 2>&1` =~ /Yellow\s+Dog\s+Linux\s+release\s+2\.1\s+/i
  Yellow Dog Linux		2.2	redhat-linux	7.2	$etc_issue =~ /Yellow\s+Dog\s+Linux\s+release\s+2\.2\s+/i || `cat /etc/yellowdog-release 2>&1` =~ /Yellow\s+Dog\s+Linux\s+release\s+2\.2\s+/i
  Corvus Latinux			8.0	redhat-linux	7.1	`cat /etc/latinux-release 2>&1` =~ /Latinux\s+8\s/i
 +PLD Linux			1.0	pld-linux	1.0	`cat /etc/pld-release =~ /1\.0/`
- Generic Linux			2.0	generic-linux	2.0
- Generic Linux			2.2	generic-linux	2.2
- Generic Linux			2.4	generic-linux	2.4
-diff -uNr webmin-0.980.orig/pam/module.info webmin-0.980/pam/module.info
---- webmin-0.980.orig/pam/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/pam/module.info	Wed Jun 26 20:43:35 2002
+ Immunix Linux			6.2	redhat-linux	6.2	$etc_issue =~ /Immunix.*\s6\.2/i || `cat /etc/immunix-release 2>&1` =~ /6\.2/
+ Immunix Linux			7.0	redhat-linux	7.0	$etc_issue =~ /Immunix.*\s7\.0/i || `cat /etc/immunix-release 2>&1` =~ /7\.0/
+ Gentoo Linux			Any version	gentoo-linux	*	-d "/usr/portage"
+diff -uNr webmin-0.990.orig/pam/module.info webmin-0.990/pam/module.info
+--- webmin-0.990.orig/pam/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/pam/module.info	Mon Jul  1 11:23:52 2002
 @@ -2,7 +2,7 @@
  risk=high
  desc_ko_KR.euc=PAM ÀÎÁõ
  desc_zh_TW.Big5=PAM »{ÃÒ
--os_support=redhat-linux mandrake-linux open-linux debian-linux/2.2 corel-linux suse-linux turbo-linux cobalt-linux msc-linux generic-linux
-+os_support=redhat-linux mandrake-linux open-linux debian-linux/2.2 corel-linux suse-linux turbo-linux cobalt-linux msc-linux generic-linux pld-linux
+-os_support=redhat-linux mandrake-linux open-linux debian-linux/2.2 debian-linux/3.0 corel-linux suse-linux turbo-linux cobalt-linux msc-linux generic-linux gentoo-linux
++os_support=redhat-linux mandrake-linux open-linux debian-linux/2.2 debian-linux/3.0 corel-linux suse-linux turbo-linux cobalt-linux msc-linux generic-linux gentoo-linux pld-linux
  desc=PAM Authentication
  desc_pl=Autoryzacja przez PAM
  desc_de=PAM-Authentisierung
-diff -uNr webmin-0.980.orig/pap/config-pld-linux webmin-0.980/pap/config-pld-linux
---- webmin-0.980.orig/pap/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/pap/config-pld-linux	Wed Jun 26 20:43:35 2002
+diff -uNr webmin-0.990.orig/pap/config-pld-linux webmin-0.990/pap/config-pld-linux
+--- webmin-0.990.orig/pap/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/pap/config-pld-linux	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1,2 @@
 +pap_file=/etc/ppp/pap-secrets
 +encrypt_pass=0
-diff -uNr webmin-0.980.orig/pap/module.info webmin-0.980/pap/module.info
---- webmin-0.980.orig/pap/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/pap/module.info	Wed Jun 26 20:43:35 2002
+diff -uNr webmin-0.990.orig/pap/module.info webmin-0.990/pap/module.info
+--- webmin-0.990.orig/pap/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/pap/module.info	Mon Jul  1 11:24:03 2002
 @@ -9,7 +9,7 @@
  desc_pt=Usernames e Passwords de Acesso de Utilizadores PPP
  category=servers
  desc_tr=PPP Kullanýcý Adlarý ve Þifreleri
--os_support=redhat-linux mandrake-linux suse-linux slackware-linux debian-linux open-linux turbo-linux corel-linux msc-linux generic-linux
-+os_support=redhat-linux mandrake-linux suse-linux slackware-linux debian-linux open-linux turbo-linux corel-linux msc-linux generic-linux pld-linux
+-os_support=redhat-linux mandrake-linux suse-linux slackware-linux debian-linux open-linux turbo-linux corel-linux msc-linux generic-linux gentoo-linux
++os_support=redhat-linux mandrake-linux suse-linux slackware-linux debian-linux open-linux turbo-linux corel-linux msc-linux generic-linux gentoo-linux pld-linux
  desc=PPP Accounts
  desc_es=Nombres y Claves de Acceso de Usuarios PPP
  desc_sv=PPP-användarnamn och -lösenord
-diff -uNr webmin-0.980.orig/proc/config-pld-linux webmin-0.980/proc/config-pld-linux
---- webmin-0.980.orig/proc/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/proc/config-pld-linux	Wed Jun 26 20:43:35 2002
+diff -uNr webmin-0.990.orig/proc/config-pld-linux webmin-0.990/proc/config-pld-linux
+--- webmin-0.990.orig/proc/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/proc/config-pld-linux	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1,3 @@
 +default_mode=last
 +ps_style=linux
 +base_ppid=1
-diff -uNr webmin-0.980.orig/proc/module.info webmin-0.980/proc/module.info
---- webmin-0.980.orig/proc/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/proc/module.info	Wed Jun 26 20:43:35 2002
+diff -uNr webmin-0.990.orig/proc/module.info webmin-0.990/proc/module.info
+--- webmin-0.990.orig/proc/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/proc/module.info	Mon Jul  1 11:24:15 2002
 @@ -9,7 +9,7 @@
  desc_pt=Processos em Curso
  category=system
  desc_tr=Çalýþan Süreçler
--os_support=solaris redhat-linux mandrake-linux slackware-linux debian-linux suse-linux hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux corel-linux cobalt-linux aix netbsd msc-linux openbsd generic-linux
-+os_support=solaris redhat-linux mandrake-linux slackware-linux debian-linux suse-linux hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux corel-linux cobalt-linux aix netbsd msc-linux openbsd generic-linux pld-linux
+-os_support=solaris redhat-linux mandrake-linux slackware-linux debian-linux suse-linux hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux corel-linux cobalt-linux aix netbsd msc-linux openbsd generic-linux gentoo-linux
++os_support=solaris redhat-linux mandrake-linux slackware-linux debian-linux suse-linux hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux corel-linux cobalt-linux aix netbsd msc-linux openbsd generic-linux gentoo-linux pld-linux
  desc=Running Processes
  desc_es=Procesos en curso
  desc_sv=Processhanterare
-diff -uNr webmin-0.980.orig/quota/config-pld-linux webmin-0.980/quota/config-pld-linux
---- webmin-0.980.orig/quota/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/quota/config-pld-linux	Wed Jun 26 20:43:35 2002
+diff -uNr webmin-0.990.orig/quota/config-pld-linux webmin-0.990/quota/config-pld-linux
+--- webmin-0.990.orig/quota/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/quota/config-pld-linux	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1,16 @@
 +display_max=100
 +user_grace_command=edquota -u -t
@@ -2592,21 +2593,21 @@ diff -uNr webmin-0.980.orig/quota/config-pld-linux webmin-0.980/quota/config-pld
 +group_edquota_command=edquota -g
 +user_edquota_command=edquota -u
 +group_quotaoff_command=quotaoff -g
-diff -uNr webmin-0.980.orig/quota/module.info webmin-0.980/quota/module.info
---- webmin-0.980.orig/quota/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/quota/module.info	Wed Jun 26 20:43:35 2002
+diff -uNr webmin-0.990.orig/quota/module.info webmin-0.990/quota/module.info
+--- webmin-0.990.orig/quota/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/quota/module.info	Mon Jul  1 11:24:23 2002
 @@ -10,7 +10,7 @@
  desc_pt=Quotas de Disco
  category=system
  desc_tr=Disk Kotalarý
--os_support=solaris redhat-linux mandrake-linux slackware-linux debian-linux suse-linux hpux freebsd open-linux unixware turbo-linux openbsd corel-linux cobalt-linux msc-linux generic-linux
-+os_support=solaris redhat-linux mandrake-linux slackware-linux debian-linux suse-linux hpux freebsd open-linux unixware turbo-linux openbsd corel-linux cobalt-linux msc-linux generic-linux pld-linux
+-os_support=solaris redhat-linux mandrake-linux slackware-linux debian-linux suse-linux hpux freebsd open-linux unixware turbo-linux openbsd corel-linux cobalt-linux msc-linux generic-linux gentoo-linux
++os_support=solaris redhat-linux mandrake-linux slackware-linux debian-linux suse-linux hpux freebsd open-linux unixware turbo-linux openbsd corel-linux cobalt-linux msc-linux generic-linux gentoo-linux pld-linux
  desc=Disk Quotas
  desc_es=Cuotas de Disco
  desc_sv=Diskquota
-diff -uNr webmin-0.980.orig/quota/pld-linux-lib.pl webmin-0.980/quota/pld-linux-lib.pl
---- webmin-0.980.orig/quota/pld-linux-lib.pl	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/quota/pld-linux-lib.pl	Wed Jun 26 20:43:35 2002
+diff -uNr webmin-0.990.orig/quota/pld-linux-lib.pl webmin-0.990/quota/pld-linux-lib.pl
+--- webmin-0.990.orig/quota/pld-linux-lib.pl	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/quota/pld-linux-lib.pl	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1,391 @@
 +# linux-lib.pl
 +# Quota functions for all linux version
@@ -2999,21 +3000,21 @@ diff -uNr webmin-0.980.orig/quota/pld-linux-lib.pl webmin-0.980/quota/pld-linux-
 +
 +1;
 +
-diff -uNr webmin-0.980.orig/raid/module.info webmin-0.980/raid/module.info
---- webmin-0.980.orig/raid/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/raid/module.info	Wed Jun 26 20:43:35 2002
+diff -uNr webmin-0.990.orig/raid/module.info webmin-0.990/raid/module.info
+--- webmin-0.990.orig/raid/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/raid/module.info	Mon Jul  1 11:24:29 2002
 @@ -8,7 +8,7 @@
  desc_pt=RAID do Linux
  category=hardware
  desc_tr=Linux RAID
--os_support=redhat-linux mandrake-linux open-linux slackware-linux debian-linux suse-linux turbo-linux corel-linux cobalt-linux msc-linux generic-linux
-+os_support=redhat-linux mandrake-linux open-linux slackware-linux debian-linux suse-linux turbo-linux corel-linux cobalt-linux msc-linux generic-linux pld-linux
+-os_support=redhat-linux mandrake-linux open-linux slackware-linux debian-linux suse-linux turbo-linux corel-linux cobalt-linux msc-linux generic-linux gentoo-linux
++os_support=redhat-linux mandrake-linux open-linux slackware-linux debian-linux suse-linux turbo-linux corel-linux cobalt-linux msc-linux generic-linux gentoo-linux pld-linux
  desc=Linux RAID
  desc_es=RAID de Linux
  desc_sv=Linux RAID
-diff -uNr webmin-0.980.orig/samba/config-pld-linux webmin-0.980/samba/config-pld-linux
---- webmin-0.980.orig/samba/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/samba/config-pld-linux	Wed Jun 26 20:43:35 2002
+diff -uNr webmin-0.990.orig/samba/config-pld-linux webmin-0.990/samba/config-pld-linux
+--- webmin-0.990.orig/samba/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/samba/config-pld-linux	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1,12 @@
 +list_printers_command=lpc status | grep "[A-z0-9]:" | sed -e 's/://g'
 +smb_passwd=/etc/samba/smbpasswd
@@ -3027,21 +3028,21 @@ diff -uNr webmin-0.980.orig/samba/config-pld-linux webmin-0.980/samba/config-pld
 +run_from_inetd=0
 +swat_path=/usr/sbin/swat
 +sort_mode=0
-diff -uNr webmin-0.980.orig/samba/module.info webmin-0.980/samba/module.info
---- webmin-0.980.orig/samba/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/samba/module.info	Wed Jun 26 20:43:35 2002
+diff -uNr webmin-0.990.orig/samba/module.info webmin-0.990/samba/module.info
+--- webmin-0.990.orig/samba/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/samba/module.info	Mon Jul  1 11:24:42 2002
 @@ -9,7 +9,7 @@
  desc_pt=Partilha de Ficheiros de Windows com Samba
  category=servers
  desc_tr=Samba Windows Dosya Paylaþýmý
--os_support=solaris redhat-linux mandrake-linux debian-linux slackware-linux aix suse-linux hpux freebsd osf1 irix open-linux openserver unixware turbo-linux openbsd corel-linux cobalt-linux lfs-linux macos netbsd msc-linux generic-linux
-+os_support=solaris redhat-linux mandrake-linux debian-linux slackware-linux aix suse-linux hpux freebsd osf1 irix open-linux openserver unixware turbo-linux openbsd corel-linux cobalt-linux lfs-linux macos netbsd msc-linux generic-linux pld-linux
+-os_support=solaris redhat-linux mandrake-linux debian-linux slackware-linux aix suse-linux hpux freebsd osf1 irix open-linux openserver unixware turbo-linux openbsd corel-linux cobalt-linux lfs-linux macos netbsd msc-linux generic-linux gentoo-linux
++os_support=solaris redhat-linux mandrake-linux debian-linux slackware-linux aix suse-linux hpux freebsd osf1 irix open-linux openserver unixware turbo-linux openbsd corel-linux cobalt-linux lfs-linux macos netbsd msc-linux generic-linux gentoo-linux pld-linux
  desc=Samba Windows File Sharing
  desc_es=Compartición de Archivos de Windows mediante Samba
  desc_sv=Fildelning med Samba
-diff -uNr webmin-0.980.orig/sendmail/config-pld-linux webmin-0.980/sendmail/config-pld-linux
---- webmin-0.980.orig/sendmail/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/sendmail/config-pld-linux	Wed Jun 26 20:43:35 2002
+diff -uNr webmin-0.990.orig/sendmail/config-pld-linux webmin-0.990/sendmail/config-pld-linux
+--- webmin-0.990.orig/sendmail/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/sendmail/config-pld-linux	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1,10 @@
 +sendmail_cf=/etc/sendmail.cf
 +sendmail_pid=/var/run/sendmail.pid
@@ -3053,9 +3054,9 @@ diff -uNr webmin-0.980.orig/sendmail/config-pld-linux webmin-0.980/sendmail/conf
 +sort_mode=0
 +wrap_width=80
 +order_mail=0
-diff -uNr webmin-0.980.orig/sendmail/module.info webmin-0.980/sendmail/module.info
---- webmin-0.980.orig/sendmail/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/sendmail/module.info	Wed Jun 26 20:43:35 2002
+diff -uNr webmin-0.990.orig/sendmail/module.info webmin-0.990/sendmail/module.info
+--- webmin-0.990.orig/sendmail/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/sendmail/module.info	Mon Jul  1 11:15:43 2002
 @@ -9,7 +9,7 @@
  desc_pt=Configuração do Sendmail
  category=servers
@@ -3065,26 +3066,26 @@ diff -uNr webmin-0.980.orig/sendmail/module.info webmin-0.980/sendmail/module.in
  desc=Sendmail Configuration
  desc_es=Configuración de Sendmail
  desc_sv=Sendmail-inställningar
-diff -uNr webmin-0.980.orig/software/config-pld-linux webmin-0.980/software/config-pld-linux
---- webmin-0.980.orig/software/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/software/config-pld-linux	Wed Jun 26 20:43:35 2002
+diff -uNr webmin-0.990.orig/software/config-pld-linux webmin-0.990/software/config-pld-linux
+--- webmin-0.990.orig/software/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/software/config-pld-linux	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1 @@
 +package_system=rpm
-diff -uNr webmin-0.980.orig/software/module.info webmin-0.980/software/module.info
---- webmin-0.980.orig/software/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/software/module.info	Wed Jun 26 20:43:35 2002
+diff -uNr webmin-0.990.orig/software/module.info webmin-0.990/software/module.info
+--- webmin-0.990.orig/software/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/software/module.info	Mon Jul  1 11:24:52 2002
 @@ -9,7 +9,7 @@
  desc_pt=Pacotes de Software
  category=system
  desc_tr=Yazýlým Paketleri
--os_support=solaris redhat-linux mandrake-linux suse-linux hpux open-linux openserver unixware freebsd/3.0 freebsd/3.1 freebsd/3.2 freebsd/3.3 freebsd/3.4 freebsd/3.5 freebsd/4.0 freebsd/4.1 freebsd/4.2 freebsd/4.3 freebsd/4.4 freebsd/4.5 slackware-linux/4.0 slackware-linux/7.0 slackware-linux/7.1 slackware-linux/8.0 debian-linux/2.0 debian-linux/2.1 debian-linux/2.2 debian-linux/3.0 turbo-linux openbsd corel-linux cobalt-linux freebsd/5.0 netbsd msc-linux aix
-+os_support=solaris redhat-linux mandrake-linux suse-linux hpux open-linux openserver unixware freebsd/3.0 freebsd/3.1 freebsd/3.2 freebsd/3.3 freebsd/3.4 freebsd/3.5 freebsd/4.0 freebsd/4.1 freebsd/4.2 freebsd/4.3 freebsd/4.4 freebsd/4.5 slackware-linux/4.0 slackware-linux/7.0 slackware-linux/7.1 slackware-linux/8.0 debian-linux/2.0 debian-linux/2.1 debian-linux/2.2 debian-linux/3.0 turbo-linux openbsd corel-linux cobalt-linux freebsd/5.0 netbsd msc-linux aix pld-linux
+-os_support=solaris redhat-linux mandrake-linux suse-linux hpux open-linux openserver unixware freebsd/3.0 freebsd/3.1 freebsd/3.2 freebsd/3.3 freebsd/3.4 freebsd/3.5 freebsd/4.0 freebsd/4.1 freebsd/4.2 freebsd/4.3 freebsd/4.4 freebsd/4.5 freebsd/4.6 slackware-linux/4.0 slackware-linux/7.0 slackware-linux/7.1 slackware-linux/8.0 slackware-linux/8.1 debian-linux/2.0 debian-linux/2.1 debian-linux/2.2 debian-linux/3.0 turbo-linux openbsd corel-linux cobalt-linux freebsd/5.0 netbsd msc-linux aix gentoo-linux
++os_support=solaris redhat-linux mandrake-linux suse-linux hpux open-linux openserver unixware freebsd/3.0 freebsd/3.1 freebsd/3.2 freebsd/3.3 freebsd/3.4 freebsd/3.5 freebsd/4.0 freebsd/4.1 freebsd/4.2 freebsd/4.3 freebsd/4.4 freebsd/4.5 freebsd/4.6 slackware-linux/4.0 slackware-linux/7.0 slackware-linux/7.1 slackware-linux/8.0 slackware-linux/8.1 debian-linux/2.0 debian-linux/2.1 debian-linux/2.2 debian-linux/3.0 turbo-linux openbsd corel-linux cobalt-linux freebsd/5.0 netbsd msc-linux aix gentoo-linux pld-linux
  desc=Software Packages
  desc_es=Paquetes de Software
  desc_sv=Programpaket
-diff -uNr webmin-0.980.orig/squid/config-pld-linux webmin-0.980/squid/config-pld-linux
---- webmin-0.980.orig/squid/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/squid/config-pld-linux	Wed Jun 26 20:43:35 2002
+diff -uNr webmin-0.990.orig/squid/config-pld-linux webmin-0.990/squid/config-pld-linux
+--- webmin-0.990.orig/squid/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/squid/config-pld-linux	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1,8 @@
 +log_dir=/var/log/squid
 +squid_path=squid
@@ -3094,21 +3095,21 @@ diff -uNr webmin-0.980.orig/squid/config-pld-linux webmin-0.980/squid/config-pld
 +cachemgr_path=/home/httpd/cgi-bin/cachemgr.cgi
 +squid_start=/etc/rc.d/init.d/squid start
 +squid_stop=/etc/rc.d/init.d/squid stop
-diff -uNr webmin-0.980.orig/squid/module.info webmin-0.980/squid/module.info
---- webmin-0.980.orig/squid/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/squid/module.info	Wed Jun 26 20:43:35 2002
+diff -uNr webmin-0.990.orig/squid/module.info webmin-0.990/squid/module.info
+--- webmin-0.990.orig/squid/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/squid/module.info	Mon Jul  1 11:24:58 2002
 @@ -9,7 +9,7 @@
  desc_pt=Servidor Proxy Squid
  category=servers
  desc_tr=Squid Proxy Sunucusu
--os_support=solaris hpux redhat-linux mandrake-linux debian-linux suse-linux slackware-linux freebsd osf1 irix aix open-linux openserver unixware turbo-linux openbsd corel-linux cobalt-linux lfs-linux macos netbsd msc-linux generic-linux
-+os_support=solaris hpux redhat-linux mandrake-linux debian-linux suse-linux slackware-linux freebsd osf1 irix aix open-linux openserver unixware turbo-linux openbsd corel-linux cobalt-linux lfs-linux macos netbsd msc-linux generic-linux pld-linux
+-os_support=solaris hpux redhat-linux mandrake-linux debian-linux suse-linux slackware-linux freebsd osf1 irix aix open-linux openserver unixware turbo-linux openbsd corel-linux cobalt-linux lfs-linux macos netbsd msc-linux generic-linux gentoo-linux
++os_support=solaris hpux redhat-linux mandrake-linux debian-linux suse-linux slackware-linux freebsd osf1 irix aix open-linux openserver unixware turbo-linux openbsd corel-linux cobalt-linux lfs-linux macos netbsd msc-linux generic-linux gentoo-linux pld-linux
  desc=Squid Proxy Server
  desc_es=Servidor Proxy Squid
  desc_sv=Squid-proxyserver
-diff -uNr webmin-0.980.orig/syslog/config-pld-linux webmin-0.980/syslog/config-pld-linux
---- webmin-0.980.orig/syslog/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/syslog/config-pld-linux	Wed Jun 26 20:43:35 2002
+diff -uNr webmin-0.990.orig/syslog/config-pld-linux webmin-0.990/syslog/config-pld-linux
+--- webmin-0.990.orig/syslog/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/syslog/config-pld-linux	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1,12 @@
 +pri_all=1
 +syslogd=/sbin/syslogd
@@ -3122,33 +3123,33 @@ diff -uNr webmin-0.980.orig/syslog/config-pld-linux webmin-0.980/syslog/config-p
 +pipe=1
 +tags=0
 +lines=20
-diff -uNr webmin-0.980.orig/syslog/module.info webmin-0.980/syslog/module.info
---- webmin-0.980.orig/syslog/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/syslog/module.info	Wed Jun 26 20:43:35 2002
+diff -uNr webmin-0.990.orig/syslog/module.info webmin-0.990/syslog/module.info
+--- webmin-0.990.orig/syslog/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/syslog/module.info	Mon Jul  1 11:25:06 2002
 @@ -9,7 +9,7 @@
  desc_pt=Historiais do Sistema
  category=system
  desc_tr=Sistem Kayýtlarý
--os_support=solaris open-linux redhat-linux mandrake-linux debian-linux suse-linux slackware-linux freebsd openbsd turbo-linux corel-linux macos hpux cobalt-linux irix unixware aix netbsd msc-linux generic-linux openserver
-+os_support=solaris open-linux redhat-linux mandrake-linux debian-linux suse-linux slackware-linux freebsd openbsd turbo-linux corel-linux macos hpux cobalt-linux irix unixware aix netbsd msc-linux generic-linux openserver pld-linux
+-os_support=solaris open-linux redhat-linux mandrake-linux debian-linux suse-linux slackware-linux freebsd openbsd turbo-linux corel-linux macos hpux cobalt-linux irix unixware aix netbsd msc-linux generic-linux openserver gentoo-linux
++os_support=solaris open-linux redhat-linux mandrake-linux debian-linux suse-linux slackware-linux freebsd openbsd turbo-linux corel-linux macos hpux cobalt-linux irix unixware aix netbsd msc-linux generic-linux openserver gentoo-linux pld-linux
  desc=System Logs
  desc_es=Historiales del Sistema
  desc_sv=Systemloggar
-diff -uNr webmin-0.980.orig/time/module.info webmin-0.980/time/module.info
---- webmin-0.980.orig/time/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/time/module.info	Wed Jun 26 20:43:35 2002
+diff -uNr webmin-0.990.orig/time/module.info webmin-0.990/time/module.info
+--- webmin-0.990.orig/time/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/time/module.info	Mon Jul  1 11:25:15 2002
 @@ -9,7 +9,7 @@
  desc_pt=Tempo do Sistema
  category=hardware
  desc_tr=Sistem Zamaný
--os_support=redhat-linux mandrake-linux slackware-linux suse-linux debian-linux open-linux turbo-linux cobalt-linux solaris hpux macos freebsd netbsd msc-linux generic-linux openserver
-+os_support=redhat-linux mandrake-linux slackware-linux suse-linux debian-linux open-linux turbo-linux cobalt-linux solaris hpux macos freebsd netbsd msc-linux generic-linux openserver pld-linux
+-os_support=redhat-linux mandrake-linux slackware-linux suse-linux debian-linux open-linux turbo-linux cobalt-linux solaris hpux macos freebsd netbsd msc-linux generic-linux openserver gentoo-linux
++os_support=redhat-linux mandrake-linux slackware-linux suse-linux debian-linux open-linux turbo-linux cobalt-linux solaris hpux macos freebsd netbsd msc-linux generic-linux openserver gentoo-linux pld-linux
  desc=System Time
  desc_es=Hora del Sistema
  desc_sv=Systemtid
-diff -uNr webmin-0.980.orig/useradmin/config-pld-linux webmin-0.980/useradmin/config-pld-linux
---- webmin-0.980.orig/useradmin/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/useradmin/config-pld-linux	Wed Jun 26 20:43:35 2002
+diff -uNr webmin-0.990.orig/useradmin/config-pld-linux webmin-0.990/useradmin/config-pld-linux
+--- webmin-0.990.orig/useradmin/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/useradmin/config-pld-linux	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1,17 @@
 +homedir_perms=0751
 +display_max=400
@@ -3167,21 +3168,21 @@ diff -uNr webmin-0.980.orig/useradmin/config-pld-linux webmin-0.980/useradmin/co
 +skip_md5=0
 +display_mode=1
 +passwd_stars=0
-diff -uNr webmin-0.980.orig/useradmin/module.info webmin-0.980/useradmin/module.info
---- webmin-0.980.orig/useradmin/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/useradmin/module.info	Wed Jun 26 20:43:35 2002
+diff -uNr webmin-0.990.orig/useradmin/module.info webmin-0.990/useradmin/module.info
+--- webmin-0.990.orig/useradmin/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/useradmin/module.info	Mon Jul  1 11:25:24 2002
 @@ -11,7 +11,7 @@
  desc_pt_BR=Usuários e Grupos
  category=system
  desc_tr=Kullanýcý ve Gruplar
--os_support=slackware-linux redhat-linux mandrake-linux solaris debian-linux suse-linux hpux freebsd osf1 open-linux unixware turbo-linux openbsd corel-linux cobalt-linux irix aix netbsd msc-linux openserver generic-linux macos
-+os_support=slackware-linux redhat-linux mandrake-linux solaris debian-linux suse-linux hpux freebsd osf1 open-linux unixware turbo-linux openbsd corel-linux cobalt-linux irix aix netbsd msc-linux openserver generic-linux macos pld-linux
+-os_support=slackware-linux redhat-linux mandrake-linux solaris debian-linux suse-linux hpux freebsd osf1 open-linux unixware turbo-linux openbsd corel-linux cobalt-linux irix aix netbsd msc-linux openserver generic-linux macos gentoo-linux
++os_support=slackware-linux redhat-linux mandrake-linux solaris debian-linux suse-linux hpux freebsd osf1 open-linux unixware turbo-linux openbsd corel-linux cobalt-linux irix aix netbsd msc-linux openserver generic-linux macos gentoo-linux pld-linux
  desc=Users and Groups
  desc_es=Usuarios y Grupos
  desc_sv=Användare och grupper
-diff -uNr webmin-0.980.orig/useradmin/pld-linux-lib.pl webmin-0.980/useradmin/pld-linux-lib.pl
---- webmin-0.980.orig/useradmin/pld-linux-lib.pl	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/useradmin/pld-linux-lib.pl	Wed Jun 26 20:43:35 2002
+diff -uNr webmin-0.990.orig/useradmin/pld-linux-lib.pl webmin-0.990/useradmin/pld-linux-lib.pl
+--- webmin-0.990.orig/useradmin/pld-linux-lib.pl	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/useradmin/pld-linux-lib.pl	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1,157 @@
 +# linux-lib.pl
 +# Functions for reading linux format last output
@@ -3340,9 +3341,9 @@ diff -uNr webmin-0.980.orig/useradmin/pld-linux-lib.pl webmin-0.980/useradmin/pl
 +}
 +
 +1;
-diff -uNr webmin-0.980.orig/wuftpd/config-pld-linux webmin-0.980/wuftpd/config-pld-linux
---- webmin-0.980.orig/wuftpd/config-pld-linux	Thu Jan  1 01:00:00 1970
-+++ webmin-0.980/wuftpd/config-pld-linux	Wed Jun 26 20:43:35 2002
+diff -uNr webmin-0.990.orig/wuftpd/config-pld-linux webmin-0.990/wuftpd/config-pld-linux
+--- webmin-0.990.orig/wuftpd/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.990/wuftpd/config-pld-linux	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1,7 @@
 +ftpgroups=/etc/ftpgroups
 +ftpd_path=/usr/sbin/wu.ftpd
@@ -3351,9 +3352,9 @@ diff -uNr webmin-0.980.orig/wuftpd/config-pld-linux webmin-0.980/wuftpd/config-p
 +pid_file=/var/run/ftpd.pid
 +ftpusers=/etc/ftpusers
 +ftpaccess=/etc/ftpaccess
-diff -uNr webmin-0.980.orig/wuftpd/module.info webmin-0.980/wuftpd/module.info
---- webmin-0.980.orig/wuftpd/module.info	Wed Jun  5 01:43:56 2002
-+++ webmin-0.980/wuftpd/module.info	Wed Jun 26 20:43:35 2002
+diff -uNr webmin-0.990.orig/wuftpd/module.info webmin-0.990/wuftpd/module.info
+--- webmin-0.990.orig/wuftpd/module.info	Mon Jul  1 07:04:42 2002
++++ webmin-0.990/wuftpd/module.info	Mon Jul  1 11:15:43 2002
 @@ -9,7 +9,7 @@
  desc_pt=Servidor WU-FTP
  category=servers
