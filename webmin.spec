@@ -9,8 +9,6 @@ Version:	0.90
 Release:	3
 License:	distributable (BSD-like)
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Source0:	http://www.webmin.com/webmin/download/%{name}-%{version}.tar.gz
 # Unofficial webmin tarballs location (if anybody interested):
 #Source0:	http://www.webmin.com/webmin/devel/tarballs/%{name}-%{source_version}.tar.gz
@@ -39,8 +37,6 @@ przegl±darki obs³uguj±cej tabele i formularze
 Summary:	Webmin - Partition and disk management tools
 Summary(pl):	Webmin - Narzêdzia do zarz±dzania dyskami i partycjami
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	hdparm
 Requires:	fdisk
 Requires:	webmin-system = %{version}
@@ -57,8 +53,6 @@ Webmin - Narzêdzia do zarz±dzania dyskami i partycjami.
 Summary:	Webmin - GRUB configuration
 Summary(pl):	Webmin - Konfiguracja GRUB-a
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	grub
 Prereq:		webmin
 
@@ -73,8 +67,6 @@ Webmin - Konfiguracja GRUB-a.
 Summary:	Webmin - LILO configuration
 Summary(pl):	Webmin - Konfiguracja LILO
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	lilo
 Prereq:		webmin
 
@@ -89,8 +81,6 @@ Webmin - Konfiguracja LILO.
 Summary:	Webmin - Printer administration	
 Summary(pl):	Webmin - Zarz±dzanie drukarkami
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	lpd
 Prereq:		webmin
 
@@ -105,8 +95,6 @@ Webmin - Zarz±dzanie drukarkami.
 Summary:	Webmin - Network configuration
 Summary(pl):	Webmin - Konfiguracja sieci
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Prereq:		rc-scripts
 Prereq:		webmin
 
@@ -121,8 +109,6 @@ Webmin - Konfiguracja sieci.
 Summary:	Webmin - Apache webserver
 Summary(pl):	Webmin - Serwer WWW Apache
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	apache
 Prereq:		webmin
 
@@ -137,8 +123,6 @@ Webmin - Serwer WWW Apache.
 Summary:	Webmin - At
 Summary(pl):	Webmin - At
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	at
 Prereq:		webmin
 
@@ -153,8 +137,6 @@ Webmin - At.
 Summary:	Webmin - BIND DNS server
 Summary(pl):	Webmin - Serwer DNS BIND
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	bind
 Prereq:		webmin
 
@@ -169,8 +151,6 @@ Webmin - Serwer DNS BIND.
 Summary:	Webmin - Cron
 Summary(pl):	Webmin - Cron
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	crondaemon
 Prereq:		webmin
 
@@ -185,8 +165,6 @@ Webmin - Cron.
 Summary:	Webmin - DHCP server
 Summary(pl):	Webmin - Serwer DHCP
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	dhcp
 Prereq:		webmin
 
@@ -201,8 +179,6 @@ Webmin - Serwer DHCP.
 Summary:	Webmin - Fetchmail
 Summary(pl):	Webmin - Fetchmail
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	fetchmail
 
 %description fetchmail
@@ -216,8 +192,6 @@ Webmin - Fetchmail.
 Summary:	Webmin - Heartbeat Monitor
 Summary(pl):	Webmin - Monitor Heartbeat
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	heartbeat
 
 %description heartbeat
@@ -231,8 +205,6 @@ Webmin - Monitor Heartbeat.
 Summary:	Webmin - Inetd
 Summary(pl):	Webmin - Inetd
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Prereq:		webmin
 
 %description inetd
@@ -246,8 +218,6 @@ Webmin - Inetd.
 Summary:	Webmin - Majordomo List Manager
 Summary(pl):	Webmin - Zarz±dca list dyskusyjnych Majordomo
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	majordomo
 Requires:	webmin-sendmail = %{version}
 Prereq:		webmin
@@ -263,8 +233,6 @@ Webmin - Zarz±dca list dyskusyjnych Majordomo.
 Summary:	Webmin - MySQL server
 Summary(pl):	Webmin - Serwer MySQL
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	mysql-client
 Prereq:		webmin
 
@@ -279,8 +247,6 @@ Webmin - Serwer MySQL.
 Summary:	Webmin - Postfix
 Summary(pl):	Webmin - Postfix
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	postfix
 
 %description postfix
@@ -294,8 +260,6 @@ Webmin - Postfix.
 Summary:	Webmin - PostgreSQL server
 Summary(pl):	Webmin - Serwer PostgreSQL
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	postgresql-clients
 Prereq:		webmin
 
@@ -310,8 +274,6 @@ Webmin - Serwer PostgreSQL.
 Summary:	Webmin - PAP (PPP) usernames and passwords
 Summary(pl):	Webmin - Nazwy u¿ytkowników i has³a dla PAP (PPP)
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	ppp
 Prereq:		webmin
 
@@ -326,8 +288,6 @@ Webmin - Nazwy u¿ytkowników i has³a dla PAP (PPP).
 Summary:	Webmin - Proftpd FTP Server
 Summary(pl):	Webmin - Serwer FTP Proftpd
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	proftpd
 
 %description proftpd
@@ -341,8 +301,6 @@ Webmin - Serwer FTP Proftpd.
 Summary:	Webmin - Samba
 Summary(pl):	Webmin - Samba
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	samba
 Prereq:		webmin
 
@@ -357,8 +315,6 @@ Webmin - Samba.
 Summary:	Webmin - Sendmail	
 Summary(pl):	Webmin - Sendmail
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	sendmail
 Prereq:		webmin
 
@@ -373,8 +329,6 @@ Webmin - Sendmail.
 Summary:	Webmin - Squid proxy
 Summary(pl):	Webmin - Serwer proxy Squid
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	squid
 Prereq:		webmin
 
@@ -389,8 +343,6 @@ Webmin - Serwer proxy Squid.
 Summary:	Webmin - SSH Server
 Summary(pl):	Webmin - Serwer SSH
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	openssh-server openssh-clients
 
 %description sshd
@@ -404,8 +356,6 @@ Webmin - Serwer SSH.
 Summary:	Webmin - Wu-Ftpd server
 Summary(pl):	Webmin - Serwer Wu-Ftpd
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	wu-ftpd
 Prereq:		webmin
 
@@ -420,8 +370,6 @@ Webmin - Serwer Wu-Ftpd.
 Summary:	Webmin - Xinetd
 Summary(pl):	Webmin - Xinetd
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 
 %description xinetd
 Webmin - Xinetd.
@@ -434,8 +382,6 @@ Webmin - Xinetd.
 Summary:	Webmin - NFS server configuration	
 Summary(pl):	Webmin - Konfiguracja serwera NFS
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	nfsdaemon
 Prereq:		webmin
 
@@ -450,8 +396,6 @@ Webmin - Konfiguracja serwera NFS.
 Summary:	Webmin - Quota management
 Summary(pl):	Webmin - Zarz±dzanie quota
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	quota
 Prereq:		webmin
 
@@ -465,8 +409,6 @@ Webmin - Zarz±dzanie quota.
 %package software
 Summary:	Webmin - Software Packages
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	rpm
 Prereq:		webmin
 
@@ -478,8 +420,6 @@ Webmin - Software Packages.
 Summary:	Webmin - Event monitor
 Summary(pl):	Webmin - Monitor zdarzeñ
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	crondaemon
 Prereq:		webmin
 
@@ -494,8 +434,6 @@ Webmin - Monitor zdarzeñ.
 Summary:	Webmin - System logger
 Summary(pl):	Webmin - Logi systemowe
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	syslogdaemon
 Prereq:		webmin
 
@@ -509,8 +447,6 @@ Webmin - Logi systemowe.
 Summary:	Webmin - Admin-tools (telnet, file manager, etc)
 Summary(pl):	Webmin - Narzêdzia administracyjne (telnet, menad¿er plików, itp.)
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Prereq:		webmin
 
 %description admin-tools
@@ -526,8 +462,6 @@ Summary(pl):	Webmin - Konfiguracja systemu
 #Summary:	Webmin - Process Manager
 #Summary(pl):	Webmin - Zarz±dzenia procesami
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Prereq:		webmin
 
 %description system
@@ -541,8 +475,6 @@ Webmin - Konfiguracja systemu.
 Summary:	Webmin - NIS configuration
 Summary(pl):	Webmin - Konfiguracja NIS
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	webmin-useradmin = %{version}
 Requires:	webmin-inetd = %{version}
 Prereq:		webmin
@@ -558,8 +490,6 @@ Webmin - Konfiguracja NIS.
 Summary:	Webmin - Change Passwords
 Summary(pl):	Webmin - Zmiany hase³
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	webmin-useradmin = %{version}
 Prereq:		webmin
 
@@ -574,8 +504,6 @@ Webmin - Zmiany hase³.
 Summary:	Webmin - User account manager
 Summary(pl):	Webmin - Obs³uga kont u¿ytkowników
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Prereq:		webmin
 
 %description useradmin
@@ -589,8 +517,6 @@ Webmin - Obs³uga kont u¿ytkowników.
 Summary:	Webmin - Extra Themes for Webmin
 Summary(pl):	Webmin - Dodatkowe motywy Webmina
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 
 %description themes
 Webmin - Extra Themes for Webmin.
