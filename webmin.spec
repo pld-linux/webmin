@@ -19,7 +19,7 @@ Source1:	%{name}.init
 Source2:	%{name}-miniserv.conf
 Source3:	%{name}-find-lang.sh
 Patch0:		%{name}-PLD.patch
-URL:		http://www.webmin.com/webmin/
+URL:		http://www.webmin.com/
 BuildRequires:	perl-Net-SSLeay
 BuildRequires:	perl-CGI
 BuildRequires:	perl-Compress-Zlib
