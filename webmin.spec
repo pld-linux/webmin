@@ -4,9 +4,9 @@ Summary(pl):	Webmin - administracja przez WWW
 Name:		webmin
 Version:	0.970
 # Current unofficial tarball version (be carefull; numberring incompatibility):
-#Version:	0.90.4
-%define	source_version	%(echo %{version}|sed -e 's/pre//' -e 's/\\(\\.\\)\\(.\\)$/\\2/')
-Release:	2
+#Version:	0.966
+%define	source_version	%{version}
+Release:	3
 License:	distributable (BSD-like)
 Group:		Applications/System
 Source0:	http://www.webmin.com/webmin/download/%{name}-%{version}.tar.gz
@@ -48,64 +48,6 @@ Webmin - Partition and disk management tools.
 %description disk-tools -l pl
 Webmin - Narzêdzia do zarz±dzania dyskami i partycjami.
 
-# GRUB
-%package grub
-Summary:	Webmin - GRUB configuration
-Summary(pl):	Webmin - Konfiguracja GRUB-a
-Group:		Applications/System
-Requires:	grub
-Prereq:		webmin
-
-%description grub
-Webmin - GRUB configuration.
-
-%description grub -l pl
-Webmin - Konfiguracja GRUB-a.
-
-# LILO
-%package lilo
-Summary:	Webmin - LILO configuration
-Summary(pl):	Webmin - Konfiguracja LILO
-Group:		Applications/System
-Requires:	lilo
-Prereq:		webmin
-
-%description lilo
-Webmin - LILO configuration.
-
-%description lilo -l pl
-Webmin - Konfiguracja LILO.
-
-%if 0
-# PRINTER
-%package printer
-Summary:	Webmin - Printer administration
-Summary(pl):	Webmin - Zarz±dzanie drukarkami
-Group:		Applications/System
-Requires:	lpd
-Prereq:		webmin
-
-%description printer
-Webmin - Printer administration.
-
-%description printer -l pl
-Webmin - Zarz±dzanie drukarkami.
-%endif
-
-# NET
-%package net
-Summary:	Webmin - Network configuration
-Summary(pl):	Webmin - Konfiguracja sieci
-Group:		Applications/System
-Prereq:		rc-scripts
-Prereq:		webmin
-
-%description net
-Webmin - Network configuration.
-
-%description net -l pl
-Webmin - Konfiguracja sieci.
-
 # APACHE
 %package apache
 Summary:	Webmin - Apache webserver
@@ -134,7 +76,7 @@ Webmin - At.
 %description at -l pl
 Webmin - At.
 
-# BIND8
+# BIND 8/9
 %package bind8
 Summary:	Webmin - BIND DNS server
 Summary(pl):	Webmin - Serwer DNS BIND
@@ -147,6 +89,48 @@ Webmin - BIND DNS server.
 
 %description bind8 -l pl
 Webmin - Serwer DNS BIND.
+
+# BURNER
+%package burner
+Summary:	Webmin - CD Burner
+Summary(pl):	Webmin - Wypalanie p³yt CD
+Group:		Applications/System
+Requires:	cdrecord
+Requires:	mkisofs
+Requires:	mpg123
+Prereq:		webmin
+
+%description burner
+Webmin - CD Burner.
+
+%description burner -l pl
+Webmin - Wypalanie p³yt CD.
+
+# CLUSTER-SOFTWARE
+%package cluster-software
+Summary:	Webmin - Cluster software packages
+Summary(pl):	Webmin - Pakiety oprogramowania w klastrze
+Group:		Applications/System
+Prereq:		webmin
+
+%description cluster-software
+Webmin - Cluster software packages.
+
+%description cluster-software -l pl
+Webmin - Pakiety oprogramowania w klastrze.
+
+# CLUSTER-USERADMIN
+%package cluster-useradmin
+Summary:	Webmin - Cluster users and groups
+Summary(pl):	Webmin - U¿ytkownicy i grupy klastra
+Group:		Applications/System
+Prereq:		webmin
+
+%description cluster-useradmin
+Webmin - Cluster users and groups.
+
+%description cluster-useradmin -l pl
+Webmin - U¿ytkownicy i grupy klastra.
 
 # CRON
 %package cron
@@ -189,6 +173,35 @@ Webmin - Fetchmail.
 %description fetchmail -l pl
 Webmin - Fetchmail.
 
+# DUMP
+%package fsdump
+Summary:	Webmin - Filesystem backup
+Summary(pl):	Webmin - Archiwizacja systemu plików
+Group:		Applications/System
+Requires:	dump
+Prereq:		rc-scripts
+Prereq:		webmin
+
+%description fsdump
+Webmin - Filesystem backup.
+
+%description fsdump -l pl
+Webmin - Archiwizacja systemu plików.
+
+# GRUB
+%package grub
+Summary:	Webmin - GRUB configuration
+Summary(pl):	Webmin - Konfiguracja GRUB-a
+Group:		Applications/System
+Requires:	grub
+Prereq:		webmin
+
+%description grub
+Webmin - GRUB configuration.
+
+%description grub -l pl
+Webmin - Konfiguracja GRUB-a.
+
 # HEARTBEAT
 %package heartbeat
 Summary:	Webmin - Heartbeat Monitor
@@ -215,6 +228,48 @@ Webmin - Inetd.
 %description inetd -l pl
 Webmin - Inetd.
 
+# JABBER
+%package jabber
+Summary:	Jabber IM server
+Summary(pl):	Serwer systemu powiadamiania Jabber
+Group:		Applications/System
+Requires:	jabber
+Prereq:		webmin
+
+%description jabber
+Webmin - Jabber IM server.
+
+%description jabber -l pl
+Webmin - Serwer systemu powiadamiania Jabber.
+
+# LILO
+%package lilo
+Summary:	Webmin - LILO configuration
+Summary(pl):	Webmin - Konfiguracja LILO
+Group:		Applications/System
+Requires:	lilo
+Prereq:		webmin
+
+%description lilo
+Webmin - LILO configuration.
+
+%description lilo -l pl
+Webmin - Konfiguracja LILO.
+
+# LVM
+%package lvm
+Summary:	Webmin - Logical Volume Management
+Summary(pl):	Webmin - Zarz±dzanie wolumenami logicznymi (LVM)
+Group:		Applications/System
+Requires:	lvm
+Prereq:		webmin
+
+%description lvm
+Webmin - Logical Volume Management.
+
+%description lvm -l pl
+Webmin - Zarz±dzanie wolumenami logicznymi (LVM).
+
 %if 0
 # MAJORDOMO
 %package majordomo
@@ -232,6 +287,21 @@ Webmin - Majordomo List Manager.
 Webmin - Zarz±dca list dyskusyjnych Majordomo.
 %endif
 
+# MON
+%package mon
+Summary:	Webmin - MON resource monitoring system
+Summary(pl):	Webmin - System monitorowania zasobów MON
+Group:		Applications/System
+Requires:	mon
+Prereq:		rc-scripts
+Prereq:		webmin
+
+%description mon
+Webmin - MON resource monitoring system.
+
+%description mon -l pl
+Webmin - System monitorowania zasobów MON.
+
 # MYSQL
 %package mysql
 Summary:	Webmin - MySQL server
@@ -245,6 +315,20 @@ Webmin - MySQL server.
 
 %description mysql -l pl
 Webmin - Serwer MySQL.
+
+# NET
+%package net
+Summary:	Webmin - Network configuration
+Summary(pl):	Webmin - Konfiguracja sieci
+Group:		Applications/System
+Prereq:		rc-scripts
+Prereq:		webmin
+
+%description net
+Webmin - Network configuration.
+
+%description net -l pl
+Webmin - Konfiguracja sieci.
 
 # POSTFIX
 %package postfix
@@ -286,6 +370,22 @@ Webmin - PAP (PPP) usernames and passwords.
 
 %description ppp -l pl
 Webmin - Nazwy u¿ytkowników i has³a dla PAP (PPP).
+
+%if 0
+# PRINTER
+%package printer
+Summary:	Webmin - Printer administration
+Summary(pl):	Webmin - Zarz±dzanie drukarkami
+Group:		Applications/System
+Requires:	lpd
+Prereq:		webmin
+
+%description printer
+Webmin - Printer administration.
+
+%description printer -l pl
+Webmin - Zarz±dzanie drukarkami.
+%endif
 
 # PROFTPD
 %package proftpd
@@ -567,8 +667,9 @@ echo %{version}			>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/version
 
 gzip -9nf LICENCE LICENCE.ja
 
-for a in acl apache at bind8 custom dhcpd exports fdisk fetchmail file \
-    grub heartbeat inittab lilo lpadmin majordomo man mysql \
+for a in acl apache at bind8 burner cluster-software cluster-useradmin \
+    custom dhcpd exports fdisk fetchmail file fsdump grub \
+    heartbeat inittab jabber lilo lpadmin lvm majordomo man mon mysql \
     net nis pam pap passwd postfix postgresql proc proftpd quota raid \
     samba sendmail servers shell software squid sshd status syslog telnet \
     time useradmin webmin webminlog wuftpd xinetd ; do
@@ -577,10 +678,13 @@ done
 for a in cron inetd init mount ; do
 	./webmin-find-lang.sh $RPM_BUILD_ROOT %{_datadir}/webmin/$a $a --no-help
 done
+./webmin-find-lang.sh $RPM_BUILD_ROOT %{_datadir}/webmin MAIN
+
 cat custom.lang file.lang telnet.lang webminlog.lang > admin-tools.lang
 cat fdisk.lang raid.lang > disk-tools.lang
 cat init.lang inittab.lang mount.lang proc.lang > system.lang
-cat acl.lang man.lang pam.lang servers.lang time.lang webmin.lang > base.lang
+cat MAIN.lang acl.lang man.lang pam.lang servers.lang shell.lang \
+	time.lang webmin.lang > base.lang
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -613,24 +717,6 @@ fi
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
-%post grub
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
-perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
-
-%post lilo
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
-perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
-
-%post net
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
-perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
-
-%if 0
-%post printer
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
-perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
-%endif
-
 %post apache
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
@@ -639,7 +725,19 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
+%post burner
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
 %post bind8
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post cluster-software
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post cluster-useradmin
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
@@ -655,11 +753,31 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
+%post fsdump
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post grub
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
 %post heartbeat
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post inetd
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post jabber
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post lilo
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post lvm
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
@@ -669,7 +787,15 @@ export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %endif
 
+%post mon
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
 %post mysql
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post net
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
@@ -684,6 +810,12 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %post ppp
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%if 0
+%post printer
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+%endif
 
 %post proftpd
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
@@ -856,6 +988,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/time/module.info
 %{_datadir}/webmin/time/*-*.pl
 %{_datadir}/webmin/time/*_*.pl
+%{_datadir}/webmin/time/time.js
 %config(noreplace) %{_sysconfdir}/webmin/time/config
 
 %files admin-tools -f admin-tools.lang
@@ -890,6 +1023,8 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %dir %{_sysconfdir}/webmin/file
 %dir %{_datadir}/webmin/file
 %attr(755,root,root) %{_datadir}/webmin/file/*.cgi
+%{_datadir}/webmin/file/config-*
+%{_datadir}/webmin/file/defaultacl
 %{_datadir}/webmin/file/images
 %{_datadir}/webmin/file/module.info
 %{_datadir}/webmin/file/*.pl
@@ -901,6 +1036,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %dir %{_sysconfdir}/webmin/shell
 %dir %{_datadir}/webmin/shell
 %attr(755,root,root) %{_datadir}/webmin/shell/*.cgi
+%{_datadir}/webmin/shell/defaultacl
 %{_datadir}/webmin/shell/images
 %{_datadir}/webmin/shell/module.info
 %{_datadir}/webmin/shell/*.pl
@@ -921,6 +1057,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %dir %{_sysconfdir}/webmin/fdisk
 %dir %{_datadir}/webmin/fdisk
 %attr(755,root,root) %{_datadir}/webmin/fdisk/*.cgi
+%{_datadir}/webmin/fdisk/config
 %{_datadir}/webmin/fdisk/defaultacl
 %{_datadir}/webmin/fdisk/images
 %{_datadir}/webmin/fdisk/module.info
@@ -946,11 +1083,26 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %dir %{_datadir}/webmin/grub
 %attr(755,root,root) %{_datadir}/webmin/grub/*.cgi
 %{_datadir}/webmin/grub/config
+%{_datadir}/webmin/grub/config-*
 %{_datadir}/webmin/grub/config.info
 %{_datadir}/webmin/grub/images
 %{_datadir}/webmin/grub/module.info
 %{_datadir}/webmin/grub/*-*.pl
 %config(noreplace) %{_sysconfdir}/webmin/grub/config
+
+# JABBER
+%files jabber -f jabber.lang
+%defattr(644,root,root,755)
+%dir %{_sysconfdir}/webmin/jabber
+%dir %{_datadir}/webmin/jabber
+%attr(755,root,root) %{_datadir}/webmin/jabber/*.cgi
+%{_datadir}/webmin/jabber/config
+%{_datadir}/webmin/jabber/config-*
+%{_datadir}/webmin/jabber/config.info
+%{_datadir}/webmin/jabber/images
+%{_datadir}/webmin/jabber/module.info
+%{_datadir}/webmin/jabber/*-*.pl
+%config(noreplace) %{_sysconfdir}/webmin/jabber/config
 
 # LILO
 %files lilo -f lilo.lang
@@ -966,6 +1118,18 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/lilo/*-*.pl
 %{_datadir}/webmin/lilo/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/lilo/config
+
+# LVM
+%files lvm -f lvm.lang
+%defattr(644,root,root,755)
+%dir %{_sysconfdir}/webmin/lvm
+%dir %{_datadir}/webmin/lvm
+%attr(755,root,root) %{_datadir}/webmin/lvm/*.cgi
+%{_datadir}/webmin/lvm/images
+%{_datadir}/webmin/lvm/module.info
+%{_datadir}/webmin/lvm/*-*.pl
+%{_datadir}/webmin/lvm/*_*.pl
+%config(noreplace) %{_sysconfdir}/webmin/lvm/config
 
 %if 0
 # LP
@@ -988,6 +1152,22 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/lpadmin/*.txt
 %config(noreplace) %{_sysconfdir}/webmin/lpadmin/config
 %endif
+
+# MON
+%files mon -f mon.lang
+%defattr(644,root,root,755)
+%dir %{_sysconfdir}/webmin/mon
+%dir %{_datadir}/webmin/mon
+%attr(755,root,root) %{_datadir}/webmin/mon/*.cgi
+%{_datadir}/webmin/mon/config
+%{_datadir}/webmin/mon/config.info
+%{_datadir}/webmin/mon/images
+%{_datadir}/webmin/mon/module.info
+#%{_datadir}/webmin/mon/monshowrc
+%{_datadir}/webmin/mon/*-*.pl
+%{_datadir}/webmin/mon/*_*.pl
+%{_datadir}/webmin/mon/moncmd.pl
+%config(noreplace) %{_sysconfdir}/webmin/mon/config
 
 # NET
 %files net -f net.lang
@@ -1154,10 +1334,12 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/status/config
 %{_datadir}/webmin/status/config-*
 %{_datadir}/webmin/status/config.info
+%{_datadir}/webmin/status/defaultacl
 %{_datadir}/webmin/status/images
 %{_datadir}/webmin/status/module.info
 %{_datadir}/webmin/status/*-*.pl
 %{_datadir}/webmin/status/*_*.pl
+%{_datadir}/webmin/status/monitor.pl
 %{_datadir}/webmin/status/services
 %config(noreplace) %{_sysconfdir}/webmin/status/config
 
@@ -1182,6 +1364,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 # NIS
 %files nis -f nis.lang
 %defattr(644,root,root,755)
+%doc webmin/nis/nisupdate.conf
 %dir %{_sysconfdir}/webmin/nis
 %dir %{_datadir}/webmin/nis
 %attr(755,root,root) %{_datadir}/webmin/nis/*.cgi
@@ -1190,6 +1373,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/nis/images
 %{_datadir}/webmin/nis/module.info
 %{_datadir}/webmin/nis/*-*.pl
+%{_datadir}/webmin/nis/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/nis/config
 
 
@@ -1198,6 +1382,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 # APACHE #
 %files apache -f apache.lang
 %defattr(644,root,root,755)
+%doc %{_datadir}/webmin/apache/notes
 %dir %{_sysconfdir}/webmin/apache
 %dir %{_datadir}/webmin/apache
 %attr(755,root,root) %{_datadir}/webmin/apache/*.cgi
@@ -1206,12 +1391,13 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/apache/defaultacl
 %{_datadir}/webmin/apache/images
 %{_datadir}/webmin/apache/module.info
-%doc %{_datadir}/webmin/apache/notes
 %{_datadir}/webmin/apache/*-*.pl
 %{_datadir}/webmin/apache/*_*.pl
 %{_datadir}/webmin/apache/autoindex.pl
 %{_datadir}/webmin/apache/browsermatch.pl
-%{_datadir}/webmin/apache/core.pl
+%{_datadir}/webmin/apache/c*e.pl
+%{_datadir}/webmin/apache/p*.pl
+%{_datadir}/webmin/apache/worker.pl
 %config(noreplace) %{_sysconfdir}/webmin/apache/config
 
 # AT
@@ -1222,12 +1408,14 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %attr(755,root,root) %{_datadir}/webmin/at/*.cgi
 %{_datadir}/webmin/at/config-*
 %{_datadir}/webmin/at/config.info
+%{_datadir}/webmin/at/defaultacl
 %{_datadir}/webmin/at/images
 %{_datadir}/webmin/at/module.info
 %{_datadir}/webmin/at/*-*.pl
+%{_datadir}/webmin/at/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/at/config
 
-# BIND 8 #
+# BIND 8/9 #
 %files bind8 -f bind8.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/bind8
@@ -1242,6 +1430,45 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/bind8/*_*.pl
 %{_datadir}/webmin/bind8/db.cache
 %config(noreplace) %{_sysconfdir}/webmin/bind8/config
+
+# BURNER #
+%files burner -f burner.lang
+%defattr(644,root,root,755)
+%dir %{_sysconfdir}/webmin/burner
+%dir %{_datadir}/webmin/burner
+%attr(755,root,root) %{_datadir}/webmin/burner/*.cgi
+%{_datadir}/webmin/burner/config
+%{_datadir}/webmin/burner/images
+%{_datadir}/webmin/burner/module.info
+%{_datadir}/webmin/burner/*-*.pl
+%{_datadir}/webmin/burner/*_*.pl
+%config(noreplace) %{_sysconfdir}/webmin/burner/config
+
+# CLUSTER-SOFTWARE
+%files cluster-software -f cluster-software.lang
+%defattr(644,root,root,755)
+%dir %{_sysconfdir}/webmin/cluster-software
+%dir %{_datadir}/webmin/cluster-software
+%attr(755,root,root) %{_datadir}/webmin/cluster-software/*.cgi
+%{_datadir}/webmin/cluster-software/config
+%{_datadir}/webmin/cluster-software/config.info
+%{_datadir}/webmin/cluster-software/images
+%{_datadir}/webmin/cluster-software/module.info
+%{_datadir}/webmin/cluster-software/*-*.pl
+%config(noreplace) %{_sysconfdir}/webmin/cluster-software/config
+
+# CLUSTER-USERADMIN
+%files cluster-useradmin -f cluster-useradmin.lang
+%defattr(644,root,root,755)
+%dir %{_sysconfdir}/webmin/cluster-useradmin
+%dir %{_datadir}/webmin/cluster-useradmin
+%attr(755,root,root) %{_datadir}/webmin/cluster-useradmin/*.cgi
+%{_datadir}/webmin/cluster-useradmin/config
+%{_datadir}/webmin/cluster-useradmin/config.info
+%{_datadir}/webmin/cluster-useradmin/images
+%{_datadir}/webmin/cluster-useradmin/module.info
+%{_datadir}/webmin/cluster-useradmin/*-*.pl
+%config(noreplace) %{_sysconfdir}/webmin/cluster-useradmin/config
 
 # CRON
 %files cron -f cron.lang
@@ -1283,11 +1510,25 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/fetchmail/config
 %{_datadir}/webmin/fetchmail/config-*
 %{_datadir}/webmin/fetchmail/config.info
+%{_datadir}/webmin/fetchmail/defaultacl
 %{_datadir}/webmin/fetchmail/images
 %{_datadir}/webmin/fetchmail/module.info
 %{_datadir}/webmin/fetchmail/*-*.pl
 %{_datadir}/webmin/fetchmail/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/fetchmail/config
+
+# DUMP #
+%files fsdump -f fsdump.lang
+%defattr(644,root,root,755)
+%dir %{_sysconfdir}/webmin/fsdump
+%dir %{_datadir}/webmin/fsdump
+%attr(755,root,root) %{_datadir}/webmin/fsdump/*.cgi
+%{_datadir}/webmin/fsdump/images
+%{_datadir}/webmin/fsdump/module.info
+%{_datadir}/webmin/fsdump/*-*.pl
+%{_datadir}/webmin/fsdump/*_*.pl
+%{_datadir}/webmin/fsdump/backup.pl
+%config(noreplace) %{_sysconfdir}/webmin/fsdump/config
 
 # HEARTBEAT #
 %files heartbeat -f heartbeat.lang
@@ -1301,6 +1542,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/heartbeat/images
 %{_datadir}/webmin/heartbeat/module.info
 %{_datadir}/webmin/heartbeat/*-*.pl
+%{_datadir}/webmin/heartbeat/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/heartbeat/config
 
 # INETD
@@ -1437,8 +1679,8 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/sendmail/config-*
 %{_datadir}/webmin/sendmail/config.info
 %{_datadir}/webmin/sendmail/defaultacl
+%{_datadir}/webmin/sendmail/defines
 %{_datadir}/webmin/sendmail/images
-#%{_datadir}/webmin/sendmail/list_us
 %{_datadir}/webmin/sendmail/module.info
 %{_datadir}/webmin/sendmail/*-*.pl
 %{_datadir}/webmin/sendmail/*_*.pl
@@ -1454,6 +1696,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %attr(755,root,root) %{_datadir}/webmin/squid/*.cgi
 %{_datadir}/webmin/squid/config-*
 %{_datadir}/webmin/squid/config.info
+%{_datadir}/webmin/squid/defaultacl
 %{_datadir}/webmin/squid/images
 %{_datadir}/webmin/squid/module.info
 %{_datadir}/webmin/squid/*-*.pl
@@ -1512,9 +1755,15 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %dir %{_datadir}/webmin/caldera
 %attr(755,root,root) %{_datadir}/webmin/caldera/*.cgi
 %{_datadir}/webmin/caldera/config
-%{_datadir}/webmin/caldera/*.info
+%{_datadir}/webmin/caldera/theme.*
 %{_datadir}/webmin/caldera/*.css
 %{_datadir}/webmin/caldera/*.gif
 %{_datadir}/webmin/caldera/*/*
-%{_datadir}/webmin/kdestyle/*.info
+%dir %{_datadir}/webmin/kdestyle
+%{_datadir}/webmin/kdestyle/theme.*
 %{_datadir}/webmin/kdestyle/*/*
+%dir %{_datadir}/webmin/mscstyle3
+%attr(755,root,root) %{_datadir}/webmin/mscstyle3/*.cgi
+%{_datadir}/webmin/mscstyle3/config
+%{_datadir}/webmin/mscstyle3/theme.*
+%{_datadir}/webmin/mscstyle3/*/*
