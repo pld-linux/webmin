@@ -1,6 +1,5 @@
 #!/bin/sh
 
-#
 # Based on find-lang.sh from PLD, which is
 # copyright (c) 1998 by W. L. Estes <wlestes@uncg.edu>
 #
@@ -8,7 +7,6 @@
 # purpose as long as this notice and the above copyright notice remain
 # in tact and are included with any redistribution of this file or any
 # work based on this file.
-#
 
 usage () {
 cat <<EOF
@@ -63,7 +61,9 @@ while test $# -gt 0 ; do
     esac
 done
 
-find $TOP_DIR/$BASE_DIR/lang |sed '
+if [ -d $TOP_DIR/$BASE_DIR/help ]; then
+  echo %dir $BASE_DIR/lang > $NAME.lang
+  find $TOP_DIR/$BASE_DIR/lang |sed '
 1i\
 %defattr (644,root,root,755)
 s:^'"$TOP_DIR"'::
@@ -72,10 +72,14 @@ s:^/'$BASE_DIR/lang/'.*~::
 s:^/'$BASE_DIR/lang/'.*\.eucJP::
 s:^\(/'$BASE_DIR/lang/'\)\([a-z][a-z]\)\(.*\):%lang(\2) \1\2\3:
 s:^\([^%].*\)::
-s:%lang(en) ::' > $NAME.lang
+s:%lang(en) ::' >> $NAME.lang
+fi
 
 if [ -d $TOP_DIR/$BASE_DIR/help ]; then
-    find $TOP_DIR/$BASE_DIR/help -name '*.html' |sed '
+  if [ "$HELP" != '#' ]; then
+    echo %dir $BASE_DIR/help >> $NAME.lang
+  fi
+  find $TOP_DIR/$BASE_DIR/help -name '*.html' |sed '
 s:^'"$TOP_DIR"'::
 s:^/'$BASE_DIR/help/'.*/.*::
 '"$HELP"'s:^\(/'$BASE_DIR/help/'\)\(.*\.\)\([a-z][a-z]\)\(\|_[A-Z][A-Z]\)\(\|\.euc\|\.Big5\)\(\.html\):%lang(\3) \1\2\3\4\5\6:
