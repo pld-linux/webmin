@@ -3,14 +3,13 @@
 # webmin	Webmin is a web-based interface for system \
 # 		administration for Unix.
 #
-# chkconfig:    345  95 5
+# chkconfig:	345 95 5
 #
 # description:	Webminis a web-based interface for system \
 # 		administration for Unix. Using any browser that \
 #		supports tables and forms, you can setup user \
 #		accounts, Apache, internet services, DNS, file \
 #		sharing and so on.
-
 
 
 # Source function library
@@ -20,10 +19,14 @@
 . /etc/sysconfig/network
 
 # Check that networking is up.
-if is_no "${NETWORKING}"; then
-	# nls "ERROR: Networking is down. %s can't be run." <service>
-	msg_network_down webmin
-	exit 1
+if is_yes "${NETWORKING}"; then
+	if [ ! -f /var/lock/subsys/network ]; then
+		# nls "ERROR: Networking is down. %s can't be run." <service>
+		msg_network_down webmin
+		exit 1
+	fi
+else
+	exit 0
 fi
 
 
@@ -31,71 +34,75 @@ fi
 case "$1" in
   start)
 	if [ ! -f /etc/webmin/miniserv.users ]; then
-		echo "Try \"$0 init\" before start."
+		nls "Try \"%s init\" before start." "$0"
 		exit 1
 	fi
 	# Check if the service is already running?
 	if [ ! -f /var/lock/subsys/webmin ]; then
 		# show "Starting %s service." <service>
 		msg_starting webmin
+		busy
 		exec /usr/share/webmin/miniserv.pl /etc/webmin/miniserv.conf &
-		if ps -C miniserv.pl >/dev/null 2>&1; then
-		    ok
-		else
-		    fail
-		fi
+		ps -C miniserv.pl >/dev/null 2>&1
 		RETVAL=$?
+		[ $RETVAL -eq 0 ] && ok || fail
 		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/webmin
 	else
 		# show "%s service is already running." <service>
 		msg_already_running webmin
 		exit 1
 	fi
-        ;;
+	;;
   stop)
-        # Stop daemons.
-        # show "Stopping %s service" <service>
 	if [ -f /var/lock/subsys/webmin ]; then
+		# Stop daemons.
+		# show "Stopping %s service" <service>
 		msg_stopping webmin
 		killproc miniserv.pl
+		RETVAL=$?
 		rm -f /var/lock/subsys/webmin /var/run/miniserv.pid >/dev/null 2>&1
 	else
 		# show "%s service is not running." <service>
 		msg_not_running webmin
 		exit 1
 	fi
-        ;;
-  restart)
-        $0 stop
+	;;
+  restart|reload)
+	$0 stop
 	$0 start
-        ;;
+	exit $?
+	;;
+  force-reload)
+	$0 stop && $0 start
+	exit $?
+	;;
   status)
 	status webmin 
 	exit $?
-        ;;
+	;;
   init)
   	if [ ! -f /etc/webmin.acl -a ! -f /etc/miniserv.users ]; then
-        	echo -n "Login name [admin]: "
+		nls -n "Login name [admin]: "
 		if [ "$login" = "" ]; then
 			read login
 			if [ "$login" = "" ]; then
 				login="admin"
 			fi
 		fi
-		echo -n "Login password: "
+		nls -n "Login password: "
 		if [ "$password" = "" -a "$crypt" = "" ]; then
 			stty -echo
 			read password
 			stty echo
 			echo ""
-			echo -n "Password again: "
+			nls -n "Password again: "
 			stty -echo
 			read password2
 			stty echo
 			echo ""
 			if [ "$password" != "$password2" ]; then
-				echo "ERROR: Passwords don't match"
-				echo ""
+				nls "ERROR: Passwords don't match"
+				echo
 				exit 1
 			fi
 		fi
@@ -105,9 +112,9 @@ case "$1" in
 	fi
 	;;
   *)
-        # show "Usage: %s {start|stop|status|restart|reload|force-reload}" $0
-	msg_usage "$0 {start|stop|status|restart|reload|force-reload}"
-        exit 1
+	# show "Usage: %s {start|stop|init|restart|reload|force-reload|status}"
+	msg_usage "$0 {start|stop|init|restart|reload|force-reload|status}"
+	exit 1
 esac
 
 exit $RETVAL
