@@ -10,6 +10,7 @@ Group(pl):	Narzêdzia/System
 Source0:	%{name}-%{version}.tar.gz
 Source1:	%{name}.init
 Source2:	%{name}-miniserv.conf
+Patch0:		%{name}-PLD.patch
 Url:		http://www.webmin.com/webmin/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -20,6 +21,7 @@ accounts, Apache, internet services, DNS, file sharing and so on.
 
 %prep
 %setup -q 
+%patch0 -p1
 %build
 
 %install
@@ -35,17 +37,21 @@ install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/webmin/miniserv.conf
 
 (find $RPM_BUILD_ROOT%{_datadir}/webmin -name '*.cgi' -print ; find $RPM_BUILD_ROOT%{_datadir}/webmin -name '*.pl' -print) | perl $RPM_BUILD_ROOT%{_datadir}/webmin/perlpath.pl /usr/bin/perl -
 
-perl $RPM_BUILD_ROOT%{_datadir}/webmin/copyconfig.pl pld-linux 1.0 $RPM_BUILD_ROOT%{_datadir}/webmin $RPM_BUILD_ROOT%{_sysconfdir}/webmin "" `cd $RPM_BUILD_ROOT%{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+export allmods=`cd $RPM_BUILD_ROOT%{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 
-echo /usr/bin/perl		>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/perl-path
-echo /var/log/webmin 		>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/var-path
-echo real_os_version=1.0	>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
-echo lang=en 			>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
-echo find_pid_command=ps auwwwx | grep NAME | grep -v grep | awk '{ print $2 }'	>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
-echo os_type=pld-linux 		>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
-echo path=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin 	>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
+perl $RPM_BUILD_ROOT%{_datadir}/webmin/copyconfig.pl pld-linux 1.0 $RPM_BUILD_ROOT%{_datadir}/webmin $RPM_BUILD_ROOT%{_sysconfdir}/webmin "" $allmods
+
+echo "/usr/bin/perl"		>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/perl-path
+echo "/var/log/webmin" 		>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/var-path
+echo "real_os_version=1.0"	>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
+echo "lang=en" 			>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
+echo "find_pid_command=ps auwwwx | grep NAME | grep -v grep | awk '{ print $2 }'"	>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
+echo "os_type=pld-linux" 	>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
+echo "path=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin" 	>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
 echo real_os_type=PLD Linux 	>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
 echo os_version=1.0 		>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
+
+echo %{version}			>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/version
 
 gzip -9nf LICENCE
 
