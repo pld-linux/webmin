@@ -2,7 +2,7 @@
 Summary:	Webmin - web-based administration
 Summary(pl):	Webmin - administracja przez WWW
 Name:		webmin
-Version:	0.990
+Version:	1.070
 # Current unofficial tarball version (be carefull; numberring incompatibility):
 #Version:	0.989
 %define	source_version	%{version}
@@ -1451,7 +1451,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %attr(755,root,root) %{_datadir}/webmin/inittab/*.cgi
 %{_datadir}/webmin/inittab/config
 %{_datadir}/webmin/inittab/config.info
-%{_datadir}/webmin/inittab/defaultacl
+#%{_datadir}/webmin/inittab/defaultacl
 %{_datadir}/webmin/inittab/images
 %{_datadir}/webmin/inittab/module.info
 %{_datadir}/webmin/inittab/*-*.pl
@@ -1469,7 +1469,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/mount/module.info
 %{_datadir}/webmin/mount/*-*.pl
 %{_datadir}/webmin/mount/*_*.pl
-%{_datadir}/webmin/mount/*.risk
+#%{_datadir}/webmin/mount/*.risk
 %{_datadir}/webmin/mount/*.skill
 %config(noreplace) %{_sysconfdir}/webmin/mount/config
 
@@ -1532,7 +1532,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/useradmin/module.info
 %{_datadir}/webmin/useradmin/*-*.pl
 %{_datadir}/webmin/useradmin/*_*.pl
-%{_datadir}/webmin/useradmin/*.risk
+#%{_datadir}/webmin/useradmin/*.risk
 %{_datadir}/webmin/useradmin/*.skill
 %config(noreplace) %{_sysconfdir}/webmin/useradmin/config
 
@@ -2031,7 +2031,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/squid/module.info
 %{_datadir}/webmin/squid/*-*.pl
 %{_datadir}/webmin/squid/*_*.pl
-%{_datadir}/webmin/squid/*.risk
+#%{_datadir}/webmin/squid/*.risk
 %{_datadir}/webmin/squid/*.skill
 %config(noreplace) %{_sysconfdir}/webmin/squid/config
 
@@ -2100,7 +2100,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %dir %{_datadir}/webmin/caldera
 %attr(755,root,root) %{_datadir}/webmin/caldera/*.cgi
 %{_datadir}/webmin/caldera/*[^i]
-%{_datadir}/webmin/kdestyle
+#%{_datadir}/webmin/kdestyle
 %dir %{_datadir}/webmin/mscstyle3
 %attr(755,root,root) %{_datadir}/webmin/mscstyle3/*.cgi
 %attr(755,root,root) %{_datadir}/webmin/mscstyle3/*.pl
