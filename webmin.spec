@@ -22,7 +22,7 @@ BuildRequires:	rpm-perlprov
 BuildRequires:	textutils
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Prereq:		/sbin/chkconfig
+Requires(post,preun):	/sbin/chkconfig
 
 %description
 Webmin is a web-based interface for system administration for Unix.
@@ -39,10 +39,10 @@ przegl±darki obs³uguj±cej tabele i formularze
 Summary:	Webmin - Partition and disk management tools
 Summary(pl):	Webmin - Narzêdzia do zarz±dzania dyskami i partycjami
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	hdparm
 Requires:	fdisk
-Requires:	webmin-system = %{version}
-Prereq:		webmin
+Requires:	%{name}-system = %{version}
 
 %description disk-tools
 Webmin - Partition and disk management tools.
@@ -55,8 +55,8 @@ Webmin - Narzêdzia do zarz±dzania dyskami i partycjami.
 Summary:	Webmin - Apache webserver
 Summary(pl):	Webmin - Serwer WWW Apache
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	apache
-Prereq:		webmin
 
 %description apache
 Webmin - Apache webserver.
@@ -69,8 +69,8 @@ Webmin - Serwer WWW Apache.
 Summary:	Webmin - At
 Summary(pl):	Webmin - At
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	at
-Prereq:		webmin
 
 %description at
 Webmin - At.
@@ -83,8 +83,8 @@ Webmin - At.
 Summary:	Webmin - BIND DNS server
 Summary(pl):	Webmin - Serwer DNS BIND
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	bind
-Prereq:		webmin
 
 %description bind8
 Webmin - BIND DNS server.
@@ -97,10 +97,10 @@ Webmin - Serwer DNS BIND.
 Summary:	Webmin - CD Burner
 Summary(pl):	Webmin - Wypalanie p³yt CD
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	cdrecord
 Requires:	mkisofs
 Requires:	mpg123
-Prereq:		webmin
 
 %description burner
 Webmin - CD Burner.
@@ -114,9 +114,9 @@ Webmin - Wypalanie p³yt CD.
 Summary:	Webmin - Configuration Engine
 Summary(pl):	Webmin - cfengine
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 # ?????
 Requires:	cfengine
-Prereq:		webmin
 
 %description cfengine
 Webmin - Configuration Engine.
@@ -130,7 +130,7 @@ Webmin - cfengine.
 Summary:	Webmin - Cluster software packages
 Summary(pl):	Webmin - Pakiety oprogramowania w klastrze
 Group:		Applications/System
-Prereq:		webmin
+Prereq:		%{name} = %{version}
 
 %description cluster-software
 Webmin - Cluster software packages.
@@ -143,7 +143,7 @@ Webmin - Pakiety oprogramowania w klastrze.
 Summary:	Webmin - Cluster users and groups
 Summary(pl):	Webmin - U¿ytkownicy i grupy klastra
 Group:		Applications/System
-Prereq:		webmin
+Prereq:		%{name} = %{version}
 
 %description cluster-useradmin
 Webmin - Cluster users and groups.
@@ -156,8 +156,8 @@ Webmin - U¿ytkownicy i grupy klastra.
 Summary:	Webmin - Cron
 Summary(pl):	Webmin - Cron
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	crondaemon
-Prereq:		webmin
 
 %description cron
 Webmin - Cron.
@@ -170,8 +170,8 @@ Webmin - Cron.
 Summary:	Webmin - DHCP server
 Summary(pl):	Webmin - Serwer DHCP
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	dhcp
-Prereq:		webmin
 
 %description dhcpd
 Webmin - DHCP server.
@@ -184,6 +184,7 @@ Webmin - Serwer DHCP.
 Summary:	Webmin - Fetchmail
 Summary(pl):	Webmin - Fetchmail
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	fetchmail
 
 %description fetchmail
@@ -197,9 +198,9 @@ Webmin - Fetchmail.
 Summary:	Webmin - Filesystem backup
 Summary(pl):	Webmin - Archiwizacja systemu plików
 Group:		Applications/System
-Requires:	dump
+Prereq:		%{name} = %{version}
 Prereq:		rc-scripts
-Prereq:		webmin
+Requires:	dump
 
 %description fsdump
 Webmin - Filesystem backup.
@@ -212,8 +213,8 @@ Webmin - Archiwizacja systemu plików.
 Summary:	Webmin - GRUB configuration
 Summary(pl):	Webmin - Konfiguracja GRUB-a
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	grub
-Prereq:		webmin
 
 %description grub
 Webmin - GRUB configuration.
@@ -226,6 +227,7 @@ Webmin - Konfiguracja GRUB-a.
 Summary:	Webmin - Heartbeat Monitor
 Summary(pl):	Webmin - Monitor Heartbeat
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	heartbeat
 
 %description heartbeat
@@ -239,7 +241,7 @@ Webmin - Monitor Heartbeat.
 Summary:	Webmin - Inetd
 Summary(pl):	Webmin - Inetd
 Group:		Applications/System
-Prereq:		webmin
+Prereq:		%{name} = %{version}
 
 %description inetd
 Webmin - Inetd.
@@ -252,8 +254,8 @@ Webmin - Inetd.
 Summary:	Jabber IM server
 Summary(pl):	Serwer systemu powiadamiania Jabber
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	jabber
-Prereq:		webmin
 
 %description jabber
 Webmin - Jabber IM server.
@@ -266,8 +268,8 @@ Webmin - Serwer systemu powiadamiania Jabber.
 Summary:	Webmin - LILO configuration
 Summary(pl):	Webmin - Konfiguracja LILO
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	lilo
-Prereq:		webmin
 
 %description lilo
 Webmin - LILO configuration.
@@ -280,8 +282,8 @@ Webmin - Konfiguracja LILO.
 Summary:	Webmin - Logical Volume Management
 Summary(pl):	Webmin - Zarz±dzanie wolumenami logicznymi (LVM)
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	lvm
-Prereq:		webmin
 
 %description lvm
 Webmin - Logical Volume Management.
@@ -295,9 +297,9 @@ Webmin - Zarz±dzanie wolumenami logicznymi (LVM).
 Summary:	Webmin - Majordomo List Manager
 Summary(pl):	Webmin - Zarz±dca list dyskusyjnych Majordomo
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	majordomo
-Requires:	webmin-sendmail = %{version}
-Prereq:		webmin
+Requires:	%{name}-sendmail = %{version}
 
 %description majordomo
 Webmin - Majordomo List Manager.
@@ -311,9 +313,9 @@ Webmin - Zarz±dca list dyskusyjnych Majordomo.
 Summary:	Webmin - MON resource monitoring system
 Summary(pl):	Webmin - System monitorowania zasobów MON
 Group:		Applications/System
-Requires:	mon
+Prereq:		%{name} = %{version}
 Prereq:		rc-scripts
-Prereq:		webmin
+Requires:	mon
 
 %description mon
 Webmin - MON resource monitoring system.
@@ -326,8 +328,8 @@ Webmin - System monitorowania zasobów MON.
 Summary:	Webmin - MySQL server
 Summary(pl):	Webmin - Serwer MySQL
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	mysql-client
-Prereq:		webmin
 
 %description mysql
 Webmin - MySQL server.
@@ -340,8 +342,8 @@ Webmin - Serwer MySQL.
 Summary:	Webmin - Network configuration
 Summary(pl):	Webmin - Konfiguracja sieci
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Prereq:		rc-scripts
-Prereq:		webmin
 
 %description net
 Webmin - Network configuration.
@@ -354,6 +356,7 @@ Webmin - Konfiguracja sieci.
 Summary:	Webmin - Postfix
 Summary(pl):	Webmin - Postfix
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	postfix
 
 %description postfix
@@ -367,8 +370,8 @@ Webmin - Postfix.
 Summary:	Webmin - PostgreSQL server
 Summary(pl):	Webmin - Serwer PostgreSQL
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	postgresql-clients
-Prereq:		webmin
 
 %description postgresql
 Webmin - PostgreSQL server.
@@ -381,8 +384,8 @@ Webmin - Serwer PostgreSQL.
 Summary:	Webmin - PAP (PPP) usernames and passwords
 Summary(pl):	Webmin - Nazwy u¿ytkowników i has³a dla PAP (PPP)
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	ppp
-Prereq:		webmin
 
 %description ppp
 Webmin - PAP (PPP) usernames and passwords.
@@ -396,8 +399,8 @@ Webmin - Nazwy u¿ytkowników i has³a dla PAP (PPP).
 Summary:	Webmin - Printer administration
 Summary(pl):	Webmin - Zarz±dzanie drukarkami
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	lpd
-Prereq:		webmin
 
 %description printer
 Webmin - Printer administration.
@@ -411,6 +414,7 @@ Webmin - Zarz±dzanie drukarkami.
 Summary:	Webmin - Proftpd FTP Server
 Summary(pl):	Webmin - Serwer FTP Proftpd
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	proftpd
 
 %description proftpd
@@ -424,6 +428,7 @@ Webmin - Serwer FTP Proftpd.
 Summary:	Webmin - CVS pserver
 Summary(pl):	Webmin - Serwer CVS (pserver)
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	cvs-pserver
 
 %description cvs-pserver
@@ -437,8 +442,8 @@ Webmin - Konfiguracja serwera CVS dzia³aj±cego w trybie pserver.
 Summary:	Webmin - Samba configuration
 Summary(pl):	Webmin - Konfiguracja samby
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	samba
-Prereq:		webmin
 
 %description samba
 Webmin - Samba.
@@ -451,9 +456,9 @@ Webmin - Samba.
 Summary:	Webmin - Sentries
 Summary(pl):	Webmin - Wykrywanie prób nieautoryzowanego dostêpu
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 #Requires:	portsentry
 #Requires:	hostsentry
-Prereq:		webmin
 
 %description sentry
 Webmin - Sentries.
@@ -466,8 +471,8 @@ Webmin - Wykrywanie prób nieautoryzowanego dostêpu lub skanowania systemu.
 Summary:	Webmin - Qmail configuration
 Summary(pl):	Webmin - Konfiguracja qmaila
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	qmail
-Prereq:		webmin
 
 %description qmail
 Webmin - Qmail configuration.
@@ -480,8 +485,8 @@ Webmin - Konfiguracja qmaila.
 Summary:	Webmin - Sendmail configuration
 Summary(pl):	Webmin - Konfiguracja sendmaila
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	sendmail
-Prereq:		webmin
 
 %description sendmail
 Webmin - Sendmail configuration.
@@ -494,8 +499,8 @@ Webmin - Konfiguracja sendmaila.
 Summary:	Webmin - Squid proxy
 Summary(pl):	Webmin - Serwer proxy Squid
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	squid
-Prereq:		webmin
 
 %description squid
 Webmin - Squid proxy.
@@ -508,6 +513,7 @@ Webmin - Serwer proxy Squid.
 Summary:	Webmin - SSH Server
 Summary(pl):	Webmin - Serwer SSH
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	openssh-server openssh-clients
 
 %description sshd
@@ -521,8 +527,8 @@ Webmin - Serwer SSH.
 Summary:	Webmin - Wu-Ftpd server
 Summary(pl):	Webmin - Serwer Wu-Ftpd
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	wu-ftpd
-Prereq:		webmin
 
 %description wuftpd
 Webmin - Wu-Ftpd server.
@@ -535,6 +541,7 @@ Webmin - Serwer Wu-Ftpd.
 Summary:	Webmin - Xinetd
 Summary(pl):	Webmin - Xinetd
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 
 %description xinetd
 Webmin - Xinetd.
@@ -547,8 +554,8 @@ Webmin - Xinetd.
 Summary:	Webmin - NFS server configuration
 Summary(pl):	Webmin - Konfiguracja serwera NFS
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	nfsdaemon
-Prereq:		webmin
 
 %description nfs
 Webmin - NFS server configuration.
@@ -561,8 +568,8 @@ Webmin - Konfiguracja serwera NFS.
 Summary:	Webmin - Quota management
 Summary(pl):	Webmin - Zarz±dzanie quota
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	quota
-Prereq:		webmin
 
 %description quota
 Webmin - Quota management.
@@ -574,8 +581,8 @@ Webmin - Zarz±dzanie quota.
 %package software
 Summary:	Webmin - Software Packages
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	rpm
-Prereq:		webmin
 
 %description software
 Webmin - Software Packages.
@@ -585,8 +592,8 @@ Webmin - Software Packages.
 Summary:	Webmin - SSL tunnels configuration
 Summary(pl):	Webmin - Konfiguracja tuneli SSL
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	stunnel
-Prereq:		webmin
 
 %description stunnel
 Webmin - SSL tunnels configuration.
@@ -599,8 +606,8 @@ Webmin - Konfiguracja tuneli SSL.
 Summary:	Webmin - Event monitor
 Summary(pl):	Webmin - Monitor zdarzeñ
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	crondaemon
-Prereq:		webmin
 
 %description monitor
 Webmin - Event monitor.
@@ -613,8 +620,8 @@ Webmin - Monitor zdarzeñ.
 Summary:	Webmin - System logger
 Summary(pl):	Webmin - Logi systemowe
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	syslogdaemon
-Prereq:		webmin
 
 %description syslog
 Webmin - System logger.
@@ -625,8 +632,8 @@ Webmin - Logi systemowe.
 %package admin-tools
 Summary:	Webmin - Admin-tools (telnet, file manager, etc)
 Summary(pl):	Webmin - Narzêdzia administracyjne (telnet, zarz±dzanie plikami, itp.)
+Prereq:		%{name} = %{version}
 Group:		Applications/System
-Prereq:		webmin
 
 %description admin-tools
 Webmin - Admin-tools (telnet, file manager, etc).
@@ -641,7 +648,7 @@ Summary(pl):	Webmin - Konfiguracja systemu
 #Summary:	Webmin - Process Manager
 #Summary(pl):	Webmin - Zarz±dzenia procesami
 Group:		Applications/System
-Prereq:		webmin
+Prereq:		%{name} = %{version}
 
 %description system
 Webmin - System Configuration.
@@ -654,9 +661,9 @@ Webmin - Konfiguracja systemu.
 Summary:	Webmin - NIS configuration
 Summary(pl):	Webmin - Konfiguracja NIS
 Group:		Applications/System
-Requires:	webmin-useradmin = %{version}
-Requires:	webmin-inetd = %{version}
-Prereq:		webmin
+Prereq:		%{name} = %{version}
+Requires:	%{name}-inetd = %{version}
+Requires:	%{name}-useradmin = %{version}
 
 %description nis
 Webmin - NIS configuration.
@@ -669,8 +676,8 @@ Webmin - Konfiguracja NIS.
 Summary:	Webmin - Change Passwords
 Summary(pl):	Webmin - Zmiany hase³
 Group:		Applications/System
-Requires:	webmin-useradmin = %{version}
-Prereq:		webmin
+Prereq:		%{name} = %{version}
+Requires:	%{name}-useradmin = %{version}
 
 %description passwd
 Webmin - Change Passwords.
@@ -683,7 +690,7 @@ Webmin - Zmiany hase³.
 Summary:	Webmin - User account manager
 Summary(pl):	Webmin - Obs³uga kont u¿ytkowników
 Group:		Applications/System
-Prereq:		webmin
+Prereq:		%{name} = %{version}
 
 %description useradmin
 Webmin - User account manager.
@@ -698,8 +705,8 @@ Webmin - Obs³uga kont u¿ytkowników.
 Summary:	Webmin - Usermin configuration
 Summary(pl):	Webmin - Konfiguracja Usermina
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 Requires:	usermin
-Prereq:		webmin
 
 %description usermin
 Webmin - Usermin configuration.
@@ -713,6 +720,7 @@ Webmin - Konfiguracja usermina.
 Summary:	Webmin - Extra Themes for Webmin
 Summary(pl):	Webmin - Dodatkowe motywy Webmina
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 
 %description themes
 Webmin - Extra Themes for Webmin.
@@ -720,11 +728,12 @@ Webmin - Extra Themes for Webmin.
 %description themes -l pl
 Webmin - Dodatkowe motywy Webmina.
 
-# SORCES
+# SOURCES
 %package src
 Summary:	Webmin - Java sources
 Summary(pl):	Webmin - ¬ródla w Javie
 Group:		Applications/System
+Prereq:		%{name} = %{version}
 
 %description src
 Webmin - Java sources of the `file' module.
@@ -775,8 +784,6 @@ echo os_version=1.0 		>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
 
 echo %{version}			>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/version
 
-gzip -9nf LICENCE LICENCE.ja
-
 for a in acl apache at bind8 burner cfengine cluster-software \
     cluster-useradmin custom dhcpd exports fdisk fetchmail file fsdump \
     grub heartbeat inittab jabber lilo lpadmin lvm majordomo man mon \
@@ -804,7 +811,7 @@ rm -rf $RPM_BUILD_ROOT
 if ! grep -q ^host= /etc/webmin/miniserv.conf; then
 	echo "host=`hostname`" >>/etc/webmin/miniserv.conf
 fi
-
+/sbin/chkconfig --add webmin
 if [ -f /var/lock/subsys/webmin ]; then
 	/etc/rc.d/init.d/webmin restart >&2
 else
@@ -813,7 +820,7 @@ else
 	echo "http://your_host_name:10000" >&2
 fi
 
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %preun
@@ -825,208 +832,208 @@ if [ "$1" = "0" ]; then
 fi
 
 %post disk-tools
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post apache
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post at
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post burner
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post bind8
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %if 0
 %post cfengine
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %endif
 
 %post cluster-software
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post cluster-useradmin
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post cron
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post dhcpd
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post fetchmail
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post fsdump
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post grub
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post heartbeat
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post inetd
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post jabber
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post lilo
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post lvm
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %if 0
 %post majordomo
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %endif
 
 %post mon
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post mysql
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post net
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post postfix
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post postgresql
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post ppp
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %if 0
 %post printer
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %endif
 
 %post proftpd
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post cvs-pserver
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post qmail
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post samba
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post sentry
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post sendmail
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post stunnel
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post squid
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post sshd
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post wuftpd
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post xinetd
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post nfs
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post quota
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post software
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post monitor
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post syslog
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post admin-tools
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post system
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post nis
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post passwd
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %if 0
 %post usermin
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %endif
 
 %post useradmin
-export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %files -f base.lang
 %defattr(644,root,root,755)
-%doc LICENCE.gz LICENCE.ja.gz
+%doc LICENCE LICENCE.ja
 %attr(750,root,root) %dir /var/log/webmin
 %attr(754,root,root) /etc/rc.d/init.d/webmin
 %attr(640,root,root) /etc/pam.d/webmin
