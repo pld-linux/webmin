@@ -1,0 +1,78 @@
+#!/bin/sh
+#
+# webmin	Webmin is a web-based interface for system \
+# 		administration for Unix.
+#
+# chkconfig:    345  95 5
+#
+# description:	Webminis a web-based interface for system \
+# 		administration for Unix. Using any browser that \
+#		supports tables and forms, you can setup user \
+#		accounts, Apache, internet services, DNS, file \
+#		sharing and so on.
+
+
+
+# Source function library
+. /etc/rc.d/init.d/functions
+
+# Get network config
+. /etc/sysconfig/network
+
+# Check that networking is up.
+if is_no "${NETWORKING}"; then
+	# nls "ERROR: Networking is down. %s can't be run." <service>
+	msg_Network_Down webmin
+	exit 1
+fi
+
+
+# See how we were called.
+case "$1" in
+  start)
+	# Check if the service is already running?
+	if [ ! -f /var/lock/subsys/webmin ]; then
+		# show "Starting %s service." <service>
+		msg_starting webmin
+		exec /usr/share/webmin/miniserv.pl /etc/webmin/miniserv.conf &
+		if ps -C miniserv.pl >/dev/null 2>&1; then
+		    ok
+		else
+		    fail
+		fi
+		RETVAL=$?
+		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/webmin
+	else
+		# show "%s service is already running." <service>
+		msg_Already_Running webmin
+		exit 1
+	fi
+        ;;
+  stop)
+        # Stop daemons.
+        # show "Stopping %s service" <service>
+	if [ -f /var/lock/subsys/webmin ]; then
+		msg_stopping webmin
+		killproc webmin
+		rm -f /var/lock/subsys/webmin /var/run/webmin/webmin.pid >/dev/null 2>&1
+	else
+		# show "%s service is not running." <service>
+		msg_Not_Running webmin
+		exit 1
+	fi	
+        ;;
+  restart)
+        $0 stop
+	$0 start
+        ;;
+  status)
+	status webmin 
+	exit $?
+        ;;
+  *)
+        # show "Usage: %s {start|stop|status|restart|reload|force-reload}" $0
+	msg_Usage "$0 {start|stop|status|restart|reload|force-reload}"
+        exit 1
+esac
+
+exit $RETVAL
