@@ -6,7 +6,7 @@ Version:	0.970
 # Current unofficial tarball version (be carefull; numberring incompatibility):
 #Version:	0.90.4
 %define	source_version	%(echo %{version}|sed -e 's/pre//' -e 's/\\(\\.\\)\\(.\\)$/\\2/')
-Release:	1
+Release:	2
 License:	distributable (BSD-like)
 Group:		Applications/System
 Source0:	http://www.webmin.com/webmin/download/%{name}-%{version}.tar.gz
@@ -1290,18 +1290,18 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %config(noreplace) %{_sysconfdir}/webmin/fetchmail/config
 
 # HEARTBEAT #
-#%files heartbeat -f heartbeat.lang
-#%defattr(644,root,root,755)
-#%dir %{_sysconfdir}/webmin/heartbeat
-#%dir %{_datadir}/webmin/heartbeat
-#%attr(755,root,root) %{_datadir}/webmin/heartbeat/*.cgi
-#%{_datadir}/webmin/heartbeat/config
-#%{_datadir}/webmin/heartbeat/config-*
-#%{_datadir}/webmin/heartbeat/config.info
-#%{_datadir}/webmin/heartbeat/images
-#%{_datadir}/webmin/heartbeat/module.info
-#%{_datadir}/webmin/heartbeat/*-*.pl
-#%config(noreplace) %{_sysconfdir}/webmin/heartbeat/config
+%files heartbeat -f heartbeat.lang
+%defattr(644,root,root,755)
+%dir %{_sysconfdir}/webmin/heartbeat
+%dir %{_datadir}/webmin/heartbeat
+%attr(755,root,root) %{_datadir}/webmin/heartbeat/*.cgi
+%{_datadir}/webmin/heartbeat/config
+%{_datadir}/webmin/heartbeat/config-*
+%{_datadir}/webmin/heartbeat/config.info
+%{_datadir}/webmin/heartbeat/images
+%{_datadir}/webmin/heartbeat/module.info
+%{_datadir}/webmin/heartbeat/*-*.pl
+%config(noreplace) %{_sysconfdir}/webmin/heartbeat/config
 
 # INETD
 %files inetd -f inetd.lang
