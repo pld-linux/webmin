@@ -4,15 +4,17 @@ Summary(pl):	Webmin - administracja przez WWW
 Name:		webmin
 Version:	1.070
 # Current unofficial tarball version (be carefull; numberring incompatibility):
-#Version:	0.989
+#Version:	1.098
 %define	source_version	%{version}
 Release:	0.2
 License:	BSD-like
 Group:		Applications/System
-Source0:	http://www.webmin.com/webmin/download/%{name}-%{version}.tar.gz
-# Source0-md5:	a953ab310e03fed6d09e7f11bf629be5
+Source0:	http://dl.sourceforge.net/webadmin/%{name}-%{version}.tar.gz
+# Source0-md5:	135851a774691617a74a04243e9f1856
+#
 # Unofficial webmin tarballs location (if anybody interested):
-#Source0:	http://www.webmin.com/webmin/devel/tarballs/%{name}-%{source_version}.tar.gz
+#Source0:	http://fudu.webmin.com/webmin/tarballs/%{name}-%{source_version}.tar.gz
+#
 Source1:	%{name}.init
 Source2:	%{name}-miniserv.conf
 Source3:	%{name}-find-lang.sh
