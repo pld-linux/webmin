@@ -31,6 +31,7 @@ BuildRequires:	perl-DBI
 BuildRequires:	perl-Mon
 BuildRequires:	perl-modules
 BuildRequires:	rpm-perlprov
+BuildRequires:	rpmbuild(macros) >= 1.176
 BuildRequires:	textutils
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -911,9 +912,11 @@ fi
 if [ -f /var/lock/subsys/webmin ]; then
 	/etc/rc.d/init.d/webmin restart >&2
 else
-	echo "Run \"/etc/rc.d/init.d/webmin start\" to start webmin" >&2
-	echo "and use your web browser to go to:" >&2
-	echo "http://your_host_name:10000" >&2
+	%banner %{name} -e << EOF
+Run \"/etc/rc.d/init.d/webmin start\" to start webmin
+and use your web browser to go to:
+http://your_host_name:10000
+EOF
 fi
 
 allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
