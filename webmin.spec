@@ -2,11 +2,11 @@
 Summary:	Webmin - web-based administration
 Summary(pl):	Webmin - administracja przez WWW
 Name:		webmin
-Version:	0.90
+Version:	0.93
 # Current unofficial tarball version (be carefull; numberring incompatibility):
 #Version:	0.90.4
 %define	source_version	%(echo %{version}|sed -e 's/pre//' -e 's/\\(\\.\\)\\(.\\)$/\\2/')
-Release:	3
+Release:	1
 License:	distributable (BSD-like)
 Group:		Applications/System
 Source0:	http://www.webmin.com/webmin/download/%{name}-%{version}.tar.gz
