@@ -6,7 +6,7 @@ Version:	0.980
 # Current unofficial tarball version (be carefull; numberring incompatibility):
 #Version:	0.988
 %define	source_version	%{version}
-Release:	0.3
+Release:	0.4
 License:	distributable (BSD-like)
 Group:		Applications/System
 Source0:	http://www.webmin.com/webmin/download/%{name}-%{version}.tar.gz
@@ -718,6 +718,18 @@ Webmin - Extra Themes for Webmin.
 %description themes -l pl
 Webmin - Dodatkowe motywy Webmina.
 
+# SORCES
+%package src
+Summary:	Webmin - Java sources
+Summary(pl):	Webmin - ¬ródla w Javie
+Group:		Applications/System
+
+%description src
+Webmin - Java sources of the `file' module.
+
+%description src -l pl
+Webmin - ¬ród³a modu³u "file" napisanego czê¶ciowo w Javie.
+
 %prep
 %setup -q -n %{name}-%{source_version}
 %patch0 -p1
@@ -1155,8 +1167,6 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/file/images
 %{_datadir}/webmin/file/module.info
 %{_datadir}/webmin/file/*.pl
-# These are source files; not necessary to run...
-#%{_datadir}/webmin/file/*.java
 %{_datadir}/webmin/file/*.class
 
 # SHELL
@@ -1959,16 +1969,14 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %defattr(644,root,root,755)
 %dir %{_datadir}/webmin/caldera
 %attr(755,root,root) %{_datadir}/webmin/caldera/*.cgi
-%{_datadir}/webmin/caldera/config
-%{_datadir}/webmin/caldera/theme.*
-%{_datadir}/webmin/caldera/*.css
-%{_datadir}/webmin/caldera/*.gif
-%{_datadir}/webmin/caldera/*/*
-%dir %{_datadir}/webmin/kdestyle
-%{_datadir}/webmin/kdestyle/theme.*
-%{_datadir}/webmin/kdestyle/*/*
+%{_datadir}/webmin/caldera/*[^i]
+%{_datadir}/webmin/kdestyle
 %dir %{_datadir}/webmin/mscstyle3
 %attr(755,root,root) %{_datadir}/webmin/mscstyle3/*.cgi
-%{_datadir}/webmin/mscstyle3/config
-%{_datadir}/webmin/mscstyle3/theme.*
-%{_datadir}/webmin/mscstyle3/*/*
+%attr(755,root,root) %{_datadir}/webmin/mscstyle3/*.pl
+%{_datadir}/webmin/mscstyle3/*[^.][^.]??
+
+# SOURCES
+%files src
+%defattr(644,root,root,755)
+%dir %{_datadir}/webmin/file/*.java
