@@ -1,5 +1,5 @@
 %include        /usr/lib/rpm/macros.perl
-Summary:	Webmin - web-based administration	
+Summary:	Webmin - web-based administration
 Summary(pl):	Webmin - administracja przez WWW
 Name:		webmin
 Version:	0.90
@@ -45,7 +45,7 @@ Prereq:		webmin
 %description disk-tools
 Webmin - Partition and disk management tools.
 
-%description -l pl disk-tools
+%description disk-tools -l pl
 Webmin - Narzêdzia do zarz±dzania dyskami i partycjami.
 
 # GRUB
@@ -59,7 +59,7 @@ Prereq:		webmin
 %description grub
 Webmin - GRUB configuration.
 
-%description -l pl grub
+%description grub -l pl
 Webmin - Konfiguracja GRUB-a.
 
 # LILO
@@ -73,12 +73,12 @@ Prereq:		webmin
 %description lilo
 Webmin - LILO configuration.
 
-%description -l pl lilo
+%description lilo -l pl
 Webmin - Konfiguracja LILO.
 
 # PRINTER
 %package printer
-Summary:	Webmin - Printer administration	
+Summary:	Webmin - Printer administration
 Summary(pl):	Webmin - Zarz±dzanie drukarkami
 Group:		Applications/System
 Requires:	lpd
@@ -87,7 +87,7 @@ Prereq:		webmin
 %description printer
 Webmin - Printer administration.
 
-%description -l pl printer
+%description printer -l pl
 Webmin - Zarz±dzanie drukarkami.
 
 # NET
@@ -101,7 +101,7 @@ Prereq:		webmin
 %description net
 Webmin - Network configuration.
 
-%description -l pl net
+%description net -l pl
 Webmin - Konfiguracja sieci.
 
 # APACHE
@@ -115,7 +115,7 @@ Prereq:		webmin
 %description apache
 Webmin - Apache webserver.
 
-%description -l pl apache
+%description apache -l pl
 Webmin - Serwer WWW Apache.
 
 # AT
@@ -129,7 +129,7 @@ Prereq:		webmin
 %description at
 Webmin - At.
 
-%description -l pl at
+%description at -l pl
 Webmin - At.
 
 # BIND8
@@ -143,7 +143,7 @@ Prereq:		webmin
 %description bind8
 Webmin - BIND DNS server.
 
-%description -l pl bind8
+%description bind8 -l pl
 Webmin - Serwer DNS BIND.
 
 # CRON
@@ -157,7 +157,7 @@ Prereq:		webmin
 %description cron
 Webmin - Cron.
 
-%description -l pl cron
+%description cron -l pl
 Webmin - Cron.
 
 # DHCPD
@@ -171,7 +171,7 @@ Prereq:		webmin
 %description dhcpd
 Webmin - DHCP server.
 
-%description -l pl dhcpd
+%description dhcpd -l pl
 Webmin - Serwer DHCP.
 
 # FETCHMAIL
@@ -184,7 +184,7 @@ Requires:	fetchmail
 %description fetchmail
 Webmin - Fetchmail.
 
-%description -l pl fetchmail
+%description fetchmail -l pl
 Webmin - Fetchmail.
 
 # HEARTBEAT
@@ -197,7 +197,7 @@ Requires:	heartbeat
 %description heartbeat
 Webmin - Heartbeat Monitor.
 
-%description -l pl heartbeat
+%description heartbeat -l pl
 Webmin - Monitor Heartbeat.
 
 # INETD
@@ -210,7 +210,7 @@ Prereq:		webmin
 %description inetd
 Webmin - Inetd.
 
-%description -l pl inetd
+%description inetd -l pl
 Webmin - Inetd.
 
 # MAJORDOMO
@@ -225,7 +225,7 @@ Prereq:		webmin
 %description majordomo
 Webmin - Majordomo List Manager.
 
-%description -l pl majordomo
+%description majordomo -l pl
 Webmin - Zarz±dca list dyskusyjnych Majordomo.
 
 # MYSQL
@@ -239,7 +239,7 @@ Prereq:		webmin
 %description mysql
 Webmin - MySQL server.
 
-%description -l pl mysql
+%description mysql -l pl
 Webmin - Serwer MySQL.
 
 # POSTFIX
@@ -252,7 +252,7 @@ Requires:	postfix
 %description postfix
 Webmin - Postfix.
 
-%description -l pl postfix
+%description postfix -l pl
 Webmin - Postfix.
 
 # POSTGRESQL
@@ -266,7 +266,7 @@ Prereq:		webmin
 %description postgresql
 Webmin - PostgreSQL server.
 
-%description -l pl postgresql
+%description postgresql -l pl
 Webmin - Serwer PostgreSQL.
 
 # PPP
@@ -280,7 +280,7 @@ Prereq:		webmin
 %description ppp
 Webmin - PAP (PPP) usernames and passwords.
 
-%description -l pl ppp
+%description ppp -l pl
 Webmin - Nazwy u¿ytkowników i has³a dla PAP (PPP).
 
 # PROFTPD
@@ -293,7 +293,7 @@ Requires:	proftpd
 %description proftpd
 Webmin - Proftpd FTP Server.
 
-%description -l pl proftpd
+%description proftpd -l pl
 Webmin - Serwer FTP Proftpd.
 
 # SAMBA
@@ -307,12 +307,12 @@ Prereq:		webmin
 %description samba
 Webmin - Samba.
 
-%description -l pl samba
+%description samba -l pl
 Webmin - Samba.
 
 # SENDMAIL
 %package sendmail
-Summary:	Webmin - Sendmail	
+Summary:	Webmin - Sendmail
 Summary(pl):	Webmin - Sendmail
 Group:		Applications/System
 Requires:	sendmail
@@ -321,7 +321,7 @@ Prereq:		webmin
 %description sendmail
 Webmin - Sendmail.
 
-%description -l pl sendmail
+%description sendmail -l pl
 Webmin - Sendmail.
 
 # SQUID
@@ -335,7 +335,7 @@ Prereq:		webmin
 %description squid
 Webmin - Squid proxy.
 
-%description -l pl squid
+%description squid -l pl
 Webmin - Serwer proxy Squid.
 
 # SSHD
@@ -348,7 +348,7 @@ Requires:	openssh-server openssh-clients
 %description sshd
 Webmin - SSH Server.
 
-%description -l pl sshd
+%description sshd -l pl
 Webmin - Serwer SSH.
 
 # WUFTPD
@@ -362,7 +362,7 @@ Prereq:		webmin
 %description wuftpd
 Webmin - Wu-Ftpd server.
 
-%description -l pl wuftpd
+%description wuftpd -l pl
 Webmin - Serwer Wu-Ftpd.
 
 # XINETD
@@ -374,12 +374,12 @@ Group:		Applications/System
 %description xinetd
 Webmin - Xinetd.
 
-%description -l pl xinetd
+%description xinetd -l pl
 Webmin - Xinetd.
 
 # NFS EXPORTS
 %package nfs
-Summary:	Webmin - NFS server configuration	
+Summary:	Webmin - NFS server configuration
 Summary(pl):	Webmin - Konfiguracja serwera NFS
 Group:		Applications/System
 Requires:	nfsdaemon
@@ -388,7 +388,7 @@ Prereq:		webmin
 %description nfs
 Webmin - NFS server configuration.
 
-%description -l pl nfs
+%description nfs -l pl
 Webmin - Konfiguracja serwera NFS.
 
 # QUOTA
@@ -402,7 +402,7 @@ Prereq:		webmin
 %description quota
 Webmin - Quota management.
 
-%description -l pl quota
+%description quota -l pl
 Webmin - Zarz±dzanie quota.
 
 # SOFTWARE
@@ -426,7 +426,7 @@ Prereq:		webmin
 %description monitor
 Webmin - Event monitor.
 
-%description -l pl monitor
+%description monitor -l pl
 Webmin - Monitor zdarzeñ.
 
 # SYSLOG
@@ -440,7 +440,7 @@ Prereq:		webmin
 %description syslog
 Webmin - System logger.
 
-%description -l pl syslog
+%description syslog -l pl
 Webmin - Logi systemowe.
 
 %package admin-tools
@@ -452,13 +452,13 @@ Prereq:		webmin
 %description admin-tools
 Webmin - Admin-tools (telnet, file manager, etc).
 
-%description -l pl admin-tools
+%description admin-tools -l pl
 Webmin - Narzêdzia administracyjne (telnet, menad¿er plików, itp.).
 
 # PROC, INIT, INITTAB, MOUNT
 %package system
 Summary:	Webmin - System Configuration
-Summary(pl):	Webmin - Konfiguracja systemu 
+Summary(pl):	Webmin - Konfiguracja systemu
 #Summary:	Webmin - Process Manager
 #Summary(pl):	Webmin - Zarz±dzenia procesami
 Group:		Applications/System
@@ -467,7 +467,7 @@ Prereq:		webmin
 %description system
 Webmin - System Configuration.
 
-%description -l pl system
+%description system -l pl
 Webmin - Konfiguracja systemu.
 
 # NIS
@@ -482,7 +482,7 @@ Prereq:		webmin
 %description nis
 Webmin - NIS configuration.
 
-%description -l pl nis
+%description nis -l pl
 Webmin - Konfiguracja NIS.
 
 # PASSWD
@@ -496,7 +496,7 @@ Prereq:		webmin
 %description passwd
 Webmin - Change Passwords.
 
-%description -l pl passwd
+%description passwd -l pl
 Webmin - Zmiany hase³.
 
 # USERADMIN
@@ -509,7 +509,7 @@ Prereq:		webmin
 %description useradmin
 Webmin - User account manager.
 
-%description -l pl useradmin
+%description useradmin -l pl
 Webmin - Obs³uga kont u¿ytkowników.
 
 # THEMES
@@ -521,7 +521,7 @@ Group:		Applications/System
 %description themes
 Webmin - Extra Themes for Webmin.
 
-%description -l pl themes
+%description themes -l pl
 Webmin - Dodatkowe motywy Webmina.
 
 %prep
@@ -921,7 +921,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/fdisk/images
 %{_datadir}/webmin/fdisk/module.info
 %{_datadir}/webmin/fdisk/*.pl
-%config(noreplace) %{_sysconfdir}/webmin/fdisk/config 
+%config(noreplace) %{_sysconfdir}/webmin/fdisk/config
 
 # RAID
 %dir %{_sysconfdir}/webmin/raid
@@ -933,7 +933,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/raid/module.info
 %{_datadir}/webmin/raid/*-*.pl
 %{_datadir}/webmin/raid/*_*.pl
-%config(noreplace) %{_sysconfdir}/webmin/raid/config 
+%config(noreplace) %{_sysconfdir}/webmin/raid/config
 
 %ifnarch %{ix86}
 # GRUB
@@ -1000,7 +1000,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/net/module.info
 %{_datadir}/webmin/net/*-*.pl
 %{_datadir}/webmin/net/*_*.pl
-%config(noreplace) %{_sysconfdir}/webmin/net/config 
+%config(noreplace) %{_sysconfdir}/webmin/net/config
 
 #### SYSTEM ####
 %files system -f system.lang
@@ -1223,7 +1223,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/at/images
 %{_datadir}/webmin/at/module.info
 %{_datadir}/webmin/at/*-*.pl
-%config(noreplace) %{_sysconfdir}/webmin/at/config    
+%config(noreplace) %{_sysconfdir}/webmin/at/config
 
 # BIND 8 #
 %files bind8 -f bind8.lang
@@ -1255,7 +1255,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/cron/module.info
 %{_datadir}/webmin/cron/*-*.pl
 %{_datadir}/webmin/cron/*_*.pl
-%config(noreplace) %{_sysconfdir}/webmin/cron/config    
+%config(noreplace) %{_sysconfdir}/webmin/cron/config
 
 # DHCPD #
 %files dhcpd -f dhcpd.lang
