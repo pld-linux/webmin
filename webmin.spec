@@ -72,7 +72,7 @@ Summary:	Webmin - Network configuration
 Summary(pl):	Webmin - Konfiguracja sieci
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
-Requires:	rc-scripts
+Prereq:		rc-scripts
 
 %description net
 
