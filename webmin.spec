@@ -1,18 +1,20 @@
 # TODO:
 # - SECURITY: http://securitytracker.com/alerts/2004/Sep/1011173.html
+# - SECURITY: http://securitytracker.com/alerts/2004/Sep/1011268.html
+# - SECURITY: http://securitytracker.com/alerts/2004/Sep/1011267.html
 %include	/usr/lib/rpm/macros.perl
 Summary:	Webmin - web-based administration
 Summary(pl):	Webmin - administracja przez WWW
 Name:		webmin
-Version:	1.180
+Version:	1.070
 # Current unofficial tarball version (be carefull; numberring incompatibility):
 #Version:	1.098
 %define	source_version	%{version}
-Release:	0.1
+Release:	0.3
 License:	BSD-like
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/webadmin/%{name}-%{version}.tar.gz
-# Source0-md5:	bce184bd1f22841c69e1773b18a72b3b
+# Source0-md5:	135851a774691617a74a04243e9f1856
 #
 # Unofficial webmin tarballs location (if anybody interested):
 #Source0:	http://fudu.webmin.com/webmin/tarballs/%{name}-%{source_version}.tar.gz
@@ -1169,12 +1171,7 @@ allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | 
 %dir %{_datadir}/webmin/acl
 %attr(755,root,root) %{_datadir}/webmin/acl/*.cgi
 %{_datadir}/webmin/acl/config
-%{_datadir}/webmin/acl/config-*-linux
-%{_datadir}/webmin/acl/config-freebsd
-%{_datadir}/webmin/acl/config-macos
-%{_datadir}/webmin/acl/config-netbsd
-%{_datadir}/webmin/acl/config-openbsd
-%{_datadir}/webmin/acl/config-solaris-10
+%{_datadir}/webmin/acl/config-*
 %{_datadir}/webmin/acl/config.info
 %{_datadir}/webmin/acl/defaultacl
 %{_datadir}/webmin/acl/images
