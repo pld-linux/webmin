@@ -10,7 +10,7 @@ Version:	1.070
 # Current unofficial tarball version (be carefull; numberring incompatibility):
 #Version:	1.098
 %define	source_version	%{version}
-Release:	0.2
+Release:	0.3
 License:	BSD-like
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/webadmin/%{name}-%{version}.tar.gz
@@ -36,6 +36,7 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Requires(post,preun):/sbin/chkconfig
 Requires:	perl-modules
+Requires:	policy
 
 %description
 Webmin is a web-based interface for system administration for Unix.
