@@ -17,6 +17,8 @@ Source2:	%{name}-miniserv.conf
 Source3:	%{name}-find-lang.sh
 Patch0:		%{name}-PLD.patch
 URL:		http://www.webmin.com/webmin/
+BuildRequires:	perl-Net-SSLeay
+BuildRequires:	rpm-perlprov
 BuildRequires:	textutils
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
