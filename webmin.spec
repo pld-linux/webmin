@@ -4,9 +4,9 @@ Summary(pl):	Webmin - administracja przez WWW
 Name:		webmin
 Version:	0.980
 # Current unofficial tarball version (be carefull; numberring incompatibility):
-#Version:	0.985
+#Version:	0.988
 %define	source_version	%{version}
-Release:	0.2
+Release:	0.3
 License:	distributable (BSD-like)
 Group:		Applications/System
 Source0:	http://www.webmin.com/webmin/download/%{name}-%{version}.tar.gz
@@ -15,7 +15,7 @@ Source0:	http://www.webmin.com/webmin/download/%{name}-%{version}.tar.gz
 Source1:	%{name}.init
 Source2:	%{name}-miniserv.conf
 Source3:	%{name}-find-lang.sh
-#Patch0:		%{name}-%{version}-PLD.patch
+Patch0:		%{name}-PLD.patch
 URL:		http://www.webmin.com/webmin/
 BuildRequires:	textutils
 BuildArch:	noarch
@@ -720,7 +720,7 @@ Webmin - Dodatkowe motywy Webmina.
 
 %prep
 %setup -q -n %{name}-%{source_version}
-#%patch0 -p1
+%patch0 -p1
 
 %build
 sed "s:\./cvsweb.conf:%{_sysconfdir}/webmincnf/cvsweb.conf:g" <pserver/cvsweb.cgi >pserver/cvsweb.cgi.
