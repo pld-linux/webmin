@@ -1,0 +1,4 @@
+- added src package with java sources (only for developpers)
+- fixed themes file list (missing dirs)
+- fixed webmin-find-lang.sh script
+- release 0.4, STBR for 0.3 replacement (which is broken)
