@@ -20,8 +20,8 @@ Using any browser that supports tables and forms, you can setup user
 accounts, Apache, internet services, DNS, file sharing and so on.
 
 %package disks-tools
-Summary:	Webmin - 	
-Summary(pl):	Webmin - 
+Summary:	Webmin - Partition and disk management tools
+Summary(pl):	Webmin - Narzêdzia do zarz±dzania dyskami i partycjami
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 
@@ -32,8 +32,8 @@ Group(pl):	Narzêdzia/System
 
 # DISKS-TOOLS
 %package disks-tools-raid
-Summary:	Webmin - 	
-Summary(pl):	Webmin - 
+Summary:	Webmin - RAID
+Summary(pl):	Webmin - RAID
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Requires:	raidtools
@@ -44,8 +44,8 @@ Requires:	raidtools
 
 # LILO
 %package lilo
-Summary:	Webmin - 	
-Summary(pl):	Webmin - 
+Summary:	Webmin - LILO configuration
+Summary(pl):	Webmin - Konfiguracja LILO
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Requires:	lilo
@@ -56,8 +56,8 @@ Requires:	lilo
 
 # PRINTER
 %package printer
-Summary:	Webmin - 	
-Summary(pl):	Webmin - 
+Summary:	Webmin - Printer administration	
+Summary(pl):	Webmin - Zarz±dzanie drukark±
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Requires:	lpd
@@ -68,8 +68,8 @@ Requires:	lpd
 
 # NET
 %package net
-Summary:	Webmin - 	
-Summary(pl):	Webmin - 
+Summary:	Webmin - Network configuration
+Summary(pl):	Webmin - Konfiguracja sieci
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Requires:	rc-scripts
@@ -80,8 +80,8 @@ Requires:	rc-scripts
 
 # APACHE
 %package apache
-Summary:	Webmin - 	
-Summary(pl):	Webmin - 
+Summary:	Webmin - Apache webserver
+Summary(pl):	Webmin - Serwer WWW Apache
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Requires:	apache
@@ -92,8 +92,8 @@ Requires:	apache
 
 # BIND8
 %package bind8
-Summary:	Webmin - 	
-Summary(pl):	Webmin - 
+Summary:	Webmin - BIND 8 DNS server
+Summary(pl):	Webmin - Serwer DNS BIND 8
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Requires:	bind
@@ -104,8 +104,8 @@ Requires:	bind
 
 # DHCPD
 %package dhcpd
-Summary:	Webmin - 	
-Summary(pl):	Webmin - 
+Summary:	Webmin - DHCP server	
+Summary(pl):	Webmin - Serwer DHCP
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Requires:	dhcpd
@@ -116,8 +116,8 @@ Requires:	dhcpd
 
 # BIND4
 %package bind4
-Summary:	Webmin - 	
-Summary(pl):	Webmin - 
+Summary:	Webmin - BIND 4 DNS server
+Summary(pl):	Webmin - Serwer DNS BIND 4
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Requires:	bind4
@@ -128,8 +128,8 @@ Requires:	bind4
 
 # MAJORDOMO
 %package majordomo
-Summary:	Webmin - 	
-Summary(pl):	Webmin - 
+Summary:	Webmin - Majordomo List Manager
+Summary(pl):	Webmin - Zarz±dca list dyskusyjnych Majordomo
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Requires:	majordomo
@@ -140,8 +140,8 @@ Requires:	majordomo
 
 # MYSQL
 %package mysql
-Summary:	Webmin - 	
-Summary(pl):	Webmin - 
+Summary:	Webmin - MySQL server
+Summary(pl):	Webmin - Serwer MySQL
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Requires:	mysql-client
@@ -152,8 +152,8 @@ Requires:	mysql-client
 
 # PPP
 %package ppp
-Summary:	Webmin - 	
-Summary(pl):	Webmin - 
+Summary:	Webmin - PAP (PPP) usernames and passwords
+Summary(pl):	Webmin - nazwy u¿ytkowników i has³a dla PAP (PPP)
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Requires:	ppp
@@ -164,8 +164,8 @@ Requires:	ppp
 
 # SAMBA
 %package samba
-Summary:	Webmin - 	
-Summary(pl):	Webmin - 
+Summary:	Webmin - Samba
+Summary(pl):	Webmin - Samba
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Requires:	samba
@@ -176,8 +176,8 @@ Requires:	samba
 
 # SENDMAIL
 %package sendmail
-Summary:	Webmin - 	
-Summary(pl):	Webmin - 
+Summary:	Webmin - Sendmail	
+Summary(pl):	Webmin - Sendmail
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Requires:	sendmail
@@ -188,8 +188,8 @@ Requires:	sendmail
 
 # SQUID
 %package squid
-Summary:	Webmin - 	
-Summary(pl):	Webmin - 
+Summary:	Webmin - Squid proxy
+Summary(pl):	Webmin - Serwer proxy Squid
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Requires:	squid
@@ -200,8 +200,8 @@ Requires:	squid
 
 # WUFTPD
 %package wuftpd
-Summary:	Webmin - 	
-Summary(pl):	Webmin - 
+Summary:	Webmin - Wu-Ftpd server
+Summary(pl):	Webmin - Serwer Wu-Ftpd
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Requires:	wu-ftpd
@@ -211,8 +211,8 @@ Requires:	wu-ftpd
 %description -l pl wuftpd
 
 %package cron
-Summary:	Webmin - 	
-Summary(pl):	Webmin - 
+Summary:	Webmin - Cron
+Summary(pl):	Webmin - Cron
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Requires:	crondaemon
@@ -222,8 +222,8 @@ Requires:	crondaemon
 %description -l pl cron
 
 %package nfs
-Summary:	Webmin - 	
-Summary(pl):	Webmin - 
+Summary:	Webmin - NFS server configuration	
+Summary(pl):	Webmin - Konfiguracja serwera NFS
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Requires:	nfsdaemon
@@ -233,8 +233,8 @@ Requires:	nfsdaemon
 %description -l pl nfs
 
 %package quota
-Summary:	Webmin - 	
-Summary(pl):	Webmin - 
+Summary:	Webmin - Quota management
+Summary(pl):	Webmin - Zarz±dzanie quota
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Requires:	quota
@@ -244,8 +244,8 @@ Requires:	quota
 %description -l pl quota
 
 %package software
-Summary:	Webmin - 	
-Summary(pl):	Webmin - 
+Summary:	Webmin - Software Packages
+Summary(pl):	Webmin -
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Requires:	rpm
@@ -255,8 +255,8 @@ Requires:	rpm
 %description -l pl software
 
 %package syslog
-Summary:	Webmin - 	
-Summary(pl):	Webmin - 
+Summary:	Webmin - System logger 	
+Summary(pl):	Webmin - Logi systemowe
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Requires:	syslogd
@@ -266,14 +266,35 @@ Requires:	syslogd
 %description -l pl syslog
 
 %package admin-tools
-Summary:	Webmin - 	
-Summary(pl):	Webmin - 
+Summary:	Webmin - Admin-tools (telnet, file manager, etc)
+Summary(pl):	Webmin - Narzêdzia admin (telnet, menad¿er plików, itp)
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 
 %description admin-tools
 
 %description -l pl admin-tools
+
+%package system
+Summary:	Webmin - Process Manager
+Summary(pl):	Webmin - Zarz±dzenia procesami
+Group:		Utilities/System
+Group(pl):	Narzêdzia/System
+Requires:	webmin-disk-tools = %{version}
+
+%description system
+
+%description -l pl system
+
+%package useradmin
+Summary:	Webmin - User account manager
+Summary(pl):	Webmin - Obs³uga kont u¿ytkowników
+Group:		Utilities/System
+Group(pl):	Narzêdzia/System
+
+%description useradmin
+
+%description -l pl useradmin
 
 %prep
 %setup -q 
@@ -327,6 +348,9 @@ else
 	echo "http://your_host_name:10000" >&2
 fi
 
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
 %preun
 if [ "$1" = "0" ]; then
         if [ -f /var/lock/subsys/webmin ]; then
@@ -334,6 +358,102 @@ if [ "$1" = "0" ]; then
         fi
         /sbin/chkconfig	--del webmin
 fi
+
+%post disks-tools
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post disks-tools-raid
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post lilo
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post printer
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post net
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post apache
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post bind8
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post dhcpd
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post bind4
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post majordomo
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post mysql
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post ppp
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post samba
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post sendmail
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post squid
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post wuftpd
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post cron
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post nfs
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post quota
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post software
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post syslog
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post admin-tools
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post system
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post useradmin
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %files
 %defattr(644,root,root,755)
@@ -449,7 +569,7 @@ fi
 # CUSTOM
 %dir %{_sysconfdir}/webmin/custom
 %dir %{_datadir}/webmin/custom
-%attr(755,root,root) %{_datadir}/webmin//*.cgi
+%attr(755,root,root) %{_datadir}/webmin/custom/*.cgi
 %{_datadir}/webmin/custom/help
 %{_datadir}/webmin/custom/images
 %{_datadir}/webmin/custom/lang
@@ -536,18 +656,7 @@ fi
 %{_datadir}/webmin/net/*.pl
 
 #### SYSTEM ####
-
-# CRON
-%files cron
-%dir %{_sysconfdir}/webmin/cron
-%dir %{_datadir}/webmin/cron
-%attr(755,root,root) %{_datadir}/webmin/cron/*.cgi
-%{_datadir}/webmin/cron/config*
-%{_datadir}/webmin/cron/help
-%{_datadir}/webmin/cron/images
-%{_datadir}/webmin/cron/lang
-%{_datadir}/webmin/cron/module.info
-%{_datadir}/webmin/cron/*.pl
+%files system
 
 # INIT
 %dir %{_sysconfdir}/webmin/init
@@ -583,6 +692,7 @@ fi
 %{_datadir}/webmin/proc/*.pl
 
 # USERADMIN
+%files useradmin
 %dir %{_sysconfdir}/webmin/useradmin
 %dir %{_datadir}/webmin/useradmin
 %attr(755,root,root) %{_datadir}/webmin/useradmin/*.cgi
@@ -592,6 +702,18 @@ fi
 %{_datadir}/webmin/useradmin/lang
 %{_datadir}/webmin/useradmin/module.info
 %{_datadir}/webmin/useradmin/*.pl
+
+# CRON
+%files cron
+%dir %{_sysconfdir}/webmin/cron
+%dir %{_datadir}/webmin/cron
+%attr(755,root,root) %{_datadir}/webmin/cron/*.cgi
+%{_datadir}/webmin/cron/config*
+%{_datadir}/webmin/cron/help
+%{_datadir}/webmin/cron/images
+%{_datadir}/webmin/cron/lang
+%{_datadir}/webmin/cron/module.info
+%{_datadir}/webmin/cron/*.pl
 
 # NFS EXPORTS
 %files nfs
@@ -617,7 +739,7 @@ fi
 %{_datadir}/webmin/quota/module.info
 %{_datadir}/webmin/quota/*.pl
 
-# SOFTWARE #
+# SOFTWARE
 %files software
 %dir %{_sysconfdir}/webmin/software
 %dir %{_datadir}/webmin/software
