@@ -74,13 +74,15 @@ s:^\(/'$BASE_DIR/lang/'\)\([a-z][a-z]\)\(.*\):%lang(\2) \1\2\3:
 s:^\([^%].*\)::
 s:%lang(en) ::' > $NAME.lang
 
-find $TOP_DIR/$BASE_DIR/help -name '*.html' |sed '
+if [ -d $TOP_DIR/$BASE_DIR/help ]; then
+    find $TOP_DIR/$BASE_DIR/help -name '*.html' |sed '
 s:^'"$TOP_DIR"'::
 s:^/'$BASE_DIR/help/'.*/.*::
 '"$HELP"'s:^\(/'$BASE_DIR/help/'\)\(.*\.\)\([a-z][a-z]\)\(\|_[A-Z][A-Z]\)\(\|\.euc\|\.Big5\)\(\.html\):%lang(\3) \1\2\3\4\5\6:
 '"$HELP"'s:^\(/'$BASE_DIR/help/'.*\.html\):%lang(en) \1:
 s:^\([^%].*\)::
 '"$HELP"'s:%lang(en) ::' >> $NAME.lang
+fi
 
 find $TOP_DIR/$BASE_DIR -name 'config.info.*' |sed '
 s:^'"$TOP_DIR"'::
