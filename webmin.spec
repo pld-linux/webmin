@@ -224,6 +224,7 @@ Group:		Applications/System
 Group(de):	Applikationen/System
 Group(pl):	Aplikacje/System
 Requires:	mysql-client
+Requires:	webmin
 
 %description mysql
 Webmin - MySQL server.
