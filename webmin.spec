@@ -6,7 +6,7 @@ Version:	0.90
 # Current unofficial tarball version (be carefull; numberring incompatibility):
 #Version:	0.90.4
 %define	source_version	%(echo %{version}|sed -e 's/pre//' -e 's/\\(\\.\\)\\(.\\)$/\\2/')
-Release:	2
+Release:	3
 License:	distributable (BSD-like)
 Group:		Applications/System
 Group(de):	Applikationen/System
@@ -187,7 +187,7 @@ Summary(pl):	Webmin - Serwer DHCP
 Group:		Applications/System
 Group(de):	Applikationen/System
 Group(pl):	Aplikacje/System
-Requires:	dhcpd
+Requires:	dhcp
 Prereq:		webmin
 
 %description dhcpd
