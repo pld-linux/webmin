@@ -6,7 +6,7 @@ Version:	0.90
 # Current unofficial tarball version (be carefull; numberring incompatibility):
 #Version:	0.90.4
 %define	source_version	%(echo %{version}|sed -e 's/pre//' -e 's/\\(\\.\\)\\(.\\)$/\\2/')
-Release:	3
+Release:	4
 License:	distributable (BSD-like)
 Group:		Applications/System
 Source0:	http://www.webmin.com/webmin/download/%{name}-%{version}.tar.gz
@@ -76,6 +76,7 @@ Webmin - LILO configuration.
 %description lilo -l pl
 Webmin - Konfiguracja LILO.
 
+%if 0
 # PRINTER
 %package printer
 Summary:	Webmin - Printer administration
@@ -89,6 +90,7 @@ Webmin - Printer administration.
 
 %description printer -l pl
 Webmin - Zarz±dzanie drukarkami.
+%endif
 
 # NET
 %package net
@@ -213,6 +215,7 @@ Webmin - Inetd.
 %description inetd -l pl
 Webmin - Inetd.
 
+%if 0
 # MAJORDOMO
 %package majordomo
 Summary:	Webmin - Majordomo List Manager
@@ -227,6 +230,7 @@ Webmin - Majordomo List Manager.
 
 %description majordomo -l pl
 Webmin - Zarz±dca list dyskusyjnych Majordomo.
+%endif
 
 # MYSQL
 %package mysql
@@ -609,25 +613,23 @@ fi
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
-%ifnarch %{ix86}
 %post grub
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
-%endif
 
-%ifnarch %{ix86}
 %post lilo
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
-%endif
 
 %post net
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
+%if 0
 %post printer
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+%endif
 
 %post apache
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
@@ -661,9 +663,11 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
+%if 0
 %post majordomo
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+%endif
 
 %post mysql
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
@@ -935,7 +939,6 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/raid/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/raid/config
 
-%ifnarch %{ix86}
 # GRUB
 %files grub -f grub.lang
 %defattr(644,root,root,755)
@@ -948,9 +951,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/grub/module.info
 %{_datadir}/webmin/grub/*-*.pl
 %config(noreplace) %{_sysconfdir}/webmin/grub/config
-%endif
 
-%ifnarch %{ix86}
 # LILO
 %files lilo -f lilo.lang
 %defattr(644,root,root,755)
@@ -965,8 +966,8 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/lilo/*-*.pl
 %{_datadir}/webmin/lilo/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/lilo/config
-%endif
 
+%if 0
 # LP
 %files printer -f lpadmin.lang
 %defattr(644,root,root,755)
@@ -986,6 +987,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/lpadmin/stp
 %{_datadir}/webmin/lpadmin/*.txt
 %config(noreplace) %{_sysconfdir}/webmin/lpadmin/config
+%endif
 
 # NET
 %files net -f net.lang
@@ -1316,6 +1318,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/inetd/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/inetd/config
 
+%if 0
 # MAJORDOMO #
 %files majordomo -f majordomo.lang
 %defattr(644,root,root,755)
@@ -1331,6 +1334,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/majordomo/*-*.pl
 %{_datadir}/webmin/majordomo/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/majordomo/config
+%endif
 
 # MYSQL #
 %files mysql -f mysql.lang
