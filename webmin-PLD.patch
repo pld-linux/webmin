@@ -1,0 +1,1564 @@
+diff -ruN webmin-0.79.orig/apache/config-pld-linux webmin-0.79/apache/config-pld-linux
+--- webmin-0.79.orig/apache/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.79/apache/config-pld-linux	Tue May 23 10:19:20 2000
+@@ -0,0 +1,7 @@
++show_list=0
++httpd_dir=/etc/httpd
++httpd_path=/usr/sbin/httpd
++mime_types=/etc/mime.types
++start_cmd=/etc/rc.d/init.d/httpd start
++stop_cmd=/etc/rc.d/init.d/httpd stop
++show_order=0
+diff -ruN webmin-0.79.orig/apache/module.info webmin-0.79/apache/module.info
+--- webmin-0.79.orig/apache/module.info	Sat Apr 15 11:14:39 2000
++++ webmin-0.79/apache/module.info	Wed May 24 09:52:03 2000
+@@ -5,5 +5,7 @@
+ desc_de=Apache Webserver
+ desc_fr=Serveur Web Apache
+ desc_pt=Servidor Web Apache
+-os_support=solaris redhat-linux debian-linux slackware-linux suse-linux aix hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux openbsd corel-linux cobalt-linux
++os_support=solaris redhat-linux debian-linux slackware-linux suse-linux
++aix hpux freebsd osf1 irix unixware openserver macos open-linux
++turbo-linux openbsd corel-linux cobalt-linux pld-linux
+ category=servers
+diff -ruN webmin-0.79.orig/bind8/config-pld-linux webmin-0.79/bind8/config-pld-linux
+--- webmin-0.79.orig/bind8/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.79/bind8/config-pld-linux	Sat Apr 15 11:14:40 2000
+@@ -0,0 +1,5 @@
++soa_style=0
++named_path=/usr/sbin/named
++named_conf=/etc/named.conf
++show_list=0
++records_order=0
+diff -ruN webmin-0.79.orig/bind8/module.info webmin-0.79/bind8/module.info
+--- webmin-0.79.orig/bind8/module.info	Sat Apr 15 11:14:39 2000
++++ webmin-0.79/bind8/module.info	Wed May 24 09:52:34 2000
+@@ -5,5 +5,7 @@
+ desc_de=BIND 8 DNS Server
+ desc_fr=Serveur de Noms de Domaine Bind 8
+ desc_pt=Servidor de DNS BIND 8
+-os_support=slackware-linux redhat-linux solaris debian-linux suse-linux hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux openbsd corel-linux cobalt-linux/5.0
++os_support=slackware-linux redhat-linux solaris debian-linux suse-linux
++hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux
++openbsd corel-linux cobalt-linux/5.0 pld-linux
+ category=servers
+diff -ruN webmin-0.79.orig/config-pld-linux webmin-0.79/config-pld-linux
+--- webmin-0.79.orig/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.79/config-pld-linux	Tue May 23 10:16:20 2000
+@@ -0,0 +1,2 @@
++find_pid_command=ps auwwwx | grep NAME | grep -v grep | awk '{ print $2 }'
++path=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin
+diff -ruN webmin-0.79.orig/cron/config-pld-linux webmin-0.79/cron/config-pld-linux
+--- webmin-0.79.orig/cron/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.79/cron/config-pld-linux	Tue May 23 10:20:30 2000
+@@ -0,0 +1,12 @@
++cron_dir=/var/spool/cron
++cron_deny_file=/etc/cron/cron.deny
++cron_input=1
++cron_delete_command=crontab -u USER -r
++cron_edit_command=crontab -u USER -e
++vixie_cron=1
++cron_deny_all=2
++system_crontab=/etc/crontab
++cron_allow_file=/etc/cron.allow
++cron_get_command=crontab -u USER -l
++run_parts=run-parts
++cronfiles_dir=/etc/cron.d
+diff -ruN webmin-0.79.orig/cron/module.info webmin-0.79/cron/module.info
+--- webmin-0.79.orig/cron/module.info	Sat Apr 15 11:14:33 2000
++++ webmin-0.79/cron/module.info	Wed May 24 09:53:00 2000
+@@ -5,5 +5,7 @@
+ desc_de=Geplante Cron Jobs
+ desc_fr=T‚ches Cron
+ desc_pt=Tarefas Agendadas (Cron)
+-os_support=solaris slackware-linux redhat-linux debian-linux suse-linux hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux openbsd corel-linux cobalt-linux
++os_support=solaris slackware-linux redhat-linux debian-linux suse-linux
++hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux
++openbsd corel-linux cobalt-linux pld-linux
+ category=system
+diff -ruN webmin-0.79.orig/dhcpd/config-pld-linux webmin-0.79/dhcpd/config-pld-linux
+--- webmin-0.79.orig/dhcpd/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.79/dhcpd/config-pld-linux	Tue May 23 10:21:41 2000
+@@ -0,0 +1,4 @@
++dhcpd_conf=/etc/dhcpd.conf
++pid_file=/var/run/dhcpd.pid
++dhcpd_path=/usr/sbin/dhcpd
++lease_file=/var/lib/dhcp/dhcpd.leases
+diff -ruN webmin-0.79.orig/dhcpd/module.info webmin-0.79/dhcpd/module.info
+--- webmin-0.79.orig/dhcpd/module.info	Sat Apr 15 11:14:43 2000
++++ webmin-0.79/dhcpd/module.info	Wed May 24 09:54:21 2000
+@@ -5,5 +5,5 @@
+ desc_de=DHCP Server
+ desc_fr=Serveur DHCP
+ desc_pt=Servidor de DHCP
+-os_support=debian-linux freebsd osf1 redhat-linux slackware-linux solaris suse-linux unixware openserver open-linux turbo-linux openbsd corel-linux cobalt-linux
++os_support=debian-linux freebsd osf1 redhat-linux slackware-linux solaris suse-linux unixware openserver open-linux turbo-linux openbsd corel-linux cobalt-linux pld-linux
+ category=servers
+diff -ruN webmin-0.79.orig/dnsadmin/module.info webmin-0.79/dnsadmin/module.info
+--- webmin-0.79.orig/dnsadmin/module.info	Sat Apr 15 11:14:34 2000
++++ webmin-0.79/dnsadmin/module.info	Wed May 24 09:54:10 2000
+@@ -5,6 +5,6 @@
+ desc_de=BIND 4 DNS Server
+ desc_fr=Serveur de Noms de Domaine Bind 4
+ desc_pt=Servidor de DNS BIND 4
+-os_support=slackware-linux redhat-linux solaris debian-linux suse-linux hpux freebsd osf1 irix unixware openserver turbo-linux openbsd aix cobalt-linux/2.2
++os_support=slackware-linux redhat-linux solaris debian-linux suse-linux hpux freebsd osf1 irix unixware openserver turbo-linux openbsd aix cobalt-linux/2.2 pld-linux
+ depends=bind8
+ category=servers
+diff -ruN webmin-0.79.orig/exports/config-pld-linux webmin-0.79/exports/config-pld-linux
+--- webmin-0.79.orig/exports/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.79/exports/config-pld-linux	Tue May 23 10:23:07 2000
+@@ -0,0 +1,3 @@
++restart_command=/etc/rc.d/init.d/nfs restart
++exports_file=/etc/exports
++nfs_server=rpc.nfsd
+diff -ruN webmin-0.79.orig/exports/module.info webmin-0.79/exports/module.info
+--- webmin-0.79.orig/exports/module.info	Sat Apr 15 11:14:34 2000
++++ webmin-0.79/exports/module.info	Wed May 24 09:53:53 2000
+@@ -5,5 +5,5 @@
+ desc_de=NFS Exporte
+ desc_fr=Partage NFS
+ desc_pt=ExportaÁıes de NFS
+-os_support=slackware-linux redhat-linux debian-linux suse-linux open-linux turbo-linux corel-linux cobalt-linux
++os_support=slackware-linux redhat-linux debian-linux suse-linux open-linux turbo-linux corel-linux cobalt-linux pld-linux
+ category=system
+diff -ruN webmin-0.79.orig/fdisk/module.info webmin-0.79/fdisk/module.info
+--- webmin-0.79.orig/fdisk/module.info	Sat Apr 15 11:14:37 2000
++++ webmin-0.79/fdisk/module.info	Wed May 24 09:55:07 2000
+@@ -5,6 +5,6 @@
+ desc_de=Festplatten-Partitionen
+ desc_fr=Partition sur Disque Local
+ desc_pt=PartiÁıes em Discos Locais
+-os_support=redhat-linux slackware-linux debian-linux suse-linux open-linux turbo-linux corel-linux cobalt-linux
++os_support=redhat-linux slackware-linux debian-linux suse-linux open-linux turbo-linux corel-linux cobalt-linux pld-linux
+ depends=mount proc
+ category=hardware
+diff -ruN webmin-0.79.orig/init/config-pld-linux webmin-0.79/init/config-pld-linux
+--- webmin-0.79.orig/init/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.79/init/config-pld-linux	Tue May 23 10:24:18 2000
+@@ -0,0 +1,13 @@
++soft_links=1
++show_opts=0
++init_base=/etc/rc.d
++init_dir=/etc/rc.d/init.d
++reboot_command=reboot
++shutdown_command=halt
++order_digits=2
++inittab_id=id
++extra_init=/etc/rc.d/rc.local
++chkconfig=2345
++subsys=/var/lock/subsys
++expert=0
++desc=1
+diff -ruN webmin-0.79.orig/init/module.info webmin-0.79/init/module.info
+--- webmin-0.79.orig/init/module.info	Sat Apr 15 11:14:34 2000
++++ webmin-0.79/init/module.info	Wed May 24 09:55:34 2000
+@@ -5,6 +5,8 @@
+ desc_de=System Start und Stop
+ desc_fr=Actions de dÈmarrage et d'arrÍt
+ desc_pt=Iniciar e Encerrar
+-os_support=solaris redhat-linux debian-linux suse-linux hpux slackware-linux freebsd unixware openserver open-linux turbo-linux openbsd corel-linux cobalt-linux cobalt-linux
++os_support=solaris redhat-linux debian-linux suse-linux hpux
++slackware-linux freebsd unixware openserver open-linux turbo-linux
++openbsd corel-linux cobalt-linux cobalt-linux pld-linux
+ depends=proc
+ category=system
+diff -ruN webmin-0.79.orig/inittab/module.info webmin-0.79/inittab/module.info
+--- webmin-0.79.orig/inittab/module.info	Sat Apr 15 11:14:48 2000
++++ webmin-0.79/inittab/module.info	Wed May 24 09:55:55 2000
+@@ -3,5 +3,5 @@
+ desc_pt=ConfiguraÁ„o de InicializaÁ„o SysV
+ desc_es=ConfiguraciÛn Init de SysV
+ desc_ru_SU=ÎœŒ∆…«’“¡√…— SysV ÈŒ…√…¡Ã…⁄¡‘œ“¡
+-os_support=solaris redhat-linux debian-linux suse-linux hpux slackware-linux unixware openserver open-linux turbo-linux
++os_support=solaris redhat-linux debian-linux suse-linux hpux slackware-linux unixware openserver open-linux turbo-linux pld-linux
+ category=system
+diff -ruN webmin-0.79.orig/lilo/module.info webmin-0.79/lilo/module.info
+--- webmin-0.79.orig/lilo/module.info	Sat Apr 15 11:14:44 2000
++++ webmin-0.79/lilo/module.info	Wed May 24 09:56:08 2000
+@@ -5,5 +5,5 @@
+ desc_de=Linux Boot Konfiguration
+ desc_fr=Configuration du DÈmarrage de Linux
+ desc_pt=ConfiguraÁ„o de Arranque do Linux
+-os_support=redhat-linux slackware-linux suse-linux debian-linux open-linux turbo-linux corel-linux
++os_support=redhat-linux slackware-linux suse-linux debian-linux open-linux turbo-linux corel-linux pld-linux
+ category=hardware
+diff -ruN webmin-0.79.orig/lpadmin/config-pld-linux webmin-0.79/lpadmin/config-pld-linux
+--- webmin-0.79.orig/lpadmin/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.79/lpadmin/config-pld-linux	Sat Apr 15 11:14:39 2000
+@@ -0,0 +1,10 @@
++iface_perms=755
++printcap_file=/etc/printcap
++gs_lib=
++iface_arg=
++gs_path=gs
++spool_dir=/var/spool/lpd
++gs_fontpath=
++smbclient_path=smbclient
++print_style=linux
++driver_style=redhat
+diff -ruN webmin-0.79.orig/lpadmin/module.info webmin-0.79/lpadmin/module.info
+--- webmin-0.79.orig/lpadmin/module.info	Sat Apr 15 11:14:39 2000
++++ webmin-0.79/lpadmin/module.info	Wed May 24 09:56:31 2000
+@@ -6,5 +6,5 @@
+ desc_de=Drucker Verwaltung
+ desc_fr=Administration de l'Imprimante
+ desc_pt=AdministraÁ„o de Impressoras
+-os_support=solaris redhat-linux slackware-linux suse-linux debian-linux freebsd hpux unixware macos open-linux turbo-linux openbsd corel-linux
++os_support=solaris redhat-linux slackware-linux suse-linux debian-linux freebsd hpux unixware macos open-linux turbo-linux openbsd corel-linux pld-linux
+ category=hardware
+diff -ruN webmin-0.79.orig/majordomo/module.info webmin-0.79/majordomo/module.info
+--- webmin-0.79.orig/majordomo/module.info	Sat Apr 15 11:14:44 2000
++++ webmin-0.79/majordomo/module.info	Wed May 24 09:56:59 2000
+@@ -5,6 +5,6 @@
+ desc_de=Majordomo Listenverwaltung
+ desc_fr=Gestionnaire de Majordomo
+ desc_pt=Administrador de Listas Majordomo
+-os_support=solaris redhat-linux debian-linux slackware-linux suse-linux aix hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux corel-linux
++os_support=solaris redhat-linux debian-linux slackware-linux suse-linux aix hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux corel-linux pld-linux
+ depends=sendmail
+ category=servers
+diff -ruN webmin-0.79.orig/man/config-pld-linux webmin-0.79/man/config-pld-linux
+--- webmin-0.79.orig/man/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.79/man/config-pld-linux	Tue May 23 10:25:13 2000
+@@ -0,0 +1,4 @@
++search_cmd=man -k PAGE
++man_dir=/usr/share/man
++man_cmd_sect=man SECTION PAGE
++man_cmd=man PAGE
+diff -ruN webmin-0.79.orig/man/module.info webmin-0.79/man/module.info
+--- webmin-0.79.orig/man/module.info	Sat Apr 15 11:14:47 2000
++++ webmin-0.79/man/module.info	Wed May 24 09:57:21 2000
+@@ -5,4 +5,4 @@
+ desc_es=P·ginas del Manual
+ desc_ru_SU=Û‘“¡Œ…√Ÿ Ú’Àœ◊œƒ”‘◊¡
+ category=system
+-os_support=solaris corel-linux debian-linux open-linux redhat-linux slackware-linux solaris suse-linux turbo-linux freebsd openbsd cobalt-linux
++os_support=solaris corel-linux debian-linux open-linux redhat-linux slackware-linux solaris suse-linux turbo-linux freebsd openbsd cobalt-linux pld-linux
+diff -ruN webmin-0.79.orig/mount/config-pld-linux webmin-0.79/mount/config-pld-linux
+--- webmin-0.79.orig/mount/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.79/mount/config-pld-linux	Tue May 23 10:25:33 2000
+@@ -0,0 +1,6 @@
++auto_file=/etc/amd.conf
++autofs_file=/etc/autofs/auto.master
++long_fstypes=1
++fstab_file=/etc/fstab
++smbclient_path=smbclient
++nmblookup_path=nmblookup
+diff -ruN webmin-0.79.orig/mount/module.info webmin-0.79/mount/module.info
+--- webmin-0.79.orig/mount/module.info	Sat Apr 15 11:14:35 2000
++++ webmin-0.79/mount/module.info	Wed May 24 09:57:35 2000
+@@ -5,6 +5,6 @@
+ desc_de=Platten- und Netzwerk-Dateisysteme
+ desc_fr=Montages disques et rÈseaux
+ desc_pt=Sistema de Ficheiros de Disco e Rede
+-os_support=slackware-linux redhat-linux solaris debian-linux suse-linux freebsd hpux unixware open-linux turbo-linux corel-linux openbsd cobalt-linux
++os_support=slackware-linux redhat-linux solaris debian-linux suse-linux freebsd hpux unixware open-linux turbo-linux corel-linux openbsd cobalt-linux pld-linux
+ depends=proc
+ category=system
+diff -ruN webmin-0.79.orig/mysql/config-pld-linux webmin-0.79/mysql/config-pld-linux
+--- webmin-0.79.orig/mysql/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.79/mysql/config-pld-linux	Sat Apr 15 11:14:47 2000
+@@ -0,0 +1,7 @@
++start_cmd=/etc/rc.d/init.d/mysql start
++stop_cmd=/etc/rc.d/init.d/mysql stop
++mysql=/usr/bin/mysql
++mysql_libs=
++mysqladmin=/usr/bin/mysqladmin
++mysqlshow=/usr/bin/mysqlshow
++perpage=25
+diff -ruN webmin-0.79.orig/net/config-pld-linux webmin-0.79/net/config-pld-linux
+--- webmin-0.79.orig/net/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.79/net/config-pld-linux	Sat Apr 15 11:14:43 2000
+@@ -0,0 +1 @@
++hosts_file=/etc/hosts
+diff -ruN webmin-0.79.orig/net/module.info webmin-0.79/net/module.info
+--- webmin-0.79.orig/net/module.info	Sat Apr 15 11:14:43 2000
++++ webmin-0.79/net/module.info	Wed May 24 09:57:55 2000
+@@ -5,5 +5,5 @@
+ desc_de=Netzwerk Konfiguration
+ desc_fr=Configuration RÈseau
+ desc_pt=ConfiguraÁ„o de Rede
+-os_support=solaris redhat-linux/5.0 redhat-linux/5.1 redhat-linux/5.2 redhat-linux/6.0 redhat-linux/6.1 redhat-linux/6.2 suse-linux/6.0 suse-linux/6.1 suse-linux/6.2 suse-linux/6.3 suse-linux/6.4 open-linux unixware turbo-linux/4.0 freebsd/3.3 freebsd/3.2 freebsd/4.0
++os_support=solaris redhat-linux/5.0 redhat-linux/5.1 redhat-linux/5.2 redhat-linux/6.0 redhat-linux/6.1 redhat-linux/6.2 suse-linux/6.0 suse-linux/6.1 suse-linux/6.2 suse-linux/6.3 suse-linux/6.4 open-linux unixware turbo-linux/4.0 freebsd/3.3 freebsd/3.2 freebsd/4.0 pld-linux
+ category=hardware
+diff -ruN webmin-0.79.orig/net/pld-linux-lib.pl webmin-0.79/net/pld-linux-lib.pl
+--- webmin-0.79.orig/net/pld-linux-lib.pl	Thu Jan  1 01:00:00 1970
++++ webmin-0.79/net/pld-linux-lib.pl	Tue May 23 10:26:58 2000
+@@ -0,0 +1,458 @@
++# redhat-linux-lib.pl
++# Networking functions for redhat linux
++
++$net_scripts_dir = "/etc/sysconfig/interfaces";
++$network_config = "/etc/sysconfig/network";
++$static_route_config = "/etc/sysconfig/static-routes";
++
++# active_interfaces()
++# Returns a list of currently ifconfig'd interfaces
++sub active_interfaces
++{
++local(@rv, @lines, $l);
++open(IFC, "ifconfig -a |");
++while(<IFC>) {
++	s/\r|\n//g;
++	if (/^\S+/) { push(@lines, $_); }
++	else { $lines[$#lines] .= $_; }
++	}
++close(IFC);
++foreach $l (@lines) {
++	local %ifc;
++	$l =~ /^([^:\s]+)/; $ifc{'name'} = $1;
++	$l =~ /^(\S+)/; $ifc{'fullname'} = $1;
++	if ($l =~ /^(\S+):(\d+)/) { $ifc{'virtual'} = $2; }
++	if ($l =~ /inet addr:(\S+)/) { $ifc{'address'} = $1; }
++	elsif (!$_[0]) { next; }
++	if ($l =~ /Mask:(\S+)/) { $ifc{'netmask'} = $1; }
++	if ($l =~ /Bcast:(\S+)/) { $ifc{'broadcast'} = $1; }
++	if ($l =~ /HWaddr (\S+)/) { $ifc{'ether'} = $1; }
++	if ($l =~ /MTU:(\d+)/) { $ifc{'mtu'} = $1; }
++	$ifc{'up'}++ if ($l =~ /\sUP\s/);
++	$ifc{'edit'} = ($ifc{'name'} !~ /^ppp/);
++	$ifc{'index'} = scalar(@rv);
++	push(@rv, \%ifc);
++	}
++return @rv;
++}
++
++# activate_interface(&details)
++# Create or modify an interface
++sub activate_interface
++{
++local $a = $_[0];
++local $cmd = "ifconfig $a->{'name'}";
++if ($a->{'virtual'} ne "") { $cmd .= ":$a->{'virtual'}"; }
++$cmd .= " $a->{'address'}";
++if ($a->{'netmask'}) { $cmd .= " netmask $a->{'netmask'}"; }
++if ($a->{'broadcast'}) { $cmd .= " broadcast $a->{'broadcast'}"; }
++if ($a->{'mtu'}) { $cmd .= " mtu $a->{'mtu'}"; }
++if ($a->{'up'}) { $cmd .= " up"; }
++else { $cmd .= " down"; }
++local $out = `$cmd 2>&1`;
++if ($?) { &error($out); }
++if ($a->{'ether'}) {
++	$out = `ifconfig $a->{'name'} hw ether $a->{'ether'} 2>&1`;
++	if ($?) { &error($out); }
++	}
++}
++
++# deactivate_interface(&details)
++# Shutdown some active interface
++sub deactivate_interface
++{
++local $name = $_[0]->{'name'}.
++	      ($_[0]->{'virtual'} ne "" ? ":$_[0]->{'virtual'}" : "");
++if ($_[0]->{'virtual'} ne "") {
++	# Shutdown virtual interface by setting address to 0
++	local $out = `ifconfig $name 0 2>&1`;
++	if ($?) { &error($out); }
++	}
++local ($still) = grep { $_->{'fullname'} eq $name } &active_interfaces();
++if ($still) {
++	# Old version of ifconfig or non-virtual interface.. down it
++	local $out = `ifconfig $name down 2>&1`;
++	&error("ifconfig $name down");
++	if ($?) { &error($out); }
++	}
++}
++
++# boot_interfaces()
++# Returns a list of interfaces brought up at boot time
++sub boot_interfaces
++{
++local(@rv, $f);
++opendir(CONF, $net_scripts_dir);
++while($f = readdir(CONF)) {
++	next if ($f !~ /^ifcfg-\S+/);
++	local (%conf, $b);
++	&read_env_file("$net_scripts_dir/$f", \%conf);
++	$b->{'fullname'} = $conf{'DEVICE'};
++	if ($b->{'fullname'} =~ /(\S+):(\d+)/) {
++		$b->{'name'} = $1;
++		$b->{'virtual'} = $2;
++		}
++	else { $b->{'name'} = $b->{'fullname'}; }
++	$b->{'up'} = ($conf{'ONBOOT'} eq 'yes');
++	$b->{'address'} = $conf{'IPADDR'};
++	$b->{'netmask'} = $conf{'NETMASK'};
++	$b->{'broadcast'} = $conf{'BROADCAST'};
++	$b->{'dhcp'} = ($conf{'BOOTPROTO'} eq 'dhcp');
++	$b->{'bootp'} = ($conf{'BOOTPROTO'} eq 'bootp');
++	$b->{'edit'} = ($b->{'name'} !~ /^ppp/);
++	$b->{'index'} = scalar(@rv);
++	push(@rv, $b);
++	}
++closedir(CONF);
++return @rv;
++}
++
++# save_interface(&details)
++# Create or update a boot-time interface
++sub save_interface
++{
++local(%conf);
++local $name = $_[0]->{'virtual'} ne "" ? $_[0]->{'name'}.":".$_[0]->{'virtual'}
++				       : $_[0]->{'name'};
++&read_env_file("$net_scripts_dir/ifcfg-$name", \%conf);
++$conf{'DEVICE'} = $name;
++$conf{'IPADDR'} = $_[0]->{'address'};
++local($ip1, $ip2, $ip3, $ip4) = split(/\./, $_[0]->{'address'});
++$conf{'NETMASK'} = $_[0]->{'netmask'};
++local($nm1, $nm2, $nm3, $nm4) = split(/\./, $_[0]->{'netmask'});
++if ($_[0]->{'address'} && $_[0]->{'netmask'}) {
++	$conf{'NETWORK'} = sprintf "%d.%d.%d.%d",
++				($ip1 & int($nm1))&0xff,
++				($ip2 & int($nm2))&0xff,
++				($ip3 & int($nm3))&0xff,
++				($ip4 & int($nm4))&0xff;
++	}
++else {
++	$conf{'NETWORK'} = '';
++	}
++$conf{'BROADCAST'} = $_[0]->{'broadcast'};
++$conf{'ONBOOT'} = $_[0]->{'up'} ? "yes" : "no";
++$conf{'BOOTPROTO'} = $_[0]->{'bootp'} ? "bootp" :
++		     $_[0]->{'dhcp'} ? "dhcp" : "none";
++&write_env_file("$net_scripts_dir/ifcfg-$name", \%conf);
++}
++
++# delete_interface(&details)
++# Delete a boot-time interface
++sub delete_interface
++{
++local $name = $_[0]->{'virtual'} ne "" ? $_[0]->{'name'}.":".$_[0]->{'virtual'}
++				       : $_[0]->{'name'};
++unlink("$net_scripts_dir/ifcfg-$name");
++}
++
++# iface_type(name)
++# Returns a human-readable interface type name
++sub iface_type
++{
++return "PPP" if ($_[0] =~ /^ppp/);
++return "SLIP" if ($_[0] =~ /^sl/);
++return "PLIP" if ($_[0] =~ /^plip/);
++return "Ethernet" if ($_[0] =~ /^eth/);
++return "Arcnet" if ($_[0] =~ /^arc/);
++return "Token Ring" if ($_[0] =~ /^tr/);
++return "Pocket/ATP" if ($_[0] =~ /^atp/);
++return "Loopback" if ($_[0] =~ /^lo/);
++return "Unknown";
++}
++
++# iface_hardware(name)
++# Does some interface have an editable hardware address
++sub iface_hardware
++{
++return $_[0] =~ /^eth/;
++}
++
++# can_edit(what)
++# Can some boot-time interface parameter be edited?
++sub can_edit
++{
++return $_[0] ne "mtu";
++}
++
++# valid_boot_address(address)
++# Is some address valid for a bootup interface
++sub valid_boot_address
++{
++return &check_ipaddress($_[0]);
++}
++
++# get_dns_config()
++# Returns a hashtable containing keys nameserver, domain, search & order
++sub get_dns_config
++{
++local $dns;
++open(RESOLV, "/etc/resolv.conf");
++while(<RESOLV>) {
++	s/\r|\n//g;
++	if (/nameserver\s+(.*)/) {
++		push(@{$dns->{'nameserver'}}, split(/\s+/, $1));
++		}
++	elsif (/domain\s+(\S+)/) {
++		$dns->{'domain'} = [ $1 ];
++		}
++	elsif (/search\s+(.*)/) {
++		$dns->{'domain'} = [ split(/\s+/, $1) ];
++		}
++	}
++close(RESOLV);
++open(SWITCH, "/etc/nsswitch.conf");
++while(<SWITCH>) {
++	s/\r|\n//g;
++	if (/^\s*hosts:\s+(.*)/) {
++		$dns->{'order'} = $1;
++		}
++	}
++close(SWITCH);
++return $dns;
++}
++
++# save_dns_config(&config)
++# Writes out the resolv.conf and nsswitch.conf files
++sub save_dns_config
++{
++open(RESOLV, "/etc/resolv.conf");
++local @resolv = <RESOLV>;
++close(RESOLV);
++open(RESOLV, ">/etc/resolv.conf");
++foreach (@{$_[0]->{'nameserver'}}) {
++	print RESOLV "nameserver $_\n";
++	}
++if ($_[0]->{'domain'}) {
++	if ($_[0]->{'domain'}->[1]) {
++		print RESOLV "search ",join(" ", @{$_[0]->{'domain'}}),"\n";
++		}
++	else {
++		print RESOLV "domain $_[0]->{'domain'}->[0]\n";
++		}
++	}
++foreach (@resolv) {
++	print RESOLV $_ if (!/^\s*(nameserver|domain|search)\s+/);
++	}
++close(RESOLV);
++
++open(SWITCH, "/etc/nsswitch.conf");
++local @switch = <SWITCH>;
++close(SWITCH);
++open(SWITCH, ">/etc/nsswitch.conf");
++foreach (@switch) {
++	if (/^\s*hosts:\s+/) {
++		print SWITCH "hosts:\t$_[0]->{'order'}\n";
++		}
++	else { print SWITCH $_; }
++	}
++close(SWITCH);
++}
++
++$max_dns_servers = 3;
++
++# order_input(&dns)
++# Returns HTML for selecting the name resolution order
++sub order_input
++{
++if ($_[0]->{'order'} =~ /\[/) {
++	# Using a complex resolve list
++	return "<input name=order size=45 value=\"$_[0]->{'order'}\">\n";
++	}
++else {
++	# Can select by menus
++	local @o = split(/\s+/, $_[0]->{'order'});
++	@o = map { s/nis\+/nisplus/; s/yp/nis/; $_; } @o;
++	local ($rv, $i, $j);
++	local @srcs = ( "", "files", "dns", "nis", "nisplus", "db" );
++	local @srcn = ( "", "Hosts", "DNS", "NIS", "NIS+", "DB" );
++	for($i=1; $i<@srcs; $i++) {
++		local $ii = $i-1;
++		$rv .= "<select name=order_$ii>\n";
++		for($j=0; $j<@srcs; $j++) {
++			$rv .= sprintf "<option value=\"%s\" %s>%s\n",
++					$srcs[$j],
++					$o[$ii] eq $srcs[$j] ? "selected" : "",
++					$srcn[$j];
++			}
++		$rv .= "</select>\n";
++		}
++	return $rv;
++	}
++}
++
++# parse_order(&dns)
++# Parses the form created by order_input()
++sub parse_order
++{
++if (defined($in{'order'})) {
++	$in{'order'} =~ /\S/ || &error($text{'dns_eorder'});
++	$_[0]->{'order'} = $in{'order'};
++	}
++else {
++	local($i, @order);
++	for($i=0; defined($in{"order_$i"}); $i++) {
++		push(@order, $in{"order_$i"}) if ($in{"order_$i"});
++		}
++	$_[0]->{'order'} = join(" ", @order);
++	}
++}
++
++# get_hostname()
++sub get_hostname
++{
++return &get_system_hostname();
++}
++
++# save_hostname(name)
++sub save_hostname
++{
++local %conf;
++system("hostname $_[0] >/dev/null 2>&1");
++open(HOST, ">/etc/HOSTNAME");
++print HOST $_[0],"\n";
++close(HOST);
++&read_env_file($network_config, \%conf);
++$conf{'HOSTNAME'} = $_[0];
++&write_env_file($network_config, \%conf);
++}
++
++# get_domainname()
++sub get_domainname
++{
++local $d = `domainname`;
++chop($d);
++return $d eq "(none)" ? "" : $d;
++}
++
++# save_domainname(domain)
++sub save_domainname
++{
++local %conf;
++system("domainname \"$_[0]\" >/dev/null 2>&1");
++&read_env_file($network_config, \%conf);
++if ($_[0]) {
++	$conf{'NISDOMAIN'} = $_[0];
++	}
++else {
++	delete($conf{'NISDOMAIN'});
++	}
++&write_env_file($network_config, \%conf);
++}
++
++sub routing_input
++{
++# show default router and device
++local (%conf, @st, @hr);
++&read_env_file($network_config, \%conf);
++print "<tr> <td><b>$text{'routes_default'}</b></td> <td>\n";
++printf "<input type=radio name=gateway_def value=1 %s> $text{'routes_none'}\n",
++	$conf{'GATEWAY'} ? "" : "checked";
++printf "<input type=radio name=gateway_def value=0 %s>\n",
++	$conf{'GATEWAY'} ? "checked" : "";
++printf "<input name=gateway size=15 value=\"%s\"></td> </tr>\n",
++	$conf{'GATEWAY'};
++
++print "<tr> <td><b>$text{'routes_device2'}</b></td> <td>\n";
++printf "<input type=radio name=gatewaydev_def value=1 %s> $text{'routes_none'}\n",
++	$conf{'GATEWAYDEV'} ? "" : "checked";
++printf "<input type=radio name=gatewaydev_def value=0 %s>\n",
++	$conf{'GATEWAYDEV'} ? "checked" : "";
++printf "<input name=gatewaydev size=6 value=\"%s\"></td> </tr>\n",
++	$conf{'GATEWAYDEV'};
++
++# show routing
++print "<tr> <td><b>$text{'routes_forward'}</b></td> <td>\n";
++printf "<input type=radio name=forward value=1 %s> $text{'yes'}\n",
++	$conf{'FORWARD_IPV4'} eq "yes" ? "checked" : "";
++printf "<input type=radio name=forward value=0 %s> $text{'no'}</td> </tr>\n",
++	$conf{'FORWARD_IPV4'} eq "yes" ? "" : "checked";
++
++# get static routes
++open(STATIC, $static_route_config);
++while(<STATIC>) {
++	if (/(\S+)\s+net\s+(\S+)\s+netmask\s+(\S+)\s+gw\s+(\S+)/) {
++		push(@st, [ $1, $2, $3, $4 ]);
++		}
++	elsif (/(\S+)\s+host\s+(\S+)/) {
++		push(@hr, [ $1, $2 ]);
++		}
++	}
++close(STATIC);
++
++# show static network routes
++print "<tr> <td valign=top><b>$text{'routes_static'}</b></td>\n";
++print "<td><table border>\n";
++print "<tr $tb> <td><b>$text{'routes_ifc'}</b></td> ",
++      "<td><b>$text{'routes_net'}</b></td> ",
++      "<td><b>$text{'routes_mask'}</b></td> ",
++      "<td><b>$text{'routes_gateway'}</b></td> </tr>\n";
++for($i=0; $i<=@st; $i++) {
++	local $st = $st[$i];
++	print "<tr $cb>\n";
++	print "<td><input name=dev_$i size=6 value='$st->[0]'></td>\n";
++	print "<td><input name=net_$i size=15 value='$st->[1]'></td>\n";
++	print "<td><input name=netmask_$i size=15 value='$st->[2]'></td>\n";
++	print "<td><input name=gw_$i size=15 value='$st->[3]'></td>\n";
++	print "</tr>\n";
++	}
++print "</table></td> </tr>\n";
++
++# Show static host routes
++print "<tr> <td valign=top><b>$text{'routes_local'}</b></td>\n";
++print "<td><table border>\n";
++print "<tr $tb> <td><b>$text{'routes_ifc'}</b></td> ",
++      "<td><b>$text{'routes_net'}</b></td> </tr>\n";
++for($i=0; $i<=@hr; $i++) {
++	local $st = $hr[$i];
++	print "<tr $cb>\n";
++	print "<td><input name=ldev_$i size=6 value='$st->[0]'></td>\n";
++	print "<td><input name=lnet_$i size=15 value='$st->[1]'></td>\n";
++	print "</tr>\n";
++	}
++print "</table></td> </tr>\n";
++}
++
++sub parse_routing
++{
++local (%conf, @st);
++&read_env_file($network_config, \%conf);
++if ($in{'gateway_def'}) { $conf{'GATEWAY'} = ''; }
++elsif (!gethostbyname($in{'gateway'})) {
++	&error(&text('routes_edefault', $in{'gateway'}));
++	}
++else { $conf{'GATEWAY'} = $in{'gateway'}; }
++
++if ($in{'gatewaydev_def'}) { $conf{'GATEWAYDEV'} = ''; }
++elsif ($in{'gatewaydev'} !~ /^\S+$/) {
++	&error(&text('routes_edevice', $in{'gatewaydev'}));
++	}
++else { $conf{'GATEWAYDEV'} = $in{'gatewaydev'}; }
++
++if ($in{'forward'}) { $conf{'FORWARD_IPV4'} = 'yes'; }
++else { $conf{'FORWARD_IPV4'} = 'no'; }
++
++for($i=0; defined($dev = $in{"dev_$i"}); $i++) {
++	$net = $in{"net_$i"}; $netmask = $in{"netmask_$i"}; $gw = $in{"gw_$i"};
++	next if (!$dev && !$net && !$netmask && !$gw);
++	$dev =~ /^\S+$/ || &error(&text('routes_edevice', $dev));
++	gethostbyname($net) || &error(&text('routes_enet', $net));
++	&check_ipaddress($netmask) || &error(&text('routes_emask', $netmask));
++	gethostbyname($gw) || &error(&text('routes_egateway', $gw));
++	push(@st, "$dev net $net netmask $netmask gw $gw\n");
++	}
++for($i=0; defined($dev = $in{"ldev_$i"}); $i++) {
++	$net = $in{"lnet_$i"};
++	next if (!$dev && !$net);
++	$dev =~ /^\S+$/ || &error(&text('routes_edevice', $dev));
++	gethostbyname($net) || &error(&text('routes_enet', $net));
++	push(@st, "$dev host $net\n");
++	}
++open(STATIC, ">$static_route_config");
++print STATIC @st;
++close(STATIC);
++&write_env_file($network_config, \%conf);
++}
++
++1;
++
+diff -ruN webmin-0.79.orig/os_list.txt webmin-0.79/os_list.txt
+--- webmin-0.79.orig/os_list.txt	Sat Apr 15 11:14:32 2000
++++ webmin-0.79/os_list.txt	Tue May 23 10:17:17 2000
+@@ -15,6 +15,7 @@
+ Redhat Linux			6.0	redhat-linux	6.0	$etc_issue =~ /red\s*hat.*\s6\.0/i || `cat /etc/redhat-release` =~ /6\.0/
+ Redhat Linux			6.1	redhat-linux	6.1	$etc_issue =~ /red\s*hat.*\s6\.1/i || `cat /etc/redhat-release` =~ /6\.1/
+ Redhat Linux			6.2	redhat-linux	6.2	$etc_issue =~ /red\s*hat.*\s6\.2/i || `cat /etc/redhat-release` =~ /6\.2/
++PLD Linux			1.0	pld-linux	1.0	`cat /etc/pld-release` =~ /1\.0/
+ Slackware Linux			3.2	slackware-linux	3.2
+ Slackware Linux			3.3	slackware-linux	3.3
+ Slackware Linux			3.4	slackware-linux	3.4
+diff -ruN webmin-0.79.orig/pap/config-pld-linux webmin-0.79/pap/config-pld-linux
+--- webmin-0.79.orig/pap/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.79/pap/config-pld-linux	Sat Apr 15 11:14:38 2000
+@@ -0,0 +1,2 @@
++pap_file=/etc/ppp/pap-secrets
++encrypt_pass=0
+diff -ruN webmin-0.79.orig/pap/module.info webmin-0.79/pap/module.info
+--- webmin-0.79.orig/pap/module.info	Sat Apr 15 11:14:38 2000
++++ webmin-0.79/pap/module.info	Wed May 24 09:58:08 2000
+@@ -5,5 +5,5 @@
+ desc_de=PPP Benutzer und Passw&ouml;rter
+ desc_fr=Usagers et mots de passes PPP
+ desc_pt=Usernames e Passwords de Acesso de Utilizadores PPP
+-os_support=redhat-linux suse-linux slackware-linux debian-linux open-linux turbo-linux corel-linux
++os_support=redhat-linux suse-linux slackware-linux debian-linux open-linux turbo-linux corel-linux pld-linux
+ category=servers
+diff -ruN webmin-0.79.orig/proc/config-pld-linux webmin-0.79/proc/config-pld-linux
+--- webmin-0.79.orig/proc/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.79/proc/config-pld-linux	Sat Apr 15 11:14:37 2000
+@@ -0,0 +1,3 @@
++default_mode=last
++ps_style=linux
++base_ppid=1
+diff -ruN webmin-0.79.orig/proc/module.info webmin-0.79/proc/module.info
+--- webmin-0.79.orig/proc/module.info	Sat Apr 15 11:14:37 2000
++++ webmin-0.79/proc/module.info	Wed May 24 09:58:17 2000
+@@ -5,6 +5,6 @@
+ desc_de=Laufende Prozesse
+ desc_fr=Gestionnaire de processus
+ desc_pt=Processos em Curso
+-os_support=solaris redhat-linux slackware-linux debian-linux suse-linux hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux corel-linux cobalt-linux
++os_support=solaris redhat-linux slackware-linux debian-linux suse-linux hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux corel-linux cobalt-linux pld-linux
+ depends=mount
+ category=system
+diff -ruN webmin-0.79.orig/quota/config-pld-linux webmin-0.79/quota/config-pld-linux
+--- webmin-0.79.orig/quota/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.79/quota/config-pld-linux	Sat Apr 15 11:14:38 2000
+@@ -0,0 +1,16 @@
++display_max=100
++user_grace_command=edquota -u -t
++group_grace_command=edquota -g -t
++group_quotaon_command=quotaon -g
++user_quotaoff_command=quotaoff -u
++user_quotaon_command=quotaon -u
++group_quota_command=quota -v -g
++group_copy_command=edquota -g -p
++quotacheck_command=quotacheck -u -g
++user_quota_command=quota -v -u
++user_copy_command=edquota -u -p
++group_repquota_command=repquota -g -v
++user_repquota_command=repquota -u -v
++group_edquota_command=edquota -g
++user_edquota_command=edquota -u
++group_quotaoff_command=quotaoff -g
+diff -ruN webmin-0.79.orig/quota/module.info webmin-0.79/quota/module.info
+--- webmin-0.79.orig/quota/module.info	Sat Apr 15 11:14:38 2000
++++ webmin-0.79/quota/module.info	Wed May 24 09:58:27 2000
+@@ -5,6 +5,6 @@
+ desc_de=Festplatten-Quotas
+ desc_fr=Quotas des Disques
+ desc_pt=Quotas de Disco
+-os_support=solaris redhat-linux slackware-linux debian-linux suse-linux hpux freebsd open-linux unixware turbo-linux openbsd corel-linux cobalt-linux
++os_support=solaris redhat-linux slackware-linux debian-linux suse-linux hpux freebsd open-linux unixware turbo-linux openbsd corel-linux cobalt-linux pld-linux
+ depends=mount
+ category=system
+diff -ruN webmin-0.79.orig/quota/pld-linux-lib.pl webmin-0.79/quota/pld-linux-lib.pl
+--- webmin-0.79.orig/quota/pld-linux-lib.pl	Thu Jan  1 01:00:00 1970
++++ webmin-0.79/quota/pld-linux-lib.pl	Sat Apr 15 11:14:38 2000
+@@ -0,0 +1,391 @@
++# linux-lib.pl
++# Quota functions for all linux version
++
++# quotas_init()
++sub quotas_init
++{
++if (&has_command("quotaon") && &has_command("quotaoff")) {
++	return undef;
++	}
++else {
++	return "The quota package does not appear to be installed on ".
++	       "your system\n";
++	}
++}
++
++# quotas_supported()
++# Returns 1 for user quotas, 2 for group quotas or 3 for both
++sub quotas_supported
++{
++return 3;
++}
++
++# free_space(filesystem)
++# Returns an array containing  btotal, bfree, ftotal, ffree
++sub free_space
++{
++local(@out, @rv);
++$out = `df $_[0]`;
++$out =~ /Mounted on\n\S+\s+(\d+)\s+\d+\s+(\d+)/;
++push(@rv, ($1, $2));
++$out = `df -i $_[0]`;
++$out =~ /Mounted on\n\S+\s+(\d+)\s+\d+\s+(\d+)/;
++push(@rv, ($1, $2));
++return @rv;
++}
++
++# quota_can(&mnttab, &fstab)
++# Can this filesystem type support quotas?
++#  0 = No quota support (or not turned on in /etc/fstab)
++#  1 = User quotas only
++#  2 = Group quotas only
++#  3 = User and group quotas
++sub quota_can
++{
++return ($_[1]->[3] =~ /usrquota/ ? 1 : 0) +
++       ($_[1]->[3] =~ /grpquota/ ? 2 : 0);
++}
++
++# quota_now(&mnttab, &fstab)
++# Are quotas currently active?
++#  0 = Not active
++#  1 = User quotas active
++#  2 = Group quotas active
++#  3 = Both active
++sub quota_now
++{
++local $rv = 0;
++local $dir = $_[0]->[0];
++if ($_[0]->[4]%2 == 1) {
++	# test user quotas
++	if (-r "$dir/quota.user") {
++		$out = `$config{'user_quotaon_command'} $dir 2>&1`;
++		if ($out =~ /Device or resource busy/i) {
++			# already on..
++			$rv += 1;
++			}
++		elsif ($out =~ /Package not installed/i) {
++			# No quota support!
++			return 0;
++			}
++		else {
++			# was off.. need to turn on again
++			`$config{'user_quotaoff_command'} $dir 2>&1`;
++			}
++		}
++	}
++if ($_[0]->[4] > 1) {
++	# test group quotas
++	if (-r "$dir/quota.group") {
++		$out = `$config{'group_quotaon_command'} $dir 2>&1`;
++		if ($out =~ /Device or resource busy/i) {
++			# already on..
++			$rv += 2;
++			}
++		elsif ($out =~ /Package not installed/i) {
++			# No quota support!
++			return 0;
++			}
++		else {
++			# was off.. need to turn on again
++			`$config{'group_quotaoff_command'} $dir 2>&1`;
++			}
++		}
++	}
++return $rv;
++}
++
++# quotaon(filesystem, mode)
++# Activate quotas and create quota files for some filesystem. The mode can
++# be 1 for user only, 2 for group only or 3 for user and group
++sub quotaon
++{
++local($out, $qf, @qfile, $flags);
++if ($_[1]%2 == 1) {
++	# turn on user quotas
++	$qf = "$_[0]/quota.user";
++	if (!(-r $qf)) {
++		open(QUOTAFILE, "> $qf"); close(QUOTAFILE);
++		chmod(0600, $qf);
++		system("$config{'quotacheck_command'} $_[0]");
++		}
++	$out = `$config{'user_quotaon_command'} $_[0] 2>&1`;
++	if ($?) { return $out; }
++	}
++if ($_[1] > 1) {
++	# turn on group quotas
++	$qf = "$_[0]/quota.group";
++	if (!(-r $qf)) {
++		open(QUOTAFILE, "> $qf"); close(QUOTAFILE);
++		chmod(0600, $qf);
++		system("$config{'quotacheck_command'} $_[0]");
++		}
++	$out = `$config{'group_quotaon_command'} $_[0] 2>&1`;
++	if ($?) { return $out; }
++	}
++return undef;
++}
++
++# quotaoff(filesystem, mode)
++# Turn off quotas for some filesystem
++sub quotaoff
++{
++local($out);
++if ($_[1]%2 == 1) {
++	$out = `$config{'user_quotaoff_command'} $_[0] 2>&1`;
++	if ($?) { return $out; }
++	}
++if ($_[1] > 1) {
++	$out = `$config{'group_quotaoff_command'} $_[0] 2>&1`;
++	if ($?) { return $out; }
++	}
++return undef;
++}
++
++# user_filesystems(user)
++# Fills the array %filesys with details of all filesystem some user has
++# quotas on
++sub user_filesystems
++{
++return &parse_quota_output("$config{'user_quota_command'} $_[0]");
++}
++
++# user_filesystems(user)
++# Fills the array %filesys with details of all filesystem some group has
++# quotas on
++sub group_filesystems
++{
++return &parse_quota_output("$config{'group_quota_command'} $_[0]");
++}
++
++sub parse_quota_output
++{
++local($n, $_, %mtab);
++open(MTAB, "/etc/mtab");
++while(<MTAB>) {
++	@m = split(/\s+/);
++	$mtab{$m[0]} = $m[1];
++	}
++close(MTAB);
++open(QUOTA, "$_[0] |");
++$n=0; while(<QUOTA>) {
++	chop;
++	if (/^(Disk|\s+Filesystem)/) { next; }
++	if (/^(\S+)$/) {
++		# Bogus wrapped line
++		$filesys{$n,'filesys'} = $mtab{$1};
++		<QUOTA>=~/^.{15}.(.{7}).(.{7}).(.{7}).{8}.(.{7}).(.{7}).(.{7})/;
++		$filesys{$n,'ublocks'} = int($1);
++		$filesys{$n,'sblocks'} = int($2);
++		$filesys{$n,'hblocks'} = int($3);
++		$filesys{$n,'ufiles'} = int($4);
++		$filesys{$n,'sfiles'} = int($5);
++		$filesys{$n,'hfiles'} = int($6);
++		$n++;
++		}
++	elsif (/^(.{15}).(.{7}).(.{7}).(.{7}).{8}.(.{7}).(.{7}).(.{7})/) {
++		$filesys{$n,'ublocks'} = int($2);
++		$filesys{$n,'sblocks'} = int($3);
++		$filesys{$n,'hblocks'} = int($4);
++		$filesys{$n,'ufiles'} = int($5);
++		$filesys{$n,'sfiles'} = int($6);
++		$filesys{$n,'hfiles'} = int($7);
++		$dev = $1; $dev =~ s/\s+$//g; $dev =~ s/^\s+//g;
++		$filesys{$n,'filesys'} = $mtab{$dev};
++		$n++;
++		}
++	}
++close(QUOTA);
++return $n;
++}
++
++# filesystem_users(filesystem)
++# Fills the array %user with information about all users with quotas
++# on this filesystem. This may not be all users on the system..
++sub filesystem_users
++{
++return &parse_repquota_output(
++	"$config{'user_repquota_command'} $_[0]", "user");
++}
++
++sub filesystem_groups
++{
++return &parse_repquota_output(
++	"$config{'group_repquota_command'} $_[0]", "group");
++}
++
++sub parse_repquota_output
++{
++local($rep, @rep, $n, $what, $u, @uinfo);
++$what = $_[1];
++$rep = `$_[0] 2>&1`;
++if ($?) { return -1; }
++if ($what eq 'user') {
++	setpwent();
++	while(@uinfo = getpwent()) {
++		$hasu{$uinfo[0]}++;
++		}
++	endpwent();
++	}
++else {
++	setgrent();
++	while(@uinfo = getgrent()) {
++		$hasu{$uinfo[0]}++;
++		}
++	endgrent();
++	}
++@rep = split(/\n/, $rep); @rep = @rep[3..$#rep];
++for($n=0; $n<@rep; $n++) {
++	if ($rep[$n] =~ /(\S+)\s*[\-\+]{2}(.{8})(.{8})(.{8}).{7}(.{8})(.{8})(.{8})/) {
++		$$what{$n,$what} = $1;
++		$$what{$n,'ublocks'} = int($2);
++		$$what{$n,'sblocks'} = int($3);
++		$$what{$n,'hblocks'} = int($4);
++		$$what{$n,'ufiles'} = int($5);
++		$$what{$n,'sfiles'} = int($6);
++		$$what{$n,'hfiles'} = int($7);
++		if ($$what{$n,$what} !~ /^\d+$/ && !$hasu{$$what{$n,$what}}) {
++			# User/group name was truncated! Try to find him..
++			foreach $u (keys %hasu) {
++				if (substr($u, 0, length($$what{$n,$what})) eq
++				    $$what{$n,$what}) {
++					# found him..
++					$$what{$n,$what} = $u;
++					last;
++					}
++				}
++			}
++		}
++	}
++return $n;
++}
++
++# edit_quota_file(data, filesys, sblocks, hblocks, sfiles, hfiles)
++sub edit_quota_file
++{
++local($rv, $line, %mtab, @m);
++open(MTAB, "/etc/mtab");
++while(<MTAB>) {
++	@m = split(/\s+/);
++	$mtab{$m[0]} = $m[1];
++	}
++close(MTAB);
++@line = split(/\n/, $_[0]);
++for($i=0; $i<@line; $i++) {
++	if ($line[$i] =~ /^(\S+): blocks in use: (\d+), limits \(soft = (\d+), hard = (\d+)\)$/ && $mtab{$1} eq $_[1]) {
++		# found lines to change
++		$rv .= "$1: blocks in use: $2, limits (soft = $_[2], hard = $_[3])\n";
++		$line[++$i] =~ /^\s*inodes in use: (\d+), limits \(soft = (\d+), hard = (\d+)\)$/;
++		$rv .= "\tinodes in use: $1, limits (soft = $_[4], hard = $_[5])\n";
++		}
++	else { $rv .= "$line[$i]\n"; }
++	}
++return $rv;
++}
++
++# quotacheck(filesystem, mode)
++# Runs quotacheck on some filesystem
++sub quotacheck
++{
++$out = `$config{'quotacheck_command'} $_[0] 2>&1`;
++if ($?) { return $out; }
++return undef;
++}
++
++# copy_user_quota(user, [user]+)
++# Copy the quotas for some user to many others
++sub copy_user_quota
++{
++for($i=1; $i<@_; $i++) {
++	$out = `$config{'user_copy_command'} $_[0] $_[$i] 2>&1`;
++	if ($?) { return $out; }
++	}
++return undef;
++}
++
++# copy_group_quota(group, [group]+)
++# Copy the quotas for some group to many others
++sub copy_group_quota
++{
++for($i=1; $i<@_; $i++) {
++	$out = `$config{'group_copy_command'} $_[0] $_[$i] 2>&1`;
++	if ($?) { return $out; }
++	}
++return undef;
++}
++
++# get_user_grace(filesystem)
++# Returns an array containing  btime, bunits, ftime, funits
++# The units can be 0=sec, 1=min, 2=hour, 3=day
++sub get_user_grace
++{
++return &parse_grace_output($config{'user_grace_command'}, $_[0]);
++}
++
++# get_group_grace(filesystem)
++# Returns an array containing  btime, bunits, ftime, funits
++# The units can be 0=sec, 1=min, 2=hour, 3=day
++sub get_group_grace
++{
++return &parse_grace_output($config{'group_grace_command'}, $_[0]);
++}
++
++# default_grace()
++# Returns 0 if grace time can be 0, 1 if zero grace means default
++sub default_grace
++{
++return 0;
++}
++
++sub parse_grace_output
++{
++local(@rv, %mtab, @m);
++open(MTAB, "/etc/mtab");
++while(<MTAB>) { @m = split(/\s+/); $mtab{$m[0]} = $m[1]; }
++close(MTAB);
++$ENV{'EDITOR'} = $ENV{'VISUAL'} = "cat";
++open(GRACE, "$_[0] |");
++while(<GRACE>) {
++	if (/^(\S+): block grace period: (\d+) (\S+), file grace period: (\d+) (\S+)/ && $mtab{$1} eq $_[1]) {
++		@rv = ($2, $name_to_unit{$3}, $4, $name_to_unit{$5});
++		}
++	}
++close(GRACE);
++return @rv;
++}
++
++# edit_grace_file(data, filesystem, btime, bunits, ftime, funits)
++sub edit_grace_file
++{
++local($rv, $line, @m, %mtab);
++open(MTAB, "/etc/mtab");
++while(<MTAB>) { @m = split(/\s+/); $mtab{$m[0]} = $m[1]; }
++close(MTAB);
++foreach $line (split(/\n/, $_[0])) {
++	if ($line =~ /^(\S+): block grace period: (\d+) (\S+), file grace period: (\d+) (\S+)/ && $mtab{$1} eq $_[1]) {
++		# replace this line
++		$line = "$1: block grace period: $_[2] $unit_to_name{$_[3]}, file grace period: $_[4] $unit_to_name{$_[5]}";
++		}
++	$rv .= "$line\n";
++	}
++return $rv;
++}
++
++# grace_units()
++# Returns an array of possible units for grace periods
++sub grace_units
++{
++return ("Seconds", "Minutes", "Hours", "Days");
++}
++
++%name_to_unit = ( "second", 0, "seconds", 0,
++		  "minute", 1, "minutes", 1,
++		  "hour", 2, "hours", 2,
++		  "day", 3, "days", 3,
++		);
++foreach $k (keys %name_to_unit) {
++	$unit_to_name{$name_to_unit{$k}} = $k;
++	}
++
++1;
++
+diff -ruN webmin-0.79.orig/raid/module.info webmin-0.79/raid/module.info
+--- webmin-0.79.orig/raid/module.info	Sat Apr 15 11:14:48 2000
++++ webmin-0.79/raid/module.info	Wed May 24 09:58:36 2000
+@@ -2,5 +2,5 @@
+ desc=Linux RAID
+ desc_pt=RAID do Linux
+ desc_ru_SU=Linux RAID
+-os_support=redhat-linux open-linux slackware-linux debian-linux suse-linux turbo-linux corel-linux cobalt-linux
++os_support=redhat-linux open-linux slackware-linux debian-linux suse-linux turbo-linux corel-linux cobalt-linux pld-linux
+ category=hardware
+diff -ruN webmin-0.79.orig/samba/config-pld-linux webmin-0.79/samba/config-pld-linux
+--- webmin-0.79.orig/samba/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.79/samba/config-pld-linux	Tue May 23 10:30:09 2000
+@@ -0,0 +1,12 @@
++list_printers_command=lpc status | grep "[A-z0-9]:" | sed -e 's/://g'
++smb_passwd=/etc/samba/smbpasswd
++dont_convert=root bin daemon adm lp sync shutdown halt mail news uucp operator games gopher ftp nobody postgres
++samba_password_program=/usr/bin/smbpasswd
++samba_status_program=/usr/bin/smbstatus
++samba_server=/usr/sbin/smbd
++name_server=/usr/sbin/nmbd
++smb_conf=/etc/samba/smb.conf
++text_lists=0
++run_from_inetd=0
++swat_path=/usr/sbin/swat
++sort_mode=0
+diff -ruN webmin-0.79.orig/samba/module.info webmin-0.79/samba/module.info
+--- webmin-0.79.orig/samba/module.info	Sat Apr 15 11:14:36 2000
++++ webmin-0.79/samba/module.info	Wed May 24 09:58:51 2000
+@@ -5,6 +5,6 @@
+ desc_de=Windows Dateifreigabe
+ desc_fr=Partage Windows avec Samba
+ desc_pt=Partilha de Ficheiros de Windows com Samba
+-os_support=solaris redhat-linux debian-linux slackware-linux aix suse-linux hpux freebsd osf1 irix open-linux openserver unixware turbo-linux openbsd corel-linux cobalt-linux
++os_support=solaris redhat-linux debian-linux slackware-linux aix suse-linux hpux freebsd osf1 irix open-linux openserver unixware turbo-linux openbsd corel-linux cobalt-linux pld-linux
+ depends=inetd
+ category=servers
+diff -ruN webmin-0.79.orig/sendmail/config-pld-linux webmin-0.79/sendmail/config-pld-linux
+--- webmin-0.79.orig/sendmail/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.79/sendmail/config-pld-linux	Tue May 23 10:30:53 2000
+@@ -0,0 +1,10 @@
++sendmail_cf=/etc/sendmail.cf
++sendmail_pid=/var/run/sendmail.pid
++makemap_path=makemap
++sendmail_command=/etc/rc.d/init.d/sendmail start
++sendmail_path=/usr/lib/sendmail
++mail_dir=/var/mail
++perpage=20
++sort_mode=0
++wrap_width=80
++order_mail=0
+diff -ruN webmin-0.79.orig/sendmail/module.info webmin-0.79/sendmail/module.info
+--- webmin-0.79.orig/sendmail/module.info	Sat Apr 15 11:14:42 2000
++++ webmin-0.79/sendmail/module.info	Wed May 24 09:59:03 2000
+@@ -5,5 +5,5 @@
+ desc_de=Sendmail Konfiguration
+ desc_fr=Configuration de Sendmail
+ desc_pt=ConfiguraÁ„o do Sendmail
+-os_support=solaris slackware-linux redhat-linux suse-linux debian-linux freebsd hpux irix macos open-linux openserver unixware turbo-linux openbsd corel-linux cobalt-linux
++os_support=solaris slackware-linux redhat-linux suse-linux debian-linux freebsd hpux irix macos open-linux openserver unixware turbo-linux openbsd corel-linux cobalt-linux pld-linux
+ category=servers
+diff -ruN webmin-0.79.orig/software/config-pld-linux webmin-0.79/software/config-pld-linux
+--- webmin-0.79.orig/software/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.79/software/config-pld-linux	Sat Apr 15 11:14:38 2000
+@@ -0,0 +1 @@
++package_system=rpm
+diff -ruN webmin-0.79.orig/software/module.info webmin-0.79/software/module.info
+--- webmin-0.79.orig/software/module.info	Sat Apr 15 11:14:38 2000
++++ webmin-0.79/software/module.info	Wed May 24 09:59:16 2000
+@@ -5,5 +5,5 @@
+ desc_de=Software Pakete
+ desc_fr=Composants Logiciels
+ desc_pt=Pacotes de Software
+-os_support=solaris redhat-linux suse-linux hpux open-linux openserver unixware freebsd/3.0 freebsd/3.1 freebsd/3.2 freebsd/3.3 freebsd/4.0 slackware-linux/4.0 slackware-linux/7.0 debian-linux/2.0 debian-linux/2.1 debian-linux/2.2 turbo-linux openbsd corel-linux cobalt-linux
++os_support=solaris redhat-linux suse-linux hpux open-linux openserver unixware freebsd/3.0 freebsd/3.1 freebsd/3.2 freebsd/3.3 freebsd/4.0 slackware-linux/4.0 slackware-linux/7.0 debian-linux/2.0 debian-linux/2.1 debian-linux/2.2 turbo-linux openbsd corel-linux cobalt-linux pld-linux
+ category=system
+diff -ruN webmin-0.79.orig/squid/config-pld-linux webmin-0.79/squid/config-pld-linux
+--- webmin-0.79.orig/squid/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.79/squid/config-pld-linux	Tue May 23 10:31:41 2000
+@@ -0,0 +1,8 @@
++log_dir=/var/log/squid
++squid_path=squid
++cache_dir=/var/cache/squid
++squid_conf=/etc/squid/squid.conf
++pid_file=/var/run/squid.pid
++cachemgr_path=/home/httpd/cgi-bin/cachemgr.cgi
++squid_start=/etc/rc.d/init.d/squid start
++squid_stop=/etc/rc.d/init.d/squid stop
+diff -ruN webmin-0.79.orig/squid/module.info webmin-0.79/squid/module.info
+--- webmin-0.79.orig/squid/module.info	Sat Apr 15 11:14:42 2000
++++ webmin-0.79/squid/module.info	Wed May 24 09:59:26 2000
+@@ -5,5 +5,5 @@
+ desc_de=Squid Proxy Server
+ desc_fr=Serveur Proxy Squid
+ desc_pt=Servidor Proxy Squid
+-os_support=solaris hpux redhat-linux debian-linux suse-linux slackware-linux freebsd osf1 irix aix open-linux openserver unixware turbo-linux openbsd corel-linux cobalt-linux
++os_support=solaris hpux redhat-linux debian-linux suse-linux slackware-linux freebsd osf1 irix aix open-linux openserver unixware turbo-linux openbsd corel-linux cobalt-linux pld-linux
+ category=servers
+diff -ruN webmin-0.79.orig/syslog/config-pld-linux webmin-0.79/syslog/config-pld-linux
+--- webmin-0.79.orig/syslog/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.79/syslog/config-pld-linux	Sat Apr 15 11:14:47 2000
+@@ -0,0 +1,12 @@
++pri_all=1
++syslogd=/sbin/syslogd
++m4_conf=0
++syslog_conf=/etc/syslog.conf
++pri_dir=1
++pid_file=/var/run/syslogd.pid
++facilities=auth authpriv cron daemon kern lpr mail mark news syslog user uucp local0 local1 local2 local3 local4 local5 local6 local7
++m4_path=
++sync=1
++pipe=1
++tags=0
++lines=20
+diff -ruN webmin-0.79.orig/syslog/module.info webmin-0.79/syslog/module.info
+--- webmin-0.79.orig/syslog/module.info	Sat Apr 15 11:14:47 2000
++++ webmin-0.79/syslog/module.info	Wed May 24 09:59:36 2000
+@@ -4,5 +4,5 @@
+ desc_pt=Historiais do Sistema
+ desc_es=Historiales del Sistema
+ desc_ru_SU=Û…”‘≈ÕŒŸ≈ ˆ’“Œ¡ÃŸ
+-os_support=solaris open-linux redhat-linux debian-linux suse-linux slackware-linux freebsd openbsd turbo-linux corel-linux macos hpux cobalt-linux
++os_support=solaris open-linux redhat-linux debian-linux suse-linux slackware-linux freebsd openbsd turbo-linux corel-linux macos hpux cobalt-linux pld-linux
+ category=system
+diff -ruN webmin-0.79.orig/time/module.info webmin-0.79/time/module.info
+--- webmin-0.79.orig/time/module.info	Sat Apr 15 11:14:44 2000
++++ webmin-0.79/time/module.info	Wed May 24 09:59:46 2000
+@@ -5,5 +5,5 @@
+ desc_es=Hora del Sistema
+ desc_pt=Tempo do Sistema
+ desc_ru_SU=Û…”‘≈ÕŒœ≈ ˜“≈Õ—
+-os_support=redhat-linux slackware-linux suse-linux debian-linux open-linux turbo-linux cobalt-linux
++os_support=redhat-linux slackware-linux suse-linux debian-linux open-linux turbo-linux cobalt-linux pld-linux
+ category=hardware
+diff -ruN webmin-0.79.orig/useradmin/config-pld-linux webmin-0.79/useradmin/config-pld-linux
+--- webmin-0.79.orig/useradmin/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.79/useradmin/config-pld-linux	Tue May 23 10:32:30 2000
+@@ -0,0 +1,17 @@
++homedir_perms=0751
++display_max=400
++user_files=/etc/skel/C
++passwd_file=/etc/passwd
++post_command=
++group_file=/etc/group
++shadow_file=/etc/shadow
++gshadow_file=/etc/gshadow
++base_uid=1000
++base_gid=1000
++lock_string=*
++empty_mode=0
++sort_mode=0
++new_user_group=1
++skip_md5=0
++display_mode=1
++passwd_stars=0
+diff -ruN webmin-0.79.orig/useradmin/module.info webmin-0.79/useradmin/module.info
+--- webmin-0.79.orig/useradmin/module.info	Sat Apr 15 11:14:36 2000
++++ webmin-0.79/useradmin/module.info	Wed May 24 09:59:55 2000
+@@ -5,5 +5,5 @@
+ desc_de=Benutzer und Gruppen
+ desc_fr=Utilisateurs et groupes
+ desc_pt=Utilizadores e Grupos
+-os_support=slackware-linux redhat-linux solaris debian-linux suse-linux hpux freebsd osf1 open-linux unixware turbo-linux openbsd corel-linux cobalt-linux
++os_support=slackware-linux redhat-linux solaris debian-linux suse-linux hpux freebsd osf1 open-linux unixware turbo-linux openbsd corel-linux cobalt-linux pld-linux
+ category=system
+diff -ruN webmin-0.79.orig/useradmin/pld-linux-lib.pl webmin-0.79/useradmin/pld-linux-lib.pl
+--- webmin-0.79.orig/useradmin/pld-linux-lib.pl	Thu Jan  1 01:00:00 1970
++++ webmin-0.79/useradmin/pld-linux-lib.pl	Sat Apr 15 11:14:36 2000
+@@ -0,0 +1,157 @@
++# linux-lib.pl
++# Functions for reading linux format last output
++
++# passfiles_type()
++# Returns 0 for old-style passwords (/etc/passwd only), 1 for FreeBSD-style
++# (/etc/master.passwd) and 2 for SysV (/etc/passwd & /etc/shadow)
++sub passfiles_type
++{
++return &password_file($config{'shadow_file'}) ? 2 : 0;
++}
++
++# groupfiles_type()
++# Returns 0 for normal group file (/etc/group only) and 2 for shadowed
++# (/etc/group and /etc/gshadow)
++sub groupfiles_type
++{
++return &password_file($config{'gshadow_file'}) ? 2 : 0;
++}
++
++# open_last_command(handle, user)
++sub open_last_command
++{
++local ($fh, $user) = @_;
++open($fh, "last $user |");
++}
++
++# read_last_line(handle)
++# Parses a line of output from last into an array of
++#  user, tty, host, login, logout, period
++sub read_last_line
++{
++$fh = $_[0];
++while(1) {
++	chop($line = <$fh>);
++	if (!$line) { return (); }
++	if ($line =~ /system boot/) { next; }
++	if ($line =~ /^(\S+)\s+(\S+)\s+(\S+)?\s+(\S+\s+\S+\s+\d+\s+\d+:\d+)\s+\-\s+(\S+)\s+\((\d+:\d+)\)/) {
++		return ($1, $2, $3, $4, $5 eq "down" ? "Shutdown" : $5, $6);
++		}
++	elsif ($line =~ /^(\S+)\s+(\S+)\s+(\S+)?\s+(\S+\s+\S+\s+\d+\s+\d+:\d+)\s+still/) {
++		return ($1, $2, $3, $4);
++		}
++	}
++}
++
++# encrypt_password(password)
++sub encrypt_password
++{
++local $md5 = 0;
++if (open(PAM, "/etc/pam.d/passwd")) {
++	while(<PAM>) {
++		s/#.*$//g;
++		$md5++ if (/^password.*md5/);
++		}
++	close(PAM);
++	}
++if (open(DEFS, "/etc/login.defs")) {
++	while(<DEFS>) {
++		s/#.*$//g;
++		$md5++ if (/MD5_CRYPT_ENAB\s+yes/i);
++		}
++	close(DEFS);
++	}
++if ($md5 && !$config{'skip_md5'}) {
++	# MD5 encrypt the password, using the same algorithm as PAM
++	eval "use MD5";
++	if ($@) {
++		&header("Error", "");
++		print "<hr><p>\n";
++		print "Your system has MD5 passwords enabled, but the perl\n",
++		      "MD5 module is not installed.<p> To force the use of\n",
++		      "normal encrypted passwords, adjust your\n",
++		      "<a href='/config.cgi?$module_name'>module ",
++		      "configuration</a>. <p><hr>\n";
++		exit;
++		}
++	local $passwd = $_[0];
++	local $magic = '$1$';
++	local $salt = substr(time(), -8);
++
++	# Add the password, magic and salt
++	local $ctx = new MD5;
++	$ctx->add($passwd);
++	$ctx->add($magic);
++	$ctx->add($salt);
++
++	# Add some more stuff from the hash of the password and salt
++	local $ctx1 = new MD5;
++	$ctx1->add($passwd);
++	$ctx1->add($salt);
++	$ctx1->add($passwd);
++	local $final = $ctx1->digest();
++	for($pl=length($passwd); $pl>0; $pl-=16) {
++		$ctx->add($pl > 16 ? $final : substr($final, 0, $pl));
++		}
++
++	# This piece of code seems rather pointless, but it's in the C code that
++	# does MD5 in PAM so it has to go in!
++	local $j = 0;
++	local ($i, $l);
++	for($i=length($passwd); $i; $i >>= 1) {
++		if ($i & 1) {
++			$ctx->add("\0");
++			}
++		else {
++			$ctx->add(substr($passwd, $j, 1));
++			}
++		}
++	$final = $ctx->digest();
++
++	# This loop exists only to waste time
++	for($i=0; $i<1000; $i++) {
++		$ctx1 = new MD5;
++		$ctx1->add($i & 1 ? $passwd : $final);
++		$ctx1->add($salt) if ($i % 3);
++		$ctx1->add($passwd) if ($i % 7);
++		$ctx1->add($i & 1 ? $final : $passwd);
++		$final = $ctx1->digest();
++		}
++
++	# Convert the 16-byte final string into a readable form
++	local $rv = $magic.$salt.'$';
++	local @final = map { ord($_) } split(//, $final);
++	$l = ($final[ 0]<<16) + ($final[ 6]<<8) + $final[12];
++	$rv .= &to64($l, 4);
++	$l = ($final[ 1]<<16) + ($final[ 7]<<8) + $final[13];
++	$rv .= &to64($l, 4);
++	$l = ($final[ 2]<<16) + ($final[ 8]<<8) + $final[14];
++	$rv .= &to64($l, 4);
++	$l = ($final[ 3]<<16) + ($final[ 9]<<8) + $final[15];
++	$rv .= &to64($l, 4);
++	$l = ($final[ 4]<<16) + ($final[10]<<8) + $final[ 5];
++	$rv .= &to64($l, 4);
++	$l = $final[11];
++	$rv .= &to64($l, 2);
++
++	return $rv;
++	}
++else {
++	local $salt = chr(int(rand(26))+65) . chr(int(rand(26))+65);
++	return crypt($_[0], $salt);
++	}
++}
++
++@itoa64 = split(//, "./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
++sub to64
++{
++local ($v, $n) = @_;
++local $r;
++while(--$n >= 0) {
++        $r .= $itoa64[$v & 0x3f];
++        $v >>= 6;
++        }
++return $r;
++}
++
++1;
+diff -ruN webmin-0.79.orig/wuftpd/config-pld-linux webmin-0.79/wuftpd/config-pld-linux
+--- webmin-0.79.orig/wuftpd/config-pld-linux	Thu Jan  1 01:00:00 1970
++++ webmin-0.79/wuftpd/config-pld-linux	Tue May 23 10:33:38 2000
+@@ -0,0 +1,7 @@
++ftpgroups=/etc/ftpgroups
++ftpd_path=/usr/sbin/wu.ftpd
++ftphosts=/etc/ftphosts
++ftpconversions=/etc/ftpconversions
++pid_file=/var/run/ftpd.pid
++ftpusers=/etc/ftpusers
++ftpaccess=/etc/ftpaccess
+diff -ruN webmin-0.79.orig/wuftpd/module.info webmin-0.79/wuftpd/module.info
+--- webmin-0.79.orig/wuftpd/module.info	Sat Apr 15 11:14:45 2000
++++ webmin-0.79/wuftpd/module.info	Wed May 24 10:00:03 2000
+@@ -5,5 +5,5 @@
+ desc_es=Servidor FTP
+ desc_pt=Servidor FTP
+ desc_ru_SU=FTP Û≈“◊≈“
+-os_support=open-linux solaris redhat-linux suse-linux debian-linux slackware-linux turbo-linux freebsd openbsd hpux aix osf1 macos
++os_support=open-linux solaris redhat-linux suse-linux debian-linux slackware-linux turbo-linux freebsd openbsd hpux aix osf1 macos pld-linux
+ category=servers

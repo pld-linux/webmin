@@ -31,6 +31,10 @@ fi
 case "$1" in
   start)
 	# Check if the service is already running?
+	if [ ! -f /etc/webmin/miniserv.users ]; then
+		echo "Try \"$0\" before start."
+		exit 1
+	fi
 	if [ ! -f /var/lock/subsys/webmin ]; then
 		# show "Starting %s service." <service>
 		msg_starting webmin
@@ -53,8 +57,8 @@ case "$1" in
         # show "Stopping %s service" <service>
 	if [ -f /var/lock/subsys/webmin ]; then
 		msg_stopping webmin
-		killproc webmin
-		rm -f /var/lock/subsys/webmin /var/run/webmin/webmin.pid >/dev/null 2>&1
+		killproc miniserv.pl 
+		rm -f /var/lock/subsys/webmin /var/run/miniserv.pid >/dev/null 2>&1
 	else
 		# show "%s service is not running." <service>
 		msg_Not_Running webmin
@@ -97,8 +101,9 @@ case "$1" in
 		fi
 		allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 		perl -e 'print "$ARGV[0]:",crypt($ARGV[1], "XX"),":0\n"' "$login" "$password" >/etc/webmin/miniserv.users
-		echo "$login:$allmods" >/etc/webmin/webmin.acl
+		echo "$login: $allmods" >/etc/webmin/webmin.acl
 	fi
+	;;
   *)
         # show "Usage: %s {start|stop|status|restart|reload|force-reload}" $0
 	msg_Usage "$0 {start|stop|status|restart|reload|force-reload}"
