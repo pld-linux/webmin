@@ -33,6 +33,7 @@ elif [ ! -d $1 ] ; then
   echo $0: $1: no such directory
   exit 1
 else TOP_DIR="`echo $1|sed -e 's:/$::'`"
+# else TOP_DIR="`echo $1|sed -e 's:/$::' -e 's:^/::g'`"
 fi
 shift
 
@@ -61,38 +62,37 @@ while test $# -gt 0 ; do
     esac
 done
 
-if [ -d $TOP_DIR/$BASE_DIR/help ]; then
-  echo %dir $BASE_DIR/lang > $NAME.lang
-  find $TOP_DIR/$BASE_DIR/lang |sed '
-1i\
-%defattr (644,root,root,755)
+echo "%defattr (644,root,root,755)" >$NAME.lang
+if [ -d `echo $BASE_DIR | sed s:.*/::`/lang ]; then
+  echo %dir $BASE_DIR/lang >> $NAME.lang
+  find $TOP_DIR$BASE_DIR/lang |sed '
 s:^'"$TOP_DIR"'::
-s:^/'$BASE_DIR/lang/'.*/.*::
-s:^/'$BASE_DIR/lang/'.*~::
-s:^/'$BASE_DIR/lang/'.*\.eucJP::
-s:^\(/'$BASE_DIR/lang/'\)\([a-z][a-z]\)\(.*\):%lang(\2) \1\2\3:
+s:^'$BASE_DIR/lang/'.*/.*::
+s:^'$BASE_DIR/lang/'.*~::
+s:^'$BASE_DIR/lang/'.*\.eucJP::
+s:^\('$BASE_DIR/lang/'\)\([a-z][a-z]\)\(.*\):%lang(\2) \1\2\3:
 s:^\([^%].*\)::
 s:%lang(en) ::' >> $NAME.lang
 fi
 
-if [ -d $TOP_DIR/$BASE_DIR/help ]; then
+if [ -d `echo $BASE_DIR | sed s:.*/::g`/help ]; then
   if [ "$HELP" != '#' ]; then
     echo %dir $BASE_DIR/help >> $NAME.lang
   fi
-  find $TOP_DIR/$BASE_DIR/help -name '*.html' |sed '
+  find $TOP_DIR$BASE_DIR/help -name '*.html' |sed '
 s:^'"$TOP_DIR"'::
-s:^/'$BASE_DIR/help/'.*/.*::
-'"$HELP"'s:^\(/'$BASE_DIR/help/'\)\(.*\.\)\([a-z][a-z]\)\(\|_[A-Z][A-Z]\)\(\|\.euc\|\.Big5\)\(\.html\):%lang(\3) \1\2\3\4\5\6:
-'"$HELP"'s:^\(/'$BASE_DIR/help/'.*\.html\):%lang(en) \1:
+s:^'$BASE_DIR/help/'.*/.*::
+'"$HELP"'s:^\('$BASE_DIR/help/'\)\(.*\.\)\([a-z][a-z]\)\(\|_[A-Z][A-Z]\)\(\|\.euc\|\.Big5\)\(\.html\):%lang(\3) \1\2\3\4\5\6:
+'"$HELP"'s:^\('$BASE_DIR/help/'.*\.html\):%lang(en) \1:
 s:^\([^%].*\)::
 '"$HELP"'s:%lang(en) ::' >> $NAME.lang
 fi
 
-find $TOP_DIR/$BASE_DIR -name 'config.info.*' |sed '
+find $TOP_DIR$BASE_DIR -name 'config.info.*' |sed '
 s:^'"$TOP_DIR"'::
-s:^/'$BASE_DIR/'.*/.*::
-s:^/'$BASE_DIR/'.*\.eucJP::
-s:^\(/'$BASE_DIR/config'\.info\.\)\([a-z][a-z]\)\(.*\):%lang(\2) \1\2\3:
+s:^'$BASE_DIR/'.*/.*::
+s:^'$BASE_DIR/'.*\.eucJP::
+s:^\('$BASE_DIR/config'\.info\.\)\([a-z][a-z]\)\(.*\):%lang(\2) \1\2\3:
 s:^\([^%].*\)::' >> $NAME.lang
 
 if [ "$(cat $NAME.lang | egrep -v '(^%defattr|^$)' | wc -l)" -le 0  ]; then
