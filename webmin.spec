@@ -8,19 +8,21 @@ Version:	0.87.5
 %define	source_version	%(echo %{version}|sed -e 's/pre//' -e 's/\\(\\.\\)\\(.\\)$/\\2/')
 Release:	1
 License:	Distributable (BSD-like)
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
 #Source0:	ftp://ftp.webmin.com/pub/webadmin/%{name}-%{version}.tar.gz
 # Unofficial webmin tarballs location (if anybody interested):
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Source0:	http://fudu.curlybracket.com/webadmin/tarballs/%{name}-%{source_version}.tar.gz
 Source1:	%{name}.init
 Source2:	%{name}-miniserv.conf
 Source3:	%{name}-scripts.tar.gz
 #Patch0:	%{name}-PLD.patch
 Patch0:		%{name}-%{version}-PLD.patch
-Url:		http://www.webmin.com/webmin/
+URL:		http://www.webmin.com/webmin/
 BuildRequires:	textutils
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Prereq:		/sbin/chkconfig
 
 %description
 Webmin is a web-based interface for system administration for Unix.
@@ -36,8 +38,9 @@ przegl±darki obs³uguj±cej tabele i formularze
 %package disk-tools
 Summary:	Webmin - Partition and disk management tools
 Summary(pl):	Webmin - Narzêdzia do zarz±dzania dyskami i partycjami
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	hdparm
 Requires:	fdisk
 Requires:	webmin-system = %{version}
@@ -50,8 +53,9 @@ Requires:	webmin-system = %{version}
 %package grub
 Summary:	Webmin - GRUB configuration
 Summary(pl):	Webmin - Konfiguracja GRUB-a
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	grub
 
 %description grub
@@ -62,8 +66,9 @@ Requires:	grub
 %package lilo
 Summary:	Webmin - LILO configuration
 Summary(pl):	Webmin - Konfiguracja LILO
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	lilo
 
 %description lilo
@@ -74,8 +79,9 @@ Requires:	lilo
 %package printer
 Summary:	Webmin - Printer administration	
 Summary(pl):	Webmin - Zarz±dzanie drukarkami
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	lpd
 
 %description printer
@@ -86,8 +92,9 @@ Requires:	lpd
 %package net
 Summary:	Webmin - Network configuration
 Summary(pl):	Webmin - Konfiguracja sieci
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Prereq:		rc-scripts
 
 %description net
@@ -98,8 +105,9 @@ Prereq:		rc-scripts
 %package apache
 Summary:	Webmin - Apache webserver
 Summary(pl):	Webmin - Serwer WWW Apache
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	apache
 
 %description apache
@@ -110,8 +118,9 @@ Requires:	apache
 %package at
 Summary:	Webmin - At
 Summary(pl):	Webmin - At
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	at
 
 %description at
@@ -122,8 +131,9 @@ Requires:	at
 %package bind8
 Summary:	Webmin - BIND DNS server
 Summary(pl):	Webmin - Serwer DNS BIND
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	bind
 
 %description bind8
@@ -134,8 +144,9 @@ Requires:	bind
 %package cron
 Summary:	Webmin - Cron
 Summary(pl):	Webmin - Cron
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	crondaemon
 
 %description cron
@@ -146,8 +157,9 @@ Requires:	crondaemon
 %package dhcpd
 Summary:	Webmin - DHCP server	
 Summary(pl):	Webmin - Serwer DHCP
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	dhcpd
 
 %description dhcpd
@@ -158,8 +170,9 @@ Requires:	dhcpd
 %package inetd
 Summary:	Webmin - Inetd
 Summary(pl):	Webmin - Inetd
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 
 %description inetd
 
@@ -169,8 +182,9 @@ Group(pl):	Narzêdzia/System
 %package majordomo
 Summary:	Webmin - Majordomo List Manager
 Summary(pl):	Webmin - Zarz±dca list dyskusyjnych Majordomo
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	majordomo
 Requires:	webmin-sendmail = %{version}
 
@@ -182,8 +196,9 @@ Requires:	webmin-sendmail = %{version}
 %package mysql
 Summary:	Webmin - MySQL server
 Summary(pl):	Webmin - Serwer MySQL
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	mysql-client
 
 %description mysql
@@ -194,8 +209,9 @@ Requires:	mysql-client
 %package postfix
 Summary:	Webmin - Postfix	
 Summary(pl):	Webmin - Postfix
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	postfix
 
 %description postfix
@@ -206,8 +222,9 @@ Requires:	postfix
 %package postgresql
 Summary:	Webmin - PostgreSQL server
 Summary(pl):	Webmin - Serwer PostgreSQL
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	postgresql-clients
 
 %description postgresql
@@ -218,8 +235,9 @@ Requires:	postgresql-clients
 %package ppp
 Summary:	Webmin - PAP (PPP) usernames and passwords
 Summary(pl):	Webmin - Nazwy u¿ytkowników i has³a dla PAP (PPP)
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	ppp
 
 %description ppp
@@ -230,8 +248,9 @@ Requires:	ppp
 %package samba
 Summary:	Webmin - Samba
 Summary(pl):	Webmin - Samba
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	samba
 
 %description samba
@@ -242,8 +261,9 @@ Requires:	samba
 %package sendmail
 Summary:	Webmin - Sendmail	
 Summary(pl):	Webmin - Sendmail
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	sendmail
 
 %description sendmail
@@ -254,8 +274,9 @@ Requires:	sendmail
 %package squid
 Summary:	Webmin - Squid proxy
 Summary(pl):	Webmin - Serwer proxy Squid
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	squid
 
 %description squid
@@ -266,8 +287,9 @@ Requires:	squid
 %package wuftpd
 Summary:	Webmin - Wu-Ftpd server
 Summary(pl):	Webmin - Serwer Wu-Ftpd
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	wu-ftpd
 
 %description wuftpd
@@ -278,8 +300,9 @@ Requires:	wu-ftpd
 %package xinetd
 Summary:	Webmin - Xinetd
 Summary(pl):	Webmin - Xinetd
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 
 %description xinetd
 
@@ -289,8 +312,9 @@ Group(pl):	Narzêdzia/System
 %package nfs
 Summary:	Webmin - NFS server configuration	
 Summary(pl):	Webmin - Konfiguracja serwera NFS
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	nfsdaemon
 
 %description nfs
@@ -301,8 +325,9 @@ Requires:	nfsdaemon
 %package quota
 Summary:	Webmin - Quota management
 Summary(pl):	Webmin - Zarz±dzanie quota
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	quota
 
 %description quota
@@ -313,8 +338,9 @@ Requires:	quota
 %package software
 Summary:	Webmin - Software Packages
 Summary(pl):	Webmin -
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	rpm
 
 %description software
@@ -325,8 +351,9 @@ Requires:	rpm
 %package monitor
 Summary:	Webmin - Event monitor
 Summary(pl):	Webmin - Monitor zdarzeñ
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	crondaemon
 
 %description monitor
@@ -337,8 +364,9 @@ Requires:	crondaemon
 %package syslog
 Summary:	Webmin - System logger
 Summary(pl):	Webmin - Logi systemowe
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	syslogdaemon
 
 %description syslog
@@ -348,8 +376,9 @@ Requires:	syslogdaemon
 %package admin-tools
 Summary:	Webmin - Admin-tools (telnet, file manager, etc)
 Summary(pl):	Webmin - Narzêdzia administracyjne (telnet, menad¿er plików, itp.)
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 
 %description admin-tools
 
@@ -361,8 +390,9 @@ Summary:	Webmin - System Configuration
 Summary(pl):	Webmin - Konfiguracja systemu 
 #Summary:	Webmin - Process Manager
 #Summary(pl):	Webmin - Zarz±dzenia procesami
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 
 %description system
 
@@ -372,8 +402,9 @@ Group(pl):	Narzêdzia/System
 %package nis
 Summary:	Webmin - NIS configuration
 Summary(pl):	Webmin - Konfiguracja NIS
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	webmin-useradmin = %{version}
 Requires:	webmin-inetd = %{version}
 
@@ -385,8 +416,9 @@ Requires:	webmin-inetd = %{version}
 %package passwd
 Summary:	Webmin - Change Passwords
 Summary(pl):	Webmin - Zmiany hase³
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Requires:	webmin-useradmin = %{version}
 
 %description passwd
@@ -397,8 +429,9 @@ Requires:	webmin-useradmin = %{version}
 %package useradmin
 Summary:	Webmin - User account manager
 Summary(pl):	Webmin - Obs³uga kont u¿ytkowników
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 
 %description useradmin
 
@@ -428,19 +461,19 @@ install $RPM_BUILD_ROOT%{_datadir}/webmin/miniserv.pem \
 # %define webmin_lang	%(echo -n $1 >/dev/null)
 # %define webmin_help	%(echo -n $1 >/dev/null)
 
-(find $RPM_BUILD_ROOT%{_datadir}/webmin -name '*.cgi' -print ; find $RPM_BUILD_ROOT%{_datadir}/webmin -name '*.pl' -print) | perl $RPM_BUILD_ROOT%{_datadir}/webmin/perlpath.pl /usr/bin/perl -
+(find $RPM_BUILD_ROOT%{_datadir}/webmin -name '*.cgi' -print ; find $RPM_BUILD_ROOT%{_datadir}/webmin -name '*.pl' -print) | perl $RPM_BUILD_ROOT%{_datadir}/webmin/perlpath.pl %{_bindir}/perl -
 
 export allmods=`cd $RPM_BUILD_ROOT%{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 
 perl $RPM_BUILD_ROOT%{_datadir}/webmin/copyconfig.pl pld-linux 1.0 $RPM_BUILD_ROOT%{_datadir}/webmin $RPM_BUILD_ROOT%{_sysconfdir}/webmin "" $allmods
 
-echo "/usr/bin/perl"		>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/perl-path
+echo "%{_bindir}/perl"		>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/perl-path
 echo "/var/log/webmin" 		>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/var-path
 echo "real_os_version=1.0"	>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
 echo "lang=en" 			>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
 echo "find_pid_command=ps auwwwx | grep NAME | grep -v grep | awk '{ print $2 }'"	>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
 echo "os_type=pld-linux" 	>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
-echo "path=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin" 	>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
+echo "path=/bin:%{_bindir}:/sbin:%{_sbindir}:%{_prefix}/local/bin" >>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
 echo real_os_type=PLD Linux 	>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
 echo os_version=1.0 		>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
 
@@ -713,6 +746,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %config(noreplace) %{_sysconfdir}/webmin/time/config
 
 %files admin-tools
+%defattr(644,root,root,755)
 # TELNET
 %dir %{_sysconfdir}/webmin/telnet
 %dir %{_datadir}/webmin/telnet
@@ -765,6 +799,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 #### DISKS ####
 %files disk-tools
+%defattr(644,root,root,755)
 
 # FDISK
 %dir %{_sysconfdir}/webmin/fdisk
@@ -793,6 +828,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # GRUB
 %files grub
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/grub
 %dir %{_datadir}/webmin/grub
 %attr(755,root,root) %{_datadir}/webmin/grub/*.cgi
@@ -806,6 +842,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # LILO
 %files lilo
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/lilo
 %dir %{_datadir}/webmin/lilo
 %attr(755,root,root) %{_datadir}/webmin/lilo/*.cgi
@@ -821,6 +858,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # LP
 %files printer
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/lpadmin
 %dir %{_datadir}/webmin/lpadmin
 %attr(755,root,root) %{_datadir}/webmin/lpadmin/*.cgi
@@ -841,6 +879,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # NET
 %files net
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/net
 %dir %{_datadir}/webmin/net
 %attr(755,root,root) %{_datadir}/webmin/net/*.cgi
@@ -856,6 +895,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 #### SYSTEM ####
 %files system
+%defattr(644,root,root,755)
 
 # INIT
 %dir %{_sysconfdir}/webmin/init
@@ -924,6 +964,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # PASSWD
 %files passwd
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/passwd
 %dir %{_datadir}/webmin/passwd
 %attr(755,root,root) %{_datadir}/webmin/passwd/*.cgi
@@ -939,6 +980,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # USERADMIN
 %files useradmin
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/useradmin
 %dir %{_datadir}/webmin/useradmin
 %attr(755,root,root) %{_datadir}/webmin/useradmin/*.cgi
@@ -957,6 +999,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # NFS EXPORTS
 %files nfs
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/exports
 %dir %{_datadir}/webmin/exports
 %attr(755,root,root) %{_datadir}/webmin/exports/*.cgi
@@ -974,6 +1017,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # QUOTA
 %files quota
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/quota
 %dir %{_datadir}/webmin/quota
 %attr(755,root,root) %{_datadir}/webmin/quota/*.cgi
@@ -991,6 +1035,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # SOFTWARE
 %files software
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/software
 %dir %{_datadir}/webmin/software
 %attr(755,root,root) %{_datadir}/webmin/software/*.cgi
@@ -1006,6 +1051,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # STATUS
 %files monitor
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/status
 %dir %{_datadir}/webmin/status
 %attr(755,root,root) %{_datadir}/webmin/status/*.cgi
@@ -1022,6 +1068,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # SYSLOG
 %files syslog
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/syslog
 %dir %{_datadir}/webmin/syslog
 %attr(755,root,root) %{_datadir}/webmin/syslog/*.cgi
@@ -1040,6 +1087,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # NIS
 %files nis
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/nis
 %dir %{_datadir}/webmin/nis
 %attr(755,root,root) %{_datadir}/webmin/nis/*.cgi
@@ -1056,6 +1104,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # APACHE #
 %files apache
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/apache
 %dir %{_datadir}/webmin/apache
 %attr(755,root,root) %{_datadir}/webmin/apache/*.cgi
@@ -1075,6 +1124,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # AT
 %files at
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/at
 %dir %{_datadir}/webmin/at
 %attr(755,root,root) %{_datadir}/webmin/at/*.cgi
@@ -1088,6 +1138,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # BIND 8 #
 %files bind8
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/bind8
 %dir %{_datadir}/webmin/bind8
 %attr(755,root,root) %{_datadir}/webmin/bind8/*.cgi
@@ -1104,6 +1155,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # CRON
 %files cron
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/cron
 %dir %{_datadir}/webmin/cron
 %attr(755,root,root) %{_datadir}/webmin/cron/*.cgi
@@ -1120,6 +1172,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # DHCPD #
 %files dhcpd
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/dhcpd
 %dir %{_datadir}/webmin/dhcpd
 %attr(755,root,root) %{_datadir}/webmin/dhcpd/*.cgi
@@ -1136,6 +1189,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # INETD
 %files inetd
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/inetd
 %dir %{_datadir}/webmin/inetd
 %attr(755,root,root) %{_datadir}/webmin/inetd/*.cgi
@@ -1151,6 +1205,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # MAJORDOMO #
 %files majordomo
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/majordomo
 %dir %{_datadir}/webmin/majordomo
 %attr(755,root,root) %{_datadir}/webmin/majordomo/*.cgi
@@ -1167,6 +1222,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # MYSQL #
 %files mysql
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/mysql
 %dir %{_datadir}/webmin/mysql
 %attr(755,root,root) %{_datadir}/webmin/mysql/*.cgi
@@ -1184,6 +1240,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # POSTFIX #
 %files postfix
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/postfix
 %dir %{_datadir}/webmin/postfix
 %attr(755,root,root) %{_datadir}/webmin/postfix/*.cgi
@@ -1201,6 +1258,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # POSTGRESQL #
 %files postgresql
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/postgresql
 %dir %{_datadir}/webmin/postgresql
 %attr(755,root,root) %{_datadir}/webmin/postgresql/*.cgi
@@ -1218,6 +1276,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # PAP (PPPD) #
 %files ppp
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/pap
 %dir %{_datadir}/webmin/pap
 %attr(755,root,root) %{_datadir}/webmin/pap/*.cgi
@@ -1232,6 +1291,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # SAMBA #
 %files samba
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/samba
 %dir %{_datadir}/webmin/samba
 %attr(755,root,root) %{_datadir}/webmin/samba/*.cgi
@@ -1248,6 +1308,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # SENDMAIL #
 %files sendmail
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/sendmail
 %dir %{_datadir}/webmin/sendmail
 %attr(755,root,root) %{_datadir}/webmin/sendmail/*.cgi
@@ -1267,6 +1328,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # SQUID #
 %files squid
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/squid
 %dir %{_datadir}/webmin/squid
 %attr(755,root,root) %{_datadir}/webmin/squid/*.cgi
@@ -1284,6 +1346,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # WU-FTPD #
 %files wuftpd
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/wuftpd
 %dir %{_datadir}/webmin/wuftpd
 %attr(755,root,root) %{_datadir}/webmin/wuftpd/*.cgi
@@ -1299,6 +1362,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # XINETD
 %files xinetd
+%defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/xinetd
 %dir %{_datadir}/webmin/xinetd
 %attr(755,root,root) %{_datadir}/webmin/xinetd/*.cgi
