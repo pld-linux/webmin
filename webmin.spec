@@ -2,9 +2,8 @@
 Summary:	Webmin - web-based administration	
 Summary(pl):	Webmin - administracja przez WWW
 Name:		webmin
-Version:	0.79
-#Version:	0.87
-Release:	2
+Version:	0.87
+Release:	1
 License:	distributable
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
