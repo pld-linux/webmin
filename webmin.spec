@@ -3,11 +3,14 @@ Summary:	Webmin - web-based administration
 Summary(pl):	Webmin - administracja przez WWW
 Name:		webmin
 Version:	0.79
+#Version:	0.87
 Release:	2
 License:	distributable
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
-Source0:	%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.webmin.com/pub/webadmin/%{name}-%{version}.tar.gz
+#Unofficial webmin tarballs location (if anybody interested):
+#Source0:	ftp://fudu.curlybracket.com/pub/webadmin/tarballs/%{name}-%{version}4.tar.gz
 Source1:	%{name}.init
 Source2:	%{name}-miniserv.conf
 Patch0:		%{name}-PLD.patch
