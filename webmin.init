@@ -29,13 +29,13 @@ else
 	exit 0
 fi
 
-
+RETVAL=0
 # See how we were called.
 case "$1" in
   start)
 	if [ ! -f /etc/webmin/miniserv.users ]; then
 		nls "Try \"%s init\" before start." "$0"
-		exit 1
+		exit 6
 	fi
 	# Check if the service is already running?
 	if [ ! -f /var/lock/subsys/webmin ]; then
@@ -45,12 +45,16 @@ case "$1" in
 		exec /usr/share/webmin/miniserv.pl /etc/webmin/miniserv.conf &
 		ps -C miniserv.pl >/dev/null 2>&1
 		RETVAL=$?
-		[ $RETVAL -eq 0 ] && ok || fail
-		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/webmin
+		if [ $RETVAL -eq 0 ]; then
+			touch /var/lock/subsys/webmin
+			ok
+		else
+			RETVAL=1
+			fail
+		fi
 	else
 		# show "%s service is already running." <service>
 		msg_already_running webmin
-		exit 1
 	fi
 	;;
   stop)
@@ -59,25 +63,19 @@ case "$1" in
 		# show "Stopping %s service" <service>
 		msg_stopping webmin
 		killproc miniserv.pl
-		RETVAL=$?
 		rm -f /var/lock/subsys/webmin /var/run/miniserv.pid >/dev/null 2>&1
 	else
 		# show "%s service is not running." <service>
 		msg_not_running webmin
-		exit 1
 	fi
 	;;
-  restart|reload)
+  restart|force-reload)
 	$0 stop
 	$0 start
 	exit $?
 	;;
-  force-reload)
-	$0 stop && $0 start
-	exit $?
-	;;
   status)
-	status webmin 
+	status webmin miniserv.pl
 	exit $?
 	;;
   init)
@@ -112,9 +110,9 @@ case "$1" in
 	fi
 	;;
   *)
-	# show "Usage: %s {start|stop|init|restart|reload|force-reload|status}"
-	msg_usage "$0 {start|stop|init|restart|reload|force-reload|status}"
-	exit 1
+	# show "Usage: %s {start|stop|init|restart|force-reload|status}"
+	msg_usage "$0 {start|stop|init|restart|force-reload|status}"
+	exit 3
 esac
 
 exit $RETVAL
