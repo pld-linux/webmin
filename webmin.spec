@@ -339,12 +339,9 @@ rm -rf $RPM_BUILD_ROOT
 if ! grep -q ^host= /etc/webmin/miniserv.conf; then
 	echo "host=`hostname`" >>/etc/webmin/miniserv.conf
 fi
-
-if [ -f /var/lock/subsys/webmin ]; then
-	/etc/rc.d/init.d/webmin restart >&2
-else
-        echo "Run \"/etc/rc.d/init.d/webmin start\" to start webmin" >&2
-	echo "and use your web browser to go to:" >&2
+%chkconfig_add
+if [ ! -f /var/lock/subsys/webmin ]; then
+	echo "Use your web browser to go to:" >&2
 	echo "http://your_host_name:10000" >&2
 fi
 
@@ -352,12 +349,7 @@ export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %preun
-if [ "$1" = "0" ]; then
-        if [ -f /var/lock/subsys/webmin ]; then
-                /etc/rc.d/init.d/webmin stop
-        fi
-        /sbin/chkconfig	--del webmin
-fi
+%chkconfig_del
 
 %post disks-tools
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
