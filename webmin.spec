@@ -6,7 +6,7 @@ Version:	0.970
 # Current unofficial tarball version (be carefull; numberring incompatibility):
 #Version:	0.90.4
 %define	source_version	%(echo %{version}|sed -e 's/pre//' -e 's/\\(\\.\\)\\(.\\)$/\\2/')
-Release:	5
+Release:	1
 License:	distributable (BSD-like)
 Group:		Applications/System
 Source0:	http://www.webmin.com/webmin/download/%{name}-%{version}.tar.gz
