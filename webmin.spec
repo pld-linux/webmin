@@ -6,7 +6,7 @@ Name:		webmin
 # Current unofficial tarball version (be carefull; numberring incompatibility):
 Version:	0.87.5
 %define	source_version	%(echo %{version}|sed -e 's/pre//' -e 's/\\(\\.\\)\\(.\\)$/\\2/')
-Release:	1
+Release:	2
 License:	Distributable (BSD-like)
 #Source0:	ftp://ftp.webmin.com/pub/webadmin/%{name}-%{version}.tar.gz
 # Unofficial webmin tarballs location (if anybody interested):
