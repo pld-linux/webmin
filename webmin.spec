@@ -2,11 +2,11 @@
 Summary:	Webmin - web-based administration
 Summary(pl):	Webmin - administracja przez WWW
 Name:		webmin
-Version:	0.980
+Version:	0.990
 # Current unofficial tarball version (be carefull; numberring incompatibility):
-#Version:	0.988
+#Version:	0.989
 %define	source_version	%{version}
-Release:	0.5
+Release:	0.1
 License:	distributable (BSD-like)
 Group:		Applications/System
 Source0:	http://www.webmin.com/webmin/download/%{name}-%{version}.tar.gz
@@ -162,6 +162,20 @@ Webmin - Cluster users and groups.
 
 %description cluster-useradmin -l pl
 Webmin - U¿ytkownicy i grupy klastra.
+
+# CLUSTER-WEBMIN
+%package cluster-webmin
+Summary:	Webmin - Cluster Webmin servers
+Summary(pl):	Webmin - Klaster serwerów Webmina
+Group:		Applications/System
+Prereq:		%{name} = %{version}
+Requires:	%{name}-servers = %{version}
+
+%description cluster-webmin
+Webmin - Cluster Webmin servers.
+
+%description cluster-webmin -l pl
+Webmin - Klaster serwerów Webmina.
 
 # CRON
 %package cron
@@ -423,6 +437,21 @@ Webmin - PAP (PPP) usernames and passwords.
 
 %description ppp -l pl
 Webmin - Nazwy u¿ytkowników i has³a dla PAP (PPP).
+
+# PROCMAIL
+%package procmail
+Summary:	Webmin - Procmail mail filter
+Summary(pl):	Webmin - Filtr poczty Procmail
+Group:		Applications/System
+Prereq:		%{name} = %{version}
+Requires:	ppp
+Requires:	%{name} = %{version}
+
+%description procmail
+Webmin - Global configuration for Procmail mail filter.
+
+%description procmail -l pl
+Webmin - Ogólnosystemowa konfiguracja filtra poczty Procmail.
 
 %if 0
 # PRINTER
@@ -797,7 +826,7 @@ Webmin - ¬ród³a modu³u "file" napisanego czê¶ciowo w Javie.
 
 %prep
 %setup -q -n %{name}-%{source_version}
-%patch0 -p1
+#%patch0 -p1
 
 %build
 sed "s:\./cvsweb.conf:%{_sysconfdir}/webmincnf/cvsweb.conf:g" <pserver/cvsweb.cgi >pserver/cvsweb.cgi.
@@ -839,9 +868,10 @@ echo os_version=1.0 		>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
 echo %{version}			>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/version
 
 for a in acl apache at bind8 burner cfengine cluster-software \
-    cluster-useradmin custom dhcpd exports fdisk fetchmail file fsdump \
-    grub heartbeat inittab jabber lilo lpadmin lvm majordomo man mon \
-    mysql net nis pam pap passwd postfix postgresql proc proftpd pserver \
+    cluster-useradmin cluster-webmin custom dhcpd exports fdisk \
+    fetchmail file fsdump grub heartbeat inittab jabber lilo lpadmin \
+    lvm majordomo man mon mysql net nis pam pap passwd postfix \
+    postgresql proc procmail proftpd pserver \
     qmailadmin quota raid samba sendmail sentry servers shell software \
     squid sshd status syslog telnet time useradmin usermin webmin \
     webminlog wuftpd xinetd ; do
@@ -919,6 +949,10 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
+%post cluster-webmin
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
 %post cron
 allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
@@ -986,6 +1020,10 @@ allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | 
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post ppp
+allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post procmail
 allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
@@ -1705,6 +1743,19 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/cluster-useradmin/*-*.pl
 %config(noreplace) %{_sysconfdir}/webmin/cluster-useradmin/config
 
+# CLUSTER-WEBMIN
+%files cluster-webmin -f cluster-webmin.lang
+%defattr(644,root,root,755)
+%dir %{_sysconfdir}/webmin/cluster-webmin
+%dir %{_datadir}/webmin/cluster-webmin
+%attr(755,root,root) %{_datadir}/webmin/cluster-webmin/*.cgi
+%{_datadir}/webmin/cluster-webmin/config
+%{_datadir}/webmin/cluster-webmin/config.info
+%{_datadir}/webmin/cluster-webmin/images
+%{_datadir}/webmin/cluster-webmin/module.info
+%{_datadir}/webmin/cluster-webmin/*-*.pl
+%config(noreplace) %{_sysconfdir}/webmin/cluster-webmin/config
+
 # CRON
 %files cron -f cron.lang
 %defattr(644,root,root,755)
@@ -1860,6 +1911,19 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/postgresql/*-*.pl
 %{_datadir}/webmin/postgresql/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/postgresql/config
+
+# PROCMAIL #
+%files procmail -f procmail.lang
+%defattr(644,root,root,755)
+%dir %{_sysconfdir}/webmin/procmail
+%dir %{_datadir}/webmin/procmail
+%attr(755,root,root) %{_datadir}/webmin/procmail/*.cgi
+%{_datadir}/webmin/procmail/config
+%{_datadir}/webmin/procmail/config.info
+%{_datadir}/webmin/procmail/images
+%{_datadir}/webmin/procmail/module.info
+%{_datadir}/webmin/procmail/*-*.pl
+%config(noreplace) %{_sysconfdir}/webmin/procmail/config
 
 # PROFTPD #
 %files proftpd -f proftpd.lang
