@@ -10,6 +10,7 @@ Release:	0.2
 License:	BSD-like
 Group:		Applications/System
 Source0:	http://www.webmin.com/webmin/download/%{name}-%{version}.tar.gz
+# Source0-md5:	a953ab310e03fed6d09e7f11bf629be5
 # Unofficial webmin tarballs location (if anybody interested):
 #Source0:	http://www.webmin.com/webmin/devel/tarballs/%{name}-%{source_version}.tar.gz
 Source1:	%{name}.init
