@@ -27,7 +27,7 @@ BuildRequires:	rpm-perlprov
 BuildRequires:	textutils
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Requires(post,preun):	/sbin/chkconfig
+Requires(post,preun):/sbin/chkconfig
 
 %description
 Webmin is a web-based interface for system administration for Unix.
@@ -529,7 +529,8 @@ Requires:	%{name} = %{version}
 Webmin - Sentries.
 
 %description sentry -l pl
-Webmin - Wykrywanie prób nieautoryzowanego dostêpu lub skanowania systemu.
+Webmin - Wykrywanie prób nieautoryzowanego dostêpu lub skanowania
+systemu.
 
 # QMAIL
 %package qmail
@@ -652,7 +653,8 @@ Webmin - Zarz±dzanie quota.
 
 # SOFTWARE
 %package software
-Summary:	Webmin - Software Packages
+Summary:	Webmin - Software ackages
+Summary(pl):	Webmin - Pakiety oprogramowania
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	rpm
@@ -717,7 +719,8 @@ Requires:	%{name} = %{version}
 Webmin - Admin-tools (telnet, file manager, etc).
 
 %description admin-tools -l pl
-Webmin - Narzêdzia administracyjne (telnet, zarz±dzanie plikami, itp.).
+Webmin - Narzêdzia administracyjne (telnet, zarz±dzanie plikami,
+itp.).
 
 # PROC, INIT, INITTAB, MOUNT
 %package system
@@ -1942,8 +1945,8 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 # CVS-PSERVER #
 %files cvs-pserver -f pserver.lang
-%config(noreplace) %{_sysconfdir}/webmincnf/cvsweb.conf
 %defattr(644,root,root,755)
+%config(noreplace) %{_sysconfdir}/webmincnf/cvsweb.conf
 %dir %{_sysconfdir}/webmin/pserver
 %dir %{_datadir}/webmin/pserver
 %attr(755,root,root) %{_datadir}/webmin/pserver/*.cgi
