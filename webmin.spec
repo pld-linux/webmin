@@ -46,8 +46,10 @@ Requires:	fdisk
 Requires:	webmin-system = %{version}
 
 %description disk-tools
+Webmin - Partition and disk management tools.
 
 %description -l pl disk-tools
+Webmin - Narzêdzia do zarz±dzania dyskami i partycjami.
 
 # GRUB
 %package grub
@@ -59,8 +61,10 @@ Group(pl):	Aplikacje/System
 Requires:	grub
 
 %description grub
+Webmin - GRUB configuration.
 
 %description -l pl grub
+Webmin - Konfiguracja GRUB-a.
 
 # LILO
 %package lilo
@@ -72,8 +76,10 @@ Group(pl):	Aplikacje/System
 Requires:	lilo
 
 %description lilo
+Webmin - LILO configuration.
 
 %description -l pl lilo
+Webmin - Konfiguracja LILO.
 
 # PRINTER
 %package printer
@@ -85,8 +91,10 @@ Group(pl):	Aplikacje/System
 Requires:	lpd
 
 %description printer
+Webmin - Printer administration.
 
 %description -l pl printer
+Webmin - Zarz±dzanie drukarkami.
 
 # NET
 %package net
@@ -98,8 +106,10 @@ Group(pl):	Aplikacje/System
 Prereq:		rc-scripts
 
 %description net
+Webmin - Network configuration.
 
 %description -l pl net
+Webmin - Konfiguracja sieci.
 
 # APACHE
 %package apache
@@ -111,8 +121,10 @@ Group(pl):	Aplikacje/System
 Requires:	apache
 
 %description apache
+Webmin - Apache webserver.
 
 %description -l pl apache
+Webmin - Serwer WWW Apache.
 
 # AT
 %package at
@@ -124,8 +136,10 @@ Group(pl):	Aplikacje/System
 Requires:	at
 
 %description at
+Webmin - At.
 
 %description -l pl at
+Webmin - At.
 
 # BIND8
 %package bind8
@@ -137,8 +151,10 @@ Group(pl):	Aplikacje/System
 Requires:	bind
 
 %description bind8
+Webmin - BIND DNS server.
 
 %description -l pl bind8
+Webmin - Serwer DNS BIND.
 
 # CRON
 %package cron
@@ -150,8 +166,10 @@ Group(pl):	Aplikacje/System
 Requires:	crondaemon
 
 %description cron
+Webmin - Cron.
 
 %description -l pl cron
+Webmin - Cron.
 
 # DHCPD
 %package dhcpd
@@ -163,8 +181,10 @@ Group(pl):	Aplikacje/System
 Requires:	dhcpd
 
 %description dhcpd
+Webmin - DHCP server.
 
 %description -l pl dhcpd
+Webmin - Serwer DHCP.
 
 # INETD
 %package inetd
@@ -175,8 +195,10 @@ Group(de):	Applikationen/System
 Group(pl):	Aplikacje/System
 
 %description inetd
+Webmin - Inetd.
 
 %description -l pl inetd
+Webmin - Inetd.
 
 # MAJORDOMO
 %package majordomo
@@ -189,8 +211,10 @@ Requires:	majordomo
 Requires:	webmin-sendmail = %{version}
 
 %description majordomo
+Webmin - Majordomo List Manager.
 
 %description -l pl majordomo
+Webmin - Zarz±dca list dyskusyjnych Majordomo.
 
 # MYSQL
 %package mysql
@@ -202,8 +226,10 @@ Group(pl):	Aplikacje/System
 Requires:	mysql-client
 
 %description mysql
+Webmin - MySQL server.
 
 %description -l pl mysql
+Webmin - Serwer MySQL.
 
 # POSTFIX
 %package postfix
@@ -215,8 +241,10 @@ Group(pl):	Aplikacje/System
 Requires:	postfix
 
 %description postfix
+Webmin - Postfix.
 
 %description -l pl postfix
+Webmin - Postfix.
 
 # POSTGRESQL
 %package postgresql
@@ -228,8 +256,10 @@ Group(pl):	Aplikacje/System
 Requires:	postgresql-clients
 
 %description postgresql
+Webmin - PostgreSQL server.
 
 %description -l pl postgresql
+Webmin - Serwer PostgreSQL.
 
 # PPP
 %package ppp
@@ -241,8 +271,10 @@ Group(pl):	Aplikacje/System
 Requires:	ppp
 
 %description ppp
+Webmin - PAP (PPP) usernames and passwords.
 
 %description -l pl ppp
+Webmin - Nazwy u¿ytkowników i has³a dla PAP (PPP).
 
 # SAMBA
 %package samba
@@ -254,8 +286,10 @@ Group(pl):	Aplikacje/System
 Requires:	samba
 
 %description samba
+Webmin - Samba.
 
 %description -l pl samba
+Webmin - Samba.
 
 # SENDMAIL
 %package sendmail
@@ -267,8 +301,10 @@ Group(pl):	Aplikacje/System
 Requires:	sendmail
 
 %description sendmail
+Webmin - Sendmail.
 
 %description -l pl sendmail
+Webmin - Sendmail.
 
 # SQUID
 %package squid
@@ -280,8 +316,10 @@ Group(pl):	Aplikacje/System
 Requires:	squid
 
 %description squid
+Webmin - Squid proxy.
 
 %description -l pl squid
+Webmin - Serwer proxy Squid.
 
 # WUFTPD
 %package wuftpd
@@ -293,8 +331,10 @@ Group(pl):	Aplikacje/System
 Requires:	wu-ftpd
 
 %description wuftpd
+Webmin - Wu-Ftpd server.
 
 %description -l pl wuftpd
+Webmin - Serwer Wu-Ftpd.
 
 # XINETD
 %package xinetd
@@ -305,8 +345,10 @@ Group(de):	Applikationen/System
 Group(pl):	Aplikacje/System
 
 %description xinetd
+Webmin - Xinetd.
 
 %description -l pl xinetd
+Webmin - Xinetd.
 
 # NFS EXPORTS
 %package nfs
@@ -318,8 +360,10 @@ Group(pl):	Aplikacje/System
 Requires:	nfsdaemon
 
 %description nfs
+Webmin - NFS server configuration.
 
 %description -l pl nfs
+Webmin - Konfiguracja serwera NFS.
 
 # QUOTA
 %package quota
@@ -331,21 +375,21 @@ Group(pl):	Aplikacje/System
 Requires:	quota
 
 %description quota
+Webmin - Quota management.
 
 %description -l pl quota
+Webmin - Zarz±dzanie quota.
 
 # SOFTWARE
 %package software
 Summary:	Webmin - Software Packages
-Summary(pl):	Webmin -
 Group:		Applications/System
 Group(de):	Applikationen/System
 Group(pl):	Aplikacje/System
 Requires:	rpm
 
 %description software
-
-%description -l pl software
+Webmin - Software Packages.
 
 # STATUS
 %package monitor
@@ -357,8 +401,10 @@ Group(pl):	Aplikacje/System
 Requires:	crondaemon
 
 %description monitor
+Webmin - Event monitor.
 
 %description -l pl monitor
+Webmin - Monitor zdarzeñ.
 
 # SYSLOG
 %package syslog
@@ -370,8 +416,10 @@ Group(pl):	Aplikacje/System
 Requires:	syslogdaemon
 
 %description syslog
+Webmin - System logger.
 
 %description -l pl syslog
+Webmin - Logi systemowe.
 
 %package admin-tools
 Summary:	Webmin - Admin-tools (telnet, file manager, etc)
@@ -381,8 +429,10 @@ Group(de):	Applikationen/System
 Group(pl):	Aplikacje/System
 
 %description admin-tools
+Webmin - Admin-tools (telnet, file manager, etc).
 
 %description -l pl admin-tools
+Webmin - Narzêdzia administracyjne (telnet, menad¿er plików, itp.).
 
 # PROC, INIT, INITTAB, MOUNT
 %package system
@@ -395,8 +445,10 @@ Group(de):	Applikationen/System
 Group(pl):	Aplikacje/System
 
 %description system
+Webmin - System Configuration.
 
 %description -l pl system
+Webmin - Konfiguracja systemu.
 
 # NIS
 %package nis
@@ -409,8 +461,10 @@ Requires:	webmin-useradmin = %{version}
 Requires:	webmin-inetd = %{version}
 
 %description nis
+Webmin - NIS configuration.
 
 %description -l pl nis
+Webmin - Konfiguracja NIS.
 
 # PASSWD
 %package passwd
@@ -422,8 +476,10 @@ Group(pl):	Aplikacje/System
 Requires:	webmin-useradmin = %{version}
 
 %description passwd
+Webmin - Change Passwords.
 
 %description -l pl passwd
+Webmin - Zmiany hase³.
 
 # USERADMIN
 %package useradmin
@@ -434,8 +490,10 @@ Group(de):	Applikationen/System
 Group(pl):	Aplikacje/System
 
 %description useradmin
+Webmin - User account manager.
 
 %description -l pl useradmin
+Webmin - Obs³uga kont u¿ytkowników.
 
 %prep
 %setup -q -n %{name}-%{source_version} 
@@ -444,7 +502,6 @@ Group(pl):	Aplikacje/System
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 install -d $RPM_BUILD_ROOT{%{_datadir}/webmin,/var/{log,run}/webmin} \
 	$RPM_BUILD_ROOT%{_sysconfdir}/{webmin,rc.d/init.d}
 
