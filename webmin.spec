@@ -6,8 +6,8 @@ Version:	0.990
 # Current unofficial tarball version (be carefull; numberring incompatibility):
 #Version:	0.989
 %define	source_version	%{version}
-Release:	0.1
-License:	distributable (BSD-like)
+Release:	0.2
+License:	BSD-like
 Group:		Applications/System
 Source0:	http://www.webmin.com/webmin/download/%{name}-%{version}.tar.gz
 # Unofficial webmin tarballs location (if anybody interested):
