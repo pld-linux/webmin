@@ -69,6 +69,36 @@ case "$1" in
 	status webmin 
 	exit $?
         ;;
+  init)
+  	if [ ! -f /etc/webmin.acl -a ! -f /etc/miniserv.users ]; then
+        	echo -n "Login name [admin]: "
+		if [ "$login" = "" ]; then
+			read login
+			if [ "$login" = "" ]; then
+				login="admin"
+			fi
+		fi
+		echo -n "Login password: "
+		if [ "$password" = "" -a "$crypt" = "" ]; then
+			stty -echo
+			read password
+			stty echo
+			echo ""
+			echo -n "Password again: "
+			stty -echo
+			read password2
+			stty echo
+			echo ""
+			if [ "$password" != "$password2" ]; then
+				echo "ERROR: Passwords don't match"
+				echo ""
+				exit 1
+			fi
+		fi
+		allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+		perl -e 'print "$ARGV[0]:",crypt($ARGV[1], "XX"),":0\n"' "$login" "$password" >/etc/webmin/miniserv.users
+		echo "$login:$allmods" >/etc/webmin/webmin.acl
+	fi
   *)
         # show "Usage: %s {start|stop|status|restart|reload|force-reload}" $0
 	msg_Usage "$0 {start|stop|status|restart|reload|force-reload}"
