@@ -2,11 +2,11 @@
 Summary:	Webmin - web-based administration
 Summary(pl):	Webmin - administracja przez WWW
 Name:		webmin
-Version:	0.970
+Version:	0.980
 # Current unofficial tarball version (be carefull; numberring incompatibility):
-#Version:	0.966
+#Version:	0.985
 %define	source_version	%{version}
-Release:	3
+Release:	0.1
 License:	distributable (BSD-like)
 Group:		Applications/System
 Source0:	http://www.webmin.com/webmin/download/%{name}-%{version}.tar.gz
@@ -105,6 +105,23 @@ Webmin - CD Burner.
 
 %description burner -l pl
 Webmin - Wypalanie p³yt CD.
+
+%if 0
+# CFEGINE
+%package cfengine
+Summary:	Webmin - Configuration Engine
+Summary(pl):	Webmin - cfengine
+Group:		Applications/System
+# ?????
+Requires:	cfengine
+Prereq:		webmin
+
+%description cfengine
+Webmin - Configuration Engine.
+
+%description cfengine -l pl
+Webmin - cfengine.
+%endif
 
 # CLUSTER-SOFTWARE
 %package cluster-software
@@ -400,10 +417,23 @@ Webmin - Proftpd FTP Server.
 %description proftpd -l pl
 Webmin - Serwer FTP Proftpd.
 
+# CVS-PSERVER
+%package cvs-pserver
+Summary:	Webmin - CVS pserver
+Summary(pl):	Webmin - Serwer CVS (pserver)
+Group:		Applications/System
+Requires:	cvs-pserver
+
+%description cvs-pserver
+Webmin - CVS pserver configuration.
+
+%description cvs-pserver -l pl
+Webmin - Konfiguracja serwera CVS dzia³aj±cego w trybie pserver.
+
 # SAMBA
 %package samba
-Summary:	Webmin - Samba
-Summary(pl):	Webmin - Samba
+Summary:	Webmin - Samba configuration
+Summary(pl):	Webmin - Konfiguracja samby
 Group:		Applications/System
 Requires:	samba
 Prereq:		webmin
@@ -414,19 +444,48 @@ Webmin - Samba.
 %description samba -l pl
 Webmin - Samba.
 
+# SENTRY
+%package sentry
+Summary:	Webmin - Sentries
+Summary(pl):	Webmin - Wykrywanie prób nieautoryzowanego dostêpu
+Group:		Applications/System
+#Requires:	portsentry
+#Requires:	hostsentry
+Prereq:		webmin
+
+%description sentry
+Webmin - Sentries.
+
+%description sentry -l pl
+Webmin - Wykrywanie prób nieautoryzowanego dostêpu lub skanowania systemu.
+
+# QMAIL
+%package qmail
+Summary:	Webmin - Qmail configuration
+Summary(pl):	Webmin - Konfiguracja qmaila
+Group:		Applications/System
+Requires:	qmail
+Prereq:		webmin
+
+%description qmail
+Webmin - Qmail configuration.
+
+%description qmail -l pl
+Webmin - Konfiguracja qmaila.
+
 # SENDMAIL
 %package sendmail
-Summary:	Webmin - Sendmail
-Summary(pl):	Webmin - Sendmail
+Summary:	Webmin - Sendmail configuration
+Summary(pl):	Webmin - Konfiguracja sendmaila
 Group:		Applications/System
 Requires:	sendmail
 Prereq:		webmin
 
 %description sendmail
-Webmin - Sendmail.
+Webmin - Sendmail configuration.
 
 %description sendmail -l pl
-Webmin - Sendmail.
+Webmin - Konfiguracja sendmaila.
 
 # SQUID
 %package squid
@@ -549,7 +608,7 @@ Webmin - Logi systemowe.
 
 %package admin-tools
 Summary:	Webmin - Admin-tools (telnet, file manager, etc)
-Summary(pl):	Webmin - Narzêdzia administracyjne (telnet, menad¿er plików, itp.)
+Summary(pl):	Webmin - Narzêdzia administracyjne (telnet, zarz±dzanie plikami, itp.)
 Group:		Applications/System
 Prereq:		webmin
 
@@ -557,7 +616,7 @@ Prereq:		webmin
 Webmin - Admin-tools (telnet, file manager, etc).
 
 %description admin-tools -l pl
-Webmin - Narzêdzia administracyjne (telnet, menad¿er plików, itp.).
+Webmin - Narzêdzia administracyjne (telnet, zarz±dzanie plikami, itp.).
 
 # PROC, INIT, INITTAB, MOUNT
 %package system
@@ -616,6 +675,23 @@ Webmin - User account manager.
 %description useradmin -l pl
 Webmin - Obs³uga kont u¿ytkowników.
 
+# no usermin in PLD yet
+%if 0
+# USERMIN
+%package usermin
+Summary:	Webmin - Usermin configuration
+Summary(pl):	Webmin - Konfiguracja Usermina
+Group:		Applications/System
+Requires:	usermin
+Prereq:		webmin
+
+%description usermin
+Webmin - Usermin configuration.
+
+%description usermin -l pl
+Webmin - Konfiguracja usermina.
+%endif
+
 # THEMES
 %package themes
 Summary:	Webmin - Extra Themes for Webmin
@@ -667,15 +743,16 @@ echo %{version}			>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/version
 
 gzip -9nf LICENCE LICENCE.ja
 
-for a in acl apache at bind8 burner cluster-software cluster-useradmin \
-    custom dhcpd exports fdisk fetchmail file fsdump grub \
-    heartbeat inittab jabber lilo lpadmin lvm majordomo man mon mysql \
-    net nis pam pap passwd postfix postgresql proc proftpd quota raid \
-    samba sendmail servers shell software squid sshd status syslog telnet \
-    time useradmin webmin webminlog wuftpd xinetd ; do
+for a in acl apache at bind8 burner cfengine cluster-software \
+    cluster-useradmin custom dhcpd exports fdisk fetchmail file fsdump \
+    grub heartbeat inittab jabber lilo lpadmin lvm majordomo man mon \
+    mysql net nis pam pap passwd postfix postgresql proc proftpd pserver \
+    qmailadmin quota raid samba sendmail sentry servers shell software \
+    squid sshd status syslog telnet time useradmin usermin webmin \
+    webminlog wuftpd xinetd ; do
 	./webmin-find-lang.sh $RPM_BUILD_ROOT %{_datadir}/webmin/$a $a
 done
-for a in cron inetd init mount ; do
+for a in cron inetd init mount stunnel ; do
 	./webmin-find-lang.sh $RPM_BUILD_ROOT %{_datadir}/webmin/$a $a --no-help
 done
 ./webmin-find-lang.sh $RPM_BUILD_ROOT %{_datadir}/webmin MAIN
@@ -732,6 +809,12 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %post bind8
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%if 0
+%post cfengine
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+%endif
 
 %post cluster-software
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
@@ -821,7 +904,19 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
+%post cvs-pserver
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post qmail
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
 %post samba
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post sentry
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
@@ -880,6 +975,12 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %post passwd
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%if 0
+%post usermin
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+%endif
 
 %post useradmin
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
@@ -1262,6 +1363,22 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/passwd/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/passwd/config
 
+%if 0
+# USERMIN #
+%files usermin -f usermin.lang
+%defattr(644,root,root,755)
+%dir %{_sysconfdir}/webmin/usermin
+%dir %{_datadir}/webmin/usermin
+%attr(755,root,root) %{_datadir}/webmin/usermin/*.cgi
+%{_datadir}/webmin/usermin/config
+%{_datadir}/webmin/usermin/config.info
+%{_datadir}/webmin/usermin/images
+%{_datadir}/webmin/usermin/module.info
+%{_datadir}/webmin/usermin/*-*.pl
+%{_datadir}/webmin/usermin/*_*.pl
+%config(noreplace) %{_sysconfdir}/webmin/usermin/config
+%endif
+
 # USERADMIN
 %files useradmin -f useradmin.lang
 %defattr(644,root,root,755)
@@ -1364,7 +1481,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 # NIS
 %files nis -f nis.lang
 %defattr(644,root,root,755)
-%doc webmin/nis/nisupdate.conf
+%doc nis/nisupdate.conf
 %dir %{_sysconfdir}/webmin/nis
 %dir %{_datadir}/webmin/nis
 %attr(755,root,root) %{_datadir}/webmin/nis/*.cgi
@@ -1443,6 +1560,23 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/burner/*-*.pl
 %{_datadir}/webmin/burner/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/burner/config
+
+%if 0
+# CFENGINE
+%files cfengine -f cfengine.lang
+%defattr(644,root,root,755)
+%dir %{_sysconfdir}/webmin/cfengine
+%dir %{_datadir}/webmin/cfengine
+%attr(755,root,root) %{_datadir}/webmin/cfengine/*.cgi
+%{_datadir}/webmin/cfengine/config
+%{_datadir}/webmin/cfengine/config-*
+%{_datadir}/webmin/cfengine/config.info
+%{_datadir}/webmin/cfengine/images
+%{_datadir}/webmin/cfengine/module.info
+%{_datadir}/webmin/cfengine/*-*.pl
+%{_datadir}/webmin/cfengine/*_*.pl
+%config(noreplace) %{_sysconfdir}/webmin/cfengine/config
+%endif
 
 # CLUSTER-SOFTWARE
 %files cluster-software -f cluster-software.lang
@@ -1641,6 +1775,20 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/proftpd/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/proftpd/config
 
+# CVS-PSERVER #
+%files cvs-pserver -f pserver.lang
+%defattr(644,root,root,755)
+%dir %{_sysconfdir}/webmin/pserver
+%dir %{_datadir}/webmin/pserver
+%attr(755,root,root) %{_datadir}/webmin/pserver/*.cgi
+%{_datadir}/webmin/pserver/config
+%{_datadir}/webmin/pserver/config.info
+%{_datadir}/webmin/pserver/images
+%{_datadir}/webmin/pserver/module.info
+%{_datadir}/webmin/pserver/*-*.pl
+%{_datadir}/webmin/pserver/*_*.pl
+%config(noreplace) %{_sysconfdir}/webmin/pserver/config
+
 # PAP (PPPD) #
 %files ppp -f pap.lang
 %defattr(644,root,root,755)
@@ -1654,6 +1802,22 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/pap/*-*.pl
 %{_datadir}/webmin/pap/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/pap/config
+
+# QMAIL #
+%files qmail -f qmailadmin.lang
+%defattr(644,root,root,755)
+%dir %{_sysconfdir}/webmin/qmailadmin
+%dir %{_datadir}/webmin/qmailadmin
+%attr(755,root,root) %{_datadir}/webmin/qmailadmin/*.cgi
+%{_datadir}/webmin/qmailadmin/config
+%{_datadir}/webmin/qmailadmin/config.info
+%{_datadir}/webmin/qmailadmin/images
+%{_datadir}/webmin/qmailadmin/module.info
+%{_datadir}/webmin/qmailadmin/*-*.pl
+%{_datadir}/webmin/qmailadmin/*_*.pl
+%{_datadir}/webmin/qmailadmin/filter.pl
+%attr(755,root,root) %{_datadir}/webmin/qmailadmin/autoreply.pl
+%config(noreplace) %{_sysconfdir}/webmin/qmailadmin/config
 
 # SAMBA #
 %files samba -f samba.lang
@@ -1670,23 +1834,20 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/samba/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/samba/config
 
-# SENDMAIL #
-%files sendmail -f sendmail.lang
+# SENTRY #
+%files sentry -f sentry.lang
 %defattr(644,root,root,755)
-%dir %{_sysconfdir}/webmin/sendmail
-%dir %{_datadir}/webmin/sendmail
-%attr(755,root,root) %{_datadir}/webmin/sendmail/*.cgi
-%{_datadir}/webmin/sendmail/config-*
-%{_datadir}/webmin/sendmail/config.info
-%{_datadir}/webmin/sendmail/defaultacl
-%{_datadir}/webmin/sendmail/defines
-%{_datadir}/webmin/sendmail/images
-%{_datadir}/webmin/sendmail/module.info
-%{_datadir}/webmin/sendmail/*-*.pl
-%{_datadir}/webmin/sendmail/*_*.pl
-%{_datadir}/webmin/sendmail/filter.pl
-%attr(755,root,root) %{_datadir}/webmin/sendmail/autoreply.pl
-%config(noreplace) %{_sysconfdir}/webmin/sendmail/config
+%dir %{_sysconfdir}/webmin/sentry
+%dir %{_datadir}/webmin/sentry
+%attr(755,root,root) %{_datadir}/webmin/sentry/*.cgi
+%{_datadir}/webmin/sentry/config
+%{_datadir}/webmin/sentry/config-*
+%{_datadir}/webmin/sentry/config.info
+%{_datadir}/webmin/sentry/images
+%{_datadir}/webmin/sentry/module.info
+%{_datadir}/webmin/sentry/*-*.pl
+%{_datadir}/webmin/sentry/*_*.pl
+%config(noreplace) %{_sysconfdir}/webmin/sentry/config
 
 # SQUID #
 %files squid -f squid.lang
