@@ -22,7 +22,7 @@
 # Check that networking is up.
 if is_no "${NETWORKING}"; then
 	# nls "ERROR: Networking is down. %s can't be run." <service>
-	msg_Network_Down webmin
+	msg_network_down webmin
 	exit 1
 fi
 
@@ -30,11 +30,11 @@ fi
 # See how we were called.
 case "$1" in
   start)
-	# Check if the service is already running?
 	if [ ! -f /etc/webmin/miniserv.users ]; then
-		echo "Try \"$0\" before start."
+		echo "Try \"$0 init\" before start."
 		exit 1
 	fi
+	# Check if the service is already running?
 	if [ ! -f /var/lock/subsys/webmin ]; then
 		# show "Starting %s service." <service>
 		msg_starting webmin
@@ -48,7 +48,7 @@ case "$1" in
 		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/webmin
 	else
 		# show "%s service is already running." <service>
-		msg_Already_Running webmin
+		msg_already_running webmin
 		exit 1
 	fi
         ;;
@@ -57,13 +57,13 @@ case "$1" in
         # show "Stopping %s service" <service>
 	if [ -f /var/lock/subsys/webmin ]; then
 		msg_stopping webmin
-		killproc miniserv.pl 
+		killproc miniserv.pl
 		rm -f /var/lock/subsys/webmin /var/run/miniserv.pid >/dev/null 2>&1
 	else
 		# show "%s service is not running." <service>
-		msg_Not_Running webmin
+		msg_not_running webmin
 		exit 1
-	fi	
+	fi
         ;;
   restart)
         $0 stop
@@ -106,7 +106,7 @@ case "$1" in
 	;;
   *)
         # show "Usage: %s {start|stop|status|restart|reload|force-reload}" $0
-	msg_Usage "$0 {start|stop|status|restart|reload|force-reload}"
+	msg_usage "$0 {start|stop|status|restart|reload|force-reload}"
         exit 1
 esac
 
