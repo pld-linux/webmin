@@ -2,25 +2,25 @@
 Summary:	Webmin - web-based administration	
 Summary(pl):	Webmin - administracja przez WWW
 Name:		webmin
-#Version:	0.87
+Version:	0.90
 # Current unofficial tarball version (be carefull; numberring incompatibility):
-Version:	0.87.5
+#Version:	0.90.1
 %define	source_version	%(echo %{version}|sed -e 's/pre//' -e 's/\\(\\.\\)\\(.\\)$/\\2/')
-Release:	2
+Release:	1
 License:	Distributable (BSD-like)
-#Source0:	ftp://ftp.webmin.com/pub/webadmin/%{name}-%{version}.tar.gz
-# Unofficial webmin tarballs location (if anybody interested):
 Group:		Applications/System
 Group(de):	Applikationen/System
 Group(pl):	Aplikacje/System
-Source0:	http://fudu.curlybracket.com/webadmin/tarballs/%{name}-%{source_version}.tar.gz
+Source0:	http://www.webmin.com/webmin/download/%{name}-%{version}.tar.gz
+# Unofficial webmin tarballs location (if anybody interested):
+#Source0:	http://fudu.curlybracket.com/webadmin/tarballs/%{name}-%{source_version}.tar.gz
 Source1:	%{name}.init
 Source2:	%{name}-miniserv.conf
-Source3:	%{name}-scripts.tar.gz
-#Patch0:	%{name}-PLD.patch
+Source3:	%{name}-find-lang.sh
 Patch0:		%{name}-%{version}-PLD.patch
 URL:		http://www.webmin.com/webmin/
 BuildRequires:	textutils
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Prereq:		/sbin/chkconfig
 
@@ -182,7 +182,7 @@ Webmin - Cron.
 
 # DHCPD
 %package dhcpd
-Summary:	Webmin - DHCP server	
+Summary:	Webmin - DHCP server
 Summary(pl):	Webmin - Serwer DHCP
 Group:		Applications/System
 Group(de):	Applikationen/System
@@ -195,6 +195,36 @@ Webmin - DHCP server.
 
 %description -l pl dhcpd
 Webmin - Serwer DHCP.
+
+# FETCHMAIL
+%package fetchmail
+Summary:	Webmin - Fetchmail
+Summary(pl):	Webmin - Fetchmail
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
+Requires:	fetchmail
+
+%description fetchmail
+Webmin - Fetchmail.
+
+%description -l pl fetchmail
+Webmin - Fetchmail.
+
+# HEARTBEAT
+%package heartbeat
+Summary:	Webmin - Heartbeat Monitor
+Summary(pl):	Webmin - Monitor Heartbeat
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
+Requires:	heartbeat
+
+%description heartbeat
+Webmin - Heartbeat Monitor.
+
+%description -l pl heartbeat
+Webmin - Monitor Heartbeat.
 
 # INETD
 %package inetd
@@ -246,7 +276,7 @@ Webmin - Serwer MySQL.
 
 # POSTFIX
 %package postfix
-Summary:	Webmin - Postfix	
+Summary:	Webmin - Postfix
 Summary(pl):	Webmin - Postfix
 Group:		Applications/System
 Group(de):	Applikationen/System
@@ -290,6 +320,21 @@ Webmin - PAP (PPP) usernames and passwords.
 
 %description -l pl ppp
 Webmin - Nazwy u¿ytkowników i has³a dla PAP (PPP).
+
+# PROFTPD
+%package proftpd
+Summary:	Webmin - Proftpd FTP Server
+Summary(pl):	Webmin - Serwer FTP Proftpd
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
+Requires:	proftpd
+
+%description proftpd
+Webmin - Proftpd FTP Server.
+
+%description -l pl proftpd
+Webmin - Serwer FTP Proftpd.
 
 # SAMBA
 %package samba
@@ -338,6 +383,21 @@ Webmin - Squid proxy.
 
 %description -l pl squid
 Webmin - Serwer proxy Squid.
+
+# SSHD
+%package sshd
+Summary:	Webmin - SSH Server
+Summary(pl):	Webmin - Serwer SSH
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
+Requires:	openssh-server openssh-clients
+
+%description sshd
+Webmin - SSH Server.
+
+%description -l pl sshd
+Webmin - Serwer SSH.
 
 # WUFTPD
 %package wuftpd
@@ -524,12 +584,27 @@ Webmin - User account manager.
 %description -l pl useradmin
 Webmin - Obs³uga kont u¿ytkowników.
 
+# THEMES
+%package themes
+Summary:	Webmin - Extra Themes for Webmin
+Summary(pl):	Webmin - Dodatkowe motywy Webmina
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
+
+%description themes
+Webmin - Extra Themes for Webmin.
+
+%description -l pl themes
+Webmin - Dodatkowe motywy Webmina.
+
 %prep
-%setup -q -n %{name}-%{source_version} 
+%setup -q -n %{name}-%{source_version}
 %patch0 -p1
 %build
 
 %install
+
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_datadir}/webmin,/var/{log,run}/webmin} \
 	$RPM_BUILD_ROOT%{_sysconfdir}/{webmin,rc.d/init.d}
@@ -538,14 +613,9 @@ cp -rp * $RPM_BUILD_ROOT%{_datadir}/webmin
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/webmin
 install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/webmin/miniserv.conf
-install %{SOURCE3} $RPM_BUILD_ROOT%{_datadir}
+install %{SOURCE3} .
 install $RPM_BUILD_ROOT%{_datadir}/webmin/miniserv.pem \
 	$RPM_BUILD_ROOT%{_sysconfdir}/webmin/miniserv.pem
-
-%define webmin_lang	%(%{_datadir}/weblang.sh)
-%define webmin_help	%(%{_datadir}/webhelp.sh)
-# %define webmin_lang	%(echo -n $1 >/dev/null)
-# %define webmin_help	%(echo -n $1 >/dev/null)
 
 (find $RPM_BUILD_ROOT%{_datadir}/webmin -name '*.cgi' -print ; find $RPM_BUILD_ROOT%{_datadir}/webmin -name '*.pl' -print) | perl $RPM_BUILD_ROOT%{_datadir}/webmin/perlpath.pl %{_bindir}/perl -
 
@@ -565,7 +635,22 @@ echo os_version=1.0 		>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
 
 echo %{version}			>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/version
 
-gzip -9nf LICENCE
+gzip -9nf LICENCE LICENCE.ja
+
+for a in acl apache at bind8 custom dhcpd exports fdisk fetchmail file \
+    grub heartbeat inittab lilo lpadmin majordomo man mysql \
+    net nis pam pap passwd postfix postgresql proc proftpd quota raid \
+    samba sendmail servers shell software squid sshd status syslog telnet \
+    time useradmin webmin webminlog wuftpd xinetd ; do
+	./webmin-find-lang.sh $RPM_BUILD_ROOT %{_datadir}/webmin/$a $a
+done
+for a in cron inetd init mount ; do
+	./webmin-find-lang.sh $RPM_BUILD_ROOT %{_datadir}/webmin/$a $a --no-help
+done
+cat custom.lang file.lang telnet.lang webminlog.lang > admin-tools.lang
+cat fdisk.lang raid.lang > disk-tools.lang
+cat init.lang inittab.lang mount.lang proc.lang > system.lang
+cat acl.lang man.lang pam.lang servers.lang time.lang webmin.lang > base.lang
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -634,6 +719,14 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
+%post fetchmail
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post heartbeat
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
 %post inetd
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
@@ -658,6 +751,10 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
+%post proftpd
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
 %post samba
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
@@ -667,6 +764,10 @@ export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
 %post squid
+export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+
+%post sshd
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
@@ -718,16 +819,15 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
-%files
+%files -f base.lang
 %defattr(644,root,root,755)
-%doc LICENCE.gz
+%doc LICENCE.gz LICENCE.ja.gz
 %attr(750,root,root) %dir /var/log/webmin
 %attr(754,root,root) /etc/rc.d/init.d/webmin
 
 %attr(755,root,root) %{_datadir}/webmin/*.pl
 %attr(755,root,root) %{_datadir}/webmin/*.cgi
 %{_datadir}/webmin/images
-%webmin_lang %{_datadir}/webmin/lang
 %{_datadir}/webmin/config-*
 %{_datadir}/webmin/install-type
 %{_datadir}/webmin/mime.types
@@ -749,11 +849,11 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %dir %{_sysconfdir}/webmin/acl
 %dir %{_datadir}/webmin/acl
 %attr(755,root,root) %{_datadir}/webmin/acl/*.cgi
+%{_datadir}/webmin/acl/config
 %{_datadir}/webmin/acl/config-*
 %{_datadir}/webmin/acl/config.info
 %{_datadir}/webmin/acl/defaultacl
 %{_datadir}/webmin/acl/images
-%webmin_lang %{_datadir}/webmin/acl/lang
 %{_datadir}/webmin/acl/module.info
 %{_datadir}/webmin/acl/openssl.cnf
 %{_datadir}/webmin/acl/*-*.pl
@@ -766,9 +866,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %attr(755,root,root) %{_datadir}/webmin/man/*.cgi
 %{_datadir}/webmin/man/config-*
 %{_datadir}/webmin/man/config.info
-%webmin_help %{_datadir}/webmin/man/help
 %{_datadir}/webmin/man/images
-%webmin_lang %{_datadir}/webmin/man/lang
 %{_datadir}/webmin/man/module.info
 %{_datadir}/webmin/man/*-*.pl
 %config(noreplace) %{_sysconfdir}/webmin/man/config
@@ -780,7 +878,6 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/pam/config-*
 %{_datadir}/webmin/pam/config.info
 %{_datadir}/webmin/pam/images
-%webmin_lang %{_datadir}/webmin/pam/lang
 %{_datadir}/webmin/pam/module.info
 %{_datadir}/webmin/pam/*-*.pl
 %{_datadir}/webmin/pam/*_*.pl
@@ -795,7 +892,6 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/servers/config.info
 %{_datadir}/webmin/servers/defaultacl
 %{_datadir}/webmin/servers/images
-%webmin_lang %{_datadir}/webmin/servers/lang
 %{_datadir}/webmin/servers/module.info
 %{_datadir}/webmin/servers/*-*.pl
 %{_datadir}/webmin/servers/*_*.pl
@@ -807,7 +903,6 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %attr(755,root,root) %{_datadir}/webmin/webmin/*.cgi
 %{_datadir}/webmin/webmin/config
 %{_datadir}/webmin/webmin/images
-%webmin_lang %{_datadir}/webmin/webmin/lang
 %{_datadir}/webmin/webmin/*.risk
 %{_datadir}/webmin/webmin/*.skill
 %{_datadir}/webmin/webmin/module.info
@@ -823,15 +918,13 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/time/config-*
 %{_datadir}/webmin/time/config.info
 %{_datadir}/webmin/time/defaultacl
-%webmin_help %{_datadir}/webmin/time/help
 %{_datadir}/webmin/time/images
-%webmin_lang %{_datadir}/webmin/time/lang
 %{_datadir}/webmin/time/module.info
 %{_datadir}/webmin/time/*-*.pl
 %{_datadir}/webmin/time/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/time/config
 
-%files admin-tools
+%files admin-tools -f admin-tools.lang
 %defattr(644,root,root,755)
 # TELNET
 %dir %{_sysconfdir}/webmin/telnet
@@ -841,23 +934,10 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/telnet/config-*
 %{_datadir}/webmin/telnet/config.info
 %{_datadir}/webmin/telnet/images
-%webmin_lang %{_datadir}/webmin/telnet/lang
 %{_datadir}/webmin/telnet/module.info
 %{_datadir}/webmin/telnet/jta20.jar
 %{_datadir}/webmin/telnet/*.conf
 %config(noreplace) %{_sysconfdir}/webmin/telnet/config
-
-# FILE
-%dir %{_sysconfdir}/webmin/file
-%dir %{_datadir}/webmin/file
-%attr(755,root,root) %{_datadir}/webmin/file/*.cgi
-%{_datadir}/webmin/file/images
-%webmin_lang %{_datadir}/webmin/file/lang
-%{_datadir}/webmin/file/module.info
-%{_datadir}/webmin/file/*.pl
-# These are source files; not necessary to run...
-#%{_datadir}/webmin/file/*.java
-%{_datadir}/webmin/file/*.class
 
 # CUSTOM
 %dir %{_sysconfdir}/webmin/custom
@@ -866,25 +946,41 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/custom/config
 %{_datadir}/webmin/custom/config.info
 %{_datadir}/webmin/custom/defaultacl
-%webmin_help %{_datadir}/webmin/custom/help
 %{_datadir}/webmin/custom/images
-%webmin_lang %{_datadir}/webmin/custom/lang
 %{_datadir}/webmin/custom/module.info
 %{_datadir}/webmin/custom/*-*.pl
 %{_datadir}/webmin/custom/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/custom/config
+
+# FILE
+%dir %{_sysconfdir}/webmin/file
+%dir %{_datadir}/webmin/file
+%attr(755,root,root) %{_datadir}/webmin/file/*.cgi
+%{_datadir}/webmin/file/images
+%{_datadir}/webmin/file/module.info
+%{_datadir}/webmin/file/*.pl
+# These are source files; not necessary to run...
+#%{_datadir}/webmin/file/*.java
+%{_datadir}/webmin/file/*.class
+
+# SHELL
+%dir %{_sysconfdir}/webmin/shell
+%dir %{_datadir}/webmin/shell
+%attr(755,root,root) %{_datadir}/webmin/shell/*.cgi
+%{_datadir}/webmin/shell/images
+%{_datadir}/webmin/shell/module.info
+%{_datadir}/webmin/shell/*.pl
 
 # WEBMINLOG
 %dir %{_sysconfdir}/webmin/webminlog
 %dir %{_datadir}/webmin/webminlog
 %attr(755,root,root) %{_datadir}/webmin/webminlog/*.cgi
 %{_datadir}/webmin/webminlog/images
-%webmin_lang %{_datadir}/webmin/webminlog/lang
 %{_datadir}/webmin/webminlog/module.info
 %{_datadir}/webmin/webminlog/*.pl
 
 #### DISKS ####
-%files disk-tools
+%files disk-tools -f disk-tools.lang
 %defattr(644,root,root,755)
 
 # FDISK
@@ -892,9 +988,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %dir %{_datadir}/webmin/fdisk
 %attr(755,root,root) %{_datadir}/webmin/fdisk/*.cgi
 %{_datadir}/webmin/fdisk/defaultacl
-%webmin_help %{_datadir}/webmin/fdisk/help
 %{_datadir}/webmin/fdisk/images
-%webmin_lang %{_datadir}/webmin/fdisk/lang
 %{_datadir}/webmin/fdisk/module.info
 %{_datadir}/webmin/fdisk/*.pl
 %config(noreplace) %{_sysconfdir}/webmin/fdisk/config 
@@ -906,14 +1000,13 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/raid/config
 %{_datadir}/webmin/raid/config.info
 %{_datadir}/webmin/raid/images
-%webmin_lang %{_datadir}/webmin/raid/lang
 %{_datadir}/webmin/raid/module.info
 %{_datadir}/webmin/raid/*-*.pl
 %{_datadir}/webmin/raid/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/raid/config 
 
 # GRUB
-%files grub
+%files grub -f grub.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/grub
 %dir %{_datadir}/webmin/grub
@@ -921,13 +1014,12 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/grub/config
 %{_datadir}/webmin/grub/config.info
 %{_datadir}/webmin/grub/images
-%webmin_lang %{_datadir}/webmin/grub/lang
 %{_datadir}/webmin/grub/module.info
 %{_datadir}/webmin/grub/*-*.pl
 %config(noreplace) %{_sysconfdir}/webmin/grub/config
 
 # LILO
-%files lilo
+%files lilo -f lilo.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/lilo
 %dir %{_datadir}/webmin/lilo
@@ -936,14 +1028,13 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/lilo/config-*
 %{_datadir}/webmin/lilo/config.info
 %{_datadir}/webmin/lilo/images
-%webmin_lang %{_datadir}/webmin/lilo/lang
 %{_datadir}/webmin/lilo/module.info
 %{_datadir}/webmin/lilo/*-*.pl
 %{_datadir}/webmin/lilo/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/lilo/config
 
 # LP
-%files printer
+%files printer -f lpadmin.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/lpadmin
 %dir %{_datadir}/webmin/lpadmin
@@ -953,7 +1044,6 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/lpadmin/defaultacl
 %{_datadir}/webmin/lpadmin/drivers
 %{_datadir}/webmin/lpadmin/images
-%webmin_lang %{_datadir}/webmin/lpadmin/lang
 %{_datadir}/webmin/lpadmin/module.info
 %{_datadir}/webmin/lpadmin/*-*.pl
 %{_datadir}/webmin/lpadmin/*_*.pl
@@ -964,7 +1054,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %config(noreplace) %{_sysconfdir}/webmin/lpadmin/config
 
 # NET
-%files net
+%files net -f net.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/net
 %dir %{_datadir}/webmin/net
@@ -973,14 +1063,13 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/net/config.info
 %{_datadir}/webmin/net/defaultacl
 %{_datadir}/webmin/net/images
-%webmin_lang %{_datadir}/webmin/net/lang
 %{_datadir}/webmin/net/module.info
 %{_datadir}/webmin/net/*-*.pl
 %{_datadir}/webmin/net/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/net/config 
 
 #### SYSTEM ####
-%files system
+%files system -f system.lang
 %defattr(644,root,root,755)
 
 # INIT
@@ -992,7 +1081,6 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/init/defaultacl
 #%{_datadir}/webmin/init/help
 %{_datadir}/webmin/init/images
-%webmin_lang %{_datadir}/webmin/init/lang
 %{_datadir}/webmin/init/module.info
 %{_datadir}/webmin/init/*-*.pl
 %{_datadir}/webmin/init/*_*.pl
@@ -1007,9 +1095,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/inittab/config
 %{_datadir}/webmin/inittab/config.info
 %{_datadir}/webmin/inittab/defaultacl
-%webmin_help %{_datadir}/webmin/inittab/help
 %{_datadir}/webmin/inittab/images
-%webmin_lang %{_datadir}/webmin/inittab/lang
 %{_datadir}/webmin/inittab/module.info
 %{_datadir}/webmin/inittab/*-*.pl
 %{_datadir}/webmin/inittab/*_*.pl
@@ -1023,7 +1109,6 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/mount/config.info
 #%{_datadir}/webmin/mount/help
 %{_datadir}/webmin/mount/images
-%webmin_lang %{_datadir}/webmin/mount/lang
 %{_datadir}/webmin/mount/module.info
 %{_datadir}/webmin/mount/*-*.pl
 %{_datadir}/webmin/mount/*_*.pl
@@ -1038,9 +1123,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/proc/config-*
 %{_datadir}/webmin/proc/config.info
 %{_datadir}/webmin/proc/defaultacl
-%webmin_help %{_datadir}/webmin/proc/help
 %{_datadir}/webmin/proc/images
-%webmin_lang %{_datadir}/webmin/proc/lang
 %{_datadir}/webmin/proc/module.info
 %{_datadir}/webmin/proc/*-*.pl
 %{_datadir}/webmin/proc/*_*.pl
@@ -1049,7 +1132,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %config(noreplace) %{_sysconfdir}/webmin/proc/config
 
 # PASSWD
-%files passwd
+%files passwd -f passwd.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/passwd
 %dir %{_datadir}/webmin/passwd
@@ -1058,14 +1141,13 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/passwd/config.info
 %{_datadir}/webmin/passwd/defaultacl
 %{_datadir}/webmin/passwd/images
-%webmin_lang %{_datadir}/webmin/passwd/lang
 %{_datadir}/webmin/passwd/module.info
 %{_datadir}/webmin/passwd/*-*.pl
 %{_datadir}/webmin/passwd/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/passwd/config
 
 # USERADMIN
-%files useradmin
+%files useradmin -f useradmin.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/useradmin
 %dir %{_datadir}/webmin/useradmin
@@ -1073,9 +1155,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/useradmin/config-*
 %{_datadir}/webmin/useradmin/config.info
 %{_datadir}/webmin/useradmin/defaultacl
-%webmin_help %{_datadir}/webmin/useradmin/help
 %{_datadir}/webmin/useradmin/images
-%webmin_lang %{_datadir}/webmin/useradmin/lang
 %{_datadir}/webmin/useradmin/module.info
 %{_datadir}/webmin/useradmin/*-*.pl
 %{_datadir}/webmin/useradmin/*_*.pl
@@ -1084,16 +1164,14 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %config(noreplace) %{_sysconfdir}/webmin/useradmin/config
 
 # NFS EXPORTS
-%files nfs
+%files nfs -f exports.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/exports
 %dir %{_datadir}/webmin/exports
 %attr(755,root,root) %{_datadir}/webmin/exports/*.cgi
 %{_datadir}/webmin/exports/config-*
 %{_datadir}/webmin/exports/config.info
-%webmin_help %{_datadir}/webmin/exports/help
 %{_datadir}/webmin/exports/images
-%webmin_lang %{_datadir}/webmin/exports/lang
 %{_datadir}/webmin/exports/module.info
 %{_datadir}/webmin/exports/*-*.pl
 %{_datadir}/webmin/exports/*_*.pl
@@ -1102,7 +1180,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %config(noreplace) %{_sysconfdir}/webmin/exports/config
 
 # QUOTA
-%files quota
+%files quota -f quota.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/quota
 %dir %{_datadir}/webmin/quota
@@ -1110,9 +1188,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/quota/config-*
 %{_datadir}/webmin/quota/config.info
 %{_datadir}/webmin/quota/defaultacl
-%webmin_help %{_datadir}/webmin/quota/help
 %{_datadir}/webmin/quota/images
-%webmin_lang %{_datadir}/webmin/quota/lang
 %{_datadir}/webmin/quota/module.info
 %{_datadir}/webmin/quota/*-*.pl
 %{_datadir}/webmin/quota/*_*.pl
@@ -1120,23 +1196,21 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %config(noreplace) %{_sysconfdir}/webmin/quota/config
 
 # SOFTWARE
-%files software
+%files software -f software.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/software
 %dir %{_datadir}/webmin/software
 %attr(755,root,root) %{_datadir}/webmin/software/*.cgi
 %{_datadir}/webmin/software/config-*
 %{_datadir}/webmin/software/config.info
-%webmin_help %{_datadir}/webmin/software/help
 %{_datadir}/webmin/software/images
-%webmin_lang %{_datadir}/webmin/software/lang
 %{_datadir}/webmin/software/module.info
 %{_datadir}/webmin/software/*-*.pl
 %{_datadir}/webmin/software/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/software/config
 
 # STATUS
-%files monitor
+%files monitor -f status.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/status
 %dir %{_datadir}/webmin/status
@@ -1145,7 +1219,6 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/status/config-*
 %{_datadir}/webmin/status/config.info
 %{_datadir}/webmin/status/images
-%webmin_lang %{_datadir}/webmin/status/lang
 %{_datadir}/webmin/status/module.info
 %{_datadir}/webmin/status/*-*.pl
 %{_datadir}/webmin/status/*_*.pl
@@ -1153,7 +1226,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %config(noreplace) %{_sysconfdir}/webmin/status/config
 
 # SYSLOG
-%files syslog
+%files syslog -f syslog.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/syslog
 %dir %{_datadir}/webmin/syslog
@@ -1161,7 +1234,6 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/syslog/config-*
 %{_datadir}/webmin/syslog/config.info
 %{_datadir}/webmin/syslog/images
-%webmin_lang %{_datadir}/webmin/syslog/lang
 %{_datadir}/webmin/syslog/module.info
 %{_datadir}/webmin/syslog/*-*.pl
 %{_datadir}/webmin/syslog/*_*.pl
@@ -1172,7 +1244,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 #### OTHER #####
 
 # NIS
-%files nis
+%files nis -f nis.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/nis
 %dir %{_datadir}/webmin/nis
@@ -1180,7 +1252,6 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/nis/config-*
 %{_datadir}/webmin/nis/config.info
 %{_datadir}/webmin/nis/images
-%webmin_lang %{_datadir}/webmin/nis/lang
 %{_datadir}/webmin/nis/module.info
 %{_datadir}/webmin/nis/*-*.pl
 %config(noreplace) %{_sysconfdir}/webmin/nis/config
@@ -1189,7 +1260,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 #### SERVERS #####
 
 # APACHE #
-%files apache
+%files apache -f apache.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/apache
 %dir %{_datadir}/webmin/apache
@@ -1198,7 +1269,6 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/apache/config.info
 %{_datadir}/webmin/apache/defaultacl
 %{_datadir}/webmin/apache/images
-%webmin_lang %{_datadir}/webmin/apache/lang
 %{_datadir}/webmin/apache/module.info
 %doc %{_datadir}/webmin/apache/notes
 %{_datadir}/webmin/apache/*-*.pl
@@ -1209,7 +1279,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %config(noreplace) %{_sysconfdir}/webmin/apache/config
 
 # AT
-%files at
+%files at -f at.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/at
 %dir %{_datadir}/webmin/at
@@ -1217,13 +1287,12 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/at/config-*
 %{_datadir}/webmin/at/config.info
 %{_datadir}/webmin/at/images
-%webmin_lang %{_datadir}/webmin/at/lang
 %{_datadir}/webmin/at/module.info
 %{_datadir}/webmin/at/*-*.pl
 %config(noreplace) %{_sysconfdir}/webmin/at/config    
 
 # BIND 8 #
-%files bind8
+%files bind8 -f bind8.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/bind8
 %dir %{_datadir}/webmin/bind8
@@ -1232,7 +1301,6 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/bind8/config.info
 %{_datadir}/webmin/bind8/defaultacl
 %{_datadir}/webmin/bind8/images
-%webmin_lang %{_datadir}/webmin/bind8/lang
 %{_datadir}/webmin/bind8/module.info
 %{_datadir}/webmin/bind8/*-*.pl
 %{_datadir}/webmin/bind8/*_*.pl
@@ -1240,7 +1308,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %config(noreplace) %{_sysconfdir}/webmin/bind8/config
 
 # CRON
-%files cron
+%files cron -f cron.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/cron
 %dir %{_datadir}/webmin/cron
@@ -1250,14 +1318,13 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/cron/defaultacl
 #%{_datadir}/webmin/cron/help
 %{_datadir}/webmin/cron/images
-%webmin_lang %{_datadir}/webmin/cron/lang
 %{_datadir}/webmin/cron/module.info
 %{_datadir}/webmin/cron/*-*.pl
 %{_datadir}/webmin/cron/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/cron/config    
 
 # DHCPD #
-%files dhcpd
+%files dhcpd -f dhcpd.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/dhcpd
 %dir %{_datadir}/webmin/dhcpd
@@ -1265,16 +1332,43 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/dhcpd/config-*
 %{_datadir}/webmin/dhcpd/config.info
 %{_datadir}/webmin/dhcpd/defaultacl
-%webmin_help %{_datadir}/webmin/dhcpd/help
 %{_datadir}/webmin/dhcpd/images
-%webmin_lang %{_datadir}/webmin/dhcpd/lang
 %{_datadir}/webmin/dhcpd/module.info
 %{_datadir}/webmin/dhcpd/*-*.pl
 %{_datadir}/webmin/dhcpd/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/dhcpd/config
 
+# FETCHMAIL #
+%files fetchmail -f fetchmail.lang
+%defattr(644,root,root,755)
+%dir %{_sysconfdir}/webmin/fetchmail
+%dir %{_datadir}/webmin/fetchmail
+%attr(755,root,root) %{_datadir}/webmin/fetchmail/*.cgi
+%{_datadir}/webmin/fetchmail/config
+%{_datadir}/webmin/fetchmail/config-*
+%{_datadir}/webmin/fetchmail/config.info
+%{_datadir}/webmin/fetchmail/images
+%{_datadir}/webmin/fetchmail/module.info
+%{_datadir}/webmin/fetchmail/*-*.pl
+%{_datadir}/webmin/fetchmail/*_*.pl
+%config(noreplace) %{_sysconfdir}/webmin/fetchmail/config
+
+# HEARTBEAT #
+%files heartbeat -f heartbeat.lang
+%defattr(644,root,root,755)
+%dir %{_sysconfdir}/webmin/heartbeat
+%dir %{_datadir}/webmin/heartbeat
+%attr(755,root,root) %{_datadir}/webmin/heartbeat/*.cgi
+%{_datadir}/webmin/heartbeat/config
+%{_datadir}/webmin/heartbeat/config-*
+%{_datadir}/webmin/heartbeat/config.info
+%{_datadir}/webmin/heartbeat/images
+%{_datadir}/webmin/heartbeat/module.info
+%{_datadir}/webmin/heartbeat/*-*.pl
+%config(noreplace) %{_sysconfdir}/webmin/heartbeat/config
+
 # INETD
-%files inetd
+%files inetd -f inetd.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/inetd
 %dir %{_datadir}/webmin/inetd
@@ -1283,14 +1377,13 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/inetd/config.info
 #%dir %{_datadir}/webmin/inetd/help
 %{_datadir}/webmin/inetd/images
-%webmin_lang %{_datadir}/webmin/inetd/lang
 %{_datadir}/webmin/inetd/module.info
 %{_datadir}/webmin/inetd/*-*.pl
 %{_datadir}/webmin/inetd/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/inetd/config
 
 # MAJORDOMO #
-%files majordomo
+%files majordomo -f majordomo.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/majordomo
 %dir %{_datadir}/webmin/majordomo
@@ -1300,14 +1393,13 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/majordomo/config.info
 %{_datadir}/webmin/majordomo/defaultacl
 %{_datadir}/webmin/majordomo/images
-%webmin_lang %{_datadir}/webmin/majordomo/lang
 %{_datadir}/webmin/majordomo/module.info
 %{_datadir}/webmin/majordomo/*-*.pl
 %{_datadir}/webmin/majordomo/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/majordomo/config
 
 # MYSQL #
-%files mysql
+%files mysql -f mysql.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/mysql
 %dir %{_datadir}/webmin/mysql
@@ -1316,16 +1408,14 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/mysql/config-*
 %{_datadir}/webmin/mysql/config.info
 %{_datadir}/webmin/mysql/defaultacl
-%webmin_help %{_datadir}/webmin/mysql/help
 %{_datadir}/webmin/mysql/images
-%webmin_lang %{_datadir}/webmin/mysql/lang
 %{_datadir}/webmin/mysql/module.info
 %{_datadir}/webmin/mysql/*-*.pl
 %{_datadir}/webmin/mysql/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/mysql/config
 
 # POSTFIX #
-%files postfix
+%files postfix -f postfix.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/postfix
 %dir %{_datadir}/webmin/postfix
@@ -1334,16 +1424,14 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/postfix/config-*
 %{_datadir}/webmin/postfix/config.info
 %{_datadir}/webmin/postfix/defaultacl
-%webmin_help %{_datadir}/webmin/postfix/help
 %{_datadir}/webmin/postfix/images
-%webmin_lang %{_datadir}/webmin/postfix/lang
 %{_datadir}/webmin/postfix/module.info
 %{_datadir}/webmin/postfix/*-*.pl
 %{_datadir}/webmin/postfix/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/postfix/config
 
 # POSTGRESQL #
-%files postgresql
+%files postgresql -f postgresql.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/postgresql
 %dir %{_datadir}/webmin/postgresql
@@ -1352,16 +1440,29 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/postgresql/config-*
 %{_datadir}/webmin/postgresql/config.info
 %{_datadir}/webmin/postgresql/defaultacl
-%webmin_help %{_datadir}/webmin/postgresql/help
 %{_datadir}/webmin/postgresql/images
-%webmin_lang %{_datadir}/webmin/postgresql/lang
 %{_datadir}/webmin/postgresql/module.info
 %{_datadir}/webmin/postgresql/*-*.pl
 %{_datadir}/webmin/postgresql/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/postgresql/config
 
+# PROFTPD #
+%files proftpd -f proftpd.lang
+%defattr(644,root,root,755)
+%dir %{_sysconfdir}/webmin/proftpd
+%dir %{_datadir}/webmin/proftpd
+%attr(755,root,root) %{_datadir}/webmin/proftpd/*.cgi
+%{_datadir}/webmin/proftpd/config
+%{_datadir}/webmin/proftpd/config-*
+%{_datadir}/webmin/proftpd/config.info
+%{_datadir}/webmin/proftpd/images
+%{_datadir}/webmin/proftpd/module.info
+%{_datadir}/webmin/proftpd/*-*.pl
+%{_datadir}/webmin/proftpd/*_*.pl
+%config(noreplace) %{_sysconfdir}/webmin/proftpd/config
+
 # PAP (PPPD) #
-%files ppp
+%files ppp -f pap.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/pap
 %dir %{_datadir}/webmin/pap
@@ -1369,14 +1470,13 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/pap/config-*
 %{_datadir}/webmin/pap/config.info
 %{_datadir}/webmin/pap/images
-%webmin_lang %{_datadir}/webmin/pap/lang
 %{_datadir}/webmin/pap/module.info
 %{_datadir}/webmin/pap/*-*.pl
 %{_datadir}/webmin/pap/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/pap/config
 
 # SAMBA #
-%files samba
+%files samba -f samba.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/samba
 %dir %{_datadir}/webmin/samba
@@ -1384,16 +1484,14 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/samba/config-*
 %{_datadir}/webmin/samba/config.info
 %{_datadir}/webmin/samba/defaultacl
-%webmin_help %{_datadir}/webmin/samba/help
 %{_datadir}/webmin/samba/images
-%webmin_lang %{_datadir}/webmin/samba/lang
 %{_datadir}/webmin/samba/module.info
 %{_datadir}/webmin/samba/*-*.pl
 %{_datadir}/webmin/samba/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/samba/config
 
 # SENDMAIL #
-%files sendmail
+%files sendmail -f sendmail.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/sendmail
 %dir %{_datadir}/webmin/sendmail
@@ -1401,9 +1499,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/sendmail/config-*
 %{_datadir}/webmin/sendmail/config.info
 %{_datadir}/webmin/sendmail/defaultacl
-%webmin_help %{_datadir}/webmin/sendmail/help
 %{_datadir}/webmin/sendmail/images
-%webmin_lang %{_datadir}/webmin/sendmail/lang
 #%{_datadir}/webmin/sendmail/list_us
 %{_datadir}/webmin/sendmail/module.info
 %{_datadir}/webmin/sendmail/*-*.pl
@@ -1413,16 +1509,14 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %config(noreplace) %{_sysconfdir}/webmin/sendmail/config
 
 # SQUID #
-%files squid
+%files squid -f squid.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/squid
 %dir %{_datadir}/webmin/squid
 %attr(755,root,root) %{_datadir}/webmin/squid/*.cgi
 %{_datadir}/webmin/squid/config-*
 %{_datadir}/webmin/squid/config.info
-%webmin_help %{_datadir}/webmin/squid/help
 %{_datadir}/webmin/squid/images
-%webmin_lang %{_datadir}/webmin/squid/lang
 %{_datadir}/webmin/squid/module.info
 %{_datadir}/webmin/squid/*-*.pl
 %{_datadir}/webmin/squid/*_*.pl
@@ -1430,24 +1524,37 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/squid/*.skill
 %config(noreplace) %{_sysconfdir}/webmin/squid/config
 
+# SSHD #
+%files sshd -f sshd.lang
+%defattr(644,root,root,755)
+%dir %{_sysconfdir}/webmin/sshd
+%dir %{_datadir}/webmin/sshd
+%attr(755,root,root) %{_datadir}/webmin/sshd/*.cgi
+%{_datadir}/webmin/sshd/config
+%{_datadir}/webmin/sshd/config-*
+%{_datadir}/webmin/sshd/config.info
+%{_datadir}/webmin/sshd/images
+%{_datadir}/webmin/sshd/module.info
+%{_datadir}/webmin/sshd/*-*.pl
+%{_datadir}/webmin/sshd/*_*.pl
+%config(noreplace) %{_sysconfdir}/webmin/sshd/config
+
 # WU-FTPD #
-%files wuftpd
+%files wuftpd -f wuftpd.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/wuftpd
 %dir %{_datadir}/webmin/wuftpd
 %attr(755,root,root) %{_datadir}/webmin/wuftpd/*.cgi
 %{_datadir}/webmin/wuftpd/config-*
 %{_datadir}/webmin/wuftpd/config.info
-%webmin_help %{_datadir}/webmin/wuftpd/help
 %{_datadir}/webmin/wuftpd/images
-%webmin_lang %{_datadir}/webmin/wuftpd/lang
 %{_datadir}/webmin/wuftpd/module.info
 %{_datadir}/webmin/wuftpd/*-*.pl
 %{_datadir}/webmin/wuftpd/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/wuftpd/config
 
 # XINETD
-%files xinetd
+%files xinetd -f xinetd.lang
 %defattr(644,root,root,755)
 %dir %{_sysconfdir}/webmin/xinetd
 %dir %{_datadir}/webmin/xinetd
@@ -1456,8 +1563,20 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/xinetd/config-*
 %{_datadir}/webmin/xinetd/config.info
 %{_datadir}/webmin/xinetd/images
-%webmin_lang %{_datadir}/webmin/xinetd/lang
 %{_datadir}/webmin/xinetd/module.info
 %{_datadir}/webmin/xinetd/*-*.pl
 %{_datadir}/webmin/xinetd/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/xinetd/config
+
+# THEMES
+%files themes
+%defattr(644,root,root,755)
+%dir %{_datadir}/webmin/caldera
+%attr(755,root,root) %{_datadir}/webmin/caldera/*.cgi
+%{_datadir}/webmin/caldera/config
+%{_datadir}/webmin/caldera/*.info
+%{_datadir}/webmin/caldera/*.css
+%{_datadir}/webmin/caldera/*.gif
+%{_datadir}/webmin/caldera/*/*
+%{_datadir}/webmin/kdestyle/*.info
+%{_datadir}/webmin/kdestyle/*/*
