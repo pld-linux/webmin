@@ -2,7 +2,7 @@
 Summary:	Webmin - web-based administration
 Summary(pl):	Webmin - administracja przez WWW
 Name:		webmin
-Version:	0.90
+Version:	0.970
 # Current unofficial tarball version (be carefull; numberring incompatibility):
 #Version:	0.90.4
 %define	source_version	%(echo %{version}|sed -e 's/pre//' -e 's/\\(\\.\\)\\(.\\)$/\\2/')
@@ -15,7 +15,7 @@ Source0:	http://www.webmin.com/webmin/download/%{name}-%{version}.tar.gz
 Source1:	%{name}.init
 Source2:	%{name}-miniserv.conf
 Source3:	%{name}-find-lang.sh
-Patch0:		%{name}-%{version}-PLD.patch
+#Patch0:		%{name}-%{version}-PLD.patch
 URL:		http://www.webmin.com/webmin/
 BuildRequires:	textutils
 BuildArch:	noarch
@@ -530,7 +530,7 @@ Webmin - Dodatkowe motywy Webmina.
 
 %prep
 %setup -q -n %{name}-%{source_version}
-%patch0 -p1
+#%patch0 -p1
 %build
 
 %install
