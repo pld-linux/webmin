@@ -6,7 +6,7 @@ Version:	0.90
 # Current unofficial tarball version (be carefull; numberring incompatibility):
 #Version:	0.90.4
 %define	source_version	%(echo %{version}|sed -e 's/pre//' -e 's/\\(\\.\\)\\(.\\)$/\\2/')
-Release:	1
+Release:	2
 License:	distributable (BSD-like)
 Group:		Applications/System
 Group(de):	Applikationen/System
@@ -683,13 +683,17 @@ fi
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 
+%ifnarch %{x86}
 %post grub
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+%endif
 
+%ifnarch %{x86}
 %post lilo
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
+%endif
 
 %post net
 export allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
@@ -1005,6 +1009,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/raid/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/raid/config 
 
+%ifnarch %{x86}
 # GRUB
 %files grub -f grub.lang
 %defattr(644,root,root,755)
@@ -1017,7 +1022,9 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/grub/module.info
 %{_datadir}/webmin/grub/*-*.pl
 %config(noreplace) %{_sysconfdir}/webmin/grub/config
+%endif
 
+%ifnarch %{x86}
 # LILO
 %files lilo -f lilo.lang
 %defattr(644,root,root,755)
@@ -1032,6 +1039,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/lilo/*-*.pl
 %{_datadir}/webmin/lilo/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/lilo/config
+%ifnarch %{x86}
 
 # LP
 %files printer -f lpadmin.lang
