@@ -7,7 +7,7 @@ Version:	0.90
 #Version:	0.90.1
 %define	source_version	%(echo %{version}|sed -e 's/pre//' -e 's/\\(\\.\\)\\(.\\)$/\\2/')
 Release:	1
-License:	Distributable (BSD-like)
+License:	distributable (BSD-like)
 Group:		Applications/System
 Group(de):	Applikationen/System
 Group(pl):	Aplikacje/System
