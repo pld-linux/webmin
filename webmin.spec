@@ -912,7 +912,7 @@ fi
 if [ -f /var/lock/subsys/webmin ]; then
 	/etc/rc.d/init.d/webmin restart >&2
 else
-	%banner %{name} -e << EOF
+	%banner %{name} -e <<EOF
 Run \"/etc/rc.d/init.d/webmin start\" to start webmin
 and use your web browser to go to:
 http://your_host_name:10000
