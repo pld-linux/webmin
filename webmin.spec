@@ -1039,7 +1039,7 @@ perl /usr/share/webmin/newmods.pl /etc/webmin $allmods
 %{_datadir}/webmin/lilo/*-*.pl
 %{_datadir}/webmin/lilo/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/lilo/config
-%ifnarch %{ix86}
+%endif
 
 # LP
 %files printer -f lpadmin.lang
