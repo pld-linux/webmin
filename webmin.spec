@@ -1,5 +1,7 @@
 # TODO:
 # - SECURITY: http://securitytracker.com/alerts/2004/Sep/1011173.html
+# - SECURITY: http://securitytracker.com/alerts/2004/Sep/1011268.html
+# - SECURITY: http://securitytracker.com/alerts/2004/Sep/1011267.html
 %include        /usr/lib/rpm/macros.perl
 Summary:	Webmin - web-based administration
 Summary(pl):	Webmin - administracja przez WWW
