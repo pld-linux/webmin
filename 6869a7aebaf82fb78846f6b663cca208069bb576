@@ -1,0 +1,4 @@
+- NFY: files section must be updated
+- TODO: separate modules to packages
+- TODO: add suport to module registration
+- TODO: modify modules for PLD and add config-pld-linux patch
