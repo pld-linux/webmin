@@ -6,7 +6,7 @@ Version:	0.980
 # Current unofficial tarball version (be carefull; numberring incompatibility):
 #Version:	0.988
 %define	source_version	%{version}
-Release:	0.4
+Release:	0.5
 License:	distributable (BSD-like)
 Group:		Applications/System
 Source0:	http://www.webmin.com/webmin/download/%{name}-%{version}.tar.gz
@@ -18,6 +18,11 @@ Source3:	%{name}-find-lang.sh
 Patch0:		%{name}-PLD.patch
 URL:		http://www.webmin.com/webmin/
 BuildRequires:	perl-Net-SSLeay
+BuildRequires:	perl-CGI
+BuildRequires:	perl-Compress-Zlib
+BuildRequires:	perl-DBI
+BuildRequires:	perl-Mon
+BuildRequires:	perl-modules
 BuildRequires:	rpm-perlprov
 BuildRequires:	textutils
 BuildArch:	noarch
@@ -57,6 +62,7 @@ Summary(pl):	Webmin - Serwer WWW Apache
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	apache
+Requires:	%{name} = %{version}
 
 %description apache
 Webmin - Apache webserver.
@@ -71,6 +77,7 @@ Summary(pl):	Webmin - At
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	at
+Requires:	%{name} = %{version}
 
 %description at
 Webmin - At.
@@ -85,6 +92,7 @@ Summary(pl):	Webmin - Serwer DNS BIND
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	bind
+Requires:	%{name} = %{version}
 
 %description bind8
 Webmin - BIND DNS server.
@@ -101,6 +109,7 @@ Prereq:		%{name} = %{version}
 Requires:	cdrecord
 Requires:	mkisofs
 Requires:	mpg123
+Requires:	%{name} = %{version}
 
 %description burner
 Webmin - CD Burner.
@@ -117,6 +126,7 @@ Group:		Applications/System
 Prereq:		%{name} = %{version}
 # ?????
 Requires:	cfengine
+Requires:	%{name} = %{version}
 
 %description cfengine
 Webmin - Configuration Engine.
@@ -131,6 +141,7 @@ Summary:	Webmin - Cluster software packages
 Summary(pl):	Webmin - Pakiety oprogramowania w klastrze
 Group:		Applications/System
 Prereq:		%{name} = %{version}
+Requires:	%{name} = %{version}
 
 %description cluster-software
 Webmin - Cluster software packages.
@@ -144,6 +155,7 @@ Summary:	Webmin - Cluster users and groups
 Summary(pl):	Webmin - U¿ytkownicy i grupy klastra
 Group:		Applications/System
 Prereq:		%{name} = %{version}
+Requires:	%{name} = %{version}
 
 %description cluster-useradmin
 Webmin - Cluster users and groups.
@@ -158,6 +170,7 @@ Summary(pl):	Webmin - Cron
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	crondaemon
+Requires:	%{name} = %{version}
 
 %description cron
 Webmin - Cron.
@@ -172,6 +185,7 @@ Summary(pl):	Webmin - Serwer DHCP
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	dhcp
+Requires:	%{name} = %{version}
 
 %description dhcpd
 Webmin - DHCP server.
@@ -186,6 +200,7 @@ Summary(pl):	Webmin - Fetchmail
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	fetchmail
+Requires:	%{name} = %{version}
 
 %description fetchmail
 Webmin - Fetchmail.
@@ -201,6 +216,8 @@ Group:		Applications/System
 Prereq:		%{name} = %{version}
 Prereq:		rc-scripts
 Requires:	dump
+Requires:	rc-scripts
+Requires:	%{name} = %{version}
 
 %description fsdump
 Webmin - Filesystem backup.
@@ -215,6 +232,7 @@ Summary(pl):	Webmin - Konfiguracja GRUB-a
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	grub
+Requires:	%{name} = %{version}
 
 %description grub
 Webmin - GRUB configuration.
@@ -229,6 +247,7 @@ Summary(pl):	Webmin - Monitor Heartbeat
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	heartbeat
+Requires:	%{name} = %{version}
 
 %description heartbeat
 Webmin - Heartbeat Monitor.
@@ -242,6 +261,7 @@ Summary:	Webmin - Inetd
 Summary(pl):	Webmin - Inetd
 Group:		Applications/System
 Prereq:		%{name} = %{version}
+Requires:	%{name} = %{version}
 
 %description inetd
 Webmin - Inetd.
@@ -256,6 +276,7 @@ Summary(pl):	Serwer systemu powiadamiania Jabber
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	jabber
+Requires:	%{name} = %{version}
 
 %description jabber
 Webmin - Jabber IM server.
@@ -270,6 +291,7 @@ Summary(pl):	Webmin - Konfiguracja LILO
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	lilo
+Requires:	%{name} = %{version}
 
 %description lilo
 Webmin - LILO configuration.
@@ -284,6 +306,7 @@ Summary(pl):	Webmin - Zarz±dzanie wolumenami logicznymi (LVM)
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	lvm
+Requires:	%{name} = %{version}
 
 %description lvm
 Webmin - Logical Volume Management.
@@ -316,6 +339,8 @@ Group:		Applications/System
 Prereq:		%{name} = %{version}
 Prereq:		rc-scripts
 Requires:	mon
+Requires:	rc-scripts
+Requires:	%{name} = %{version}
 
 %description mon
 Webmin - MON resource monitoring system.
@@ -330,6 +355,7 @@ Summary(pl):	Webmin - Serwer MySQL
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	mysql-client
+Requires:	%{name} = %{version}
 
 %description mysql
 Webmin - MySQL server.
@@ -344,6 +370,8 @@ Summary(pl):	Webmin - Konfiguracja sieci
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Prereq:		rc-scripts
+Requires:	rc-scripts
+Requires:	%{name} = %{version}
 
 %description net
 Webmin - Network configuration.
@@ -358,6 +386,7 @@ Summary(pl):	Webmin - Postfix
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	postfix
+Requires:	%{name} = %{version}
 
 %description postfix
 Webmin - Postfix.
@@ -372,6 +401,7 @@ Summary(pl):	Webmin - Serwer PostgreSQL
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	postgresql-clients
+Requires:	%{name} = %{version}
 
 %description postgresql
 Webmin - PostgreSQL server.
@@ -386,6 +416,7 @@ Summary(pl):	Webmin - Nazwy u¿ytkowników i has³a dla PAP (PPP)
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	ppp
+Requires:	%{name} = %{version}
 
 %description ppp
 Webmin - PAP (PPP) usernames and passwords.
@@ -401,6 +432,7 @@ Summary(pl):	Webmin - Zarz±dzanie drukarkami
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	lpd
+Requires:	%{name} = %{version}
 
 %description printer
 Webmin - Printer administration.
@@ -416,6 +448,7 @@ Summary(pl):	Webmin - Serwer FTP Proftpd
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	proftpd
+Requires:	%{name} = %{version}
 
 %description proftpd
 Webmin - Proftpd FTP Server.
@@ -430,6 +463,7 @@ Summary(pl):	Webmin - Serwer CVS (pserver)
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	cvs-pserver
+Requires:	%{name} = %{version}
 
 %description cvs-pserver
 Webmin - CVS pserver configuration.
@@ -444,6 +478,7 @@ Summary(pl):	Webmin - Konfiguracja samby
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	samba
+Requires:	%{name} = %{version}
 
 %description samba
 Webmin - Samba.
@@ -459,6 +494,7 @@ Group:		Applications/System
 Prereq:		%{name} = %{version}
 #Requires:	portsentry
 #Requires:	hostsentry
+Requires:	%{name} = %{version}
 
 %description sentry
 Webmin - Sentries.
@@ -473,6 +509,7 @@ Summary(pl):	Webmin - Konfiguracja qmaila
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	qmail
+Requires:	%{name} = %{version}
 
 %description qmail
 Webmin - Qmail configuration.
@@ -487,6 +524,7 @@ Summary(pl):	Webmin - Konfiguracja sendmaila
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	sendmail
+Requires:	%{name} = %{version}
 
 %description sendmail
 Webmin - Sendmail configuration.
@@ -501,6 +539,7 @@ Summary(pl):	Webmin - Serwer proxy Squid
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	squid
+Requires:	%{name} = %{version}
 
 %description squid
 Webmin - Squid proxy.
@@ -515,6 +554,7 @@ Summary(pl):	Webmin - Serwer SSH
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	openssh-server openssh-clients
+Requires:	%{name} = %{version}
 
 %description sshd
 Webmin - SSH Server.
@@ -529,6 +569,7 @@ Summary(pl):	Webmin - Serwer Wu-Ftpd
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	wu-ftpd
+Requires:	%{name} = %{version}
 
 %description wuftpd
 Webmin - Wu-Ftpd server.
@@ -542,6 +583,7 @@ Summary:	Webmin - Xinetd
 Summary(pl):	Webmin - Xinetd
 Group:		Applications/System
 Prereq:		%{name} = %{version}
+Requires:	%{name} = %{version}
 
 %description xinetd
 Webmin - Xinetd.
@@ -556,6 +598,7 @@ Summary(pl):	Webmin - Konfiguracja serwera NFS
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	nfsdaemon
+Requires:	%{name} = %{version}
 
 %description nfs
 Webmin - NFS server configuration.
@@ -570,6 +613,7 @@ Summary(pl):	Webmin - Zarz±dzanie quota
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	quota
+Requires:	%{name} = %{version}
 
 %description quota
 Webmin - Quota management.
@@ -583,6 +627,7 @@ Summary:	Webmin - Software Packages
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	rpm
+Requires:	%{name} = %{version}
 
 %description software
 Webmin - Software Packages.
@@ -594,6 +639,7 @@ Summary(pl):	Webmin - Konfiguracja tuneli SSL
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	stunnel
+Requires:	%{name} = %{version}
 
 %description stunnel
 Webmin - SSL tunnels configuration.
@@ -608,6 +654,7 @@ Summary(pl):	Webmin - Monitor zdarzeñ
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	crondaemon
+Requires:	%{name} = %{version}
 
 %description monitor
 Webmin - Event monitor.
@@ -622,6 +669,7 @@ Summary(pl):	Webmin - Logi systemowe
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	syslogdaemon
+Requires:	%{name} = %{version}
 
 %description syslog
 Webmin - System logger.
@@ -632,8 +680,9 @@ Webmin - Logi systemowe.
 %package admin-tools
 Summary:	Webmin - Admin-tools (telnet, file manager, etc)
 Summary(pl):	Webmin - Narzêdzia administracyjne (telnet, zarz±dzanie plikami, itp.)
-Prereq:		%{name} = %{version}
 Group:		Applications/System
+Prereq:		%{name} = %{version}
+Requires:	%{name} = %{version}
 
 %description admin-tools
 Webmin - Admin-tools (telnet, file manager, etc).
@@ -649,6 +698,7 @@ Summary(pl):	Webmin - Konfiguracja systemu
 #Summary(pl):	Webmin - Zarz±dzenia procesami
 Group:		Applications/System
 Prereq:		%{name} = %{version}
+Requires:	%{name} = %{version}
 
 %description system
 Webmin - System Configuration.
@@ -691,6 +741,7 @@ Summary:	Webmin - User account manager
 Summary(pl):	Webmin - Obs³uga kont u¿ytkowników
 Group:		Applications/System
 Prereq:		%{name} = %{version}
+Requires:	%{name} = %{version}
 
 %description useradmin
 Webmin - User account manager.
@@ -707,6 +758,7 @@ Summary(pl):	Webmin - Konfiguracja Usermina
 Group:		Applications/System
 Prereq:		%{name} = %{version}
 Requires:	usermin
+Requires:	%{name} = %{version}
 
 %description usermin
 Webmin - Usermin configuration.
@@ -721,6 +773,7 @@ Summary:	Webmin - Extra Themes for Webmin
 Summary(pl):	Webmin - Dodatkowe motywy Webmina
 Group:		Applications/System
 Prereq:		%{name} = %{version}
+Requires:	%{name} = %{version}
 
 %description themes
 Webmin - Extra Themes for Webmin.
@@ -731,9 +784,10 @@ Webmin - Dodatkowe motywy Webmina.
 # SOURCES
 %package src
 Summary:	Webmin - Java sources
-Summary(pl):	Webmin - ¬ródla w Javie
+Summary(pl):	Webmin - ¬ród³a w Javie
 Group:		Applications/System
 Prereq:		%{name} = %{version}
+Requires:	%{name}-admin-tools = %{version}
 
 %description src
 Webmin - Java sources of the `file' module.
