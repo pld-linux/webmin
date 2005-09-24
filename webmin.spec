@@ -2,6 +2,7 @@
 # - SECURITY: http://securitytracker.com/alerts/2004/Sep/1011173.html
 # - SECURITY: http://securitytracker.com/alerts/2004/Sep/1011268.html
 # - SECURITY: http://securitytracker.com/alerts/2004/Sep/1011267.html
+# - SECURITY: http://security.gentoo.org/glsa/glsa-200509-17.xml
 %include	/usr/lib/rpm/macros.perl
 Summary:	Webmin - web-based administration
 Summary(pl):	Webmin - administracja przez WWW
@@ -127,7 +128,6 @@ Webmin - CD Burner.
 %description burner -l pl
 Webmin - Wypalanie p³yt CD.
 
-%if 0
 # CFEGINE
 %package cfengine
 Summary:	Webmin - Configuration Engine
@@ -143,7 +143,6 @@ Webmin - Configuration Engine.
 
 %description cfengine -l pl
 Webmin - cfengine.
-%endif
 
 # CLUSTER-SOFTWARE
 %package cluster-software
@@ -338,7 +337,6 @@ Webmin - Logical Volume Management.
 %description lvm -l pl
 Webmin - Zarz±dzanie wolumenami logicznymi (LVM).
 
-%if 0
 # MAJORDOMO
 %package majordomo
 Summary:	Webmin - Majordomo List Manager
@@ -353,7 +351,6 @@ Webmin - Majordomo List Manager.
 
 %description majordomo -l pl
 Webmin - Zarz±dca list dyskusyjnych Majordomo.
-%endif
 
 # MON
 %package mon
@@ -463,7 +460,6 @@ Webmin - Global configuration for Procmail mail filter.
 %description procmail -l pl
 Webmin - Ogólnosystemowa konfiguracja filtra poczty Procmail.
 
-%if 0
 # PRINTER
 %package printer
 Summary:	Webmin - Printer administration
@@ -478,7 +474,6 @@ Webmin - Printer administration.
 
 %description printer -l pl
 Webmin - Zarz±dzanie drukarkami.
-%endif
 
 # PROFTPD
 %package proftpd
@@ -792,7 +787,6 @@ Webmin - User account manager.
 Webmin - Obs³uga kont u¿ytkowników.
 
 # no usermin in PLD yet
-%if 0
 # USERMIN
 %package usermin
 Summary:	Webmin - Usermin configuration
@@ -807,7 +801,6 @@ Webmin - Usermin configuration.
 
 %description usermin -l pl
 Webmin - Konfiguracja usermina.
-%endif
 
 # THEMES
 %package themes
@@ -840,10 +833,7 @@ Webmin - ¬ród³a modu³u "file" napisanego czê¶ciowo w Javie.
 %prep
 %setup -q -n %{name}-%{source_version}
 #%patch0 -p1
-
-%build
-sed "s:\./cvsweb.conf:%{_sysconfdir}/webmincnf/cvsweb.conf:g" <pserver/cvsweb.cgi >pserver/cvsweb.cgi.
-mv -f pserver/cvsweb.cgi. pserver/cvsweb.cgi
+sed -i -e "s:\./cvsweb.conf:%{_sysconfdir}/webmincnf/cvsweb.conf:g" pserver/cvsweb.cgi
 
 %install
 
@@ -918,6 +908,7 @@ and use your web browser to go to:
 http://your_host_name:10000
 EOF
 fi
+#" for vim
 
 allmods=`cd /usr/share/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 %{__perl} /usr/share/webmin/newmods.pl /etc/webmin $allmods
