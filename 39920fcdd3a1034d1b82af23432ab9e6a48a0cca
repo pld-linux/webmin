@@ -1,0 +1,1 @@
+- release 2: do not build grub and lilo subpackages on non-%{ix86} archs.
