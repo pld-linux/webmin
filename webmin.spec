@@ -33,6 +33,7 @@ BuildRequires:	perl-Mon
 BuildRequires:	perl-modules
 BuildRequires:	rpm-perlprov
 BuildRequires:	rpmbuild(macros) >= 1.176
+BuildRequires:	sed >= 4.0
 BuildRequires:	textutils
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
