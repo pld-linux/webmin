@@ -1,0 +1,4 @@
+- added missing Prereqs, added version to the rest
+- removed bashisms from all %post
+- added missing chkconfig call
+- new %doc
