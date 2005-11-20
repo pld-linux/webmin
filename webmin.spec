@@ -79,7 +79,7 @@ Requires:	%{name} = %{version}
 Webmin - Apache webserver.
 
 %description apache -l pl
-Webmin - Serwer WWW iApache.
+Webmin - Serwer WWW Apache.
 
 # AT
 %package at
