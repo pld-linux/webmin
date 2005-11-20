@@ -72,22 +72,20 @@ Webmin - Narzêdzia do zarz±dzania dyskami i partycjami.
 Summary:	Webmin - Apache webserver
 Summary(pl):	Webmin - Serwer WWW Apache
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	apache
+Requires:	webserver = apache
 Requires:	%{name} = %{version}
 
 %description apache
 Webmin - Apache webserver.
 
 %description apache -l pl
-Webmin - Serwer WWW Apache.
+Webmin - Serwer WWW iApache.
 
 # AT
 %package at
 Summary:	Webmin - At
 Summary(pl):	Webmin - At
 Group:		Applications/System
-Prereq:		%{name} = %{version}
 Requires:	at
 Requires:	%{name} = %{version}
 
