@@ -21,7 +21,6 @@
 # Check that networking is up.
 if is_yes "${NETWORKING}"; then
 	if [ ! -f /var/lock/subsys/network -a "$1" != stop -a "$1" != status -a "$1" != init ]; then
-		# nls "ERROR: Networking is down. %s can't be run." <service>
 		msg_network_down webmin
 		exit 1
 	fi
@@ -39,7 +38,6 @@ case "$1" in
 	fi
 	# Check if the service is already running?
 	if [ ! -f /var/lock/subsys/webmin ]; then
-		# show "Starting %s service." <service>
 		msg_starting webmin
 		busy
 		exec /usr/share/webmin/miniserv.pl /etc/webmin/miniserv.conf &
@@ -53,19 +51,16 @@ case "$1" in
 			fail
 		fi
 	else
-		# show "%s service is already running." <service>
 		msg_already_running webmin
 	fi
 	;;
   stop)
 	if [ -f /var/lock/subsys/webmin ]; then
 		# Stop daemons.
-		# show "Stopping %s service" <service>
 		msg_stopping webmin
 		killproc miniserv.pl
 		rm -f /var/lock/subsys/webmin /var/run/miniserv.pid >/dev/null 2>&1
 	else
-		# show "%s service is not running." <service>
 		msg_not_running webmin
 	fi
 	;;
@@ -110,7 +105,6 @@ case "$1" in
 	fi
 	;;
   *)
-	# show "Usage: %s {start|stop|init|restart|force-reload|status}"
 	msg_usage "$0 {start|stop|init|restart|force-reload|status}"
 	exit 3
 esac
