@@ -1,0 +1,404 @@
+diff -uNr webmin-1.260/apache/module.info webmin-1.260/apache/module.info
+--- webmin-1.260/apache/module.info     2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/apache/module.info   2006-02-02 20:13:39.000000000 +0100
+@@ -12,7 +12,7 @@
+ desc_zh_CN=Apache ·þÎñÆ÷
+ category=servers
+ desc_tr=Apache Web Sunucusu
+-os_support=solaris redhat-linux mandrake-linux debian-linux slackware-linux suse-linux united-linux aix hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux openbsd corel-linux cobalt-linux lfs-linux netbsd msc-linux generic-linux gentoo-linux trustix-linux sol-linux coherent-linux windows
++os_support=pld-linux
+ desc=Apache Webserver
+ desc_es=Servidor Web Apache
+ desc_sv=Apache Webserver
+diff -uNr webmin-1.260/at/module.info webmin-1.260/at/module.info
+--- webmin-1.260/at/module.info 2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/at/module.info       2006-02-02 20:17:49.000000000 +0100
+@@ -9,7 +9,7 @@
+ desc_pt_BR=Comandos Agendados
+ category=system
+ desc_tr=Zamanlandýrýlmýþ Komutlar
+-os_support=solaris slackware-linux redhat-linux mandrake-linux debian-linux suse-linux united-linux open-linux turbo-linux corel-linux msc-linux freebsd netbsd openbsd generic-linux openserver macos gentoo-linux irix sol-linux coherent-linux
++os_support=pld-linux
+ desc=Scheduled Commands
+ desc_es=Comandos Planificados
+ desc_fr=Commandes programmées
+diff -uNr webmin-1.260/bind8/module.info webmin-1.260/bind8/module.info
+--- webmin-1.260/bind8/module.info      2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/bind8/module.info    2006-02-02 20:26:10.000000000 +0100
+@@ -12,7 +12,7 @@
+ desc_pt_BR=Servidor de DNS BIND
+ category=servers
+ desc_tr=BIND DNS Sunucusu
+-os_support=slackware-linux redhat-linux mandrake-linux solaris debian-linux suse-linux united-linux hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux openbsd corel-linux cobalt-linux/5.0-* aix netbsd msc-linux generic-linux gentoo-linux trustix-linux sol-linux coherent-linux
++os_support=pld-linux
+ desc=BIND DNS Server
+ desc_es=Servidor de DNS BIND
+ desc_sv=BIND DNS-server
+diff -uNr webmin-1.260/cron/module.info webmin-1.260/cron/module.info
+--- webmin-1.260/cron/module.info       2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/cron/module.info     2006-02-02 22:05:40.000000000 +0100
+@@ -11,7 +11,7 @@
+ desc_zh_CN=Cron ÈÎÎñµ÷¶È
+ category=system
+ desc_tr=Zamanlandýrýlmýþ Görevler
+-os_support=solaris slackware-linux redhat-linux mandrake-linux debian-linux suse-linux united-linux hpux freebsd osf1 irix unixware openserver macos open-linux turbo-linux openbsd corel-linux cobalt-linux aix netbsd msc-linux generic-linux gentoo-linux trustix-linux sol-linux coherent-linux windows
++os_support=pld-linux
+ desc=Scheduled Cron Jobs
+ desc_es=Tareas Planificadas (Cron)
+ desc_sv=Schemalagda cronjobb
+diff -uNr webmin-1.260/dhcpd/module.info webmin-1.260/dhcpd/module.info
+--- webmin-1.260/dhcpd/module.info      2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/dhcpd/module.info    2006-02-02 22:43:39.000000000 +0100
+@@ -11,7 +11,7 @@
+ desc_pt=Servidor de DHCP
+ category=servers
+ desc_tr=DHCP Sunucusu
+-os_support=debian-linux freebsd osf1 redhat-linux mandrake-linux slackware-linux solaris suse-linux united-linux unixware openserver open-linux turbo-linux openbsd corel-linux cobalt-linux irix netbsd msc-linux generic-linux gentoo-linux hpux trustix-linux macos sol-linux coherent-linux
++os_support=pld-linux
+ desc=DHCP Server
+ desc_es=Servidor de DHCP
+ desc_sv=DHCP-server
+diff -uNr webmin-1.260/exports/module.info webmin-1.260/exports/module.info
+--- webmin-1.260/exports/module.info    2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/exports/module.info  2006-02-02 22:47:10.000000000 +0100
+@@ -10,7 +10,7 @@
+ desc_zh_CN=NFS Êä³ö
+ category=net
+ desc_tr=NFS Sunumlarý
+-os_support=slackware-linux redhat-linux mandrake-linux debian-linux suse-linux united-linux open-linux turbo-linux corel-linux cobalt-linux aix msc-linux generic-linux gentoo-linux trustix-linux sol-linux coherent-linux
++os_support=pld-linux
+ desc=NFS Exports
+ desc_es=Exportaciones de NFS
+ desc_sv=NFS-exportering
+diff -uNr webmin-1.260/fdisk/module.info webmin-1.260/fdisk/module.info
+--- webmin-1.260/fdisk/module.info      2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/fdisk/module.info    2006-02-02 22:51:52.000000000 +0100
+@@ -10,7 +10,7 @@
+ desc_pt=Partições em Discos Locais
+ category=hardware
+ desc_tr=Yerel Diskteki Bölümler
+-os_support=*-linux
++os_support=pld-linux
+ desc=Partitions on Local Disks
+ desc_es=Particiones en Discos Locales
+ desc_sv=Partitionshanterare
+diff -uNr webmin-1.260/inetd/module.info webmin-1.260/inetd/module.info
+--- webmin-1.260/inetd/module.info      2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/inetd/module.info    2006-02-02 22:54:16.000000000 +0100
+@@ -10,7 +10,7 @@
+ desc_pt=Serviços e Protocolos de Internet
+ category=net
+ desc_tr=Internet Servisleri ve Protokoller
+-os_support=slackware-linux redhat-linux{-r "/etc/inetd.conf"} mandrake-linux{-r "/etc/inetd.conf"} solaris debian-linux suse-linux united-linux hpux freebsd unixware openserver osf1 macos open-linux turbo-linux openbsd corel-linux cobalt-linux lfs-linux aix netbsd msc-linux generic-linux gentoo-linux{-r "/etc/inetd.conf"} irix sol-linux coherent-linux
++os_support=pld-linux
+ desc=Internet Services and Protocols
+ desc_es=Servicios y Protocolos de Internet
+ desc_sv=Internettjänster och -protokoll
+diff -uNr webmin-1.260/init/module.info webmin-1.260/init/module.info
+--- webmin-1.260/init/module.info       2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/init/module.info     2006-02-02 22:58:15.000000000 +0100
+@@ -11,7 +11,7 @@
+ desc_pt=Iniciar e Encerrar
+ category=system
+ desc_tr=Açýlýþ ve Kapanýþ
+-os_support=solaris coherent-linux redhat-linux mandrake-linux debian-linux suse-linux united-linux hpux slackware-linux freebsd unixware openserver open-linux turbo-linux openbsd corel-linux cobalt-linux cobalt-linux osf1 irix aix macos netbsd msc-linux generic-linux trustix-linux gentoo-linux windows
++os_support=pld-linux
+ desc=Bootup and Shutdown
+ desc_es=Arranque y Parada
+ desc_sv=Start och avstängning
+diff -uNr webmin-1.260/inittab/module.info webmin-1.260/inittab/module.info
+--- webmin-1.260/inittab/module.info    2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/inittab/module.info  2006-02-02 22:59:56.000000000 +0100
+@@ -11,7 +11,7 @@
+ desc_pt=Configuração de Inicialização SysV
+ category=system
+ desc_tr=SysV Açýlýþ Yapýlandýrmasý
+-os_support=solaris *-linux hpux unixware openserver aix irix
++os_support=pld-linux
+ desc=SysV Init Configuration
+ desc_es=Configuraci&#243;n de Inicio (SysV)
+ desc_sv=Startinställningar för SysV
+diff -uNr webmin-1.260/lilo/module.info webmin-1.260/lilo/module.info
+--- webmin-1.260/lilo/module.info       2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/lilo/module.info     2006-02-02 23:02:21.000000000 +0100
+@@ -11,7 +11,7 @@
+ desc_pt=Configuração de Arranque do Linux
+ category=hardware
+ desc_tr=Linux Açýlýþ Yapýlandýrmasý
+-os_support=coherent-linux redhat-linux{-r "/etc/lilo.conf"} mandrake-linux{-r "/etc/lilo.conf" || -r "/usr/sbin/lilo"} slackware-linux suse-linux/*-9.1 debian-linux turbo-linux corel-linux lfs-linux open-linux/2.3-2.4 msc-linux generic-linux united-linux{-r "/etc/lilo.conf" || -r "/usr/sbin/lilo"} trustix-linux{-r "/etc/lilo.conf"} sol-linux{-r "/etc/lilo.conf"}
++os_support=pld-linux
+ desc=Linux Bootup Configuration
+ desc_es=LILO - Gestor de arranque
+ desc_sv=Inställningar för start av Linux
+diff -uNr webmin-1.260/lpadmin/module.info webmin-1.260/lpadmin/module.info
+--- webmin-1.260/lpadmin/module.info    2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/lpadmin/module.info  2006-02-02 23:04:23.000000000 +0100
+@@ -11,7 +11,7 @@
+ desc_pt=Administração de Impressoras
+ category=hardware
+ desc_tr=Yazýcý Yönetimi
+-os_support=solaris coherent-linux redhat-linux mandrake-linux slackware-linux suse-linux united-linux debian-linux freebsd hpux unixware macos open-linux turbo-linux openbsd corel-linux irix netbsd msc-linux generic-linux gentoo-linux trustix-linux aix
++os_support=pld-linux
+ desc=Printer Administration
+ desc_es=Administración de Impresoras
+ desc_sv=Skrivaradministration
+diff -uNr webmin-1.260/majordomo/module.info webmin-1.260/majordomo/module.info
+--- webmin-1.260/majordomo/module.info  2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/majordomo/module.info        2006-02-02 23:06:35.000000000 +0100
+@@ -9,7 +9,7 @@
+ desc_zh_CN=Majordomo ÁÐ±í¹ÜÀí
+ desc_pt=Administrador de Listas Majordomo
+ category=servers
+-os_support=!windows
++os_support=pld-linux
+ desc=Majordomo List Manager
+ desc_sv=Listhanterare för Majordomo
+ desc_es=Majordomo - Gestor de Listas
+diff -uNr webmin-1.260/man/module.info webmin-1.260/man/module.info
+--- webmin-1.260/man/module.info        2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/man/module.info      2006-02-02 23:09:41.000000000 +0100
+@@ -12,7 +12,7 @@
+ desc_pt=Páginas do Manual
+ category=system
+ desc_tr=Kýlavuz Sayfalar
+-os_support=solaris corel-linux debian-linux open-linux redhat-linux mandrake-linux slackware-linux solaris suse-linux united-linux turbo-linux freebsd openbsd cobalt-linux lfs-linux irix aix hpux macos netbsd msc-linux osf1 generic-linux openserver gentoo-linux trustix-linux sol-linux coherent-linux
++os_support=pld-linux
+ desc=System Documentation
+ desc_es=Páginas del Manual
+ desc_sv=Systemdokumentation
+diff -uNr webmin-1.260/mount/module.info webmin-1.260/mount/module.info
+--- webmin-1.260/mount/module.info      2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/mount/module.info    2006-02-02 23:11:44.000000000 +0100
+@@ -11,7 +11,7 @@
+ desc_pt=Sistema de Ficheiros de Disco e Rede
+ category=system
+ desc_tr=Disk ve Að Dosya Sistemi
+-os_support=slackware-linux redhat-linux mandrake-linux solaris debian-linux suse-linux united-linux freebsd hpux unixware open-linux turbo-linux corel-linux openbsd cobalt-linux lfs-linux msc-linux generic-linux gentoo-linux irix netbsd trustix-linux sol-linux coherent-linux
++os_support=pld-linux
+ desc=Disk and Network Filesystems
+ desc_es=Sistemas de Archivo de Disco y Red
+ desc_sv=Filsystem för diskar och nätverk
+diff -uNr webmin-1.260/net/module.info webmin-1.260/net/module.info
+--- webmin-1.260/net/module.info        2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/net/module.info      2006-02-02 23:13:29.000000000 +0100
+@@ -11,7 +11,7 @@
+ desc_zh_CN=ÍøÂçÅäÖÃ
+ category=net
+ desc_tr=Að Yapýlandýrmasý
+-os_support=solaris coherent-linux redhat-linux/5.0-* mandrake-linux united-linux suse-linux/6.0-* open-linux unixware turbo-linux/4.0 freebsd/3.2-* openbsd debian-linux/2.2-* cobalt-linux/2.2-* msc-linux gentoo-linux macos/1.5-* trustix-linux slackware-linux/8.0-* cygwin windows
++os_support=pld-linux
+ desc=Network Configuration
+ desc_es=Configuración de Red
+ desc_sv=Nätverkskonfigurering
+diff -uNr webmin-1.260/nis/module.info webmin-1.260/nis/module.info
+--- webmin-1.260/nis/module.info        2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/nis/module.info      2006-02-02 23:15:29.000000000 +0100
+@@ -3,7 +3,7 @@
+ desc_ko_KR.euc=NIS Å¬¶óÀÌ¾ðÆ® ¹× ¼­¹ö
+ longdesc=Setup a system as an NIS client, master or slave server. Note that NIS+ is not supported.
+ desc_zh_TW.Big5=NIS «È¤áºÝ©M¦øªA¾¹
+-os_support=redhat-linux mandrake-linux open-linux debian-linux suse-linux united-linux solaris msc-linux trustix-linux coherent-linux aix
++os_support=pld-linux
+ desc=NIS Client and Server
+ desc_pl=Klient i&nbsp;serwer NIS
+ desc_es=Cliente y Servidor NIS
+diff -uNr webmin-1.260/os_list.txt webmin-1.260/os_list.txt
+--- webmin-1.260/os_list.txt    2006-01-30 01:05:29.000000000 +0100
++++ webmin-1.260/os_list.txt  2006-02-02 23:25:20.000000000 +0100
+@@ -1,3 +1,6 @@
++#PLD Linux
++PLD Linux                      1.0     pld-linux       1.0     `cat /etc/pld-release` =~ /1\.0/
++
+ # Sun Solaris
+ Sun Solaris                    2.5.1   solaris         2.5.1   $uname =~ /SunOS.*\s5\.5\.1\s/i
+ Sun Solaris                    2.6     solaris         2.6     $uname =~ /SunOS.*\s5\.6\s/i
+diff -uNr webmin-1.260/pam/module.info webmin-1.260/pam/module.info
+--- webmin-1.260/pam/module.info      2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/pam/module.info        2006-02-02 23:27:18.000000000 +0100
+@@ -7,7 +7,7 @@
+ desc_de=PAM-Authentifizierung
+ name=PAM
+ category=system
+-os_support=redhat-linux mandrake-linux open-linux debian-linux/2.2-* corel-linux suse-linux united-linux turbo-linux cobalt-linux msc-linux generic-linux gentoo-linux slackware-linux{-d "/etc/pam.d"} trustix-linux sol-linux coherent-linux
++os_support=pld-linux
+ desc=PAM Authentication
+ desc_sv=PAM-autentisering
+ desc_es=Autenticación PAM
+diff -uNr webmin-1.260/pap/module.info webmin-1.260/pap/module.info
+--- webmin-1.260/pap/module.info        2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/pap/module.info      2006-02-02 23:32:20.000000000 +0100
+@@ -1,7 +1,7 @@
+ category=net
+ desc_ru_SU=óÅÒ×ÅÒ PPP
+ longdesc=Set up a dialin server using mgetty and PPP.
+-os_support=redhat-linux mandrake-linux suse-linux united-linux slackware-linux debian-linux open-linux turbo-linux corel-linux msc-linux generic-linux gentoo-linux cobalt-linux solaris trustix-linux coherent-linux
++os_support=pld-linux
+ desc=PPP Dialin Server
+ desc_de=PPP Einwahl-Server
+ desc_es=Nombres y Claves de Acceso de Usuarios PPP
+diff -uNr webmin-1.260/proc/module.info webmin-1.260/proc/module.info
+--- webmin-1.260/proc/module.info       2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/proc/module.info     2006-02-02 23:44:24.000000000 +0100
+@@ -10,7 +10,7 @@
+ desc_pt=Processos em Curso
+ category=system
+ desc_tr=Çalýþan Süreçler
+-os_support=solaris *-linux hpux freebsd osf1 irix unixware openserver macos aix netbsd openbsd windows
++os_support=pld-linux
+ desc=Running Processes
+ desc_es=Procesos en curso
+ desc_sv=Processhanterare
+diff -uNr webmin-1.260/quota/module.info webmin-1.260/quota/module.info
+--- webmin-1.260/quota/module.info      2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/quota/module.info    2006-02-03 00:24:06.000000000 +0100
+@@ -11,7 +11,7 @@
+ desc_pt=Quotas de Disco
+ category=system
+ desc_tr=Disk Kotalarý
+-os_support=solaris redhat-linux mandrake-linux slackware-linux debian-linux suse-linux united-linux hpux freebsd open-linux unixware turbo-linux openbsd corel-linux cobalt-linux msc-linux generic-linux gentoo-linux irix netbsd macos trustix-linux sol-linux coherent-linux
++os_support=pld-linux
+ desc=Disk Quotas
+ desc_es=Cuotas de Disco
+ desc_sv=Diskquota
+diff -uNr webmin-1.260/samba/module.info webmin-1.260/samba/module.info
+--- webmin-1.260/samba/module.info      2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/samba/module.info    2006-02-03 00:27:43.000000000 +0100
+@@ -11,7 +11,7 @@
+ desc_pt=Partilha de Ficheiros de Windows com Samba
+ category=servers
+ desc_tr=Samba Windows Dosya Paylaþýmý
+-os_support=solaris redhat-linux mandrake-linux debian-linux slackware-linux aix suse-linux united-linux hpux freebsd osf1 irix open-linux openserver unixware turbo-linux openbsd corel-linux cobalt-linux lfs-linux macos netbsd msc-linux generic-linux gentoo-linux trustix-linux sol-linux coherent-linux
++os_support=pld-linux
+ desc=Samba Windows File Sharing
+ desc_es=Compartición de Archivos de Windows mediante Samba
+ desc_sv=Fildelning med Samba
+diff -uNr webmin-1.260/sendmail/module.info webmin-1.260/sendmail/module.info
+--- webmin-1.260/sendmail/module.info   2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/sendmail/module.info 2006-02-03 00:30:28.000000000 +0100
+@@ -10,7 +10,7 @@
+ desc_pt=Configuração do Sendmail
+ category=servers
+ desc_tr=Sendmail Yapýlandýrmasý
+-os_support=solaris slackware-linux redhat-linux mandrake-linux suse-linux united-linux debian-linux freebsd hpux irix macos open-linux openserver unixware turbo-linux openbsd corel-linux cobalt-linux aix netbsd msc-linux osf1 generic-linux gentoo-linux{-r "/etc/sendmail.cf" || -r "/etc/mail/sendmail.cf"} sol-linux coherent-linux
++os_support=pld-linux
+ desc=Sendmail Configuration
+ desc_es=Configuración de Sendmail
+ desc_sv=Sendmail-inställningar
+diff -uNr webmin-1.260/software/module.info webmin-1.260/software/module.info
+--- webmin-1.260/software/module.info   2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/software/module.info 2006-02-03 00:49:13.000000000 +0100
+@@ -11,7 +11,7 @@
+ desc_pt=Pacotes de Software
+ category=system
+ desc_tr=Yazýlým Paketleri
+-os_support=solaris coherent-linux redhat-linux mandrake-linux suse-linux united-linux hpux open-linux openserver unixware freebsd/3.0-* slackware-linux/4.0-* debian-linux/2.0-* turbo-linux openbsd corel-linux cobalt-linux netbsd msc-linux aix gentoo-linux trustix-linux cygwin
++os_support=pld-linux
+ desc=Software Packages
+ desc_es=Paquetes de Software
+ desc_sv=Programpaket
+diff -uNr webmin-1.260/squid/module.info webmin-1.260/squid/module.info
+--- webmin-1.260/squid/module.info      2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/squid/module.info    2006-02-03 00:53:17.000000000 +0100
+@@ -10,7 +10,7 @@
+ desc_pt=Servidor Proxy Squid
+ category=servers
+ desc_tr=Squid Proxy Sunucusu
+-os_support=solaris hpux redhat-linux mandrake-linux debian-linux suse-linux united-linux slackware-linux freebsd osf1 irix aix open-linux openserver unixware turbo-linux openbsd corel-linux cobalt-linux lfs-linux macos netbsd msc-linux generic-linux gentoo-linux trustix-linux sol-linux coherent-linux
++os_support=pld-linux
+ desc=Squid Proxy Server
+ desc_es=Squid - Servidor Proxy
+ desc_sv=Squid-proxyserver
+diff -uNr webmin-1.260/syslog/module.info webmin-1.260/syslog/module.info
+--- webmin-1.260/syslog/module.info     2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/syslog/module.info   2006-02-03 01:03:49.000000000 +0100
+@@ -11,7 +11,7 @@
+ desc_pt=Historiais do Sistema
+ category=system
+ desc_tr=Sistem Kayýtlarý
+-os_support=solaris open-linux redhat-linux mandrake-linux debian-linux suse-linux united-linux slackware-linux freebsd openbsd turbo-linux corel-linux macos hpux cobalt-linux irix unixware aix netbsd msc-linux generic-linux openserver gentoo-linux trustix-linux sol-linux coherent-linux
++os_support=pld-linux
+ desc=System Logs
+ desc_es=Hist&#243;ricos (Logs) del Sistema
+ desc_sv=Systemloggar
+diff -uNr webmin-1.260/time/module.info webmin-1.260/time/module.info
+--- webmin-1.260/time/module.info       2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/time/module.info     2006-02-03 01:06:02.000000000 +0100
+@@ -12,7 +12,7 @@
+ desc_pt=Tempo do Sistema
+ category=hardware
+ desc_tr=Sistem Zamaný
+-os_support=*-linux solaris hpux macos freebsd netbsd openserver irix
++os_support=pld-linux
+ desc=System Time
+ desc_es=Hora del Sistema
+ desc_sv=Systemtid
+diff -uNr webmin-1.260/useradmin/module.info webmin-1.260/useradmin/module.info
+--- webmin-1.260/useradmin/module.info  2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/useradmin/module.info        2006-02-03 01:08:11.000000000 +0100
+@@ -12,7 +12,7 @@
+ desc_pt_BR=Usuários e Grupos
+ category=system
+ desc_tr=Kullanýcý ve Gruplar
+-os_support=slackware-linux redhat-linux mandrake-linux solaris debian-linux suse-linux united-linux hpux freebsd osf1 open-linux unixware turbo-linux openbsd corel-linux cobalt-linux irix aix netbsd msc-linux openserver generic-linux macos gentoo-linux trustix-linux sol-linux coherent-linux
++os_support=pld-linux
+ desc=Users and Groups
+ desc_es=Usuarios y Grupos
+ desc_sv=Användare och grupper
+diff -uNr webmin-1.260/wuftpd/module.info webmin-1.260/wuftpd/module.info
+--- webmin-1.260/wuftpd/module.info     2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/wuftpd/module.info   2006-02-03 01:09:53.000000000 +0100
+@@ -10,7 +10,7 @@
+ desc_pt=Servidor WU-FTP
+ category=servers
+ desc_tr=WU-FTP Sunucusu
+-os_support=open-linux solaris coherent-linux redhat-linux mandrake-linux suse-linux united-linux debian-linux slackware-linux turbo-linux freebsd openbsd hpux aix osf1 macos lfs-linux aix netbsd msc-linux generic-linux openserver irix
++os_support=pld-linux
+ desc=WU-FTP Server
+ desc_es=Servidor WU-FTP
+ desc_sv=WU-FTP-server
+diff -uNr webmin-1.260/cluster-software/module.info webmin-1.260/cluster-software/module.info
+--- webmin-1.260/cluster-software/module.info 2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/cluster-software/module.info   2006-02-03 01:21:12.000000000 +0100
+@@ -1,6 +1,6 @@
+ category=cluster
+ longdesc=Install RPMs, debian and solaris packages across multiple servers from one source.
+-os_support=cobalt-linux mandrake-linux redhat-linux open-linux msc-linux suse-linux united-linux turbo-linux debian-linux solaris openserver gentoo-linux trustix-linux coherent-linux slackware-linux
++os_support=pld-linux
+ desc=Cluster Software Packages
+ desc_de=Cluster - Softwaremanagement
+ desc_es=Cluster - Paquetes de Software
+diff -uNr webmin-1.260/cluster-useradmin/module.info webmin-1.260/cluster-useradmin/module.info
+--- webmin-1.260/cluster-useradmin/module.info        2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/cluster-useradmin/module.info  2006-02-03 01:24:30.000000000 +0100
+@@ -1,6 +1,6 @@
+ category=cluster
+ longdesc=Create, update and delete users and groups across multiple servers. Unlike NIS, each server has its own passwd and group files which are remotely updated by this module.
+-os_support=slackware-linux redhat-linux mandrake-linux solaris debian-linux suse-linux united-linux hpux freebsd osf1 open-linux unixware turbo-linux openbsd corel-linux cobalt-linux irix netbsd msc-linux aix generic-linux openserver macos gentoo-linux trustix-linux coherent-linux
++os_support=pld-linux
+ desc=Cluster Users and Groups
+ desc_de=Cluster - Benutzer und Gruppen
+ desc_es=Cluster - Usuarios y Grupos
+diff -uNr webmin-1.260/dnsadmin/module.info webmin-1.260/dnsadmin/module.info
+--- webmin-1.260/dnsadmin/module.info   2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/dnsadmin/module.info 2006-02-03 01:27:53.000000000 +0100
+@@ -10,7 +10,7 @@
+ desc_pt=Servidor de DNS BIND 4
+ category=servers
+ desc_tr=BIND 4 DNS Sunucusu
+-os_support=slackware-linux{-r "/etc/named.boot"} coherent-linux{-r "/etc/named.boot"} redhat-linux{-r "/etc/named.boot"} mandrake-linux{-r "/etc/named.boot"} solaris{-r "/etc/named.boot"} debian-linux{-r "/etc/named.boot" || -r "/etc/bind/named.boot"} suse-linux{-r "/etc/named.boot"} united-linux{-r "/etc/named.boot"} hpux{-r "/etc/named.boot" || -x "/usr/sbin/named"} freebsd{-r "/etc/named.boot" || -r "/etc/namedb/named.boot"} osf1{-r "/etc/named.boot" || -r "/etc/namedb/named.boot"} irix unixware{-r "/etc/named.boot"} openserver{-r "/etc/named.boot"} turbo-linux{-r "/etc/named.boot"} openbsd{-r "/etc/named.boot" || -r "/var/named/named.boot"} aix{-r "/etc/named.boot"} cobalt-linux/2.2{-r "/etc/named.boot"} cobalt-linux/4.0{-r "/etc/named.boot"} aix{-r "/etc/named.boot"} msc-linux{-r "/etc/named.boot"}
++os_support=pld-linux{-r "/etc/named.boot"}
+ desc=BIND 4 DNS Server
+ desc_es=Servidor DNS BIND 4
+ desc_sv=BIND 4 DNS-server
+diff -uNr webmin-1.260/fsdump/module.info webmin-1.260/fsdump/module.info
+--- webmin-1.260/fsdump/module.info     2006-01-30 01:06:36.000000000 +0100
++++ webmin-1.260/fsdump/module.info   2006-02-03 01:31:11.000000000 +0100
+@@ -2,7 +2,7 @@
+ desc_ru_SU=òÅÚÅÒ×ÎÏÅ ËÏÐÉÒÏ×ÁÎÉÅ
+ longdesc=Backup and restore filesystems using the dump and restore family of commands.
+ desc_zh_TW.Big5=ÀÉ®×¨t²Î³Æ¥÷
+-os_support=redhat-linux mandrake-linux slackware-linux debian-linux suse-linux united-linux open-linux turbo-linux corel-linux cobalt-linux msc-linux generic-linux solaris freebsd macos gentoo-linux irix trustix-linux coherent-linux
++os_support=pld-linux
+ desc=Filesystem Backup
+ desc_de=Dateisystem-Backup
+ desc_es=Copia de Seguridad de Sistema de Archivos
