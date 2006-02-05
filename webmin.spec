@@ -9,7 +9,6 @@ License:	BSD-like
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/webadmin/%{name}-%{version}.tar.gz
 # Source0-md5:	c45fe387902405cb36a1a5c6a240ad0d
-#
 # Unofficial webmin tarballs location (if anybody interested):
 #Source0:	http://fudu.webmin.com/webmin/tarballs/%{name}-%{source_version}.tar.gz
 Source1:	%{name}.init
@@ -50,8 +49,8 @@ przegl±darki obs³uguj±cej tabele i formularze
 Summary:	Webmin - Partition and disk management tools
 Summary(pl):	Webmin - Narzêdzia do zarz±dzania dyskami i partycjami
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name}-system = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name}-system = %{version}-%{release}
 Requires:	fdisk
 Requires:	hdparm
 
@@ -59,28 +58,30 @@ Requires:	hdparm
 Webmin - Partition and disk management tools.
 
 %description disk-tools -l pl
-Webmin - Narzêdzia do zarz±dzania dyskami i partycjami.
+Webmin - narzêdzia do zarz±dzania dyskami i partycjami.
 
 # APACHE
 %package apache
 Summary:	Webmin - Apache webserver
 Summary(pl):	Webmin - Serwer WWW Apache
 Group:		Applications/System
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	webserver = apache
 
 %description apache
-Webmin - Configure almost all Apache directives and features..
+Webmin - Configure almost all Apache directives and features.
 
 %description apache -l pl
-Webmin - Konfigurowanie prawie wszystkich ustawieñ Apache.
+Webmin - konfigurowanie prawie wszystkich ustawieñ Apache.
 
 # AT
 %package at
 Summary:	Webmin - At
 Summary(pl):	Webmin - At
 Group:		Applications/System
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	at
 
 %description at
@@ -92,41 +93,43 @@ Webmin - At.
 # ppp-client
 %package ppp-client
 Summary:	Webmin - Configure modem connection
-Summary(pl):	Webmin - Konfiguracja po³±czenia przez modem
+Summary(pl):	Webmin - konfiguracja po³±czenia przez modem
 Group:		Applications/System
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	ppp
 
 %description ppp-client
 Webmin - Configure the WV-Dial package to connect to the Internet with
-a modem PPP connection
+a modem PPP connection.
 
 %description ppp-client -l pl
-Webmin - Konfiguracja WV-Dial do po³±czenia z Internetem poprzez
-modem.
+Webmin - konfiguracja pakietu WV-Dial do ³±czenia z Internetem po PPP
+przez modem.
 
 # pptp-client
 %package  pptp-client
 Summary:	Webmin - pptp-client
-Summary(pl):	Webmin - pptp-client
+Summary(pl):	Webmin - klient PPTP
 Group:		Applications/System
-#Requires:	
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description pptp-client
 Webmin - Configure and establish connections to a VPN server using the
 PPTP protocol.
 
 %description pptp-client -l pl
-Webmin - Konfiguracja i zestawienie po³±czenia do serwera VPN poprzez
+Webmin - konfiguracja i zestawianie po³±czenia do serwera VPN poprzez
 protokó³ PPTP.
 
 # pptp-server
 %package pptp-server
 Summary:	Webmin - pptp-server
-Summary(pl):	Webmin - pptp-server
+Summary(pl):	Webmin - serwer PPTP
 Group:		Applications/System
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	pptpd
 
 %description pptp-server
@@ -134,28 +137,31 @@ Webmin - Set up your system as a PPTP server so that Linux or Windows
 VPN clients can connect.
 
 %description pptp-server -l pl
-Webmin - Ustawienie systemu jako serwera PPTP.
+Webmin - ustawienie systemu jako serwera PPTP, z którym mog± siê
+³±czyæ linuksowi i windowsowi klienci VPN.
 
 # ipsec
 %package ipsec
 Summary:	Webmin - IPsec VPN Configuration
-Summary(pl):	Webmin - Konfiguratot IPsec VPN
+Summary(pl):	Webmin - konfigurator IPsec VPN
 Group:		Applications/System
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	ipsec-tools
 
 %description ipsec
 Webmin - Set up a client or server for an IPsec VPN using FreeSWAN.
 
 %description ipsec -l pl
-Webmin - Ustawienie klienta lub serwera IPsec VPN u¿ywaj±c FreeSWAN.
+Webmin - ustawianie klienta lub serwera IPsec VPN u¿ywaj±c FreeSWAN.
 
 # firewall
 %package firewall
 Summary:	Webmin - Linux firewall
-Summary(pl):	Webmin - Zapora ogniowa dla Linuxa
+Summary(pl):	Webmin - zapora ogniowa dla Linuksa
 Group:		Applications/System
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	iptables
 
 %description firewall
@@ -163,61 +169,62 @@ Webmin - Configure a Linux firewall using iptables. Allows the editing
 of all tables, chains, rules and options.
 
 %description firewall -l pl
-Webmin - Konfiguracja zapory dla linuxa z iptables. Pozwala na
-edytowanie tablic, ³añcuchów i regu³ filtrowania.
+Webmin - konfiguracja zapory dla Linuksa z iptables. Pozwala na
+modyfikowanie tablic, ³añcuchów i regu³ filtrowania.
 
 # idmapd
 %package idmapd
 Summary:	Webmin - Managing the NFS ID mapping daemon
-Summary(pl):	Webmin - Administracja demonem NFS ID
+Summary(pl):	Webmin - administracja demonem NFS ID
 Group:		Applications/System
-#Requires:	
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description idmapd
 Webmin - Managing the NFS ID mapping daemon.
 
 %description idmapd -l pl
-Webmin - Administracja demonem NFS ID.
+Webmin - administracja demonem NFS ID.
 
 # BIND 8/9
 %package bind8
 Summary:	Webmin - BIND DNS server
-Summary(pl):	Webmin - Serwer DNS BIND
+Summary(pl):	Webmin - serwer DNS BIND
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	bind
 
 %description bind8
 Webmin - Create and edit domains, DNS records, BIND options and
-views..
+views.
 
 %description bind8 -l pl
-Webmin - Tworzenie i edytowanie domen, wpisów DNS.
+Webmin - tworzenie i modyfikowanie domen, rekordów DNS, opcji BIND-a i
+widoków.
 
 # DNSADMIN
 %package dnsadmin
-Summary:	Webmin - BIND 4 DNSadmin
-Summary(pl):	Webmin - Administracja serverem DNS BIND
+Summary:	Webmin - BIND 4 DNS admin
+Summary(pl):	Webmin - administracja serverem DNS BIND
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 #Requires:	bind
 
 %description dnsadmin
 Webmin - Create and edit domains and DNS records.
 
 %description dnsadmin -l pl
-Webmin - Tworzenie i edytowanie domen, wpisów DNS.
+Webmin - Tworzenie i modyfikowanie domen, wpisów DNS.
 
 # BURNER
 %package burner
 Summary:	Webmin - CD Burner
 Summary(pl):	Webmin - Wypalanie p³yt CD
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	cdrecord
 Requires:	mkisofs
 Requires:	mpg123
@@ -236,8 +243,8 @@ katalogów.
 Summary:	Webmin - Status of IDE hard drives
 Summary(pl):	Webmin - Status Twardych Dysków
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	smartmontools
 
 %description smart-status
@@ -254,8 +261,8 @@ potencjalnych uszkodzeñ.
 Summary:	Webmin - Configuration Engine
 Summary(pl):	Webmin - cfengine
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	cfengine
 
 %description cfengine
@@ -272,8 +279,8 @@ ró¿nych ustawieñ administracyjnych.
 Summary:	Webmin - Cluster software packages
 Summary(pl):	Webmin - Pakiety oprogramowania
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description cluster-software
 Webmin - Install RPMs, debian and solaris packages across multiple
@@ -288,8 +295,8 @@ zbiorowy serwer z jednego ¼ród³a.
 Summary:	Webmin - Cluster shell
 Summary(pl):	Webmin - Cluster shell
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description cluster-shell
 Webmin - Run commands on multiple servers at once.
@@ -302,8 +309,8 @@ Webmin - Uruchamianie comend jednocze¶nie na wielu serwerach.
 Summary:	Webmin - Cluster users and groups
 Summary(pl):	Webmin - U¿ytkownicy i grupy klastra
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description cluster-useradmin
 Webmin - Create, update and delete users and groups across multiple
@@ -320,8 +327,8 @@ grup które s± zdalnie aktualizowane przez ten modu³.
 Summary:	Webmin - Cluster usermin
 Summary(pl):	Webmin - Cluster usermin
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description cluster-usermin
 Webmin - Install and manage modules and themes across multiple Usermin
@@ -336,8 +343,8 @@ zbiorowy serwer Usermin.
 Summary:	Webmin - Cluster copy file
 Summary(pl):	Webmin - Cluster copy file
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	cron
 
 %description cluster-copy
@@ -353,8 +360,8 @@ zbiorowych.
 Summary:	Webmin - Cluster cron
 Summary(pl):	Webmin - Cluster cron
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	cron
 
 %description cluster-cron
@@ -370,8 +377,8 @@ serwerach.
 Summary:	Webmin - Cluster passwd
 Summary(pl):	Webmin - Cluster passwd
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	passwd
 Requires:	webmin-claster-useradmin
 Requires:	useradmin
@@ -388,8 +395,8 @@ Webmin - Jednoczesna zmiana hase³ na serwerach w clusterze Webmina.
 Summary:	Webmin - Manage users and groups stored in an LDAP database
 Summary(pl):	Webmin - Administracja U¿ytkownikami i grupami w bazie LDAP
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description ldap-useradmin
 Webmin - Manage users and groups stored in an LDAP database, used for
@@ -404,8 +411,8 @@ dla Unixa, Samby i uwierzytelnienia Cyrus IMAP.
 Summary:	Webmin - Cluster Webmin servers
 Summary(pl):	Webmin - Klaster serwerów Webmina
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name}-servers = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name}-servers = %{version}-%{release}
 
 %description cluster-webmin
 Webmin - Install and manage modules, themes, users, groups and access
@@ -420,22 +427,22 @@ dostêpem do ustawieñ poprzez serwer Webmin.
 Summary:	Webmin - Cron
 Summary(pl):	Webmin - Cron
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	crondaemon
 
 %description cron
 Webmin - Create, edit and delete Cron jobs.
 
 %description cron -l pl
-Webmin - Tworzenie, edytowanie i usuwanie wpisów w cron.
+Webmin - tworzenie, modyfikowanie i usuwanie zadañ crona.
 
 %package vgetty
 Summary:	Webmin - Vgetty
 Summary(pl):	Webmin - Vgetty
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description vgetty
 Webmin - Set up your system as an answering machine using vgetty.
@@ -448,8 +455,8 @@ Webmin - Set up your system as an answering machine using vgetty.
 Summary:	Webmin - DHCP server
 Summary(pl):	Webmin - Serwer DHCP
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	dhcp
 
 %description dhcpd
@@ -465,8 +472,8 @@ DHCPD.
 Summary:	Webmin - adsl-client
 Summary(pl):	Webmin - adsl-client
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description adsl-client
 Webmin - Set up a PPP client with the RP-PPPoE package..
@@ -479,8 +486,8 @@ Webmin - Ustawienia klienta PPP z pakietem RP-PPPoE.
 Summary:	Webmin - Fetchmail
 Summary(pl):	Webmin - Fetchmail
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	fetchmail
 
 %description fetchmail
@@ -496,8 +503,8 @@ poczty z innych serwerów.
 Summary:	Webmin - dovecot
 Summary(pl):	Webmin - dovecot
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	dovecot
 
 %description dovecot
@@ -511,8 +518,8 @@ Webmin - konfiguracja serwera IMAP i POP3 dovecot.
 Summary:	Webmin - mailboxes
 Summary(pl):	Webmin - mailboxes
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description mailboxes
 Webmin - Read email in users' mailboxes.
@@ -526,8 +533,8 @@ Webmin - Czytanie poczty z kont u¿ytkowników.
 Summary:	Webmin - Webalizer Configuration
 Summary(pl):	Webmin - Konfiguracja Webalizera
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	webalizer
 
 %description webalizer
@@ -542,8 +549,8 @@ Webmin - Generowanie raportów z webalizera, serwera proxy i logów FTP.
 Summary:	Webmin - Upload and Download 
 Summary(pl):	Webmin - Upload and Download 
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description updown
 Webmin - Upload multiple files to the server, and download multiple
@@ -558,9 +565,8 @@ natychmiast, lub we wcze¶niej zaprogramowanym czasie.
 Summary:	Webmin - Filesystem backup
 Summary(pl):	Webmin - Archiwizacja systemu plików
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Prereq:		rc-scripts
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	dump
 Requires:	rc-scripts
 
@@ -575,8 +581,8 @@ Webmin - Archiwizacja systemu plików.
 Summary:	Webmin - Filesystem backup
 Summary(pl):	Webmin - Archiwizacja systemu plików
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description backup-config
 Webmin - Perform manual or scheduled backups and restores of
@@ -591,8 +597,8 @@ odzyskania danych poprzez modu³ Webmina.
 Summary:	Webmin - GRUB configuration
 Summary(pl):	Webmin - Konfiguracja GRUB-a
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	grub
 
 %description grub
@@ -607,8 +613,8 @@ Webmin - Konfiguracja boot loadera GRUB.
 Summary:	Webmin - Heartbeat Monitor
 Summary(pl):	Webmin - Monitor Heartbeat
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	heartbeat
 
 %description heartbeat
@@ -623,8 +629,8 @@ Webmin - Konfiguracja Heartbeat-a.
 Summary:	Webmin - Inetd
 Summary(pl):	Webmin - Inetd
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	inetd
 
 %description inetd
@@ -638,8 +644,8 @@ Webmin - Edycja wpisów w /etc/inetd.conf, /etc/services and /etc/rpc.
 Summary:	Jabber IM server
 Summary(pl):	Konfiguracja serwera Jabber
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	jabberd
 
 %description jabber
@@ -653,8 +659,8 @@ Webmin - Konfiguracja serwera systemu powiadamiania Jabber.
 Summary:	Kerberos client settings
 Summary(pl):	Konfiguracja klienta Kerbos
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	krb5
 
 %description krb5
@@ -668,8 +674,8 @@ Webmin - Konfiguracja klienta Kerbos.
 Summary:	Webmin - LILO configuration
 Summary(pl):	Webmin - Konfiguracja LILO
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	lilo
 
 %description lilo
@@ -683,8 +689,8 @@ Webmin - Konfiguracja klienta Kerbos 5 w systemie.
 Summary:	Webmin - Logical Volume Management
 Summary(pl):	Webmin - Zarz±dzanie wolumenami logicznymi (LVM)
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	lvm2
 
 %description lvm
@@ -699,8 +705,8 @@ Webmin - Zarz±dzanie wolumenami logicznymi (LVM).
 Summary:	Webmin - Majordomo List Manager
 Summary(pl):	Webmin - Zarz±dca list dyskusyjnych Majordomo
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name}-sendmail = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name}-sendmail = %{version}-%{release}
 #Requires:	majordomo
 
 %description majordomo
@@ -714,9 +720,8 @@ Webmin - Tworzenie i konfiguracja list mailingowych Majordomo.
 Summary:	Webmin - MON resource monitoring system
 Summary(pl):	Webmin - System monitorowania zasobów MON
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Prereq:		rc-scripts
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	mon
 Requires:	rc-scripts
 
@@ -732,8 +737,8 @@ alarmowania.
 Summary:	Webmin - MySQL server
 Summary(pl):	Webmin - Serwer MySQL
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	mysql
 
 %description mysql
@@ -748,9 +753,8 @@ Webmin - Ustawienie baz danych, tablic i dopuszczeñ w serwerze MySQL.
 Summary:	Webmin - Network configuration
 Summary(pl):	Webmin - Konfiguracja sieci
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Prereq:		rc-scripts
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	rc-scripts
 
 %description net
@@ -765,8 +769,8 @@ Webmin - Konfiguracja interfacu, DNS-u, routingu i pliku /etc/hosts.
 Summary:	Webmin - Network monitor
 Summary(pl):	Webmin - Monitor sieci
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description bandwidth
 Webmin - View reports on bandwidth usage by host, port, protocol and
@@ -780,8 +784,8 @@ Webmin - Przegl±danie raportów sieci.
 Summary:	Webmin - Shorewall configuration
 Summary(pl):	Webmin - Konfiguracja shorewall
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	shorewall
 
 %description shorewall
@@ -796,8 +800,8 @@ Webmin - Pozwala na edycje wiêkszo¶ci u¿ytywanych tablic w Shorewall.
 Summary:	Webmin - Postfix
 Summary(pl):	Webmin - Postfix
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	postfix
 
 %description postfix
@@ -811,8 +815,8 @@ Webmin - Konfiguracja serwera poczty Postfix
 Summary:	Webmin - PostgreSQL server
 Summary(pl):	Webmin - Serwer PostgreSQL
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	postgresql-clients
 
 %description postgresql
@@ -828,8 +832,8 @@ serwerze PostgreSQL.
 Summary:	Webmin - PAP (PPP) usernames and passwords
 Summary(pl):	Webmin - Nazwy u¿ytkowników i has³a dla PAP (PPP)
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	ppp
 
 %description ppp
@@ -843,8 +847,8 @@ Webmin - Nazwy u¿ytkowników i has³a dla PAP (PPP).
 Summary:	Webmin - Procmail mail filter
 Summary(pl):	Webmin - Filtr poczty Procmail
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	procmail
 
 %description procmail
@@ -858,8 +862,8 @@ Webmin - Ogólnosystemowa konfiguracja filtra poczty Procmail.
 Summary:	Webmin - SpamAssassin Mail Filter Configuration
 Summary(pl):	Webmin - Konfiguracja Filtra Poczty SpamAssassin
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	spamassassin
 
 %description spam
@@ -874,8 +878,8 @@ Webmin - Konfiguracja Filtra Poczty SpamAssassin.
 Summary:	Webmin - Printer administration
 Summary(pl):	Webmin - Zarz±dzanie drukarkami
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description printer
 Webmin - Create and edit local and remote printers. Supports Windows
@@ -890,8 +894,8 @@ druku Windows i sterowniki Ghostscript.
 Summary:	Webmin - Proftpd FTP Server
 Summary(pl):	Webmin - Serwer FTP Proftpd
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	proftpd
 
 %description proftpd
@@ -907,8 +911,8 @@ wiêkszo¶ci standardowych modu³ów.
 Summary:	Webmin - CVS pserver
 Summary(pl):	Webmin - Serwer CVS (pserver)
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	cvs-pserver
 
 %description cvs-pserver
@@ -924,8 +928,8 @@ u¿ytkownikami i przegl±danie repozytoriów.
 Summary:	Webmin - Samba configuration
 Summary(pl):	Webmin - Konfiguracja samby
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	samba
 
 %description samba
@@ -940,8 +944,8 @@ sambê.
 Summary:	Webmin - OpenSLP Service Location Protocol
 Summary(pl):	Webmin - OpenSLP Service Location Protocol
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	openslp
 
 %description openslp
@@ -955,8 +959,8 @@ Webmin - Konfiguracja OpenSLP Service Location Protocol.
 Summary:	Webmin - Sentries
 Summary(pl):	Webmin - Wykrywanie prób nieautoryzowanego dostêpu
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	hostsentry
 Requires:	logcheck
 Requires:	portsentry
@@ -974,8 +978,8 @@ systemu.
 Summary:	Webmin - Qmail configuration
 Summary(pl):	Webmin - Konfiguracja qmaila
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	qmail
 
 %description qmail
@@ -990,8 +994,8 @@ Webmin - Konfiguracja qmaila, prostszej alternatywy dla Sendmaila.
 Summary:	Webmin - Sendmail configuration
 Summary(pl):	Webmin - Konfiguracja sendmaila
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	sendmail
 
 %description sendmail
@@ -1007,8 +1011,8 @@ dodatkami.
 Summary:	Webmin - Squid proxy
 Summary(pl):	Webmin - Serwer proxy Squid
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	squid
 
 %description squid
@@ -1023,8 +1027,8 @@ Webmin - Konfiguracja Serwer proxy Squid.
 Summary:	Webmin - Frox FTP proxy server
 Summary(pl):	Webmin - Frox FTP proxy serwer
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	frox
 
 %description frox
@@ -1038,8 +1042,8 @@ Webmin - Konfiguracja Frox FTP proxy serwer.
 Summary:	Webmin - Sarg Squid log report generation tool
 Summary(pl):	Webmin - Narzêdzia dla Sarg Squid
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	sarg
 
 %description sarg
@@ -1055,8 +1059,8 @@ Squida.
 Summary:	Webmin - SSH Server
 Summary(pl):	Webmin - Serwer SSH
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	openssh-clients
 Requires:	openssh-server
 
@@ -1072,8 +1076,8 @@ logowania.
 Summary:	Webmin - Wu-Ftpd server
 Summary(pl):	Webmin - Serwer Wu-Ftpd
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	wu-ftpd
 
 %description wuftpd
@@ -1088,8 +1092,8 @@ Webmin - Konfiguracja dostêpu do serwera Wu-FTPd.
 Summary:	Webmin - Xinetd
 Summary(pl):	Webmin - Xinetd
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	xinetd
 
 %description xinetd
@@ -1103,8 +1107,8 @@ Webmin - Edycja Xinetd.
 Summary:	Webmin - NFS server configuration
 Summary(pl):	Webmin - Konfiguracja serwera NFS
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	nfs-utils
 
 %description nfs
@@ -1118,8 +1122,8 @@ Webmin - Konfiguracja serwera NFS.
 Summary:	Webmin - Quota management
 Summary(pl):	Webmin - Zarz±dzanie quota
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	quota
 
 %description quota
@@ -1134,8 +1138,8 @@ Webmin - Zarz±dzanie przydzia³ami dysku dla u¿ytkowników i grup
 Summary:	Webmin - Software ackages
 Summary(pl):	Webmin - Pakiety oprogramowania
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	rpm
 
 %description software
@@ -1150,8 +1154,8 @@ Webmin - Zarz±dzanie pakietami systemu, instalacja nowych pakietów.
 Summary:	Webmin - Cpan
 Summary(pl):	Webmin - Cpan
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	rpm
 
 %description cpan
@@ -1167,8 +1171,8 @@ modu³ów perla.
 Summary:	Webmin - SSL tunnels configuration
 Summary(pl):	Webmin - Konfiguracja tuneli SSL
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	stunnel
 
 %description stunnel
@@ -1182,8 +1186,8 @@ Webmin - Konfiguracja tuneli SSL.
 Summary:	Webmin - HTTP tunnels configuration
 Summary(pl):	Webmin - Konfiguracja tuneli HTTP
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description tunnel
 Webmin - HTTP tunnels configuration.
@@ -1196,8 +1200,8 @@ Webmin - Konfiguracja tuneli HTTP.
 Summary:	Webmin - Event monitor
 Summary(pl):	Webmin - Monitor zdarzeñ
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	crondaemon
 
 %description monitor
@@ -1212,8 +1216,8 @@ Webmin - Sprawdzenie statusu localnych i zdalnych serwerów.
 Summary:	Webmin - System logger
 Summary(pl):	Webmin - Logi systemowe
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	syslog
 
 %description syslog
@@ -1228,8 +1232,8 @@ Webmin - Logi systemowe.
 Summary:	Webmin - Log File Editor
 Summary(pl):	Webmin - Edytor Logów Systemowych
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	logrotate
 
 %description logrotate
@@ -1243,8 +1247,8 @@ Webmin - Automatyczna rotacja logów Apache, Squid, Syslog.
 Summary:	Webmin - Admin-tools (telnet, file manager, etc)
 Summary(pl):	Webmin - Narzêdzia administracyjne (telnet, zarz±dzanie plikami, itp.)
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description admin-tools
 Webmin - Admin-tools (telnet, file manager, etc).
@@ -1258,8 +1262,8 @@ itp.).
 Summary:	Webmin - System Configuration
 Summary(pl):	Webmin - Konfiguracja systemu
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description system
 Webmin - System Configuration.
@@ -1272,9 +1276,9 @@ Webmin - Konfiguracja systemu.
 Summary:	Webmin - NIS configuration
 Summary(pl):	Webmin - Konfiguracja NIS
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name}-inetd = %{version}
-Requires:	%{name}-useradmin = %{version}
+Requires(post):	%{name} = %{version}
+Requires:	%{name}-inetd = %{version}-%{release}
+Requires:	%{name}-useradmin = %{version}-%{release}
 
 %description nis
 Webmin - Setup a system as an NIS client, master or slave server. Note
@@ -1288,8 +1292,8 @@ Webmin - Konfiguracja NIS. Uwaga: NIS+ nie jest wspierany.
 Summary:	Webmin - Change Passwords
 Summary(pl):	Webmin - Zmiany hase³
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name}-useradmin = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name}-useradmin = %{version}-%{release}
 
 %description passwd
 Webmin - Change Passwords.
@@ -1302,8 +1306,8 @@ Webmin - Zmiany hase³.
 Summary:	Webmin - Protected Web Directories
 Summary(pl):	Webmin - Protected Web Directories
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name}-useradmin = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name}-useradmin = %{version}-%{release}
 
 %description htaccess-htpasswd
 Webmin - Create .htaccess and htpasswd files to protect web-acessible
@@ -1317,8 +1321,8 @@ Webmin - Tworzenie plików .htaccess i htpasswddo.
 Summary:	Webmin - User account manager
 Summary(pl):	Webmin - Obs³uga kont u¿ytkowników
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description useradmin
 Webmin - User account manager.
@@ -1331,8 +1335,8 @@ Webmin - Obs³uga kont u¿ytkowników.
 Summary:	Webmin - Change Language and Theme
 Summary(pl):	Webmin - Zmiana jêzyka i wygl±du
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	acl
 
 %description change-user
@@ -1346,8 +1350,8 @@ Webmin - Webmin - Zmiana jêzyka i wygl±du.
 Summary:	Webmin - Usermin configuration
 Summary(pl):	Webmin - Konfiguracja Usermina
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description usermin
 Webmin - Usermin configuration.
@@ -1360,8 +1364,8 @@ Webmin - Konfiguracja usermina.
 Summary:	Webmin - Extra Themes for Webmin
 Summary(pl):	Webmin - Dodatkowe motywy Webmina
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name} = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description themes
 Webmin - Extra Themes for Webmin.
@@ -1374,8 +1378,8 @@ Webmin - Dodatkowe motywy Webmina.
 Summary:	Webmin - Java sources
 Summary(pl):	Webmin - ¬ród³a w Javie
 Group:		Applications/System
-Prereq:		%{name} = %{version}
-Requires:	%{name}-admin-tools = %{version}
+Requires(post):	%{name} = %{version}-%{release}
+Requires:	%{name}-admin-tools = %{version}-%{release}
 
 %description src
 Webmin - Java sources of the `file' module.
