@@ -4,7 +4,7 @@ Summary:	Webmin - web-based administration
 Summary(pl):	Webmin - administracja przez WWW
 Name:		webmin
 Version:	1.260
-Release:	1
+Release:	1.1
 License:	BSD-like
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/webadmin/%{name}-%{version}.tar.gz
@@ -17,6 +17,7 @@ Source3:	%{name}-find-lang.sh
 Patch0:		%{name}-PLD.patch
 Patch1:		%{name}-PLD-module.info.patch
 Patch2:		%{name}-ad-pld-config.patch
+Patch3:		%{name}-software-poldek.patch
 URL:		http://www.webmin.com/
 BuildRequires:	perl-CGI
 BuildRequires:	perl-Compress-Zlib
@@ -1406,6 +1407,7 @@ Webmin - ¼ród³a modu³u "file" napisanego czê¶ciowo w Javie.
 %setup -q -n %{name}-%{source_version}
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 # only for solaris, so rm
 rm -rf zones	# Create and manage Solaris 10 zones.
