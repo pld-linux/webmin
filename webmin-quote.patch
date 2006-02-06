@@ -1,0 +1,467 @@
+diff -Nur webmin-1.260/acl/index.cgi webmin-1.260.fix/acl/index.cgi
+--- webmin-1.260/acl/index.cgi	2006-01-30 01:05:43.000000000 +0100
++++ webmin-1.260.fix/acl/index.cgi	2006-02-06 15:14:17.000000000 +0100
+@@ -196,7 +196,7 @@
+ 	if (@$mods) {
+ 		print "<input type=hidden name=$type value='$who'>\n";
+ 		if ($access{'acl'}) {
+-			print "<input type=submit value='$text{'index_edit'}'>\n";
++			print "<input type=submit value=\"$text{'index_edit'}\">\n";
+ 			}
+ 		print "<select name=mod>\n";
+ 		print "<option value=''>$text{'index_global'}\n" if ($global);
+diff -Nur webmin-1.260/burner/save_profile.cgi webmin-1.260.fix/burner/save_profile.cgi
+--- webmin-1.260/burner/save_profile.cgi	2006-01-30 01:06:19.000000000 +0100
++++ webmin-1.260.fix/burner/save_profile.cgi	2006-02-06 15:18:27.000000000 +0100
+@@ -305,7 +305,7 @@
+ 		print "<b>$msg</b><p>\n";
+ 		print "<input type=submit name=ok value='$text{'burn_ok'}'>\n";
+ 		if ($temp) {
+-			print "<input type=submit name=cancel value='$text{'burn_cancel'}'>\n";
++			print "<input type=submit name=cancel value=\"$text{'burn_cancel'}\">\n";
+ 			}
+ 		if (!$in{'test'}) {
+ 			print "<br>$text{'burn_eject'}\n";
+diff -Nur webmin-1.260/cfengine/edit_class.cgi webmin-1.260.fix/cfengine/edit_class.cgi
+--- webmin-1.260/cfengine/edit_class.cgi	2006-01-30 01:06:23.000000000 +0100
++++ webmin-1.260.fix/cfengine/edit_class.cgi	2006-02-06 15:19:35.000000000 +0100
+@@ -115,7 +115,7 @@
+ 		printf "<option value=$s>$t ($s)\n";
+ 		}
+ 	print "</select><br>\n";
+-	print "<input type=button value='$text{'edit_actionadd'}' onClick='document.forms[0].seq.value += document.forms[0].add.options[document.forms[0].add.selectedIndex].value+\"\\n\"'>\n";
++	print "<input type=button value=\"$text{'edit_actionadd'}\" onClick='document.forms[0].seq.value += document.forms[0].add.options[document.forms[0].add.selectedIndex].value+\"\\n\"'>\n";
+ 	print "</td></tr></table> </td> </tr>\n";
+ 
+ 	# Show other global definitions
+diff -Nur webmin-1.260/cfengine/edit_push.cgi webmin-1.260.fix/cfengine/edit_push.cgi
+--- webmin-1.260/cfengine/edit_push.cgi	2006-01-30 01:06:23.000000000 +0100
++++ webmin-1.260.fix/cfengine/edit_push.cgi	2006-02-06 15:20:56.000000000 +0100
+@@ -45,7 +45,7 @@
+ 	print "<hr>\n";
+ 	print "<form action=push.cgi>\n";
+ 	print "<table width=100%><tr>\n";
+-	print "<td><input type=submit value='$text{'push_push'}'></td>\n";
++	print "<td><input type=submit value=\"$text{'push_push'}\"></td>\n";
+ 	print "<td>",&text('push_pushdesc',
+ 			   "<tt>$config{'cfrun'}</tt>"),"</td>\n";
+ 	print "</tr></table></form>\n";
+diff -Nur webmin-1.260/cfengine/run_form.cgi webmin-1.260.fix/cfengine/run_form.cgi
+--- webmin-1.260/cfengine/run_form.cgi	2006-01-30 01:06:23.000000000 +0100
++++ webmin-1.260.fix/cfengine/run_form.cgi	2006-02-06 15:22:04.000000000 +0100
+@@ -16,7 +16,7 @@
+ &show_run_form();
+ 
+ print "</table></td></tr></table>\n";
+-print "<input type=submit value='$text{'run_ok'}'></form>\n";
++print "<input type=submit value=\"$text{'run_ok'}\"></form>\n";
+ 
+ &ui_print_footer("", $text{'index_return'});
+ 
+diff -Nur webmin-1.260/cluster-software/edit_host.cgi webmin-1.260.fix/cluster-software/edit_host.cgi
+--- webmin-1.260/cluster-software/edit_host.cgi	2006-01-30 01:06:16.000000000 +0100
++++ webmin-1.260.fix/cluster-software/edit_host.cgi	2006-02-06 15:24:01.000000000 +0100
+@@ -48,7 +48,7 @@
+ print "<table width=100%><tr>\n";
+ print "<form action=delete_host.cgi>\n";
+ print "<input type=hidden name=id value=$in{'id'}>\n";
+-print "<td><input type=submit value='$text{'host_delete'}'></td>\n";
++print "<td><input type=submit value=\"$text{'host_delete'}\"></td>\n";
+ print "</form>\n";
+ 
+ print "<form action=refresh.cgi>\n";
+diff -Nur webmin-1.260/cluster-useradmin/index.cgi webmin-1.260.fix/cluster-useradmin/index.cgi
+--- webmin-1.260/cluster-useradmin/index.cgi	2006-01-30 01:06:16.000000000 +0100
++++ webmin-1.260.fix/cluster-useradmin/index.cgi	2006-02-06 15:26:38.000000000 +0100
+@@ -108,7 +108,7 @@
+ 	print "</td></form></tr>\n";
+ 
+ 	print "<tr><form action=refresh.cgi>\n";
+-	print "<td><input type=submit value='$text{'index_refresh'}'>\n";
++	print "<td><input type=submit value=\"$text{'index_refresh'}\">\n";
+ 	&create_on_input(undef, 1);
+ 	print "</td>\n";
+ 	print "</form>\n";
+diff -Nur webmin-1.260/cluster-usermin/index.cgi webmin-1.260.fix/cluster-usermin/index.cgi
+--- webmin-1.260/cluster-usermin/index.cgi	2006-01-30 01:06:35.000000000 +0100
++++ webmin-1.260.fix/cluster-usermin/index.cgi	2006-02-06 15:29:34.000000000 +0100
+@@ -99,7 +99,7 @@
+ 	$formno++;
+ 
+ 	print "<tr> <form action=refresh.cgi><td align=left colspan=2>\n";
+-	print "<input type=submit value='$text{'index_refresh'}'>\n";
++	print "<input type=submit value=\"$text{'index_refresh'}\">\n";
+ 	&create_on_input(undef, 1, 1);
+ 	print "</td></form>\n";
+ 	$formno++;
+diff -Nur webmin-1.260/cluster-webmin/edit_group.cgi webmin-1.260.fix/cluster-webmin/edit_group.cgi
+--- webmin-1.260/cluster-webmin/edit_group.cgi	2006-01-30 01:06:23.000000000 +0100
++++ webmin-1.260.fix/cluster-webmin/edit_group.cgi	2006-02-06 15:44:13.000000000 +0100
+@@ -133,7 +133,7 @@
+ if ($sel) {
+ 	print "<form action=edit_acl.cgi><td align=center>\n";
+ 	print "<input type=hidden name=group value='$in{'group'}'>\n";
+-	print "<input type=submit value='$text{'user_acl'}'>\n";
++	print "<input type=submit value=\"$text{'user_acl'}\">\n";
+ 	print "<select name=modhost>\n";
+ 	print $sel;
+ 	print "</select></td></form>\n";
+diff -Nur webmin-1.260/cluster-webmin/edit_user.cgi webmin-1.260.fix/cluster-webmin/edit_user.cgi
+--- webmin-1.260/cluster-webmin/edit_user.cgi	2006-01-30 01:06:23.000000000 +0100
++++ webmin-1.260.fix/cluster-webmin/edit_user.cgi	2006-02-06 15:45:36.000000000 +0100
+@@ -189,7 +189,7 @@
+ if ($sel) {
+ 	print "<form action=edit_acl.cgi><td align=center>\n";
+ 	print "<input type=hidden name=user value='$in{'user'}'>\n";
+-	print "<input type=submit value='$text{'user_acl'}'>\n";
++	print "<input type=submit value=\"$text{'user_acl'}\">\n";
+ 	print "<select name=modhost>\n";
+ 	print $sel;
+ 	print "</select></td></form>\n";
+diff -Nur webmin-1.260/cluster-webmin/index.cgi webmin-1.260.fix/cluster-webmin/index.cgi
+--- webmin-1.260/cluster-webmin/index.cgi	2006-01-30 01:06:23.000000000 +0100
++++ webmin-1.260.fix/cluster-webmin/index.cgi	2006-02-06 15:47:12.000000000 +0100
+@@ -144,7 +144,7 @@
+ 	$formno++;
+ 
+ 	print "<tr> <form action=refresh.cgi><td align=left colspan=2>\n";
+-	print "<input type=submit value='$text{'index_refresh'}'>\n";
++	print "<input type=submit value=\"$text{'index_refresh'}\">\n";
+ 	&create_on_input(undef, 1, 1);
+ 	print "</td></form>\n";
+ 	$formno++;
+diff -Nur webmin-1.260/cpan/download.cgi webmin-1.260.fix/cpan/download.cgi
+--- webmin-1.260/cpan/download.cgi	2006-01-30 01:06:04.000000000 +0100
++++ webmin-1.260.fix/cpan/download.cgi	2006-02-06 15:47:49.000000000 +0100
+@@ -285,7 +285,7 @@
+ print "</table></td> </tr>\n";
+ 
+ print "</table></td></tr></table>\n";
+-print "<input type=submit value='$text{'download_cont'}'>\n";
++print "<input type=submit value=\"$text{'download_cont'}\">\n";
+ if (@needreqs && $in{'source'} == 3) {
+ 	print "&nbsp;" x 2;
+ 	print "<input type=submit name=need value='$text{'download_need'}'>\n";
+diff -Nur webmin-1.260/init/index.cgi webmin-1.260.fix/init/index.cgi
+--- webmin-1.260/init/index.cgi	2006-01-30 01:05:33.000000000 +0100
++++ webmin-1.260.fix/init/index.cgi	2006-02-06 15:35:31.000000000 +0100
+@@ -200,8 +200,8 @@
+ 			print "<input type=submit name=addboot value='$text{'index_addboot'}'>\n";
+ 			print "<input type=submit name=delboot value='$text{'index_delboot'}'>\n";
+ 			print "&nbsp;&nbsp;\n";
+-			print "<input type=submit name=addboot_start value='$text{'index_addboot_start'}'>\n";
+-			print "<input type=submit name=delboot_stop value='$text{'index_delboot_stop'}'>\n";
++			print "<input type=submit name=addboot_start value=\"$text{'index_addboot_start'}\">\n";
++			print "<input type=submit name=delboot_stop value=\"$text{'index_delboot_stop'}\">\n";
+ 			}
+ 		}
+ 	print "</form>\n";
+diff -Nur webmin-1.260/inittab/index.cgi webmin-1.260.fix/inittab/index.cgi
+--- webmin-1.260/inittab/index.cgi	2006-01-30 01:05:57.000000000 +0100
++++ webmin-1.260.fix/inittab/index.cgi	2006-02-06 15:36:49.000000000 +0100
+@@ -40,7 +40,7 @@
+ print "<hr>\n";
+ print "<table width=100%><tr>\n";
+ print "<form action=apply.cgi>\n";
+-print "<td><input type=submit value='$text{'inittab_apply'}'></td>\n";
++print "<td><input type=submit value=\"$text{'inittab_apply'}\"></td>\n";
+ print "<td>$text{'inittab_applymsg'}</td>\n";
+ print "</form></tr></table><br>\n";
+ 
+diff -Nur webmin-1.260/mon/list_watches.cgi webmin-1.260.fix/mon/list_watches.cgi
+--- webmin-1.260/mon/list_watches.cgi	2006-01-30 01:06:17.000000000 +0100
++++ webmin-1.260.fix/mon/list_watches.cgi	2006-02-06 15:50:46.000000000 +0100
+@@ -31,7 +31,7 @@
+ 	print "<b>$text{'watches_none'}</b><p>\n";
+ 	}
+ print "<form action=create_watch.cgi>\n";
+-print "<input type=submit value='$text{'watches_add'}'>\n";
++print "<input type=submit value=\"$text{'watches_add'}\">\n";
+ print "<select name=group>\n";
+ foreach $s (&find("hostgroup", $conf)) {
+ 	print "<option>$s->{'values'}->[0]\n";
+diff -Nur webmin-1.260/mysql/backup_form.cgi webmin-1.260.fix/mysql/backup_form.cgi
+--- webmin-1.260/mysql/backup_form.cgi	2006-01-30 01:05:56.000000000 +0100
++++ webmin-1.260.fix/mysql/backup_form.cgi	2006-02-06 15:51:34.000000000 +0100
+@@ -132,11 +132,11 @@
+ print "</table></td></tr></table>\n";
+ 
+ if ($cron) {
+-	print "<input type=submit name=backup value='$text{'backup_ok1'}'>\n";
+-	print "<input type=submit name=save value='$text{'backup_ok2'}'>\n";
++	print "<input type=submit name=backup value=\"$text{'backup_ok1'}\">\n";
++	print "<input type=submit name=save value=\"$text{'backup_ok2'}\">\n";
+ 	}
+ else {
+-	print "<input type=submit name=backup value='$text{'backup_ok'}'>\n";
++	print "<input type=submit name=backup value=\"$text{'backup_ok'}\">\n";
+ 	}
+ print "<br>\n";
+ print "</form>\n";
+diff -Nur webmin-1.260/mysql/exec_form.cgi webmin-1.260.fix/mysql/exec_form.cgi
+--- webmin-1.260/mysql/exec_form.cgi	2006-01-30 01:05:56.000000000 +0100
++++ webmin-1.260.fix/mysql/exec_form.cgi	2006-02-06 15:52:09.000000000 +0100
+@@ -29,7 +29,7 @@
+ 	print "</select>\n";
+ 	print "<input type=button name=movecmd ",
+ 	      "value='$text{'exec_edit'}' onClick='cmd.value = old.options[old.selectedIndex].value'>\n";
+-	print "<input type=submit name=clear value='$text{'exec_clear'}'><br>\n";
++	print "<input type=submit name=clear value=\"$text{'exec_clear'}\"><br>\n";
+ 	}
+ print "<input type=submit value='$text{'exec_exec'}'></form>\n";
+ 
+diff -Nur webmin-1.260/ppp-client/index.cgi webmin-1.260.fix/ppp-client/index.cgi
+--- webmin-1.260/ppp-client/index.cgi	2006-01-30 01:06:26.000000000 +0100
++++ webmin-1.260.fix/ppp-client/index.cgi	2006-02-06 15:57:00.000000000 +0100
+@@ -108,7 +108,7 @@
+ 			$config{'boot'} = undef if ($starting != 2);
+ 			print "<form action=bootup.cgi>\n";
+ 			print "<input type=hidden name=starting value='$starting'>\n";
+-			print "<td nowrap><input type=submit value='$text{'index_boot'}'>\n";
++			print "<td nowrap><input type=submit value=\"$text{'index_boot'}\">\n";
+ 			print "<select name=section>\n";
+ 			printf "<option value='' %s>%s\n",
+ 				$config{'boot'} ? "" : "selected",
+diff -Nur webmin-1.260/pptp-client/index.cgi webmin-1.260.fix/pptp-client/index.cgi
+--- webmin-1.260/pptp-client/index.cgi	2006-01-30 01:06:30.000000000 +0100
++++ webmin-1.260.fix/pptp-client/index.cgi	2006-02-06 15:58:19.000000000 +0100
+@@ -55,7 +55,7 @@
+ 	if (@notconns) {
+ 		# Show connect button, if any are disconnected
+ 		print "<tr><form action=conn.cgi><td nowrap>\n";
+-		print "<input type=submit value='$text{'index_conn'}'>\n";
++		print "<input type=submit value=\"$text{'index_conn'}\">\n";
+ 		print "<select name=tunnel>\n";
+ 		foreach $t (@notconns) {
+ 			printf "<option %s>%s\n",
+@@ -69,7 +69,7 @@
+ 	if (@conns) {
+ 		# If any tunnels appear to be active, show disconnect button
+ 		print "<tr><form action=disc.cgi><td nowrap>\n";
+-		print "<input type=submit value='$text{'index_disc'}'>\n";
++		print "<input type=submit value=\"$text{'index_disc'}\">\n";
+ 		print "<select name=tunnel>\n";
+ 		foreach $t (@conns) {
+ 			printf "<option %s>%s\n",
+diff -Nur webmin-1.260/proc/edit_proc.cgi webmin-1.260.fix/proc/edit_proc.cgi
+--- webmin-1.260/proc/edit_proc.cgi	2006-01-30 01:05:36.000000000 +0100
++++ webmin-1.260.fix/proc/edit_proc.cgi	2006-02-06 15:59:25.000000000 +0100
+@@ -94,11 +94,11 @@
+ 	print "</select>";
+ 
+ 	print "&nbsp;" x 4;
+-	print "<input type=submit name=TERM value='$text{'edit_sigterm'}'>\n";
+-	print "<input type=submit name=KILL value='$text{'edit_sigkill'}'>\n";
++	print "<input type=submit name=TERM value=\"$text{'edit_sigterm'}\">\n";
++	print "<input type=submit name=KILL value=\"$text{'edit_sigkill'}\">\n";
+ 	print "&nbsp;" x 4;
+-	print "<input type=submit name=STOP value='$text{'edit_sigstop'}'>\n";
+-	print "<input type=submit name=CONT value='$text{'edit_sigcont'}'>\n";
++	print "<input type=submit name=STOP value=\"$text{'edit_sigstop'}\">\n";
++	print "<input type=submit name=CONT value=\"$text{'edit_sigcont'}\">\n";
+ 	print "</td></form>\n";
+ 	}
+ 
+diff -Nur webmin-1.260/pserver/index.cgi webmin-1.260.fix/pserver/index.cgi
+--- webmin-1.260/pserver/index.cgi	2006-01-30 01:06:23.000000000 +0100
++++ webmin-1.260.fix/pserver/index.cgi	2006-02-06 16:01:32.000000000 +0100
+@@ -66,7 +66,7 @@
+ 		}
+ 	if (!$inet) {
+ 		print "<form action=setup.cgi>\n";
+-		print "<td><input type=submit value='$text{'index_setup'}'></td>\n";
++		print "<td><input type=submit value=\"$text{'index_setup'}\"></td>\n";
+ 		print "<td>",&text('index_setupdesc',
+ 		   $has_xinetd ? "<tt>xinetd</tt>" : "<tt>inetd</tt>"),"<br>\n";
+ 		print "<b>$text{'index_asuser'}</b>\n";
+@@ -76,7 +76,7 @@
+ 		}
+ 	elsif (!$inet->{'active'}) {
+ 		print "<form action=setup.cgi>\n";
+-		print "<td><input type=submit value='$text{'index_act'}'></td>\n";
++		print "<td><input type=submit value=\"$text{'index_act'}\"></td>\n";
+ 		if ($inetdir) {
+ 			print "<td>",&text('index_actdesc2',
+ 				"<tt>$inet->{'type'}</tt>",
+@@ -94,7 +94,7 @@
+ 		}
+ 	else {
+ 		print "<form action=setup.cgi>\n";
+-		print "<td><input type=submit value='$text{'index_deact'}'></td>\n";
++		print "<td><input type=submit value=\"$text{'index_deact'}\"></td>\n";
+ 		if ($inetdir) {
+ 			print "<td>",&text('index_deactdesc2',
+ 				"<tt>$inet->{'type'}</tt>",
+diff -Nur webmin-1.260/sendmail/del_mailq.cgi webmin-1.260.fix/sendmail/del_mailq.cgi
+--- webmin-1.260/sendmail/del_mailq.cgi	2006-01-30 01:05:47.000000000 +0100
++++ webmin-1.260.fix/sendmail/del_mailq.cgi	2006-02-06 16:02:20.000000000 +0100
+@@ -30,7 +30,7 @@
+ 	print "<center><form action=del_mailq.cgi>\n";
+ 	print "<b>$main::whatfailed : $text{'delq_locked'}</b><p>\n";
+ 	print "<input type=hidden name=file value='$in{'file'}'>\n";
+-	print "<input type=submit name=force value='$text{'delq_force'}'>\n";
++	print "<input type=submit name=force value=\"$text{'delq_force'}\">\n";
+ 	print "</form></center>\n";
+ 	&ui_print_footer("list_mailq.cgi", $text{'mailq_return'});
+ 	exit;
+diff -Nur webmin-1.260/sendmail/list_access.cgi webmin-1.260.fix/sendmail/list_access.cgi
+--- webmin-1.260/sendmail/list_access.cgi	2006-01-30 01:05:46.000000000 +0100
++++ webmin-1.260.fix/sendmail/list_access.cgi	2006-02-06 16:03:40.000000000 +0100
+@@ -39,7 +39,7 @@
+ 	# Show search form
+ 	print $text{'access_toomany'},"<br>\n";
+ 	print "<form action=list_access.cgi>\n";
+-	print "<input type=submit value='$text{'access_go'}'>\n";
++	print "<input type=submit value=\"$text{'access_go'}\">\n";
+ 	print "<input name=search size=20></form>\n";
+ 	undef(@accs);
+ 	}
+diff -Nur webmin-1.260/sendmail/list_virtusers.cgi webmin-1.260.fix/sendmail/list_virtusers.cgi
+--- webmin-1.260/sendmail/list_virtusers.cgi	2006-01-30 01:05:47.000000000 +0100
++++ webmin-1.260.fix/sendmail/list_virtusers.cgi	2006-02-06 16:04:43.000000000 +0100
+@@ -46,7 +46,7 @@
+ 	# Show search form
+ 	print $text{'virtusers_toomany'},"<br>\n";
+ 	print "<form action=list_virtusers.cgi>\n";
+-	print "<input type=submit value='$text{'virtusers_go'}'>\n";
++	print "<input type=submit value=\"$text{'virtusers_go'}\">\n";
+ 	print "<input name=search size=20></form>\n";
+ 	undef(@virts);
+ 	}
+diff -Nur webmin-1.260/shell/index.cgi webmin-1.260.fix/shell/index.cgi
+--- webmin-1.260/shell/index.cgi	2006-01-30 01:06:11.000000000 +0100
++++ webmin-1.260.fix/shell/index.cgi	2006-02-06 16:05:57.000000000 +0100
+@@ -100,7 +100,7 @@
+ 	}
+ 
+ if (@previous) {
+-	print "<tr> <td><input name=doprev type=submit value='$text{'index_pok'}'></td>\n";
++	print "<tr> <td><input name=doprev type=submit value=\"$text{'index_pok'}\"></td>\n";
+ 	print "<td><select name=pcmd>\n";
+ 	foreach $p (reverse(@previous)) {
+ 		printf "<option value='%s'>%s\n",
+diff -Nur webmin-1.260/software/index.cgi webmin-1.260.fix/software/index.cgi
+--- webmin-1.260/software/index.cgi	2006-01-30 01:05:38.000000000 +0100
++++ webmin-1.260.fix/software/index.cgi	2006-02-06 14:54:09.000000000 +0100
+@@ -16,7 +16,7 @@
+ print "</form>\n";
+ 
+ print "<form action=tree.cgi>\n";
+-print "<td align=right><input type=submit value='$text{'index_tree'}'></td>\n";
++print "<td align=right><input type=submit value=\"$text{'index_tree'}\"></td>\n";
+ print "</form></tr></table>\n";
+ 
+ # Show form to install a new package
+diff -Nur webmin-1.260/software/yum-lib.pl webmin-1.260.fix/software/yum-lib.pl
+--- webmin-1.260/software/yum-lib.pl	2006-01-30 01:05:39.000000000 +0100
++++ webmin-1.260.fix/software/yum-lib.pl	2006-02-06 14:55:47.000000000 +0100
+@@ -78,7 +78,7 @@
+ {
+ print &ui_subheading($text{'yum_form'});
+ print "<form action=yum_upgrade.cgi>\n";
+-print "<input type=submit value='$text{'yum_apply'}'></form>\n";
++print "<input type=submit value=\"$text{'yum_apply'}\"></form>\n";
+ }
+ 
+ # update_system_resolve(name)
+diff -Nur webmin-1.260/useradmin/edit_user.cgi webmin-1.260.fix/useradmin/edit_user.cgi
+--- webmin-1.260/useradmin/edit_user.cgi	2006-01-30 01:05:35.000000000 +0100
++++ webmin-1.260.fix/useradmin/edit_user.cgi	2006-02-06 16:08:30.000000000 +0100
+@@ -616,7 +616,7 @@
+ 		print "</form><form action=../usermin/switch.cgi target=_new>\n";
+ 		print "<input type=hidden name=user value='$uinfo{'user'}'>\n";
+ 		print "<td align=center>\n";
+-		print "<input type=submit value='$text{'uedit_swit'}'></td>\n";
++		print "<input type=submit value=\"$text{'uedit_swit'}\"></td>\n";
+ 		}
+ 
+ 	if ($access{'udelete'}) {
+diff -Nur webmin-1.260/useradmin/user-lib.pl webmin-1.260.fix/useradmin/user-lib.pl
+--- webmin-1.260/useradmin/user-lib.pl	2006-01-30 01:05:35.000000000 +0100
++++ webmin-1.260.fix/useradmin/user-lib.pl	2006-02-06 16:09:09.000000000 +0100
+@@ -1684,9 +1684,9 @@
+ 	print &select_invert_link("d", $_[1]),"<br>\n";
+ 	}
+ if ($anyedit) {
+-	print "<input type=submit name=delete value='$text{'index_mass'}'>\n";
+-	print "<input type=submit name=disable value='$text{'index_mass2'}'>\n";
+-	print "<input type=submit name=enable value='$text{'index_mass3'}'>\n";
++	print "<input type=submit name=delete value=\"$text{'index_mass'}\">\n";
++	print "<input type=submit name=disable value=\"$text{'index_mass2'}\">\n";
++	print "<input type=submit name=enable value=\"$text{'index_mass3'}\">\n";
+ 	print "</form>\n";
+ 	}
+ }
+diff -Nur webmin-1.260/vgetty/index.cgi webmin-1.260.fix/vgetty/index.cgi
+--- webmin-1.260/vgetty/index.cgi	2006-01-30 01:06:24.000000000 +0100
++++ webmin-1.260.fix/vgetty/index.cgi	2006-02-06 16:10:00.000000000 +0100
+@@ -34,7 +34,7 @@
+ print "<hr>\n";
+ print "<form action=vgetty_apply.cgi>\n";
+ print "<table width=100%><tr>\n";
+-print "<td><input type=submit value='$text{'vgetty_apply'}'></td>\n";
++print "<td><input type=submit value=\"$text{'vgetty_apply'}\"></td>\n";
+ print "<td>",&text('vgetty_applydesc', "<tt>telinit q</tt>"),"</td>\n";
+ print "</tr></table></form>\n";
+ 
+diff -Nur webmin-1.260/webalizer/edit_log.cgi webmin-1.260.fix/webalizer/edit_log.cgi
+--- webmin-1.260/webalizer/edit_log.cgi	2006-01-30 01:06:24.000000000 +0100
++++ webmin-1.260.fix/webalizer/edit_log.cgi	2006-02-06 16:10:53.000000000 +0100
+@@ -125,7 +125,7 @@
+ 	}
+ else {
+ 	push(@b, "<input type=submit value='$text{'save'}'>");
+-	push(@b, "<input type=submit name=global value='$text{'edit_global'}'>")
++	push(@b, "<input type=submit name=global value=\"$text{'edit_global'}\">")
+ 		if ($cmode);
+ 	if ($lconf->{'dir'}) {
+ 		push(@b, "<input type=submit name=run value='$text{'edit_run'}'>");
+diff -Nur webmin-1.260/webmin/edit_ca.cgi webmin-1.260.fix/webmin/edit_ca.cgi
+--- webmin-1.260/webmin/edit_ca.cgi	2006-01-30 01:05:37.000000000 +0100
++++ webmin-1.260.fix/webmin/edit_ca.cgi	2006-02-06 15:12:07.000000000 +0100
+@@ -62,7 +62,7 @@
+ print "<input name=size size=6> $text{'ssl_bits'}</td> </tr>\n";
+ 
+ print "</table></td></tr></table>\n";
+-print "<input type=submit value='$text{'ca_create'}'></form>\n";
++print "<input type=submit value=\"$text{'ca_create'}\"></form>\n";
+ 
+ print "<hr>\n";
+ print -r $miniserv{'ca'} ? $text{'ca_oldmsg1'} : $text{'ca_oldmsg2'},"<p>\n";
+@@ -81,7 +81,7 @@
+ if (-r $miniserv{'ca'}) {
+ 	print "<hr>\n";
+ 	print "<form action=stop_ca.cgi><table><tr>\n";
+-	print "<td><input type=submit value='$text{'ca_stop'}'></td>\n";
++	print "<td><input type=submit value=\"$text{'ca_stop'}\"></td>\n";
+ 	print "<td>$text{'ca_stopmsg'}</td>\n";
+ 	print "</tr></table></form>\n";
+ 	}
+diff -Nur webmin-1.260/webmin/edit_session.cgi webmin-1.260.fix/webmin/edit_session.cgi
+--- webmin-1.260/webmin/edit_session.cgi	2006-01-30 01:05:37.000000000 +0100
++++ webmin-1.260.fix/webmin/edit_session.cgi	2006-02-06 15:10:38.000000000 +0100
+@@ -77,9 +77,9 @@
+ printf "<input type=radio name=no_pam value=1 %s> %s<br>\n",
+ 	$miniserv{'no_pam'} ? "checked" : "", $text{'session_pamoff'};
+ print "&nbsp;&nbsp;&nbsp;",&text('session_pfile',
+-	"<input name=passwd_file size=20 value='$miniserv{'passwd_file'}'>",
+-	"<input name=passwd_uindex size=2 value='$miniserv{'passwd_uindex'}'>",
+-	"<input name=passwd_pindex size=2 value='$miniserv{'passwd_pindex'}'>"),
++	"<input name=passwd_file size=20 value=\"$miniserv{'passwd_file'}\">",
++	"<input name=passwd_uindex size=2 value=\"$miniserv{'passwd_uindex'}\">",
++	"<input name=passwd_pindex size=2 value=\"$miniserv{'passwd_pindex'}\">"),
+ 	"<br>\n";
+ print "&nbsp;&nbsp;&nbsp;",
+ 	&ui_checkbox("pam_conv", 1, $text{'session_pamconv'},
+diff -Nur webmin-1.260/webmin/edit_themes.cgi webmin-1.260.fix/webmin/edit_themes.cgi
+--- webmin-1.260/webmin/edit_themes.cgi	2006-01-30 01:05:37.000000000 +0100
++++ webmin-1.260.fix/webmin/edit_themes.cgi	2006-02-06 15:08:54.000000000 +0100
+@@ -20,7 +20,7 @@
+ 			$t->{'desc'};
+ 		}
+ 	print "</select>\n";
+-	print "<input type=submit value='$text{'themes_change'}'></form>\n";
++	print "<input type=submit value=\"$text{'themes_change'}\"></form>\n";
+ 	}
+ 
+ if (!&shared_root_directory()) {
