@@ -33,7 +33,7 @@ RETVAL=0
 case "$1" in
   start)
 	if [ ! -f /etc/webmin/miniserv.users ]; then
-		nls "Try \"%s init\" before start." "$0"
+		nls "Try '%s init' before start." "$0"
 		exit 6
 	fi
 	# Check if the service is already running?
