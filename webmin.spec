@@ -1707,7 +1707,7 @@ allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' |
 %{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
 
 %post bandwidth
-allmods=`cd 1;3B%{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
+allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 %{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
 
 %post shorewall
