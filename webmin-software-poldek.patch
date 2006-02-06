@@ -1,0 +1,348 @@
+diff -Nur webmin-1.260/software/config.info webmin-1.260.poldek/software/config.info
+--- webmin-1.260/software/config.info	2006-01-30 01:05:38.000000000 +0100
++++ webmin-1.260.poldek/software/config.info	2006-02-06 01:44:00.000000000 +0100
+@@ -1,2 +1,2 @@
+ package_system=Package management system,4,rpm-RPM,pkgadd-Solaris,hpux-HPUX,freebsd-FreeBSD,slackware-Slackware,debian-Debian,aix-AIX,emerge-Gentoo,cygwin-Cygwin
+-update_system=Package update system,1,-Detect automatically,apt-APT,yum-YUM,rhn-Redhat Network,csw-Blastwave,urpmi-URPMI,emerge-Emerge
++update_system=Package update system,1,-Detect automatically,poldek-poldek,apt-APT,yum-YUM,rhn-Redhat Network,csw-Blastwave,urpmi-URPMI,emerge-Emerge
+diff -Nur webmin-1.260/software/config.info.ca webmin-1.260.poldek/software/config.info.ca
+--- webmin-1.260/software/config.info.ca	2006-01-30 01:05:39.000000000 +0100
++++ webmin-1.260.poldek/software/config.info.ca	2006-02-06 01:44:00.000000000 +0100
+@@ -1,3 +1,3 @@
+ line2=Configuració del sistema,11
+ package_system=Sistema de gestió de paquets,4,rpm-RPM,pkgadd-Solaris,hpux-HPUX,freebsd-FreeBSD,slackware-Slackware,debian-Debian,aix-AIX,emerge-Gentoo,cygwin-Cygwin
+-update_system=Sistema d'actualització de paquets,1,-Detecta'l automàticament,apt-APT,yum-YUM,rhn-Xarxa de Redhat,csw-Blastwave,urpmi-URPMI,emerge-Emerge
++update_system=Sistema d'actualització de paquets,1,-Detecta'l automàticament,poldek-poldek,apt-APT,yum-YUM,rhn-Xarxa de Redhat,csw-Blastwave,urpmi-URPMI,emerge-Emerge
+diff -Nur webmin-1.260/software/config.info.es webmin-1.260.poldek/software/config.info.es
+--- webmin-1.260/software/config.info.es	2006-01-30 01:05:38.000000000 +0100
++++ webmin-1.260.poldek/software/config.info.es	2006-02-06 01:44:00.000000000 +0100
+@@ -1,3 +1,3 @@
+ line2=Configuraci&#243;n del sistema,11
+ package_system=Sistema de gesti&#243;n de Paquetes,4,rpm-RPM,pkgadd-Solaris,hpux-HPUX,freebsd-FreeBSD,slackware-Slackware,debian-Debian,aix-AIX,emerge-Gentoo,cygwin-Cygwin
+-update_system=Sistema de actualizaci&#243;n de Paquetes,1,-Detectar autom&#225;ticamente,apt-APT,yum-YUM,rhm-Red Redhat,csw-Blastwave,urpmi-URPMI,emerge-Emerge
++update_system=Sistema de actualizaci&#243;n de Paquetes,1,-Detectar autom&#225;ticamente,poldek-poldek,apt-APT,yum-YUM,rhm-Red Redhat,csw-Blastwave,urpmi-URPMI,emerge-Emerge
+diff -Nur webmin-1.260/software/config.info.sv webmin-1.260.poldek/software/config.info.sv
+--- webmin-1.260/software/config.info.sv	2006-01-30 01:05:38.000000000 +0100
++++ webmin-1.260.poldek/software/config.info.sv	2006-02-06 01:44:00.000000000 +0100
+@@ -1,2 +1,2 @@
+ package_system=Pakethanteringssystem,1,rpm-RPM,pkgadd-Solaris,hpux-HPUX,freebsd-FreeBSD,slackware-Slackware,debian-Debian
+-update_system=Automatiskt installationssystem,1,apt-Debian APT,rhn-Redhat Network,cup-Caldera CUPDATE
++update_system=Automatiskt installationssystem,1,poldek-poldek,apt-Debian APT,rhn-Redhat Network,cup-Caldera CUPDATE
+diff -Nur webmin-1.260/software/lang/ca webmin-1.260.poldek/software/lang/ca
+--- webmin-1.260/software/lang/ca	2006-01-30 01:05:38.000000000 +0100
++++ webmin-1.260.poldek/software/lang/ca	2006-02-06 01:39:25.000000000 +0100
+@@ -234,6 +234,27 @@
+ yum_title=Exploració de YUM
+ yum_name=YUM
+ 
++poldek_input=Paquet de poldek
++poldek_install=Instal·lant el(s) paquet(s) amb l'ordre $1...
++poldek_ok=...instal·lació completa.
++poldek_failed=...la instal·lació ha fallat!
++poldek_find=Fulleja els paquets de poldek...
++poldek_package=Paquet
++poldek_version=Versió
++poldek_arch=Arquitectura
++poldek_source=Font
++poldek_form=Actualitza els Paquets
++poldek_update=Actualitza els indexos de poldek
++poldek_upgrade=Actualitza Tots els Paquets Utilitzant poldek
++poldek_updatedesc=Actualització d'els indexos amb l'ordre $1 ..
++poldek_upgradedesc=Actualització de tots els paquets amb l'ordre $1...
++poldek_upgradefailed=.. ha fallat!
++poldek_upgradeok=.. completa.
++poldek_title=Exploració d'els paquets en poldek
++poldek_name=poldek
++poldek_enable=Canvi del repositori:
++poldek_none=&lt;No canvies&gt;
++
+ urpmi_name=URPMI
+ urpmi_input=Paquet d'URPMI
+ urpmi_find=FUlleja URPMI...
+diff -Nur webmin-1.260/software/lang/en webmin-1.260.poldek/software/lang/en
+--- webmin-1.260/software/lang/en	2006-01-30 01:05:38.000000000 +0100
++++ webmin-1.260.poldek/software/lang/en	2006-02-06 01:39:19.000000000 +0100
+@@ -236,6 +236,27 @@
+ yum_enable=Enable repository:
+ yum_none=&lt;None&gt;
+ 
++poldek_input=Package from poldek
++poldek_install=Installing package(s) with command $1 ..
++poldek_ok=.. install complete.
++poldek_failed=.. install failed!
++poldek_find=Browse poldek packages ..
++poldek_package=Package
++poldek_version=Version
++poldek_arch=Architecture
++poldek_source=Source
++poldek_form=Upgrade Packages
++poldek_update=Update poldek indexes
++poldek_upgrade=Upgrade All Packages using poldek
++poldek_updatedesc=Upgrading indexes with command $1 ..
++poldek_upgradedesc=Upgrading all packages with command $1 ..
++poldek_upgradefailed=.. failed!
++poldek_upgradeok=.. complete.
++poldek_title=Browse poldek packages
++poldek_name=poldek
++poldek_enable=Change repository:
++poldek_none=&lt;Don't change&gt;
++
+ urpmi_name=URPMI
+ urpmi_input=Package from URPMI
+ urpmi_find=Browse URPMI ..
+diff -Nur webmin-1.260/software/lang/pl webmin-1.260.poldek/software/lang/pl
+--- webmin-1.260/software/lang/pl	2006-01-30 01:05:38.000000000 +0100
++++ webmin-1.260.poldek/software/lang/pl	2006-02-06 01:39:29.000000000 +0100
+@@ -184,6 +184,27 @@
+ apt_upgradeok=.. zakoñczona.
+ apt_search=Znajd¼ pakiety wg wzorca&nbsp;:
+ 
++poldek_input=Pakiet z poldka
++poldek_install=Instalowanie pakietów wywo³uj±c polecenie $1 ..
++poldek_ok=.. instalacja zakoñczona.
++poldek_failed=.. instalacja nie powiod³a siê!
++poldek_find=Przegl±daj pakiety w poldku ..
++poldek_package=Pakiet
++poldek_version=Wersja
++poldek_arch=Architektura
++poldek_source=¬ród³o
++poldek_form=Uaktualnij Pakiety
++poldek_update=Uaktualnij indeksy poldka
++poldek_upgrade=Uaktualnij Wszytkie Pakiety U¿ywaj±c poldka
++poldek_updatedesc=Uaktualnianie indeksów wywo³uj±c polecenie $1 ..
++poldek_upgradedesc=Uaktualnianie wszystkich pakietów wywo³uj±c polecenie $1 ..
++poldek_upgradefailed=.. nie powiod³o siê!
++poldek_upgradeok=.. zakoñczone.
++poldek_title=Przegl±danie pakietów w poldku
++poldek_name=poldek
++poldek_enable=Zmieñ repozytorium:
++poldek_none=&lt;Nie zmieniaj&gt;
++
+ rpm_missing=Brak
+ rpm_checkfail=Niezgodno¶æ $1
+ rpm_md5=sumy kontrolnej MD5
+diff -Nur webmin-1.260/software/poldek-lib.pl webmin-1.260.poldek/software/poldek-lib.pl
+--- webmin-1.260/software/poldek-lib.pl	1970-01-01 01:00:00.000000000 +0100
++++ webmin-1.260.poldek/software/poldek-lib.pl	2006-02-06 01:39:07.000000000 +0100
+@@ -0,0 +1,155 @@
++# poldek-lib.pl
++# Functions for installing packages with poldek
++
++$poldek_config = $config{'poldek_config'} || "/etc/poldek/poldek.conf";
++
++# update_system_install([package], [&in])
++# Install some package with poldek
++sub update_system_install
++{
++	local $update = $_[0] || $in{'update'};
++	local $in = $_[1];
++	local $enable;
++	if ($in->{'enablerepo'}) {
++		$enable = "--sn=".quotemeta($in->{'enablerepo'});
++	}
++	local (@rv, @newpacks);
++	print "<b>", 
++		&text('poldek_install', "<tt>poldek $enable -u $update</tt>"),
++		"</b><p>\n";
++	print "<pre>";
++	&additional_log('exec', undef, "poldek $enable -u $update");
++	local $qm = join(" ", map { quotemeta($_) } split(/\s+/, $update));
++	&open_execute_command(CMD, "poldek $enable -u $qm 2>&1 </dev/null", 1);
++	while(<CMD>) {
++		s/\r|\n//g;
++		if (/^[ID] (.*)/) {
++			local @pkgs = split(/,\s+/, $1);
++			push(@rv, @pkgs);
++		}
++		print &html_escape($_."\n");
++	}
++	close(CMD);
++	print "</pre>\n";
++	if ($?) {
++		print "<b>$text{'poldek_failed'}</b><p>\n";
++		return ( );
++		}
++	else {
++		print "<b>$text{'poldek_ok'}</b><p>\n";
++		return &unique(@rv);
++		}
++}
++
++# show_update_system_opts()
++# Returns HTML for enabling a repository, if any are disabled
++sub show_update_system_opts
++{
++	# supports only new poldek
++	local $conf = &get_poldek_config($poldek_config);
++	local @ena;
++	
++	foreach my $r (@$conf) {
++		next unless ($r->{'name'} eq 'source');
++		push(@ena, $r->{'values'}->{'name'})
++			if $r->{'values'}->{'auto'} eq "no"
++				or $r->{'values'}->{'noauto'} eq "yes";
++	}
++	
++	return $text{'poldek_enable'} . " " .
++		&ui_select("enablerepo", "",
++		[ [ "", $text{'poldek_none'} ],
++		map { [ $_ ] } @ena ]);
++}
++
++# update_system_form()
++# Shows a form for updating all packages on the system
++sub update_system_form
++{
++	print &ui_subheading($text{'poldek_form'});
++	print &ui_form_start("poldek_upgrade.cgi");
++	print &ui_submit($text{'poldek_update'}, "update"),"<br>\n";
++	print &ui_submit($text{'poldek_upgrade'}, "upgrade"),"<br>\n";
++	print &ui_form_end();
++}
++
++# update_system_resolve(name)
++# We are PLD, user knows better what he wants!
++sub update_system_resolve
++{
++	local ($name) = @_;
++	return $name;
++}
++
++# update_system_available()
++# Returns a list of package names and versions that are available from poldek
++sub update_system_available
++{
++	local @rv;
++	&open_execute_command(PKG, "poldek -O multilib=yes --shcmd='ls -q'", 1, 1);
++	while(<PKG>) {
++		next if / /;
++		next unless /-\S+-/;
++		if (/^(\S+)-(\S+?)-(\S+?)\.([a-z0-9]+?)$/ ||
++		    /^(\S+)-(\S+?)-(\S+?)$/) {
++			push(@rv, { 'name' => $1,
++				    'version' => "$2-$3",
++				    'arch' => $4
++			    });
++		}
++	}
++	close(PKG);
++	return @rv;
++}
++
++sub resolve_poldek_macro {
++	my ($opts, $macro) = @_;
++	foreach my $v (@$opts) {
++		if (exists $v->{'values'}->{$macro}) {
++			return $v->{'values'}->{$macro};
++		}
++	}
++	return "ERROR";
++}
++
++sub get_poldek_config {
++	my ($file) = @_;
++	local @opts;
++	local $sect = { 'name' => 'pre', 'values' => {} };
++	push @opts, $sect;
++	local $conf;
++	open ($conf, $file) or return undef;
++	while (<$conf>) {
++		chomp;
++		next if /^\s*#$/;
++
++		while (/%{(.*?)}/) {
++			my $value = &resolve_poldek_macro(\@opts, $1);
++			s/%{.*?}/$value/;
++		}
++		if (/^\s*\[(.*)\]/) {
++			# Start of a section
++			$sect = {
++				'name' => $1,
++				'values' => { }
++			};
++			push @opts, $sect;
++		} elsif (/^\s*(.+?)\s*=\s*(.*)/ && $sect) {
++			# Value in a section
++			( $sect->{'values'}->{($1)} = $2 ) =~ s/\s*$//;
++		} elsif (/^\s*\%include\s+(.*)/) {
++			my $inc_file = $1;
++			unless ( $inc_file =~ m#^/#) {
++				(my $dir = $file) =~ s#/[^/]*$#/#;
++				$inc_file = $dir . $inc_file;
++			}
++			push @opts, @{&get_poldek_config($inc_file)};
++		}
++	}
++	close $conf;
++	return \@opts;
++}
++
++1;
++
++# vim: ts=4:sw=4
+diff -Nur webmin-1.260/software/poldek_upgrade.cgi webmin-1.260.poldek/software/poldek_upgrade.cgi
+--- webmin-1.260/software/poldek_upgrade.cgi	1970-01-01 01:00:00.000000000 +0100
++++ webmin-1.260.poldek/software/poldek_upgrade.cgi	2006-02-06 01:39:07.000000000 +0100
+@@ -0,0 +1,48 @@
++#!/usr/bin/perl
++# poldek_upgrade.cgi
++# Upgrade all packages
++
++require './software-lib.pl';
++&ReadParse();
++
++if ($in{'upgrade'}) {
++	$cmd = "poldek --upgrade-dist";
++	$mode = "upgrade";
++}
++else {
++	$cmd = "poldek --up";
++	$mode = "update";
++}
++								
++&ui_print_unbuffered_header(undef, $text{'poldek_'.$mode}, "");
++
++print "<b>",&text('poldek_'.$mode.'desc', "<tt>$cmd</tt>"),"</b><p>\n";
++print "<pre>";
++&additional_log("exec", undef, $cmd);
++open(CMD, "$cmd 2>&1 </dev/null |");
++while(<CMD>) {
++	if (/^[ID] (.*)/) {
++		local @pkgs = split(/,\s+/, $1);
++		push(@packs, @pkgs);
++	}
++	print &html_escape($_);
++}
++close(CMD);
++print "</pre>\n";
++if ($?) {
++	print "<b>$text{'poldek_upgradefailed'}</b><p>\n";
++} else {
++	print "<b>$text{'poldek_upgradeok'}</b><p>\n";
++	foreach $p (@packs) {
++		local @pinfo = &show_package_info($p);
++	}
++	if ($mode eq "upgrade") {
++		&webmin_log("poldek", "upgrade", undef, { 'packages' => \@packs })
++			if (@packs);
++	} else {
++		&webmin_log("poldek", "update");
++	}
++}
++
++&ui_print_footer("", $text{'index_return'});
++
+--- webmin-1.260/software/software-lib.pl~	2006-01-30 01:05:38.000000000 +0100
++++ webmin-1.260/software/software-lib.pl	2006-02-06 02:39:41.000000000 +0100
+@@ -16,7 +16,10 @@
+ 	}
+ else {
+ 	# Guess which update system we are using
+-	if (&has_command("apt-get")) {
++	if (&has_command("poldek")) {
++		$update_system = "poldek";
++		}
++	elsif (&has_command("apt-get")) {
+ 		$update_system = "apt";
+ 		}
+ 	elsif (&has_command("yum") && -r "/etc/yum.conf") {
