@@ -1866,7 +1866,7 @@ allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' |
 
 %files -f base.lang
 %defattr(644,root,root,755)
-%doc LICENCE LICENCE.ja
+%doc %{_datadir}/webmin/LICENC*
 %attr(750,root,root) %dir /var/log/webmin
 %attr(754,root,root) /etc/rc.d/init.d/webmin
 %attr(640,root,root) /etc/pam.d/webmin
@@ -2396,6 +2396,7 @@ allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' |
 %{_datadir}/webmin/useradmin/rbac-mapping
 %{_datadir}/webmin/useradmin/*.skill
 %{_datadir}/webmin/useradmin/help.html
+%{_datadir}/webmin/useradmin/help/icon.gif
 %config(noreplace) %{_sysconfdir}/webmin/useradmin/config
 
 # change-user
@@ -3081,6 +3082,7 @@ allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' |
 %{_datadir}/webmin/backup-config/config
 %{_datadir}/webmin/backup-config/config.info
 %{_datadir}/webmin/backup-config/*.pl
+%{_datadir}/webmin/backup-config/help/config_date_subs.html
 %config(noreplace) %{_sysconfdir}/webmin/backup-config/config
 
 # HEARTBEAT #
