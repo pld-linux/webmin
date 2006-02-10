@@ -2396,6 +2396,7 @@ allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' |
 %{_datadir}/webmin/useradmin/rbac-mapping
 %{_datadir}/webmin/useradmin/*.skill
 %{_datadir}/webmin/useradmin/help.html
+%dir %{_datadir}/webmin/useradmin/help
 %{_datadir}/webmin/useradmin/help/icon.gif
 %config(noreplace) %{_sysconfdir}/webmin/useradmin/config
 
@@ -3082,6 +3083,7 @@ allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' |
 %{_datadir}/webmin/backup-config/config
 %{_datadir}/webmin/backup-config/config.info
 %{_datadir}/webmin/backup-config/*.pl
+%dir %{_datadir}/webmin/backup-config/help
 %{_datadir}/webmin/backup-config/help/config_date_subs.html
 %config(noreplace) %{_sysconfdir}/webmin/backup-config/config
 
