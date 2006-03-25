@@ -5,7 +5,7 @@ Summary:	Webmin - web-based administration
 Summary(pl):	Webmin - administracja przez WWW
 Name:		webmin
 Version:	1.260
-Release:	1.8
+Release:	1.12
 License:	BSD-like
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/webadmin/%{name}-%{version}.tar.gz
@@ -31,7 +31,6 @@ BuildRequires:	rpm-perlprov
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	sed >= 4.0
 Requires(post,preun):	/sbin/chkconfig
-Requires:	perl-modules
 Requires:	policy
 Provides:	%{name}-acl = %{version}-%{release}
 Provides:	%{name}-man = %{version}-%{release}
@@ -702,6 +701,7 @@ Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
 Requires:	%{name}-mount = %{version}-%{release}
+Requires:	%{name}-fdisk = %{version}-%{release}
 Requires:	lvm2
 
 %description lvm
@@ -1027,6 +1027,7 @@ Summary(pl):	Webmin - serwer proxy Squid
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
+Requires:	%{name}-net = %{version}-%{release}
 Requires:	squid
 
 %description squid
@@ -1465,6 +1466,7 @@ install -d $RPM_BUILD_ROOT{%{_datadir}/webmin,/var/{log,run}/webmin} \
 rm -f *.lang
 cp -a * $RPM_BUILD_ROOT%{_datadir}/webmin
 rm -f $RPM_BUILD_ROOT%{_datadir}/webmin/perlpath.pl
+rm -f $RPM_BUILD_ROOT%{_datadir}/webmin/setup.{sh.pl}
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/webmin
 install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/webmin/miniserv.conf
@@ -1796,6 +1798,7 @@ fi
 %attr(640,root,root) /etc/pam.d/webmin
 %attr(755,root,root) %{_datadir}/webmin/*.pl
 %attr(755,root,root) %{_datadir}/webmin/*.cgi
+%dir %{_datadir}/webmin
 %doc %{_datadir}/webmin/README
 %{_datadir}/webmin/images
 %{_datadir}/webmin/config-pld-linux
@@ -1805,7 +1808,6 @@ fi
 %{_datadir}/webmin/*.txt
 %{_datadir}/webmin/version
 %{_datadir}/webmin/webmin-*
-%{_datadir}/webmin/setup.sh
 %{_datadir}/webmin/defaulttheme
 %{_datadir}/webmin/defaultacl
 %{_datadir}/webmin/favicon.ico
@@ -3385,10 +3387,20 @@ fi
 %attr(755,root,root) %{_datadir}/webmin/mscstyle3/*.pl
 %{_datadir}/webmin/caldera/*[^i]
 %{_datadir}/webmin/mscstyle3/*[^.][^.]??
+%dir %{_datadir}/webmin/mscstyle3/acl
+%dir %{_datadir}/webmin/mscstyle3/acl/images
 %{_datadir}/webmin/mscstyle3/acl/images/icon.gif
+%dir %{_datadir}/webmin/mscstyle3/man
+%dir %{_datadir}/webmin/mscstyle3/man/images
 %{_datadir}/webmin/mscstyle3/man/images/icon.gif
+%dir %{_datadir}/webmin/mscstyle3/net
+%dir %{_datadir}/webmin/mscstyle3/net/images
 %{_datadir}/webmin/mscstyle3/net/images/icon.gif
+%dir %{_datadir}/webmin/mscstyle3/pam
+%dir %{_datadir}/webmin/mscstyle3/pam/images
 %{_datadir}/webmin/mscstyle3/pam/images/icon.gif
+%dir %{_datadir}/webmin/mscstyle3/ssh
+%dir %{_datadir}/webmin/mscstyle3/ssh/images
 %{_datadir}/webmin/mscstyle3/ssh/images/icon.gif
 
 # SOURCES
