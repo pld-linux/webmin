@@ -5,7 +5,7 @@ Summary:	Webmin - web-based administration
 Summary(pl):	Webmin - administracja przez WWW
 Name:		webmin
 Version:	1.260
-Release:	1.6
+Release:	1.7
 License:	BSD-like
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/webadmin/%{name}-%{version}.tar.gz
@@ -15,11 +15,10 @@ Source0:	http://dl.sourceforge.net/webadmin/%{name}-%{version}.tar.gz
 Source1:	%{name}.init
 Source2:	%{name}-miniserv.conf
 Source3:	%{name}-find-lang.sh
-Patch0:		%{name}-PLD.patch
-Patch1:		%{name}-PLD-module.info.patch
-Patch2:		%{name}-ad-pld-config.patch
-Patch3:		%{name}-software-poldek.patch
-Patch4:		%{name}-quote.patch
+Patch0:		%{name}-PLD-module.info.patch
+Patch1:		%{name}-ad-pld-config.patch
+Patch2:		%{name}-software-poldek.patch
+Patch3:		%{name}-quote.patch
 URL:		http://www.webmin.com/
 BuildRequires:	perl-CGI
 BuildRequires:	perl-Compress-Zlib
@@ -1404,12 +1403,10 @@ Webmin - ¼ród³a modu³u "file" napisanego czê¶ciowo w Javie.
 
 %prep
 %setup -q -n %{name}-%{source_version}
-#%patch0 -p1 XXX?!
+%patch0 -p1
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
-install %{SOURCE3} .
 
 # only for solaris, so rm
 rm -rf zones	# Create and manage Solaris 10 zones.
@@ -1431,7 +1428,7 @@ rm -f */*aix */*cobalt* */*caldera* */*coherent* */*corel* */*debian* */*freebs*
     */*msc* */*netbsd */*osf1 */*redhat* */*slackware* */*sol* */*suse* */*trustix* */*turbo* */*united* \
     */*unixware */*windows */*maco* */*mandrake* */*openbs* */*openserv* */*open-lin* */config-\*-linux
 
-rm -f *aix *cobalt* *coherent* *corel* *debian* *freebsd *generic* *gentoo* *hpux *iri* *lfs*  \
+rm -f *caldera-init *aix *cobalt* *coherent* *corel* *debian* *freebsd *generic* *gentoo* *hpux *iri* *lfs*  \
     *-msc-* *netbsd  *osf1 *redhat* *slackware* *solari* *sol* *suse* *trustix* *turbo* *united* \
     *unixware *windows *maco* *mandrake* *openbs* *openserv* *open-lin*
 
@@ -1481,13 +1478,13 @@ for a in acl apache at cron bind8 burner cfengine cluster-software \
 	cluster-copy cluster-cron cluster-usermin cluster-passwd cluster-shell \
 	squid sshd status syslog telnet time useradmin usermin webmin dnsadmin \
 	webminlog wuftpd xinetd inetd idmapd frox bandwidth firewall ; do
-	./webmin-find-lang.sh $RPM_BUILD_ROOT %{_datadir}/webmin/$a $a
+	sh %{SOURCE3} $RPM_BUILD_ROOT %{_datadir}/webmin/$a $a
 done
 for a in vgetty sarg updown htaccess-htpasswd spam smart-status ppp-client \
 	backup-config change-user dovecot cpan; do
-	./webmin-find-lang.sh $RPM_BUILD_ROOT %{_datadir}/webmin/$a $a --no-help
+	sh %{SOURCE3} $RPM_BUILD_ROOT %{_datadir}/webmin/$a $a --no-help
 done
-./webmin-find-lang.sh $RPM_BUILD_ROOT %{_datadir}/webmin MAIN
+sh %{SOURCE3} $RPM_BUILD_ROOT %{_datadir}/webmin MAIN
 
 cat custom.lang file.lang telnet.lang webminlog.lang > admin-tools.lang
 cat fdisk.lang raid.lang > disk-tools.lang
