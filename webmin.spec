@@ -1,11 +1,11 @@
 %include	/usr/lib/rpm/macros.perl
-%define	source_version	%{version}
-%define	os_version	2.0
+%define		source_version	%{version}
+%define		os_version	%(rpm -qf /etc/pld-release --qf '%{version}' 2>/dev/null || echo ERROR)
 Summary:	Webmin - web-based administration
 Summary(pl):	Webmin - administracja przez WWW
 Name:		webmin
 Version:	1.260
-Release:	1.2
+Release:	1.4
 License:	BSD-like
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/webadmin/%{name}-%{version}.tar.gz
@@ -21,7 +21,6 @@ Patch2:		%{name}-ad-pld-config.patch
 Patch3:		%{name}-software-poldek.patch
 Patch4:		%{name}-quote.patch
 URL:		http://www.webmin.com/
-BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	perl-CGI
 BuildRequires:	perl-Compress-Zlib
 BuildRequires:	perl-DBI
@@ -29,7 +28,8 @@ BuildRequires:	perl-Mon
 BuildRequires:	perl-Net-SSLeay
 BuildRequires:	perl-modules
 BuildRequires:	rpm-perlprov
-BuildRequires:	rpmbuild(macros) >= 1.176
+BuildRequires:	rpmbuild(macros) >= 1.268
+BuildRequires:	/etc/pld-release
 BuildRequires:	sed >= 4.0
 Requires(post,preun):	/sbin/chkconfig
 Requires:	perl-modules
@@ -1404,10 +1404,12 @@ Webmin - ¼ród³a modu³u "file" napisanego czê¶ciowo w Javie.
 
 %prep
 %setup -q -n %{name}-%{source_version}
+#%patch0 -p1 XXX?!
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+install %{SOURCE3} .
 
 # only for solaris, so rm
 rm -rf zones	# Create and manage Solaris 10 zones.
@@ -1450,14 +1452,11 @@ cp -a * $RPM_BUILD_ROOT%{_datadir}/webmin
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/webmin
 install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/webmin/miniserv.conf
-install %{SOURCE3} .
-install webmin-pam $RPM_BUILD_ROOT/etc/pam.d/webmin
-install pserver/cvsweb.conf $RPM_BUILD_ROOT%{_sysconfdir}/webmincnf/cvsweb.conf
-install $RPM_BUILD_ROOT%{_datadir}/webmin/miniserv.pem \
-	$RPM_BUILD_ROOT%{_sysconfdir}/webmin/miniserv.pem
+mv $RPM_BUILD_ROOT%{_datadir}/webmin/webmin-pam $RPM_BUILD_ROOT/etc/pam.d/webmin
+mv $RPM_BUILD_ROOT%{_datadir}/webmin/pserver/cvsweb.conf $RPM_BUILD_ROOT%{_sysconfdir}/webmincnf/cvsweb.conf
+mv $RPM_BUILD_ROOT%{_datadir}/webmin/miniserv.pem $RPM_BUILD_ROOT%{_sysconfdir}/webmin/miniserv.pem
 
 export allmods=`cd $RPM_BUILD_ROOT%{_datadir}/webmin; ls */module.info | sed -e 's,/module.info,,g' | xargs echo`
-
 %{__perl} $RPM_BUILD_ROOT%{_datadir}/webmin/copyconfig.pl pld-linux %{os_version} $RPM_BUILD_ROOT%{_datadir}/webmin $RPM_BUILD_ROOT%{_sysconfdir}/webmin "" $allmods
 
 echo "%{__perl}"		> $RPM_BUILD_ROOT%{_sysconfdir}/webmin/perl-path
@@ -1774,7 +1773,8 @@ fi
 
 %files -f base.lang
 %defattr(644,root,root,755)
-%doc %{_datadir}/webmin/LICENC*
+%doc %{_datadir}/webmin/LICENCE
+%doc %lang(ja) %{_datadir}/webmin/LICENCE.ja
 %attr(750,root,root) %dir /var/log/webmin
 %attr(754,root,root) /etc/rc.d/init.d/webmin
 %attr(640,root,root) /etc/pam.d/webmin
@@ -1790,7 +1790,6 @@ fi
 %{_datadir}/webmin/version
 %{_datadir}/webmin/webmin-*
 %{_datadir}/webmin/setup.sh
-%{_datadir}/webmin/miniserv.pem
 %{_datadir}/webmin/defaulttheme
 %{_datadir}/webmin/defaultacl
 %{_datadir}/webmin/favicon.ico
@@ -3151,7 +3150,6 @@ fi
 %{_datadir}/webmin/pserver/config.info
 %{_datadir}/webmin/pserver/header.html
 %{_datadir}/webmin/pserver/defaultacl
-%{_datadir}/webmin/pserver/cvsweb.conf
 %{_datadir}/webmin/pserver/*-*.pl
 %{_datadir}/webmin/pserver/*_*.pl
 %config(noreplace) %{_sysconfdir}/webmin/pserver/config
