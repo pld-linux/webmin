@@ -1,11 +1,11 @@
 %include	/usr/lib/rpm/macros.perl
 %define		source_version	%{version}
-%define		os_version	%(rpm -qf /etc/pld-release --qf '%{version}' 2>/dev/null || echo ERROR)
+%define		os_version	%(rpm -qf /etc/pld-release --qf '%%{version}' 2>/dev/null || echo ERROR)
 Summary:	Webmin - web-based administration
 Summary(pl):	Webmin - administracja przez WWW
 Name:		webmin
 Version:	1.260
-Release:	1.4
+Release:	1.6
 License:	BSD-like
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/webadmin/%{name}-%{version}.tar.gz
