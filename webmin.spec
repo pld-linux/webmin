@@ -5,7 +5,7 @@ Summary:	Webmin - web-based administration
 Summary(pl):	Webmin - administracja przez WWW
 Name:		webmin
 Version:	1.260
-Release:	1.1
+Release:	1.2
 License:	BSD-like
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/webadmin/%{name}-%{version}.tar.gz
@@ -1425,7 +1425,7 @@ rm -rf bsdexports # Edit file shares from the FreeBSD %{_sysconfdir}/exports fil
 rm -rf sgiexports # Edit file shares as defined in the Irix %{_sysconfdir}/exports file.
 rm -rf hpuxexports # Edit file shares as defined in the HPUX %{_sysconfdir}/exports file.
 
-rm -f */*aix */*cobalt* */*coherent* */*corel* */*debian* */*freebs* */*generic* */*gentoo* */*hpux */*iri* */*lfs*  \
+rm -f */*aix */*cobalt* */*caldera* */*coherent* */*corel* */*debian* */*freebs* */*generic* */*gentoo* */*hpux */*iri* */*lfs*  \
     */*msc* */*netbsd */*osf1 */*redhat* */*slackware* */*sol* */*suse* */*trustix* */*turbo* */*united* \
     */*unixware */*windows */*maco* */*mandrake* */*openbs* */*openserv* */*open-lin* */config-\*-linux
 
@@ -1445,7 +1445,8 @@ install -d $RPM_BUILD_ROOT{%{_datadir}/webmin,/var/{log,run}/webmin} \
 	$RPM_BUILD_ROOT%{_sysconfdir}/{webmin,webmincnf} \
 	$RPM_BUILD_ROOT/etc/{pam.d,rc.d/init.d}
 
-cp -rp * $RPM_BUILD_ROOT%{_datadir}/webmin
+rm -f *.lang
+cp -a * $RPM_BUILD_ROOT%{_datadir}/webmin
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/webmin
 install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/webmin/miniserv.conf
@@ -1455,7 +1456,7 @@ install pserver/cvsweb.conf $RPM_BUILD_ROOT%{_sysconfdir}/webmincnf/cvsweb.conf
 install $RPM_BUILD_ROOT%{_datadir}/webmin/miniserv.pem \
 	$RPM_BUILD_ROOT%{_sysconfdir}/webmin/miniserv.pem
 
-export allmods=`cd $RPM_BUILD_ROOT%{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
+export allmods=`cd $RPM_BUILD_ROOT%{_datadir}/webmin; ls */module.info | sed -e 's,/module.info,,g' | xargs echo`
 
 %{__perl} $RPM_BUILD_ROOT%{_datadir}/webmin/copyconfig.pl pld-linux %{os_version} $RPM_BUILD_ROOT%{_datadir}/webmin $RPM_BUILD_ROOT%{_sysconfdir}/webmin "" $allmods
 
@@ -1466,8 +1467,8 @@ echo "lang=en" 			>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
 echo "find_pid_command=ps auwwwx | grep NAME | grep -v grep | awk '{ print $2 }'"	>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
 echo "os_type=pld-linux" 	>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
 echo "path=/bin:%{_bindir}:/sbin:%{_sbindir}:%{_prefix}/local/bin" >>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
-echo real_os_type=PLD Linux 	>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
-echo os_version=%{os_version} 		>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
+echo "real_os_type=PLD Linux" 	>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
+echo "os_version=%{os_version}" 		>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
 
 echo %{version} > $RPM_BUILD_ROOT%{_sysconfdir}/webmin/version
 
@@ -1484,7 +1485,7 @@ for a in acl apache at cron bind8 burner cfengine cluster-software \
 	./webmin-find-lang.sh $RPM_BUILD_ROOT %{_datadir}/webmin/$a $a
 done
 for a in vgetty sarg updown htaccess-htpasswd spam smart-status ppp-client \
-	backup-config change-user dovecot cpan ; do
+	backup-config change-user dovecot cpan; do
 	./webmin-find-lang.sh $RPM_BUILD_ROOT %{_datadir}/webmin/$a $a --no-help
 done
 ./webmin-find-lang.sh $RPM_BUILD_ROOT %{_datadir}/webmin MAIN
@@ -1498,20 +1499,23 @@ cat MAIN.lang acl.lang man.lang pam.lang servers.lang shell.lang \
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%define	webmin_modules_update \
+allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's,/module.info,,g' | xargs echo`; export allmods \
+%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+
 %post
 if ! grep -q ^host= %{_sysconfdir}/webmin/miniserv.conf; then
 	echo "host=`hostname`" >> %{_sysconfdir}/webmin/miniserv.conf
 fi
 /sbin/chkconfig --add webmin
-%service webmin restar
+%service webmin restart
 if [ "$1" = 1 ] ;then
 	%banner %{name} -e <<EOF
 Use your web browser to go to: http://your_host_name:10000
 EOF
 fi
 
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %preun
 if [ "$1" = "0" ]; then
@@ -1520,336 +1524,253 @@ if [ "$1" = "0" ]; then
 fi
 
 %post disk-tools
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post apache
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post at
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post ppp-client
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post pptp-client
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post pptp-server
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post ipsec
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post firewall
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post idmapd
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post burner
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post smart-status
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post bind8
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post dnsadmin
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post cfengine
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post cluster-software
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post cluster-shell
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post cluster-useradmin
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post cluster-usermin
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post cluster-copy
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post cluster-cron
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post cluster-passwd
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post ldap-useradmin
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post cluster-webmin
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post cron
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post vgetty
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post dhcpd
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post adsl-client
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post fetchmail
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post dovecot
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post mailboxes
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post webalizer
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post updown
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post fsdump
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post backup-config
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post grub
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post heartbeat
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post inetd
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post jabber
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post krb5
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post lilo
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post lvm
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post majordomo
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post mon
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post mysql
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post net
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post bandwidth
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post shorewall
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post postfix
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post postgresql
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post ppp
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post procmail
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post spam
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post printer
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post proftpd
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post cvs-pserver
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post qmail
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post samba
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post openslp
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post sentry
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post sendmail
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post stunnel
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post tunnel
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post squid
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post frox
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post sarg
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post sshd
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post wuftpd
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post xinetd
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post nfs
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post quota
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post software
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post cpan
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post monitor
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post syslog
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post logrotate
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post admin-tools
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post system
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post nis
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post passwd
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post htaccess-htpasswd
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post usermin
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post useradmin
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %post change-user
-allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
-%{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
+%webmin_modules_update
 
 %files -f base.lang
 %defattr(644,root,root,755)
