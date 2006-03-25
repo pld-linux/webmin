@@ -1464,7 +1464,7 @@ echo "%{__perl}"		> $RPM_BUILD_ROOT%{_sysconfdir}/webmin/perl-path
 echo "/var/log/webmin" 		> $RPM_BUILD_ROOT%{_sysconfdir}/webmin/var-path
 echo "real_os_version=%{os_version}"	> $RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
 echo "lang=en" 			>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
-echo "find_pid_command=ps auwwwx | grep NAME | grep -v grep | awk '{ print $2 }'"	>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
+echo "find_pid_command=/sbin/pidof NAME"	>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
 echo "os_type=pld-linux" 	>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
 echo "path=/bin:%{_bindir}:/sbin:%{_sbindir}:%{_prefix}/local/bin" >>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
 echo "real_os_type=PLD Linux" 	>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
