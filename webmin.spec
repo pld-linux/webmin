@@ -5,7 +5,7 @@ Summary:	Webmin - web-based administration
 Summary(pl):	Webmin - administracja przez WWW
 Name:		webmin
 Version:	1.260
-Release:	1.7
+Release:	1.8
 License:	BSD-like
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/webadmin/%{name}-%{version}.tar.gz
@@ -20,6 +20,7 @@ Patch1:		%{name}-ad-pld-config.patch
 Patch2:		%{name}-software-poldek.patch
 Patch3:		%{name}-quote.patch
 URL:		http://www.webmin.com/
+BuildRequires:	/etc/pld-release
 BuildRequires:	perl-CGI
 BuildRequires:	perl-Compress-Zlib
 BuildRequires:	perl-DBI
@@ -28,11 +29,16 @@ BuildRequires:	perl-Net-SSLeay
 BuildRequires:	perl-modules
 BuildRequires:	rpm-perlprov
 BuildRequires:	rpmbuild(macros) >= 1.268
-BuildRequires:	/etc/pld-release
 BuildRequires:	sed >= 4.0
 Requires(post,preun):	/sbin/chkconfig
 Requires:	perl-modules
 Requires:	policy
+Provides:	%{name}-acl = %{version}-%{release}
+Provides:	%{name}-man = %{version}-%{release}
+Provides:	%{name}-pam = %{version}-%{release}
+Provides:	%{name}-servers = %{version}-%{release}
+Provides:	%{name}-time = %{version}-%{release}
+Provides:	%{name}-webmin = %{version}-%{release}
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -55,6 +61,8 @@ Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name}-system = %{version}-%{release}
 Requires:	fdisk
 Requires:	hdparm
+Provides:	%{name}-fdisk = %{version}-%{release}
+Provides:	%{name}-raid = %{version}-%{release}
 
 %description disk-tools
 Webmin - Partition and disk management tools.
@@ -693,6 +701,7 @@ Summary(pl):	Webmin - zarz±dzanie wolumenami logicznymi (LVM)
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
+Requires:	%{name}-mount = %{version}-%{release}
 Requires:	lvm2
 
 %description lvm
@@ -1261,6 +1270,11 @@ Summary(pl):	Webmin - narzêdzia administracyjne (telnet, zarz±dzanie plikami, it
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
+Provides:	%{name}-custom = %{version}-%{release}
+Provides:	%{name}-file = %{version}-%{release}
+Provides:	%{name}-shell = %{version}-%{release}
+Provides:	%{name}-telnet = %{version}-%{release}
+Provides:	%{name}-webminlog = %{version}-%{release}
 
 %description admin-tools
 Webmin - Admin-tools (telnet, file manager, etc).
@@ -1276,6 +1290,10 @@ Summary(pl):	Webmin - konfiguracja systemu
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
+Provides:	%{name}-init = %{version}-%{release}
+Provides:	%{name}-inittab = %{version}-%{release}
+Provides:	%{name}-mount = %{version}-%{release}
+Provides:	%{name}-proc = %{version}-%{release}
 
 %description system
 Webmin - System Configuration.
@@ -1446,6 +1464,7 @@ install -d $RPM_BUILD_ROOT{%{_datadir}/webmin,/var/{log,run}/webmin} \
 
 rm -f *.lang
 cp -a * $RPM_BUILD_ROOT%{_datadir}/webmin
+rm -f $RPM_BUILD_ROOT%{_datadir}/webmin/perlpath.pl
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/webmin
 install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/webmin/miniserv.conf
@@ -1486,10 +1505,10 @@ for a in vgetty sarg updown htaccess-htpasswd spam smart-status ppp-client \
 done
 sh %{SOURCE3} $RPM_BUILD_ROOT %{_datadir}/webmin MAIN
 
-cat custom.lang file.lang telnet.lang webminlog.lang > admin-tools.lang
+cat custom.lang file.lang telnet.lang webminlog.lang shell.lang > admin-tools.lang
 cat fdisk.lang raid.lang > disk-tools.lang
 cat init.lang inittab.lang mount.lang proc.lang > system.lang
-cat MAIN.lang acl.lang man.lang pam.lang servers.lang shell.lang \
+cat MAIN.lang acl.lang man.lang pam.lang servers.lang \
 	time.lang webmin.lang > base.lang
 
 %clean
