@@ -29,7 +29,6 @@ BuildRequires:	perl-modules
 BuildRequires:	rpm-perlprov
 BuildRequires:	rpmbuild(macros) >= 1.176
 BuildRequires:	sed >= 4.0
-BuildRequires:	textutils
 Requires(post,preun):	/sbin/chkconfig
 Requires:	perl-modules
 Requires:	policy
@@ -198,8 +197,7 @@ Requires:	%{name} = %{version}-%{release}
 Requires:	bind
 
 %description bind8
-Webmin - Create and edit domains, DNS records, BIND options and
-views.
+Webmin - Create and edit domains, DNS records, BIND options and views.
 
 %description bind8 -l pl
 Webmin - tworzenie i modyfikowanie domen, rekordów DNS, opcji BIND-a i
@@ -228,10 +226,10 @@ Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
 Requires:	cdrecord
+Requires:	fdisk
 Requires:	mkisofs
 Requires:	mpg123
 Requires:	proc
-Requires:	fdisk
 
 %description burner
 Webmin - Burn data CDs from ISO images or selected directories.
@@ -257,8 +255,7 @@ potential failures..
 Webmin - sprawdzenie stanu dysków IDE w celu wykrycia problemów i
 potencjalnych uszkodzeñ.
 
-#%if 0
-# CFEGINE
+# CFENGINE
 %package cfengine
 Summary:	Webmin - Configuration Engine
 Summary(pl):	Webmin - cfengine
@@ -274,7 +271,6 @@ various system-administration settings.
 %description cfengine -l pl
 Webmin - konfiguracja programu CFengine do sprawdzania i utrzymywania
 ró¿nych ustawieñ administracyjnych.
-#%endif 
 
 # CLUSTER-SOFTWARE
 %package cluster-software
@@ -548,8 +544,8 @@ logów FTP.
 
 # UPDOWN
 %package updown
-Summary:	Webmin - Upload and Download 
-Summary(pl):	Webmin - Upload i Download 
+Summary:	Webmin - Upload and Download
+Summary(pl):	Webmin - Upload i Download
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -1576,11 +1572,9 @@ allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' |
 allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 %{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
 
-#%if 0
 %post cfengine
 allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 %{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
-#%endif
 
 %post cluster-software
 allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
@@ -1690,11 +1684,9 @@ allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' |
 allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 %{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
 
-#%if 0
 %post majordomo
 allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 %{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
-#%endif
 
 %post mon
 allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
@@ -1736,11 +1728,9 @@ allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' |
 allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 %{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
 
-#%if 0
 %post printer
 allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 %{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
-#%endif
 
 %post proftpd
 allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
@@ -1850,11 +1840,9 @@ allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' |
 allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 %{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
 
-#%if 0
 %post usermin
 allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 %{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
-#%endif
 
 %post useradmin
 allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
