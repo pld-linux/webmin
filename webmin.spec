@@ -2989,7 +2989,6 @@ fi
 %{_datadir}/webmin/backup-config/config
 %{_datadir}/webmin/backup-config/config.info
 %{_datadir}/webmin/backup-config/*.pl
-%dir %{_datadir}/webmin/backup-config/help
 %{_datadir}/webmin/backup-config/help/config_date_subs.html
 %config(noreplace) %{_sysconfdir}/webmin/backup-config/config
 
