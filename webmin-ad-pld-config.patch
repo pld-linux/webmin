@@ -1790,18 +1790,33 @@
 +
 +1;
 +
-diff -u webmin-1.260-PLD/mysql/config-pld-linux webmin-1.260/mysql/config-pld-linux
---- webmin-1.260-PLD/mysql/config-pld-linux	Tue Sep 11 22:30:19 2001
-+++ webmin-1.260/mysql/config-pld-linux	2006-03-25 16:32:58.000000000 +0200
-@@ -0,0 +1,8 @@
-+start_cmd=/etc/rc.d/init.d/mysql start
-+stop_cmd=/etc/rc.d/init.d/mysql stop
+diff -u webmin-1.260/mysql/config-pld-linux /home/glen/config
+--- webmin-1.260/mysql/config-pld-linux	2006-03-25 16:32:58.000000000 +0200
++++ /home/glen/config	2006-03-25 16:39:47.000000000 +0200
+@@ -0,0 +1,23 @@
++add_mode=
++blob_mode=
++date_subs=
++encoding=
++host=
++login=mysql
++max_dbs=
++my_cnf=/etc/mysql/mysqld.conf
 +mysql=/usr/bin/mysql
++mysql_data=
 +mysql_libs=
 +mysqladmin=/usr/bin/mysqladmin
++mysqldump=/usr/bin/mysqldump
++mysqlimport=/usr/bin/mysqlimport
 +mysqlshow=/usr/bin/mysqlshow
++nodbi=
++passwd_mode=
 +perpage=25
-+login=mysql
++port=
++sock=
++start_cmd=/etc/rc.d/init.d/mysql start
++stop_cmd=/etc/rc.d/init.d/mysql stop
++style=
 --- webmin-1.260/net/config-pld-linux	Thu Jan  1 01:00:00 1970
 +++ webmin-1.260-PLD/net/config-pld-linux	Tue Sep 11 22:30:19 2001
 @@ -0,0 +1 @@
