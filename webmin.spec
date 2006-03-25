@@ -1,5 +1,6 @@
 %include	/usr/lib/rpm/macros.perl
 %define	source_version	%{version}
+%define	os_version	2.0
 Summary:	Webmin - web-based administration
 Summary(pl):	Webmin - administracja przez WWW
 Name:		webmin
@@ -20,6 +21,7 @@ Patch2:		%{name}-ad-pld-config.patch
 Patch3:		%{name}-software-poldek.patch
 Patch4:		%{name}-quote.patch
 URL:		http://www.webmin.com/
+BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	perl-CGI
 BuildRequires:	perl-Compress-Zlib
 BuildRequires:	perl-DBI
@@ -1423,17 +1425,22 @@ rm -rf bsdexports # Edit file shares from the FreeBSD %{_sysconfdir}/exports fil
 rm -rf sgiexports # Edit file shares as defined in the Irix %{_sysconfdir}/exports file.
 rm -rf hpuxexports # Edit file shares as defined in the HPUX %{_sysconfdir}/exports file.
 
-rm -f */*aix */*cobalt* */*coherent* */*corel* */*debian* */freebs* */*freebs* */*generic* */*gentoo* */*hpux */*iri* */*lfs*  \
-    */*msc* */*netbsd */netbsd* */*osf1 */*redhat* */*slackware* */*solari* */*sol* */*suse* */*trustix* */*turbo* */*united* \
+rm -f */*aix */*cobalt* */*coherent* */*corel* */*debian* */*freebs* */*generic* */*gentoo* */*hpux */*iri* */*lfs*  \
+    */*msc* */*netbsd */*osf1 */*redhat* */*slackware* */*sol* */*suse* */*trustix* */*turbo* */*united* \
     */*unixware */*windows */*maco* */*mandrake* */*openbs* */*openserv* */*open-lin* */config-\*-linux
 
 rm -f *aix *cobalt* *coherent* *corel* *debian* *freebsd *generic* *gentoo* *hpux *iri* *lfs*  \
     *-msc-* *netbsd  *osf1 *redhat* *slackware* *solari* *sol* *suse* *trustix* *turbo* *united* \
     *unixware *windows *maco* *mandrake* *openbs* *openserv* *open-lin*
 
-%install
+(find -name '*.cgi' -print ; find -name '*.pl' -print) | %{__perl} perlpath.pl %{__perl} -
 
+# remove backups from patching as we use globs to package files to buildroot
+find '(' -name '*~' -o -name '*.orig' ')' | xargs -r rm -v
+
+%install
 rm -rf $RPM_BUILD_ROOT
+
 install -d $RPM_BUILD_ROOT{%{_datadir}/webmin,/var/{log,run}/webmin} \
 	$RPM_BUILD_ROOT%{_sysconfdir}/{webmin,webmincnf} \
 	$RPM_BUILD_ROOT/etc/{pam.d,rc.d/init.d}
@@ -1448,23 +1455,21 @@ install pserver/cvsweb.conf $RPM_BUILD_ROOT%{_sysconfdir}/webmincnf/cvsweb.conf
 install $RPM_BUILD_ROOT%{_datadir}/webmin/miniserv.pem \
 	$RPM_BUILD_ROOT%{_sysconfdir}/webmin/miniserv.pem
 
-(find $RPM_BUILD_ROOT%{_datadir}/webmin -name '*.cgi' -print ; find $RPM_BUILD_ROOT%{_datadir}/webmin -name '*.pl' -print) | %{__perl} $RPM_BUILD_ROOT%{_datadir}/webmin/perlpath.pl %{__perl} -
-
 export allmods=`cd $RPM_BUILD_ROOT%{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`
 
-%{__perl} $RPM_BUILD_ROOT%{_datadir}/webmin/copyconfig.pl pld-linux 1.0 $RPM_BUILD_ROOT%{_datadir}/webmin $RPM_BUILD_ROOT%{_sysconfdir}/webmin "" $allmods
+%{__perl} $RPM_BUILD_ROOT%{_datadir}/webmin/copyconfig.pl pld-linux %{os_version} $RPM_BUILD_ROOT%{_datadir}/webmin $RPM_BUILD_ROOT%{_sysconfdir}/webmin "" $allmods
 
 echo "%{__perl}"		> $RPM_BUILD_ROOT%{_sysconfdir}/webmin/perl-path
 echo "/var/log/webmin" 		> $RPM_BUILD_ROOT%{_sysconfdir}/webmin/var-path
-echo "real_os_version=1.0"	> $RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
+echo "real_os_version=%{os_version}"	> $RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
 echo "lang=en" 			>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
 echo "find_pid_command=ps auwwwx | grep NAME | grep -v grep | awk '{ print $2 }'"	>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
 echo "os_type=pld-linux" 	>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
 echo "path=/bin:%{_bindir}:/sbin:%{_sbindir}:%{_prefix}/local/bin" >>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
 echo real_os_type=PLD Linux 	>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
-echo os_version=1.0 		>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
+echo os_version=%{os_version} 		>>$RPM_BUILD_ROOT%{_sysconfdir}/webmin/config
 
-echo %{version}			> $RPM_BUILD_ROOT%{_sysconfdir}/webmin/version
+echo %{version} > $RPM_BUILD_ROOT%{_sysconfdir}/webmin/version
 
 for a in acl apache at cron bind8 burner cfengine cluster-software \
 	cluster-useradmin cluster-webmin custom dhcpd exports fdisk \
@@ -1495,28 +1500,22 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 if ! grep -q ^host= %{_sysconfdir}/webmin/miniserv.conf; then
-echo "host=`hostname`" >>%{_sysconfdir}/webmin/miniserv.conf
+	echo "host=`hostname`" >> %{_sysconfdir}/webmin/miniserv.conf
 fi
 /sbin/chkconfig --add webmin
-if [ -f /var/lock/subsys/webmin ]; then
-	/etc/rc.d/init.d/webmin restart >&2
-else
+%service webmin restar
+if [ "$1" = 1 ] ;then
 	%banner %{name} -e <<EOF
-Run \"/etc/rc.d/init.d/webmin start\" to start webmin
-and use your web browser to go to:
-http://your_host_name:10000
+Use your web browser to go to: http://your_host_name:10000
 EOF
 fi
-#" for vim
 
 allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' | xargs echo`; export allmods
 %{__perl} %{_datadir}/webmin/newmods.pl %{_sysconfdir}/webmin $allmods
 
 %preun
 if [ "$1" = "0" ]; then
-	if [ -f /var/lock/subsys/webmin ]; then
-		/etc/rc.d/init.d/webmin stop
-	fi
+	%service webmin stop
 	/sbin/chkconfig	--del webmin
 fi
 
@@ -1867,7 +1866,6 @@ allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' |
 %{_datadir}/webmin/install-type
 %{_datadir}/webmin/mime.types
 %{_datadir}/webmin/*.txt
-%{_datadir}/webmin/*.txt.orig
 %{_datadir}/webmin/version
 %{_datadir}/webmin/webmin-*
 %{_datadir}/webmin/setup.sh
@@ -2384,7 +2382,6 @@ allmods=`cd %{_datadir}/webmin; ls */module.info | sed -e 's/\/module.info//g' |
 %{_datadir}/webmin/useradmin/rbac-mapping
 %{_datadir}/webmin/useradmin/*.skill
 %{_datadir}/webmin/useradmin/help.html
-%dir %{_datadir}/webmin/useradmin/help
 %{_datadir}/webmin/useradmin/help/icon.gif
 %config(noreplace) %{_sysconfdir}/webmin/useradmin/config
 
