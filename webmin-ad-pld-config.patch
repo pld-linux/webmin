@@ -2963,3 +2963,29 @@ diff -u webmin-1.260/mysql/config-pld-linux /home/glen/config
  # Sun Solaris
  Sun Solaris                    2.5.1   solaris         2.5.1   $uname =~ /SunOS.*\s5\.5\.1\s/i
  Sun Solaris                    2.6     solaris         2.6     $uname =~ /SunOS.*\s5\.6\s/i
+--- /dev/null	2006-02-13 18:27:15.000000000 +0200
++++ webmin-1.260/postfix/config-pld-linux	2006-03-25 16:43:10.000000000 +0200
+@@ -0,0 +1,23 @@
++check_config=1
++columns=2
++delete_warn=1
++fwd_mode=0
++index_check=1
++mailq_cmd=/usr/bin/mailq
++mailq_count=0
++mailq_dir=/var/spool/postfix
++mailq_sort=0
++max_records=200
++perpage=20
++postcat_cmd=/usr/sbin/postcat
++postfix_aliases_table_command=/usr/sbin/postalias
++postfix_config_command=/usr/sbin/postconf
++postfix_config_file=/etc/mail/main.cf
++postfix_control_command=/usr/sbin/postfix
++postfix_lookup_table_command=/usr/sbin/postmap
++postfix_master=/etc/mail/master.cf
++postfix_newaliases_command=/usr/bin/newaliases
++postfix_queue_command=/usr/sbin/postqueue
++sort_mode=0
++top_buttons=1
++wrap_width=80
