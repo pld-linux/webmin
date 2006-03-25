@@ -2043,8 +2043,8 @@ diff -uNr webmin-0.990.orig/net/pld-linux-lib.pl webmin-0.990/net/pld-linux-lib.
 --- webmin-0.990.orig/net/pld-linux-lib.pl	Thu Jan  1 01:00:00 1970
 +++ webmin-0.990/net/pld-linux-lib.pl	Mon Jul  1 11:15:43 2002
 @@ -0,0 +1,458 @@
-+# redhat-linux-lib.pl
-+# Networking functions for redhat linux
++# pld-linux-lib.pl
++# Networking functions for PLD Linux
 +
 +$net_scripts_dir = "/etc/sysconfig/interfaces";
 +$network_config = "/etc/sysconfig/network";
@@ -2520,7 +2520,7 @@ diff -uNr webmin-0.990.orig/os_list.txt webmin-0.990/os_list.txt
  Yellow Dog Linux		2.1	redhat-linux	7.1	$etc_issue =~ /Yellow\s+Dog\s+Linux\s+release\s+2\.1\s+/i || `cat /etc/yellowdog-release 2>&1` =~ /Yellow\s+Dog\s+Linux\s+release\s+2\.1\s+/i
  Yellow Dog Linux		2.2	redhat-linux	7.2	$etc_issue =~ /Yellow\s+Dog\s+Linux\s+release\s+2\.2\s+/i || `cat /etc/yellowdog-release 2>&1` =~ /Yellow\s+Dog\s+Linux\s+release\s+2\.2\s+/i
  Corvus Latinux			8.0	redhat-linux	7.1	`cat /etc/latinux-release 2>&1` =~ /Latinux\s+8\s/i
-+PLD Linux			1.0	pld-linux	1.0	`cat /etc/pld-release =~ /1\.0/`
++PLD Linux			2.0	pld-linux	2.0	`cat /etc/pld-release 2>&1` =~ /2\.0/
  Immunix Linux			6.2	redhat-linux	6.2	$etc_issue =~ /Immunix.*\s6\.2/i || `cat /etc/immunix-release 2>&1` =~ /6\.2/
  Immunix Linux			7.0	redhat-linux	7.0	$etc_issue =~ /Immunix.*\s7\.0/i || `cat /etc/immunix-release 2>&1` =~ /7\.0/
  Gentoo Linux			Any version	gentoo-linux	*	-d "/usr/portage"
