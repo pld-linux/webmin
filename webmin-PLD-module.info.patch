@@ -1,4 +1,3 @@
-diff -uNr webmin-1.260/apache/module.info webmin-1.260/apache/module.info
 --- webmin-1.260/apache/module.info     2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/apache/module.info   2006-02-02 20:13:39.000000000 +0100
 @@ -12,7 +12,7 @@
@@ -10,7 +9,6 @@ diff -uNr webmin-1.260/apache/module.info webmin-1.260/apache/module.info
  desc=Apache Webserver
  desc_es=Servidor Web Apache
  desc_sv=Apache Webserver
-diff -uNr webmin-1.260/at/module.info webmin-1.260/at/module.info
 --- webmin-1.260/at/module.info 2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/at/module.info       2006-02-02 20:17:49.000000000 +0100
 @@ -9,7 +9,7 @@
@@ -22,7 +20,6 @@ diff -uNr webmin-1.260/at/module.info webmin-1.260/at/module.info
  desc=Scheduled Commands
  desc_es=Comandos Planificados
  desc_fr=Commandes programmées
-diff -uNr webmin-1.260/bind8/module.info webmin-1.260/bind8/module.info
 --- webmin-1.260/bind8/module.info      2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/bind8/module.info    2006-02-02 20:26:10.000000000 +0100
 @@ -12,7 +12,7 @@
@@ -34,7 +31,6 @@ diff -uNr webmin-1.260/bind8/module.info webmin-1.260/bind8/module.info
  desc=BIND DNS Server
  desc_es=Servidor de DNS BIND
  desc_sv=BIND DNS-server
-diff -uNr webmin-1.260/cron/module.info webmin-1.260/cron/module.info
 --- webmin-1.260/cron/module.info       2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/cron/module.info     2006-02-02 22:05:40.000000000 +0100
 @@ -11,7 +11,7 @@
@@ -46,7 +42,6 @@ diff -uNr webmin-1.260/cron/module.info webmin-1.260/cron/module.info
  desc=Scheduled Cron Jobs
  desc_es=Tareas Planificadas (Cron)
  desc_sv=Schemalagda cronjobb
-diff -uNr webmin-1.260/dhcpd/module.info webmin-1.260/dhcpd/module.info
 --- webmin-1.260/dhcpd/module.info      2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/dhcpd/module.info    2006-02-02 22:43:39.000000000 +0100
 @@ -11,7 +11,7 @@
@@ -58,7 +53,6 @@ diff -uNr webmin-1.260/dhcpd/module.info webmin-1.260/dhcpd/module.info
  desc=DHCP Server
  desc_es=Servidor de DHCP
  desc_sv=DHCP-server
-diff -uNr webmin-1.260/exports/module.info webmin-1.260/exports/module.info
 --- webmin-1.260/exports/module.info    2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/exports/module.info  2006-02-02 22:47:10.000000000 +0100
 @@ -10,7 +10,7 @@
@@ -70,7 +64,6 @@ diff -uNr webmin-1.260/exports/module.info webmin-1.260/exports/module.info
  desc=NFS Exports
  desc_es=Exportaciones de NFS
  desc_sv=NFS-exportering
-diff -uNr webmin-1.260/inetd/module.info webmin-1.260/inetd/module.info
 --- webmin-1.260/inetd/module.info      2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/inetd/module.info    2006-02-02 22:54:16.000000000 +0100
 @@ -10,7 +10,7 @@
@@ -82,7 +75,6 @@ diff -uNr webmin-1.260/inetd/module.info webmin-1.260/inetd/module.info
  desc=Internet Services and Protocols
  desc_es=Servicios y Protocolos de Internet
  desc_sv=Internettjänster och -protokoll
-diff -uNr webmin-1.260/init/module.info webmin-1.260/init/module.info
 --- webmin-1.260/init/module.info       2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/init/module.info     2006-02-02 22:58:15.000000000 +0100
 @@ -11,7 +11,7 @@
@@ -94,7 +86,6 @@ diff -uNr webmin-1.260/init/module.info webmin-1.260/init/module.info
  desc=Bootup and Shutdown
  desc_es=Arranque y Parada
  desc_sv=Start och avstängning
-diff -uNr webmin-1.260/lilo/module.info webmin-1.260/lilo/module.info
 --- webmin-1.260/lilo/module.info       2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/lilo/module.info     2006-02-02 23:02:21.000000000 +0100
 @@ -11,7 +11,7 @@
@@ -106,7 +97,6 @@ diff -uNr webmin-1.260/lilo/module.info webmin-1.260/lilo/module.info
  desc=Linux Bootup Configuration
  desc_es=LILO - Gestor de arranque
  desc_sv=Inställningar för start av Linux
-diff -uNr webmin-1.260/lpadmin/module.info webmin-1.260/lpadmin/module.info
 --- webmin-1.260/lpadmin/module.info    2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/lpadmin/module.info  2006-02-02 23:04:23.000000000 +0100
 @@ -11,7 +11,7 @@
@@ -118,7 +108,6 @@ diff -uNr webmin-1.260/lpadmin/module.info webmin-1.260/lpadmin/module.info
  desc=Printer Administration
  desc_es=Administración de Impresoras
  desc_sv=Skrivaradministration
-diff -uNr webmin-1.260/man/module.info webmin-1.260/man/module.info
 --- webmin-1.260/man/module.info        2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/man/module.info      2006-02-02 23:09:41.000000000 +0100
 @@ -12,7 +12,7 @@
@@ -130,7 +119,6 @@ diff -uNr webmin-1.260/man/module.info webmin-1.260/man/module.info
  desc=System Documentation
  desc_es=Páginas del Manual
  desc_sv=Systemdokumentation
-diff -uNr webmin-1.260/mount/module.info webmin-1.260/mount/module.info
 --- webmin-1.260/mount/module.info      2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/mount/module.info    2006-02-02 23:11:44.000000000 +0100
 @@ -11,7 +11,7 @@
@@ -142,7 +130,6 @@ diff -uNr webmin-1.260/mount/module.info webmin-1.260/mount/module.info
  desc=Disk and Network Filesystems
  desc_es=Sistemas de Archivo de Disco y Red
  desc_sv=Filsystem för diskar och nätverk
-diff -uNr webmin-1.260/net/module.info webmin-1.260/net/module.info
 --- webmin-1.260/net/module.info        2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/net/module.info      2006-02-02 23:13:29.000000000 +0100
 @@ -11,7 +11,7 @@
@@ -154,7 +141,6 @@ diff -uNr webmin-1.260/net/module.info webmin-1.260/net/module.info
  desc=Network Configuration
  desc_es=Configuración de Red
  desc_sv=Nätverkskonfigurering
-diff -uNr webmin-1.260/nis/module.info webmin-1.260/nis/module.info
 --- webmin-1.260/nis/module.info        2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/nis/module.info      2006-02-02 23:15:29.000000000 +0100
 @@ -3,7 +3,7 @@
@@ -166,17 +152,6 @@ diff -uNr webmin-1.260/nis/module.info webmin-1.260/nis/module.info
  desc=NIS Client and Server
  desc_pl=Klient i&nbsp;serwer NIS
  desc_es=Cliente y Servidor NIS
-diff -uNr webmin-1.260/os_list.txt webmin-1.260/os_list.txt
---- webmin-1.260/os_list.txt    2006-01-30 01:05:29.000000000 +0100
-+++ webmin-1.260/os_list.txt  2006-02-02 23:25:20.000000000 +0100
-@@ -1,3 +1,6 @@
-+#PLD Linux
-+PLD Linux                      1.0     pld-linux       1.0     `cat /etc/pld-release` =~ /1\.0/
-+
- # Sun Solaris
- Sun Solaris                    2.5.1   solaris         2.5.1   $uname =~ /SunOS.*\s5\.5\.1\s/i
- Sun Solaris                    2.6     solaris         2.6     $uname =~ /SunOS.*\s5\.6\s/i
-diff -uNr webmin-1.260/pam/module.info webmin-1.260/pam/module.info
 --- webmin-1.260/pam/module.info      2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/pam/module.info        2006-02-02 23:27:18.000000000 +0100
 @@ -7,7 +7,7 @@
@@ -188,7 +163,6 @@ diff -uNr webmin-1.260/pam/module.info webmin-1.260/pam/module.info
  desc=PAM Authentication
  desc_sv=PAM-autentisering
  desc_es=Autenticación PAM
-diff -uNr webmin-1.260/pap/module.info webmin-1.260/pap/module.info
 --- webmin-1.260/pap/module.info        2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/pap/module.info      2006-02-02 23:32:20.000000000 +0100
 @@ -1,7 +1,7 @@
@@ -200,7 +174,6 @@ diff -uNr webmin-1.260/pap/module.info webmin-1.260/pap/module.info
  desc=PPP Dialin Server
  desc_de=PPP Einwahl-Server
  desc_es=Nombres y Claves de Acceso de Usuarios PPP
-diff -uNr webmin-1.260/quota/module.info webmin-1.260/quota/module.info
 --- webmin-1.260/quota/module.info      2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/quota/module.info    2006-02-03 00:24:06.000000000 +0100
 @@ -11,7 +11,7 @@
@@ -212,7 +185,6 @@ diff -uNr webmin-1.260/quota/module.info webmin-1.260/quota/module.info
  desc=Disk Quotas
  desc_es=Cuotas de Disco
  desc_sv=Diskquota
-diff -uNr webmin-1.260/samba/module.info webmin-1.260/samba/module.info
 --- webmin-1.260/samba/module.info      2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/samba/module.info    2006-02-03 00:27:43.000000000 +0100
 @@ -11,7 +11,7 @@
@@ -224,7 +196,6 @@ diff -uNr webmin-1.260/samba/module.info webmin-1.260/samba/module.info
  desc=Samba Windows File Sharing
  desc_es=Compartición de Archivos de Windows mediante Samba
  desc_sv=Fildelning med Samba
-diff -uNr webmin-1.260/sendmail/module.info webmin-1.260/sendmail/module.info
 --- webmin-1.260/sendmail/module.info   2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/sendmail/module.info 2006-02-03 00:30:28.000000000 +0100
 @@ -10,7 +10,7 @@
@@ -236,7 +207,6 @@ diff -uNr webmin-1.260/sendmail/module.info webmin-1.260/sendmail/module.info
  desc=Sendmail Configuration
  desc_es=Configuración de Sendmail
  desc_sv=Sendmail-inställningar
-diff -uNr webmin-1.260/software/module.info webmin-1.260/software/module.info
 --- webmin-1.260/software/module.info   2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/software/module.info 2006-02-03 00:49:13.000000000 +0100
 @@ -11,7 +11,7 @@
@@ -248,7 +218,6 @@ diff -uNr webmin-1.260/software/module.info webmin-1.260/software/module.info
  desc=Software Packages
  desc_es=Paquetes de Software
  desc_sv=Programpaket
-diff -uNr webmin-1.260/squid/module.info webmin-1.260/squid/module.info
 --- webmin-1.260/squid/module.info      2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/squid/module.info    2006-02-03 00:53:17.000000000 +0100
 @@ -10,7 +10,7 @@
@@ -260,7 +229,6 @@ diff -uNr webmin-1.260/squid/module.info webmin-1.260/squid/module.info
  desc=Squid Proxy Server
  desc_es=Squid - Servidor Proxy
  desc_sv=Squid-proxyserver
-diff -uNr webmin-1.260/syslog/module.info webmin-1.260/syslog/module.info
 --- webmin-1.260/syslog/module.info     2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/syslog/module.info   2006-02-03 01:03:49.000000000 +0100
 @@ -11,7 +11,7 @@
@@ -272,7 +240,6 @@ diff -uNr webmin-1.260/syslog/module.info webmin-1.260/syslog/module.info
  desc=System Logs
  desc_es=Hist&#243;ricos (Logs) del Sistema
  desc_sv=Systemloggar
-diff -uNr webmin-1.260/useradmin/module.info webmin-1.260/useradmin/module.info
 --- webmin-1.260/useradmin/module.info  2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/useradmin/module.info        2006-02-03 01:08:11.000000000 +0100
 @@ -12,7 +12,7 @@
@@ -284,7 +251,6 @@ diff -uNr webmin-1.260/useradmin/module.info webmin-1.260/useradmin/module.info
  desc=Users and Groups
  desc_es=Usuarios y Grupos
  desc_sv=Användare och grupper
-diff -uNr webmin-1.260/wuftpd/module.info webmin-1.260/wuftpd/module.info
 --- webmin-1.260/wuftpd/module.info     2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/wuftpd/module.info   2006-02-03 01:09:53.000000000 +0100
 @@ -10,7 +10,7 @@
@@ -296,7 +262,6 @@ diff -uNr webmin-1.260/wuftpd/module.info webmin-1.260/wuftpd/module.info
  desc=WU-FTP Server
  desc_es=Servidor WU-FTP
  desc_sv=WU-FTP-server
-diff -uNr webmin-1.260/cluster-software/module.info webmin-1.260/cluster-software/module.info
 --- webmin-1.260/cluster-software/module.info 2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/cluster-software/module.info   2006-02-03 01:21:12.000000000 +0100
 @@ -1,6 +1,6 @@
@@ -307,7 +272,6 @@ diff -uNr webmin-1.260/cluster-software/module.info webmin-1.260/cluster-softwar
  desc=Cluster Software Packages
  desc_de=Cluster - Softwaremanagement
  desc_es=Cluster - Paquetes de Software
-diff -uNr webmin-1.260/cluster-useradmin/module.info webmin-1.260/cluster-useradmin/module.info
 --- webmin-1.260/cluster-useradmin/module.info        2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/cluster-useradmin/module.info  2006-02-03 01:24:30.000000000 +0100
 @@ -1,6 +1,6 @@
@@ -318,7 +282,6 @@ diff -uNr webmin-1.260/cluster-useradmin/module.info webmin-1.260/cluster-userad
  desc=Cluster Users and Groups
  desc_de=Cluster - Benutzer und Gruppen
  desc_es=Cluster - Usuarios y Grupos
-diff -uNr webmin-1.260/dnsadmin/module.info webmin-1.260/dnsadmin/module.info
 --- webmin-1.260/dnsadmin/module.info   2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/dnsadmin/module.info 2006-02-03 01:27:53.000000000 +0100
 @@ -10,7 +10,7 @@
@@ -330,7 +293,6 @@ diff -uNr webmin-1.260/dnsadmin/module.info webmin-1.260/dnsadmin/module.info
  desc=BIND 4 DNS Server
  desc_es=Servidor DNS BIND 4
  desc_sv=BIND 4 DNS-server
-diff -uNr webmin-1.260/fsdump/module.info webmin-1.260/fsdump/module.info
 --- webmin-1.260/fsdump/module.info     2006-01-30 01:06:36.000000000 +0100
 +++ webmin-1.260/fsdump/module.info   2006-02-03 01:31:11.000000000 +0100
 @@ -2,7 +2,7 @@
