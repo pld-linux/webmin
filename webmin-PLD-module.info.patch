@@ -1,5 +1,5 @@
---- webmin-1.260/apache/module.info     2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/apache/module.info   2006-02-02 20:13:39.000000000 +0100
+--- webmin-1.270/apache/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/apache/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -12,7 +12,7 @@
  desc_zh_CN=Apache ·þÎñÆ÷
  category=servers
@@ -9,8 +9,8 @@
  desc=Apache Webserver
  desc_es=Servidor Web Apache
  desc_sv=Apache Webserver
---- webmin-1.260/at/module.info 2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/at/module.info       2006-02-02 20:17:49.000000000 +0100
+--- webmin-1.270/at/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/at/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -9,7 +9,7 @@
  desc_pt_BR=Comandos Agendados
  category=system
@@ -20,8 +20,8 @@
  desc=Scheduled Commands
  desc_es=Comandos Planificados
  desc_fr=Commandes programmées
---- webmin-1.260/bind8/module.info      2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/bind8/module.info    2006-02-02 20:26:10.000000000 +0100
+--- webmin-1.270/bind8/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/bind8/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -12,7 +12,7 @@
  desc_pt_BR=Servidor de DNS BIND
  category=servers
@@ -31,8 +31,8 @@
  desc=BIND DNS Server
  desc_es=Servidor de DNS BIND
  desc_sv=BIND DNS-server
---- webmin-1.260/cron/module.info       2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/cron/module.info     2006-02-02 22:05:40.000000000 +0100
+--- webmin-1.270/cron/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/cron/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -11,7 +11,7 @@
  desc_zh_CN=Cron ÈÎÎñµ÷¶È
  category=system
@@ -42,8 +42,8 @@
  desc=Scheduled Cron Jobs
  desc_es=Tareas Planificadas (Cron)
  desc_sv=Schemalagda cronjobb
---- webmin-1.260/dhcpd/module.info      2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/dhcpd/module.info    2006-02-02 22:43:39.000000000 +0100
+--- webmin-1.270/dhcpd/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/dhcpd/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -11,7 +11,7 @@
  desc_pt=Servidor de DHCP
  category=servers
@@ -53,8 +53,8 @@
  desc=DHCP Server
  desc_es=Servidor de DHCP
  desc_sv=DHCP-server
---- webmin-1.260/exports/module.info    2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/exports/module.info  2006-02-02 22:47:10.000000000 +0100
+--- webmin-1.270/exports/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/exports/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -10,7 +10,7 @@
  desc_zh_CN=NFS Êä³ö
  category=net
@@ -64,8 +64,8 @@
  desc=NFS Exports
  desc_es=Exportaciones de NFS
  desc_sv=NFS-exportering
---- webmin-1.260/inetd/module.info      2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/inetd/module.info    2006-02-02 22:54:16.000000000 +0100
+--- webmin-1.270/inetd/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/inetd/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -10,7 +10,7 @@
  desc_pt=Serviços e Protocolos de Internet
  category=net
@@ -75,8 +75,8 @@
  desc=Internet Services and Protocols
  desc_es=Servicios y Protocolos de Internet
  desc_sv=Internettjänster och -protokoll
---- webmin-1.260/init/module.info       2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/init/module.info     2006-02-02 22:58:15.000000000 +0100
+--- webmin-1.270/init/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/init/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -11,7 +11,7 @@
  desc_pt=Iniciar e Encerrar
  category=system
@@ -86,19 +86,19 @@
  desc=Bootup and Shutdown
  desc_es=Arranque y Parada
  desc_sv=Start och avstängning
---- webmin-1.260/lilo/module.info       2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/lilo/module.info     2006-02-02 23:02:21.000000000 +0100
+--- webmin-1.270/lilo/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/lilo/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -11,7 +11,7 @@
  desc_pt=Configuração de Arranque do Linux
  category=hardware
  desc_tr=Linux Açýlýþ Yapýlandýrmasý
 -os_support=coherent-linux redhat-linux{-r "/etc/lilo.conf"} mandrake-linux{-r "/etc/lilo.conf" || -r "/usr/sbin/lilo"} slackware-linux suse-linux/*-9.1 debian-linux turbo-linux corel-linux lfs-linux open-linux/2.3-2.4 msc-linux generic-linux united-linux{-r "/etc/lilo.conf" || -r "/usr/sbin/lilo"} trustix-linux{-r "/etc/lilo.conf"} sol-linux{-r "/etc/lilo.conf"}
-+os_support=coherent-linux redhat-linux{-r "/etc/lilo.conf"} mandrake-linux{-r "/etc/lilo.conf" || -r "/usr/sbin/lilo"} slackware-linux suse-linux/*-9.1 debian-linux turbo-linux corel-linux lfs-linux open-linux/2.3-2.4 msc-linux generic-linux united-linux{-r "/etc/lilo.conf" || -r "/usr/sbin/lilo"} trustix-linux{-r "/etc/lilo.conf"} sol-linux{-r "/etc/lilo.conf"} pld-linux
++os_support=coherent-linux redhat-linux{-r "/etc/lilo.conf"} pld-linux mandrake-linux{-r "/etc/lilo.conf" || -r "/usr/sbin/lilo"} slackware-linux suse-linux/*-9.1 debian-linux turbo-linux corel-linux lfs-linux open-linux/2.3-2.4 msc-linux generic-linux united-linux{-r "/etc/lilo.conf" || -r "/usr/sbin/lilo"} trustix-linux{-r "/etc/lilo.conf"} sol-linux{-r "/etc/lilo.conf"}
  desc=Linux Bootup Configuration
  desc_es=LILO - Gestor de arranque
  desc_sv=Inställningar för start av Linux
---- webmin-1.260/lpadmin/module.info    2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/lpadmin/module.info  2006-02-02 23:04:23.000000000 +0100
+--- webmin-1.270/lpadmin/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/lpadmin/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -11,7 +11,7 @@
  desc_pt=Administração de Impressoras
  category=hardware
@@ -108,8 +108,8 @@
  desc=Printer Administration
  desc_es=Administración de Impresoras
  desc_sv=Skrivaradministration
---- webmin-1.260/man/module.info        2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/man/module.info      2006-02-02 23:09:41.000000000 +0100
+--- webmin-1.270/man/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/man/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -12,7 +12,7 @@
  desc_pt=Páginas do Manual
  category=system
@@ -119,8 +119,8 @@
  desc=System Documentation
  desc_es=Páginas del Manual
  desc_sv=Systemdokumentation
---- webmin-1.260/mount/module.info      2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/mount/module.info    2006-02-02 23:11:44.000000000 +0100
+--- webmin-1.270/mount/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/mount/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -11,7 +11,7 @@
  desc_pt=Sistema de Ficheiros de Disco e Rede
  category=system
@@ -130,8 +130,8 @@
  desc=Disk and Network Filesystems
  desc_es=Sistemas de Archivo de Disco y Red
  desc_sv=Filsystem för diskar och nätverk
---- webmin-1.260/net/module.info        2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/net/module.info      2006-02-02 23:13:29.000000000 +0100
+--- webmin-1.270/net/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/net/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -11,7 +11,7 @@
  desc_zh_CN=ÍøÂçÅäÖÃ
  category=net
@@ -141,8 +141,8 @@
  desc=Network Configuration
  desc_es=Configuración de Red
  desc_sv=Nätverkskonfigurering
---- webmin-1.260/nis/module.info        2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/nis/module.info      2006-02-02 23:15:29.000000000 +0100
+--- webmin-1.270/nis/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/nis/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -3,7 +3,7 @@
  desc_ko_KR.euc=NIS Å¬¶óÀÌ¾ðÆ® ¹× ¼­¹ö
  longdesc=Setup a system as an NIS client, master or slave server. Note that NIS+ is not supported.
@@ -152,8 +152,8 @@
  desc=NIS Client and Server
  desc_pl=Klient i&nbsp;serwer NIS
  desc_es=Cliente y Servidor NIS
---- webmin-1.260/pam/module.info      2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/pam/module.info        2006-02-02 23:27:18.000000000 +0100
+--- webmin-1.270/pam/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/pam/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -7,7 +7,7 @@
  desc_de=PAM-Authentifizierung
  name=PAM
@@ -163,8 +163,8 @@
  desc=PAM Authentication
  desc_sv=PAM-autentisering
  desc_es=Autenticación PAM
---- webmin-1.260/pap/module.info        2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/pap/module.info      2006-02-02 23:32:20.000000000 +0100
+--- webmin-1.270/pap/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/pap/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -1,7 +1,7 @@
  category=net
  desc_ru_SU=óÅÒ×ÅÒ PPP
@@ -174,8 +174,8 @@
  desc=PPP Dialin Server
  desc_de=PPP Einwahl-Server
  desc_es=Nombres y Claves de Acceso de Usuarios PPP
---- webmin-1.260/quota/module.info      2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/quota/module.info    2006-02-03 00:24:06.000000000 +0100
+--- webmin-1.270/quota/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/quota/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -11,7 +11,7 @@
  desc_pt=Quotas de Disco
  category=system
@@ -185,8 +185,8 @@
  desc=Disk Quotas
  desc_es=Cuotas de Disco
  desc_sv=Diskquota
---- webmin-1.260/samba/module.info      2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/samba/module.info    2006-02-03 00:27:43.000000000 +0100
+--- webmin-1.270/samba/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/samba/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -11,7 +11,7 @@
  desc_pt=Partilha de Ficheiros de Windows com Samba
  category=servers
@@ -196,8 +196,8 @@
  desc=Samba Windows File Sharing
  desc_es=Compartición de Archivos de Windows mediante Samba
  desc_sv=Fildelning med Samba
---- webmin-1.260/sendmail/module.info   2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/sendmail/module.info 2006-02-03 00:30:28.000000000 +0100
+--- webmin-1.270/sendmail/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/sendmail/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -10,7 +10,7 @@
  desc_pt=Configuração do Sendmail
  category=servers
@@ -207,8 +207,8 @@
  desc=Sendmail Configuration
  desc_es=Configuración de Sendmail
  desc_sv=Sendmail-inställningar
---- webmin-1.260/software/module.info   2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/software/module.info 2006-02-03 00:49:13.000000000 +0100
+--- webmin-1.270/software/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/software/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -11,7 +11,7 @@
  desc_pt=Pacotes de Software
  category=system
@@ -218,8 +218,8 @@
  desc=Software Packages
  desc_es=Paquetes de Software
  desc_sv=Programpaket
---- webmin-1.260/squid/module.info      2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/squid/module.info    2006-02-03 00:53:17.000000000 +0100
+--- webmin-1.270/squid/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/squid/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -10,7 +10,7 @@
  desc_pt=Servidor Proxy Squid
  category=servers
@@ -229,19 +229,19 @@
  desc=Squid Proxy Server
  desc_es=Squid - Servidor Proxy
  desc_sv=Squid-proxyserver
---- webmin-1.260/syslog/module.info     2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/syslog/module.info   2006-02-03 01:03:49.000000000 +0100
+--- webmin-1.270/syslog/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/syslog/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -11,7 +11,7 @@
  desc_pt=Historiais do Sistema
  category=system
  desc_tr=Sistem Kayýtlarý
--os_support=solaris open-linux redhat-linux mandrake-linux debian-linux suse-linux united-linux slackware-linux freebsd openbsd turbo-linux corel-linux macos hpux cobalt-linux irix unixware aix netbsd msc-linux generic-linux openserver gentoo-linux trustix-linux sol-linux coherent-linux
-+os_support=solaris open-linux redhat-linux mandrake-linux debian-linux suse-linux united-linux slackware-linux freebsd openbsd turbo-linux corel-linux macos hpux cobalt-linux irix unixware aix netbsd msc-linux generic-linux openserver gentoo-linux trustix-linux sol-linux coherent-linux pld-linux
+-os_support=solaris open-linux redhat-linux mandrake-linux debian-linux suse-linux{-r "/etc/syslog.conf"} united-linux slackware-linux freebsd openbsd turbo-linux corel-linux macos hpux cobalt-linux irix unixware aix netbsd msc-linux generic-linux openserver gentoo-linux trustix-linux sol-linux coherent-linux
++os_support=solaris open-linux redhat-linux mandrake-linux debian-linux suse-linux{-r "/etc/syslog.conf"} united-linux slackware-linux freebsd openbsd turbo-linux corel-linux macos hpux cobalt-linux irix unixware aix netbsd msc-linux generic-linux openserver gentoo-linux trustix-linux sol-linux coherent-linux pld-linux
  desc=System Logs
  desc_es=Hist&#243;ricos (Logs) del Sistema
  desc_sv=Systemloggar
---- webmin-1.260/useradmin/module.info  2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/useradmin/module.info        2006-02-03 01:08:11.000000000 +0100
+--- webmin-1.270/useradmin/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/useradmin/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -12,7 +12,7 @@
  desc_pt_BR=Usuários e Grupos
  category=system
@@ -251,8 +251,8 @@
  desc=Users and Groups
  desc_es=Usuarios y Grupos
  desc_sv=Användare och grupper
---- webmin-1.260/wuftpd/module.info     2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/wuftpd/module.info   2006-02-03 01:09:53.000000000 +0100
+--- webmin-1.270/wuftpd/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/wuftpd/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -10,7 +10,7 @@
  desc_pt=Servidor WU-FTP
  category=servers
@@ -262,8 +262,8 @@
  desc=WU-FTP Server
  desc_es=Servidor WU-FTP
  desc_sv=WU-FTP-server
---- webmin-1.260/cluster-software/module.info 2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/cluster-software/module.info   2006-02-03 01:21:12.000000000 +0100
+--- webmin-1.270/cluster-software/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/cluster-software/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -1,6 +1,6 @@
  category=cluster
  longdesc=Install RPMs, debian and solaris packages across multiple servers from one source.
@@ -272,8 +272,8 @@
  desc=Cluster Software Packages
  desc_de=Cluster - Softwaremanagement
  desc_es=Cluster - Paquetes de Software
---- webmin-1.260/cluster-useradmin/module.info        2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/cluster-useradmin/module.info  2006-02-03 01:24:30.000000000 +0100
+--- webmin-1.270/cluster-useradmin/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/cluster-useradmin/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -1,6 +1,6 @@
  category=cluster
  longdesc=Create, update and delete users and groups across multiple servers. Unlike NIS, each server has its own passwd and group files which are remotely updated by this module.
@@ -282,19 +282,8 @@
  desc=Cluster Users and Groups
  desc_de=Cluster - Benutzer und Gruppen
  desc_es=Cluster - Usuarios y Grupos
---- webmin-1.260/dnsadmin/module.info   2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/dnsadmin/module.info 2006-02-03 01:27:53.000000000 +0100
-@@ -10,7 +10,7 @@
- desc_pt=Servidor de DNS BIND 4
- category=servers
- desc_tr=BIND 4 DNS Sunucusu
--os_support=slackware-linux{-r "/etc/named.boot"} coherent-linux{-r "/etc/named.boot"} redhat-linux{-r "/etc/named.boot"} mandrake-linux{-r "/etc/named.boot"} solaris{-r "/etc/named.boot"} debian-linux{-r "/etc/named.boot" || -r "/etc/bind/named.boot"} suse-linux{-r "/etc/named.boot"} united-linux{-r "/etc/named.boot"} hpux{-r "/etc/named.boot" || -x "/usr/sbin/named"} freebsd{-r "/etc/named.boot" || -r "/etc/namedb/named.boot"} osf1{-r "/etc/named.boot" || -r "/etc/namedb/named.boot"} irix unixware{-r "/etc/named.boot"} openserver{-r "/etc/named.boot"} turbo-linux{-r "/etc/named.boot"} openbsd{-r "/etc/named.boot" || -r "/var/named/named.boot"} aix{-r "/etc/named.boot"} cobalt-linux/2.2{-r "/etc/named.boot"} cobalt-linux/4.0{-r "/etc/named.boot"} aix{-r "/etc/named.boot"} msc-linux{-r "/etc/named.boot"}
-+os_support=slackware-linux{-r "/etc/named.boot"} coherent-linux{-r "/etc/named.boot"} redhat-linux{-r "/etc/named.boot"} mandrake-linux{-r "/etc/named.boot"} solaris{-r "/etc/named.boot"} debian-linux{-r "/etc/named.boot" || -r "/etc/bind/named.boot"} suse-linux{-r "/etc/named.boot"} united-linux{-r "/etc/named.boot"} hpux{-r "/etc/named.boot" || -x "/usr/sbin/named"} freebsd{-r "/etc/named.boot" || -r "/etc/namedb/named.boot"} osf1{-r "/etc/named.boot" || -r "/etc/namedb/named.boot"} irix unixware{-r "/etc/named.boot"} openserver{-r "/etc/named.boot"} turbo-linux{-r "/etc/named.boot"} openbsd{-r "/etc/named.boot" || -r "/var/named/named.boot"} aix{-r "/etc/named.boot"} cobalt-linux/2.2{-r "/etc/named.boot"} cobalt-linux/4.0{-r "/etc/named.boot"} aix{-r "/etc/named.boot"} msc-linux{-r "/etc/named.boot"} pld-linux{-r "/etc/named.boot"}
- desc=BIND 4 DNS Server
- desc_es=Servidor DNS BIND 4
- desc_sv=BIND 4 DNS-server
---- webmin-1.260/fsdump/module.info     2006-01-30 01:06:36.000000000 +0100
-+++ webmin-1.260/fsdump/module.info   2006-02-03 01:31:11.000000000 +0100
+--- webmin-1.270/fsdump/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/fsdump/module.info	2006-04-19 19:53:59.000000000 +0200
 @@ -2,7 +2,7 @@
  desc_ru_SU=òÅÚÅÒ×ÎÏÅ ËÏÐÉÒÏ×ÁÎÉÅ
  longdesc=Backup and restore filesystems using the dump and restore family of commands.
@@ -304,3 +293,14 @@
  desc=Filesystem Backup
  desc_de=Dateisystem-Backup
  desc_es=Copia de Seguridad de Sistema de Archivos
+--- webmin-1.270/dnsadmin/module.info2	2006-04-19 19:53:59.000000000 +0200
++++ webmin-1.270/dnsadmin/module.info	2006-04-19 19:53:59.000000000 +0200
+@@ -10,7 +10,7 @@
+ desc_pt=Servidor de DNS BIND 4
+ category=servers
+ desc_tr=BIND 4 DNS Sunucusu
+-os_support=slackware-linux{-r "/etc/named.boot"} coherent-linux{-r "/etc/named.boot"} redhat-linux{-r "/etc/named.boot"} mandrake-linux{-r "/etc/named.boot"} solaris{-r "/etc/named.boot"} debian-linux{-r "/etc/named.boot" || -r "/etc/bind/named.boot"} suse-linux{-r "/etc/named.boot"} united-linux{-r "/etc/named.boot"} hpux{-r "/etc/named.boot" || -x "/usr/sbin/named"} freebsd{-r "/etc/named.boot" || -r "/etc/namedb/named.boot"} osf1{-r "/etc/named.boot" || -r "/etc/namedb/named.boot"} irix unixware{-r "/etc/named.boot"} openserver{-r "/etc/named.boot"} turbo-linux{-r "/etc/named.boot"} openbsd{-r "/etc/named.boot" || -r "/var/named/named.boot"} aix{-r "/etc/named.boot"} cobalt-linux/2.2{-r "/etc/named.boot"} cobalt-linux/4.0{-r "/etc/named.boot"} aix{-r "/etc/named.boot"} msc-linux{-r "/etc/named.boot"}
++os_support=slackware-linux{-r "/etc/named.boot"} pld-linux{-r "/etc/named.boot"} coherent-linux{-r "/etc/named.boot"} redhat-linux{-r "/etc/named.boot"} mandrake-linux{-r "/etc/named.boot"} solaris{-r "/etc/named.boot"} debian-linux{-r "/etc/named.boot" || -r "/etc/bind/named.boot"} suse-linux{-r "/etc/named.boot"} united-linux{-r "/etc/named.boot"} hpux{-r "/etc/named.boot" || -x "/usr/sbin/named"} freebsd{-r "/etc/named.boot" || -r "/etc/namedb/named.boot"} osf1{-r "/etc/named.boot" || -r "/etc/namedb/named.boot"} irix unixware{-r "/etc/named.boot"} openserver{-r "/etc/named.boot"} turbo-linux{-r "/etc/named.boot"} openbsd{-r "/etc/named.boot" || -r "/var/named/named.boot"} aix{-r "/etc/named.boot"} cobalt-linux/2.2{-r "/etc/named.boot"} cobalt-linux/4.0{-r "/etc/named.boot"} aix{-r "/etc/named.boot"} msc-linux{-r "/etc/named.boot"}
+ desc=BIND 4 DNS Server
+ desc_es=Servidor DNS BIND 4
+ desc_sv=BIND 4 DNS-server

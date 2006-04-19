@@ -4,12 +4,12 @@
 Summary:	Webmin - web-based administration
 Summary(pl):	Webmin - administracja przez WWW
 Name:		webmin
-Version:	1.260
-Release:	1.12
+Version:	1.270
+Release:	1
 License:	BSD-like
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/webadmin/%{name}-%{version}.tar.gz
-# Source0-md5:	c45fe387902405cb36a1a5c6a240ad0d
+# Source0-md5:	f9e103f7ee20a77e540335986c2c3f01
 # Unofficial webmin tarballs location (if anybody interested):
 #Source0:	http://fudu.webmin.com/webmin/tarballs/%{name}-%{source_version}.tar.gz
 Source1:	%{name}.init
