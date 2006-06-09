@@ -117,7 +117,7 @@ Webmin - konfiguracja pakietu WV-Dial do ³±czenia z Internetem po PPP
 przez modem.
 
 # pptp-client
-%package  pptp-client
+%package pptp-client
 Summary:	Webmin - pptp-client
 Summary(pl):	Webmin - klient PPTP
 Group:		Applications/System
