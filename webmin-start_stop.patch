@@ -1,0 +1,23 @@
+--- webmin-1.270/webmin/change_bind.cgi.orig	2006-11-15 14:05:18.000000000 +0100
++++ webmin-1.270/webmin/change_bind.cgi	2006-11-15 19:50:37.230123308 +0100
+@@ -62,9 +62,9 @@
+ 
+ # Attempt to re-start miniserv
+ $SIG{'TERM'} = 'ignore';
+-&system_logged("$config_directory/stop >/dev/null 2>&1 </dev/null");
++&system_logged("/etc/rc.d/init.d/webmin stop >/dev/null 2>&1 </dev/null");
+ $temp = &transname();
+-$rv = &system_logged("$config_directory/start >$temp 2>&1 </dev/null");
++$rv = &system_logged("/etc/rc.d/init.d/webmin start >$temp 2>&1 </dev/null");
+ $out = `cat $temp`;
+ $out =~ s/^Starting Webmin server in.*\n//;
+ $out =~ s/at.*line.*//;
+@@ -74,7 +74,7 @@
+ 	&lock_file($ENV{'MINISERV_CONFIG'});
+ 	&put_miniserv_config(\%oldminiserv);
+ 	&unlock_file($ENV{'MINISERV_CONFIG'});
+-	&system_logged("$config_directory/start >/dev/null 2>&1 </dev/null");
++	&system_logged("/etc/rc.d/init.d/webmin start >/dev/null 2>&1 </dev/null");
+ 	&error(&text('bind_erestart', $out));
+ 	}
+ &webmin_log("bind", undef, undef, \%in);
