@@ -19,6 +19,7 @@ Patch0:		%{name}-PLD-module.info.patch
 Patch1:		%{name}-ad-pld-config.patch
 Patch2:		%{name}-software-poldek.patch
 Patch3:		%{name}-quote.patch
+Patch4:		%{name}-start_stop.patch
 URL:		http://www.webmin.com/
 BuildRequires:	/etc/pld-release
 BuildRequires:	perl-CGI
@@ -31,6 +32,7 @@ BuildRequires:	rpm-perlprov
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	sed >= 4.0
 Requires(post,preun):	/sbin/chkconfig
+Requires:	perl-Authen-PAM
 Requires:	policy
 Provides:	%{name}-acl = %{version}-%{release}
 Provides:	%{name}-man = %{version}-%{release}
@@ -1426,6 +1428,7 @@ Webmin - ¼ród³a modu³u "file" napisanego czê¶ciowo w Javie.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 # only for solaris, so rm
 rm -rf zones	# Create and manage Solaris 10 zones.
