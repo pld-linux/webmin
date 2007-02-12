@@ -2,7 +2,7 @@
 %define		source_version	%{version}
 %define		os_version	%(rpm -qf /etc/pld-release --qf '%%{version}' 2>/dev/null || echo ERROR)
 Summary:	Webmin - web-based administration
-Summary(pl):	Webmin - administracja przez WWW
+Summary(pl.UTF-8):   Webmin - administracja przez WWW
 Name:		webmin
 Version:	1.270
 Release:	1
@@ -48,15 +48,15 @@ Webmin is a web-based interface for system administration for Unix.
 Using any browser that supports tables and forms, you can setup user
 accounts, Apache, internet services, DNS, file sharing and so on.
 
-%description -l pl
-Webmin jest narzêdziem do administrowania Uniksem poprzez WWW.
-Umo¿liwia m.in. konfigurowanie kont u¿ytkowników, Apache'a, us³ug
-internetowych, DNS-u, udostêpniania zasobów za pomoc± dowolnej
-przegl±darki obs³uguj±cej tabele i formularze
+%description -l pl.UTF-8
+Webmin jest narzÄ™dziem do administrowania Uniksem poprzez WWW.
+UmoÅ¼liwia m.in. konfigurowanie kont uÅ¼ytkownikÃ³w, Apache'a, usÅ‚ug
+internetowych, DNS-u, udostÄ™pniania zasobÃ³w za pomocÄ… dowolnej
+przeglÄ…darki obsÅ‚ugujÄ…cej tabele i formularze
 
 %package disk-tools
 Summary:	Webmin - Partition and disk management tools
-Summary(pl):	Webmin - Narzêdzia do zarz±dzania dyskami i partycjami
+Summary(pl.UTF-8):   Webmin - NarzÄ™dzia do zarzÄ…dzania dyskami i partycjami
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name}-system = %{version}-%{release}
@@ -68,13 +68,13 @@ Provides:	%{name}-raid = %{version}-%{release}
 %description disk-tools
 Webmin - Partition and disk management tools.
 
-%description disk-tools -l pl
-Webmin - narzêdzia do zarz±dzania dyskami i partycjami.
+%description disk-tools -l pl.UTF-8
+Webmin - narzÄ™dzia do zarzÄ…dzania dyskami i partycjami.
 
 # APACHE
 %package apache
 Summary:	Webmin - Apache webserver
-Summary(pl):	Webmin - Serwer WWW Apache
+Summary(pl.UTF-8):   Webmin - Serwer WWW Apache
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -83,13 +83,13 @@ Requires:	webserver = apache
 %description apache
 Webmin - Configure almost all Apache directives and features.
 
-%description apache -l pl
-Webmin - konfigurowanie prawie wszystkich ustawieñ Apache.
+%description apache -l pl.UTF-8
+Webmin - konfigurowanie prawie wszystkich ustawieÅ„ Apache.
 
 # AT
 %package at
 Summary:	Webmin - At
-Summary(pl):	Webmin - At
+Summary(pl.UTF-8):   Webmin - At
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -98,13 +98,13 @@ Requires:	at
 %description at
 Webmin - At.
 
-%description at -l pl
+%description at -l pl.UTF-8
 Webmin - At.
 
 # ppp-client
 %package ppp-client
 Summary:	Webmin - Configure modem connection
-Summary(pl):	Webmin - konfiguracja po³±czenia przez modem
+Summary(pl.UTF-8):   Webmin - konfiguracja poÅ‚Ä…czenia przez modem
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -114,14 +114,14 @@ Requires:	ppp
 Webmin - Configure the WV-Dial package to connect to the Internet with
 a modem PPP connection.
 
-%description ppp-client -l pl
-Webmin - konfiguracja pakietu WV-Dial do ³±czenia z Internetem po PPP
+%description ppp-client -l pl.UTF-8
+Webmin - konfiguracja pakietu WV-Dial do Å‚Ä…czenia z Internetem po PPP
 przez modem.
 
 # pptp-client
 %package pptp-client
 Summary:	Webmin - pptp-client
-Summary(pl):	Webmin - klient PPTP
+Summary(pl.UTF-8):   Webmin - klient PPTP
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -130,14 +130,14 @@ Requires:	%{name} = %{version}-%{release}
 Webmin - Configure and establish connections to a VPN server using the
 PPTP protocol.
 
-%description pptp-client -l pl
-Webmin - konfiguracja i zestawianie po³±czenia do serwera VPN poprzez
-protokó³ PPTP.
+%description pptp-client -l pl.UTF-8
+Webmin - konfiguracja i zestawianie poÅ‚Ä…czenia do serwera VPN poprzez
+protokÃ³Å‚ PPTP.
 
 # pptp-server
 %package pptp-server
 Summary:	Webmin - pptp-server
-Summary(pl):	Webmin - serwer PPTP
+Summary(pl.UTF-8):   Webmin - serwer PPTP
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -147,14 +147,14 @@ Requires:	pptpd
 Webmin - Set up your system as a PPTP server so that Linux or Windows
 VPN clients can connect.
 
-%description pptp-server -l pl
-Webmin - ustawienie systemu jako serwera PPTP, z którym mog± siê
-³±czyæ linuksowi i windowsowi klienci VPN.
+%description pptp-server -l pl.UTF-8
+Webmin - ustawienie systemu jako serwera PPTP, z ktÃ³rym mogÄ… siÄ™
+Å‚Ä…czyÄ‡ linuksowi i windowsowi klienci VPN.
 
 # ipsec
 %package ipsec
 Summary:	Webmin - IPsec VPN Configuration
-Summary(pl):	Webmin - konfigurator IPsec VPN
+Summary(pl.UTF-8):   Webmin - konfigurator IPsec VPN
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -163,13 +163,13 @@ Requires:	ipsec-tools
 %description ipsec
 Webmin - Set up a client or server for an IPsec VPN using FreeSWAN.
 
-%description ipsec -l pl
-Webmin - ustawianie klienta lub serwera IPsec VPN u¿ywaj±c FreeSWAN.
+%description ipsec -l pl.UTF-8
+Webmin - ustawianie klienta lub serwera IPsec VPN uÅ¼ywajÄ…c FreeSWAN.
 
 # firewall
 %package firewall
 Summary:	Webmin - Linux firewall
-Summary(pl):	Webmin - zapora ogniowa dla Linuksa
+Summary(pl.UTF-8):   Webmin - zapora ogniowa dla Linuksa
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -179,14 +179,14 @@ Requires:	iptables
 Webmin - Configure a Linux firewall using iptables. Allows the editing
 of all tables, chains, rules and options.
 
-%description firewall -l pl
+%description firewall -l pl.UTF-8
 Webmin - konfiguracja zapory dla Linuksa z iptables. Pozwala na
-modyfikowanie tablic, ³añcuchów i regu³ filtrowania.
+modyfikowanie tablic, Å‚aÅ„cuchÃ³w i reguÅ‚ filtrowania.
 
 # idmapd
 %package idmapd
 Summary:	Webmin - Managing the NFS ID mapping daemon
-Summary(pl):	Webmin - administracja demonem NFS ID
+Summary(pl.UTF-8):   Webmin - administracja demonem NFS ID
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -194,13 +194,13 @@ Requires:	%{name} = %{version}-%{release}
 %description idmapd
 Webmin - Managing the NFS ID mapping daemon.
 
-%description idmapd -l pl
+%description idmapd -l pl.UTF-8
 Webmin - administracja demonem NFS ID.
 
 # BIND 8/9
 %package bind8
 Summary:	Webmin - BIND DNS server
-Summary(pl):	Webmin - serwer DNS BIND
+Summary(pl.UTF-8):   Webmin - serwer DNS BIND
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -209,14 +209,14 @@ Requires:	bind
 %description bind8
 Webmin - Create and edit domains, DNS records, BIND options and views.
 
-%description bind8 -l pl
-Webmin - tworzenie i modyfikowanie domen, rekordów DNS, opcji BIND-a i
-widoków.
+%description bind8 -l pl.UTF-8
+Webmin - tworzenie i modyfikowanie domen, rekordÃ³w DNS, opcji BIND-a i
+widokÃ³w.
 
 # DNSADMIN
 %package dnsadmin
 Summary:	Webmin - BIND 4 DNS admin
-Summary(pl):	Webmin - administracja serverem DNS BIND
+Summary(pl.UTF-8):   Webmin - administracja serverem DNS BIND
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -225,13 +225,13 @@ Requires:	%{name} = %{version}-%{release}
 %description dnsadmin
 Webmin - Create and edit domains and DNS records.
 
-%description dnsadmin -l pl
-Webmin - Tworzenie i modyfikowanie domen i rekordów DNS.
+%description dnsadmin -l pl.UTF-8
+Webmin - Tworzenie i modyfikowanie domen i rekordÃ³w DNS.
 
 # BURNER
 %package burner
 Summary:	Webmin - CD Burner
-Summary(pl):	Webmin - Wypalanie p³yt CD
+Summary(pl.UTF-8):   Webmin - Wypalanie pÅ‚yt CD
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -244,14 +244,14 @@ Requires:	proc
 %description burner
 Webmin - Burn data CDs from ISO images or selected directories.
 
-%description burner -l pl
-Webmin - wypalanie p³yt CD z danymi z obrazów ISO lub wybranych
-katalogów.
+%description burner -l pl.UTF-8
+Webmin - wypalanie pÅ‚yt CD z danymi z obrazÃ³w ISO lub wybranych
+katalogÃ³w.
 
 # SMART-STATUS
 %package smart-status
 Summary:	Webmin - Status of IDE hard drives
-Summary(pl):	Webmin - stan twardych dysków
+Summary(pl.UTF-8):   Webmin - stan twardych dyskÃ³w
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -261,14 +261,14 @@ Requires:	smartmontools
 Webmin - Check the status of IDE drives to detect problems and
 potential failures..
 
-%description smart-status -l pl
-Webmin - sprawdzenie stanu dysków IDE w celu wykrycia problemów i
-potencjalnych uszkodzeñ.
+%description smart-status -l pl.UTF-8
+Webmin - sprawdzenie stanu dyskÃ³w IDE w celu wykrycia problemÃ³w i
+potencjalnych uszkodzeÅ„.
 
 # CFENGINE
 %package cfengine
 Summary:	Webmin - Configuration Engine
-Summary(pl):	Webmin - cfengine
+Summary(pl.UTF-8):   Webmin - cfengine
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -278,14 +278,14 @@ Requires:	cfengine
 Webmin - Configure the CFengine program, for checking and maintaining
 various system-administration settings.
 
-%description cfengine -l pl
+%description cfengine -l pl.UTF-8
 Webmin - konfiguracja programu CFengine do sprawdzania i utrzymywania
-ró¿nych ustawieñ administracyjnych.
+rÃ³Å¼nych ustawieÅ„ administracyjnych.
 
 # CLUSTER-SOFTWARE
 %package cluster-software
 Summary:	Webmin - Cluster software packages
-Summary(pl):	Webmin - Pakiety oprogramowania
+Summary(pl.UTF-8):   Webmin - Pakiety oprogramowania
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -294,14 +294,14 @@ Requires:	%{name} = %{version}-%{release}
 Webmin - Install RPMs, debian and solaris packages across multiple
 servers from one source.
 
-%description cluster-software -l pl
-Webmin - instalacja RPM-ów, deb-ów oraz pakietów dla Solarisa na wielu
-serwerach z jednego ¼ród³a.
+%description cluster-software -l pl.UTF-8
+Webmin - instalacja RPM-Ã³w, deb-Ã³w oraz pakietÃ³w dla Solarisa na wielu
+serwerach z jednego ÅºrÃ³dÅ‚a.
 
 # CLUSTER-SHELL
 %package cluster-shell
 Summary:	Webmin - Cluster shell
-Summary(pl):	Webmin - pow³oka dla klastra
+Summary(pl.UTF-8):   Webmin - powÅ‚oka dla klastra
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -309,13 +309,13 @@ Requires:	%{name} = %{version}-%{release}
 %description cluster-shell
 Webmin - Run commands on multiple servers at once.
 
-%description cluster-shell -l pl
-Webmin - uruchamianie poleceñ jednocze¶nie na wielu serwerach.
+%description cluster-shell -l pl.UTF-8
+Webmin - uruchamianie poleceÅ„ jednoczeÅ›nie na wielu serwerach.
 
 # CLUSTER-USERADMIN
 %package cluster-useradmin
 Summary:	Webmin - Cluster users and groups
-Summary(pl):	Webmin - u¿ytkownicy i grupy klastra
+Summary(pl.UTF-8):   Webmin - uÅ¼ytkownicy i grupy klastra
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -325,15 +325,15 @@ Webmin - Create, update and delete users and groups across multiple
 servers. Unlike NIS, each server has its own passwd and group files
 which are remotely updated by this module.
 
-%description cluster-useradmin -l pl
-Webmin - tworzenie, aktualizacja i usuwanie u¿ytkowników i grup na
-wielu serwerach. W odró¿nieniu od NIS, ka¿dy serwer ma w³asne has³o i
-pliki grup które s± zdalnie aktualizowane przez ten modu³.
+%description cluster-useradmin -l pl.UTF-8
+Webmin - tworzenie, aktualizacja i usuwanie uÅ¼ytkownikÃ³w i grup na
+wielu serwerach. W odrÃ³Å¼nieniu od NIS, kaÅ¼dy serwer ma wÅ‚asne hasÅ‚o i
+pliki grup ktÃ³re sÄ… zdalnie aktualizowane przez ten moduÅ‚.
 
 # CLUSTER-USERMIN
 %package cluster-usermin
 Summary:	Webmin - Cluster usermin
-Summary(pl):	Webmin - klastrowy usermin
+Summary(pl.UTF-8):   Webmin - klastrowy usermin
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -342,14 +342,14 @@ Requires:	%{name} = %{version}-%{release}
 Webmin - Install and manage modules and themes across multiple Usermin
 servers.
 
-%description cluster-usermin -l pl
-Webmin - instalowanie i administrowanie modu³ami i motywami na wielu
+%description cluster-usermin -l pl.UTF-8
+Webmin - instalowanie i administrowanie moduÅ‚ami i motywami na wielu
 serwerach Usermin.
 
 # CLUSTER-COPY
 %package cluster-copy
 Summary:	Webmin - Cluster copy file
-Summary(pl):	Webmin - klastrowe kopiowanie plików
+Summary(pl.UTF-8):   Webmin - klastrowe kopiowanie plikÃ³w
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -359,14 +359,14 @@ Requires:	cron
 Webmin - Schedule the transfer of files from this server to multiple
 servers in a Webmin cluster.
 
-%description cluster-copy -l pl
-Webmin - szeregowanie przesy³ania plików z tego serwera na wiele
-serwerów w klastrze Webmina.
+%description cluster-copy -l pl.UTF-8
+Webmin - szeregowanie przesyÅ‚ania plikÃ³w z tego serwera na wiele
+serwerÃ³w w klastrze Webmina.
 
 # CLUSTER-CRON
 %package cluster-cron
 Summary:	Webmin - Cluster cron
-Summary(pl):	Webmin - klastrowy cron
+Summary(pl.UTF-8):   Webmin - klastrowy cron
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -376,14 +376,14 @@ Requires:	cron
 Webmin - Create scheduled Cron jobs that run on multiple servers
 simultaneously.
 
-%description cluster-cron -l pl
-Webmin - tworzeie zadañ crona uruchamianych jednocze¶nie na wielu
+%description cluster-cron -l pl.UTF-8
+Webmin - tworzeie zadaÅ„ crona uruchamianych jednoczeÅ›nie na wielu
 serwerach.
 
 # CLUSTER-PASSWORD
 %package cluster-passwd
 Summary:	Webmin - Cluster passwd
-Summary(pl):	Webmin - klastrowe passwd
+Summary(pl.UTF-8):   Webmin - klastrowe passwd
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name}-cluster-useradmin = %{version}-%{release}
@@ -394,13 +394,13 @@ Requires:	useradmin
 Webmin - Change passwords on multiple systems in a Webmin cluster at
 once.
 
-%description cluster-passwd -l pl
-Webmin - jednoczesna zmiana hase³ na serwerach w klastrze Webmina.
+%description cluster-passwd -l pl.UTF-8
+Webmin - jednoczesna zmiana haseÅ‚ na serwerach w klastrze Webmina.
 
 # LDAP-USERADMIN
 %package ldap-useradmin
 Summary:	Webmin - Manage users and groups stored in an LDAP database
-Summary(pl):	Webmin - administracja u¿ytkownikami i grupami w bazie LDAP
+Summary(pl.UTF-8):   Webmin - administracja uÅ¼ytkownikami i grupami w bazie LDAP
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -409,14 +409,14 @@ Requires:	%{name} = %{version}-%{release}
 Webmin - Manage users and groups stored in an LDAP database, used for
 Unix, Samba and Cyrus IMAP authentication.
 
-%description ldap-useradmin -l pl
-Webmin - administracja u¿ytkownikami i grupami w bazie LDAP, u¿ywanej
+%description ldap-useradmin -l pl.UTF-8
+Webmin - administracja uÅ¼ytkownikami i grupami w bazie LDAP, uÅ¼ywanej
 dla Uniksa, Samby i uwierzytelnienia Cyrus IMAP.
 
 # CLUSTER-WEBMIN
 %package cluster-webmin
 Summary:	Webmin - Cluster Webmin servers
-Summary(pl):	Webmin - klaster serwerów Webmina
+Summary(pl.UTF-8):   Webmin - klaster serwerÃ³w Webmina
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name}-servers = %{version}-%{release}
@@ -425,14 +425,14 @@ Requires:	%{name}-servers = %{version}-%{release}
 Webmin - Install and manage modules, themes, users, groups and access
 control settings across multiple Webmin servers.
 
-%description cluster-webmin -l pl
-Webmin - instalacja i zarz±dzanie modu³ami, motywami, u¿ytkownikami,
-grupami i dostêpem do ustawieñ na wielu serwerach Webmina.
+%description cluster-webmin -l pl.UTF-8
+Webmin - instalacja i zarzÄ…dzanie moduÅ‚ami, motywami, uÅ¼ytkownikami,
+grupami i dostÄ™pem do ustawieÅ„ na wielu serwerach Webmina.
 
 # CRON
 %package cron
 Summary:	Webmin - Cron
-Summary(pl):	Webmin - Cron
+Summary(pl.UTF-8):   Webmin - Cron
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -441,12 +441,12 @@ Requires:	crondaemon
 %description cron
 Webmin - Create, edit and delete Cron jobs.
 
-%description cron -l pl
-Webmin - tworzenie, modyfikowanie i usuwanie zadañ crona.
+%description cron -l pl.UTF-8
+Webmin - tworzenie, modyfikowanie i usuwanie zadaÅ„ crona.
 
 %package vgetty
 Summary:	Webmin - Vgetty
-Summary(pl):	Webmin - Vgetty
+Summary(pl.UTF-8):   Webmin - Vgetty
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -454,14 +454,14 @@ Requires:	%{name} = %{version}-%{release}
 %description vgetty
 Webmin - Set up your system as an answering machine using vgetty.
 
-%description vgetty -l pl
-Webmin - ustawianie systemu do odpowiadania na po³±czenia przy u¿yciu
+%description vgetty -l pl.UTF-8
+Webmin - ustawianie systemu do odpowiadania na poÅ‚Ä…czenia przy uÅ¼yciu
 vgetty.
 
 # DHCPD
 %package dhcpd
 Summary:	Webmin - DHCP server
-Summary(pl):	Webmin - serwer DHCP
+Summary(pl.UTF-8):   Webmin - serwer DHCP
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -471,14 +471,14 @@ Requires:	dhcp
 Webmin - Manage shared networks, subnets, hosts and groups for ISC
 DHCPD.
 
-%description dhcpd -l pl
-Webmin - zarz±dzanie sieciami, podsieciami, hostami i grupami dla ISC
+%description dhcpd -l pl.UTF-8
+Webmin - zarzÄ…dzanie sieciami, podsieciami, hostami i grupami dla ISC
 DHCPD.
 
 # adsl-client
 %package adsl-client
 Summary:	Webmin - adsl-client
-Summary(pl):	Webmin - klient ADSL
+Summary(pl.UTF-8):   Webmin - klient ADSL
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -486,13 +486,13 @@ Requires:	%{name} = %{version}-%{release}
 %description adsl-client
 Webmin - Set up a PPP client with the RP-PPPoE package.
 
-%description adsl-client -l pl
+%description adsl-client -l pl.UTF-8
 Webmin - ustawienia klienta PPP z pakietem RP-PPPoE.
 
 # FETCHMAIL
 %package fetchmail
 Summary:	Webmin - Fetchmail
-Summary(pl):	Webmin - Fetchmail
+Summary(pl.UTF-8):   Webmin - Fetchmail
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -502,14 +502,14 @@ Requires:	fetchmail
 Webmin - Configure the popular fetchmail program for automatically
 retrieving mail from other servers.
 
-%description fetchmail -l pl
-Webmin - konfiguracja popularnego programu do automatycznego ¶ci±gania
-poczty z innych serwerów.
+%description fetchmail -l pl.UTF-8
+Webmin - konfiguracja popularnego programu do automatycznego Å›ciÄ…gania
+poczty z innych serwerÃ³w.
 
 # DOVECOT
 %package dovecot
 Summary:	Webmin - dovecot
-Summary(pl):	Webmin - dovecot
+Summary(pl.UTF-8):   Webmin - dovecot
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -518,13 +518,13 @@ Requires:	dovecot
 %description dovecot
 Webmin - onfigure the Dovecot IMAP and POP3 mail retrieval server.
 
-%description dovecot -l pl
+%description dovecot -l pl.UTF-8
 Webmin - konfiguracja serwera IMAP i POP3 dovecot.
 
 # MAILBOXES
 %package mailboxes
 Summary:	Webmin - mailboxes
-Summary(pl):	Webmin - mailboxes
+Summary(pl.UTF-8):   Webmin - mailboxes
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -532,13 +532,13 @@ Requires:	%{name} = %{version}-%{release}
 %description mailboxes
 Webmin - Read email in users' mailboxes.
 
-%description mailboxes -l pl
-Webmin - czytanie poczty ze skrzynek u¿ytkowników.
+%description mailboxes -l pl.UTF-8
+Webmin - czytanie poczty ze skrzynek uÅ¼ytkownikÃ³w.
 
 # WEBALIZER
 %package webalizer
 Summary:	Webmin - Webalizer Configuration
-Summary(pl):	Webmin - konfiguracja Webalizera
+Summary(pl.UTF-8):   Webmin - konfiguracja Webalizera
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -548,14 +548,14 @@ Requires:	webalizer
 Webmin - Generate reports from webserver, proxy server and FTP log
 files.
 
-%description webalizer -l pl
-Webmin - generowanie raportów z serwera WWW, serwera proxy i plików
-logów FTP.
+%description webalizer -l pl.UTF-8
+Webmin - generowanie raportÃ³w z serwera WWW, serwera proxy i plikÃ³w
+logÃ³w FTP.
 
 # UPDOWN
 %package updown
 Summary:	Webmin - Upload and Download
-Summary(pl):	Webmin - Upload i Download
+Summary(pl.UTF-8):   Webmin - Upload i Download
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -564,14 +564,14 @@ Requires:	%{name} = %{version}-%{release}
 Webmin - Upload multiple files to the server, and download multiple
 URLs either immediately or in the background at a scheduled time.
 
-%description updown -l pl
-Webmin - przesy³anie wielu plików na serwer i ¶ci±ganie z wielu
-adresów natychmiast lub w tle we wcze¶niej zaprogramowanym czasie.
+%description updown -l pl.UTF-8
+Webmin - przesyÅ‚anie wielu plikÃ³w na serwer i Å›ciÄ…ganie z wielu
+adresÃ³w natychmiast lub w tle we wczeÅ›niej zaprogramowanym czasie.
 
 # DUMP
 %package fsdump
 Summary:	Webmin - Filesystem backup
-Summary(pl):	Webmin - archiwizacja systemu plików
+Summary(pl.UTF-8):   Webmin - archiwizacja systemu plikÃ³w
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -581,13 +581,13 @@ Requires:	rc-scripts
 %description fsdump
 Webmin - Filesystem backup.
 
-%description fsdump -l pl
-Webmin - archiwizacja systemu plików.
+%description fsdump -l pl.UTF-8
+Webmin - archiwizacja systemu plikÃ³w.
 
 # backup-config
 %package backup-config
 Summary:	Webmin - Filesystem backup
-Summary(pl):	Webmin - archiwizacja systemu plików
+Summary(pl.UTF-8):   Webmin - archiwizacja systemu plikÃ³w
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -596,14 +596,14 @@ Requires:	%{name} = %{version}-%{release}
 Webmin - Perform manual or scheduled backups and restores of
 configuration files managed by Webmin modules.
 
-%description backup-config -l pl
-Webmin - wykonywanie rêcznej lub zaplanowanej archiwizacji oraz
-odzyskania danych poprzez modu³ Webmina.
+%description backup-config -l pl.UTF-8
+Webmin - wykonywanie rÄ™cznej lub zaplanowanej archiwizacji oraz
+odzyskania danych poprzez moduÅ‚ Webmina.
 
 # GRUB
 %package grub
 Summary:	Webmin - GRUB configuration
-Summary(pl):	Webmin - konfiguracja GRUB-a
+Summary(pl.UTF-8):   Webmin - konfiguracja GRUB-a
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -613,14 +613,14 @@ Requires:	grub
 Webmin - Configure the Linux GRUB boot loader to allow the selection
 of various operating systems and kernels at boot time.
 
-%description grub -l pl
-Webmin - konfiguracja linuksowego boot loadera GRUB, aby umo¿liwia³
-wybór ró¿nych systemów operacyjnych i j±der w czasie startu.
+%description grub -l pl.UTF-8
+Webmin - konfiguracja linuksowego boot loadera GRUB, aby umoÅ¼liwiaÅ‚
+wybÃ³r rÃ³Å¼nych systemÃ³w operacyjnych i jÄ…der w czasie startu.
 
 # HEARTBEAT
 %package heartbeat
 Summary:	Webmin - Heartbeat Monitor
-Summary(pl):	Webmin - monitor Heartbeat
+Summary(pl.UTF-8):   Webmin - monitor Heartbeat
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -630,14 +630,14 @@ Requires:	heartbeat
 Webmin - Configure the Heartbeat package for automatic server failover
 in a cluster.
 
-%description heartbeat -l pl
+%description heartbeat -l pl.UTF-8
 Webmin - konfiguracja pakietu Heartbeat do automatycznego przejmowania
 roli innego serwera w klastrze.
 
 # INETD
 %package inetd
 Summary:	Webmin - Inetd
-Summary(pl):	Webmin - Inetd
+Summary(pl.UTF-8):   Webmin - Inetd
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -646,14 +646,14 @@ Requires:	inetd
 %description inetd
 Webmin - Edit services in /etc/inetd.conf, /etc/services and /etc/rpc.
 
-%description inetd -l pl
-Webmin - modyfikowanie us³ug w /etc/inetd.conf, /etc/services i
+%description inetd -l pl.UTF-8
+Webmin - modyfikowanie usÅ‚ug w /etc/inetd.conf, /etc/services i
 /etc/rpc.
 
 # JABBER
 %package jabber
 Summary:	Jabber IM server
-Summary(pl):	Konfiguracja serwera Jabber
+Summary(pl.UTF-8):   Konfiguracja serwera Jabber
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -662,13 +662,13 @@ Requires:	jabberd
 %description jabber
 Webmin - Configure the multi-protocol Jabber messaging server.
 
-%description jabber -l pl
+%description jabber -l pl.UTF-8
 Webmin - konfiguracja serwera systemu powiadamiania Jabber.
 
 # KRB5
 %package krb5
 Summary:	Kerberos 5 client settings
-Summary(pl):	Konfiguracja klienta Kerberos 5
+Summary(pl.UTF-8):   Konfiguracja klienta Kerberos 5
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -677,13 +677,13 @@ Requires:	krb5
 %description krb5
 Webmin - Kerberos 5 client settings.
 
-%description krb5 -l pl
+%description krb5 -l pl.UTF-8
 Webmin - konfiguracja klienta Kerberos 5.
 
 # LILO
 %package lilo
 Summary:	Webmin - LILO configuration
-Summary(pl):	Webmin - konfiguracja LILO
+Summary(pl.UTF-8):   Webmin - konfiguracja LILO
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -692,13 +692,13 @@ Requires:	lilo
 %description lilo
 Webmin - Configure the LILO bootloader.
 
-%description lilo -l pl
+%description lilo -l pl.UTF-8
 Webmin - konfiguracja bootloadera LILO.
 
 # LVM
 %package lvm
 Summary:	Webmin - Logical Volume Management
-Summary(pl):	Webmin - zarz±dzanie wolumenami logicznymi (LVM)
+Summary(pl.UTF-8):   Webmin - zarzÄ…dzanie wolumenami logicznymi (LVM)
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -710,14 +710,14 @@ Requires:	lvm2
 Webmin - Configure volume groups, physical volumes and logical volumes
 for Linux LVM.
 
-%description lvm -l pl
-Webmin - zarz±dzanie grupami wolumenów, wolumenami fizycznymi i
+%description lvm -l pl.UTF-8
+Webmin - zarzÄ…dzanie grupami wolumenÃ³w, wolumenami fizycznymi i
 wolumenami logicznymi linuksowego systemu LVM.
 
 # MAJORDOMO
 %package majordomo
 Summary:	Webmin - Majordomo List Manager
-Summary(pl):	Webmin - zarz±dca list dyskusyjnych Majordomo
+Summary(pl.UTF-8):   Webmin - zarzÄ…dca list dyskusyjnych Majordomo
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name}-sendmail = %{version}-%{release}
@@ -726,13 +726,13 @@ Requires:	%{name}-sendmail = %{version}-%{release}
 %description majordomo
 Webmin - Create and configure mailing lists for Majordomo.
 
-%description majordomo -l pl
+%description majordomo -l pl.UTF-8
 Webmin - tworzenie i konfiguracja list pocztowych Majordomo.
 
 # MON
 %package mon
 Summary:	Webmin - MON resource monitoring system
-Summary(pl):	Webmin - system monitorowania zasobów MON
+Summary(pl.UTF-8):   Webmin - system monitorowania zasobÃ³w MON
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -742,14 +742,14 @@ Requires:	rc-scripts
 %description mon
 Webmin - Setup MON, a powerful service monitor and alerting system.
 
-%description mon -l pl
-Webmin - ustawianie MON - potê¿nego systemu monitorowania i
+%description mon -l pl.UTF-8
+Webmin - ustawianie MON - potÄ™Å¼nego systemu monitorowania i
 alarmowania.
 
 # MYSQL
 %package mysql
 Summary:	Webmin - MySQL server
-Summary(pl):	Webmin - serwer MySQL
+Summary(pl.UTF-8):   Webmin - serwer MySQL
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -759,14 +759,14 @@ Requires:	mysql
 Webmin - Setup databases, tables and permissions in your MySQL
 database server.
 
-%description mysql -l pl
-Webmin - ustawianie baz danych, tabel i uprawnieñ w serwerze baz
+%description mysql -l pl.UTF-8
+Webmin - ustawianie baz danych, tabel i uprawnieÅ„ w serwerze baz
 danych MySQL.
 
 # NET
 %package net
 Summary:	Webmin - Network configuration
-Summary(pl):	Webmin - konfiguracja sieci
+Summary(pl.UTF-8):   Webmin - konfiguracja sieci
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -776,14 +776,14 @@ Requires:	rc-scripts
 Webmin - Configure boot time and active interfaces, DNS, routing and
 /etc/hosts.
 
-%description net -l pl
-Webmin - konfiguracja interfejsów startowych i aktywnych, DNS-u,
+%description net -l pl.UTF-8
+Webmin - konfiguracja interfejsÃ³w startowych i aktywnych, DNS-u,
 routingu i pliku /etc/hosts.
 
 # bandwidth
 %package bandwidth
 Summary:	Webmin - Network monitor
-Summary(pl):	Webmin - monitor sieci
+Summary(pl.UTF-8):   Webmin - monitor sieci
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -792,14 +792,14 @@ Requires:	%{name} = %{version}-%{release}
 Webmin - View reports on bandwidth usage by host, port, protocol and
 time on a Linux system.
 
-%description bandwidth -l pl
-Webmin - przegl±danie raportów wykorzystania pasma w zale¿no¶ci od
-hosta, portu, protoko³u i czasu.
+%description bandwidth -l pl.UTF-8
+Webmin - przeglÄ…danie raportÃ³w wykorzystania pasma w zaleÅ¼noÅ›ci od
+hosta, portu, protokoÅ‚u i czasu.
 
 # SHOREWALL
 %package shorewall
 Summary:	Webmin - Shorewall configuration
-Summary(pl):	Webmin - konfiguracja shorewall
+Summary(pl.UTF-8):   Webmin - konfiguracja shorewall
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -809,14 +809,14 @@ Requires:	shorewall
 Webmin - Lets you edit the most useful tables of the simple Shoreline
 Firewall.
 
-%description shorewall -l pl
-Webmin - modyfikowanie najbardziej u¿ytecznych tabel prostego
+%description shorewall -l pl.UTF-8
+Webmin - modyfikowanie najbardziej uÅ¼ytecznych tabel prostego
 firewalla Shoreline.
 
 # POSTFIX
 %package postfix
 Summary:	Webmin - Postfix
-Summary(pl):	Webmin - Postfix
+Summary(pl.UTF-8):   Webmin - Postfix
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -825,13 +825,13 @@ Requires:	postfix
 %description postfix
 Webmin - Configure the Postfix mail server.
 
-%description postfix -l pl
+%description postfix -l pl.UTF-8
 Webmin - konfiguracja serwera poczty Postfix.
 
 # POSTGRESQL
 %package postgresql
 Summary:	Webmin - PostgreSQL server
-Summary(pl):	Webmin - serwer PostgreSQL
+Summary(pl.UTF-8):   Webmin - serwer PostgreSQL
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -841,14 +841,14 @@ Requires:	postgresql-clients
 Webmin - Manage databases, tables and users in your PostgreSQL
 database server.
 
-%description postgresql -l pl
-Webmin - administracja bazami danych, tabelami i u¿ytkownikami w
+%description postgresql -l pl.UTF-8
+Webmin - administracja bazami danych, tabelami i uÅ¼ytkownikami w
 serwerze baz danych PostgreSQL.
 
 # PPP
 %package ppp
 Summary:	Webmin - PAP (PPP) usernames and passwords
-Summary(pl):	Webmin - Nazwy u¿ytkowników i has³a dla PAP (PPP)
+Summary(pl.UTF-8):   Webmin - Nazwy uÅ¼ytkownikÃ³w i hasÅ‚a dla PAP (PPP)
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -857,13 +857,13 @@ Requires:	ppp
 %description ppp
 Webmin - PAP (PPP) usernames and passwords.
 
-%description ppp -l pl
-Webmin - nazwy u¿ytkowników i has³a dla PAP (PPP).
+%description ppp -l pl.UTF-8
+Webmin - nazwy uÅ¼ytkownikÃ³w i hasÅ‚a dla PAP (PPP).
 
 # PROCMAIL
 %package procmail
 Summary:	Webmin - Procmail mail filter
-Summary(pl):	Webmin - filtr poczty Procmail
+Summary(pl.UTF-8):   Webmin - filtr poczty Procmail
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -872,13 +872,13 @@ Requires:	procmail
 %description procmail
 Webmin - Global configuration for Procmail mail filter.
 
-%description procmail -l pl
-Webmin - ogólnosystemowa konfiguracja filtra poczty Procmail.
+%description procmail -l pl.UTF-8
+Webmin - ogÃ³lnosystemowa konfiguracja filtra poczty Procmail.
 
 # SPAM
 %package spam
 Summary:	Webmin - SpamAssassin Mail Filter Configuration
-Summary(pl):	Webmin - konfiguracja filtra poczty SpamAssassin
+Summary(pl.UTF-8):   Webmin - konfiguracja filtra poczty SpamAssassin
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -887,13 +887,13 @@ Requires:	spamassassin
 %description spam
 Webmin - SpamAssassin Mail Filter Configuration.
 
-%description spam -l pl
+%description spam -l pl.UTF-8
 Webmin - konfiguracja filtra poczty SpamAssassin.
 
 # PRINTER
 %package printer
 Summary:	Webmin - Printer administration
-Summary(pl):	Webmin - zarz±dzanie drukarkami
+Summary(pl.UTF-8):   Webmin - zarzÄ…dzanie drukarkami
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -902,14 +902,14 @@ Requires:	%{name} = %{version}-%{release}
 Webmin - Create and edit local and remote printers. Supports Windows
 print servers and Ghostscript print drivers.
 
-%description printer -l pl
-Webmin - zarz±dzanie lokalnymi i zdalnymi drukarkami. Obs³uguje
-serwery wydruków Windows i sterowniki Ghostscript.
+%description printer -l pl.UTF-8
+Webmin - zarzÄ…dzanie lokalnymi i zdalnymi drukarkami. ObsÅ‚uguje
+serwery wydrukÃ³w Windows i sterowniki Ghostscript.
 
 # PROFTPD
 %package proftpd
 Summary:	Webmin - Proftpd FTP Server
-Summary(pl):	Webmin - serwer FTP Proftpd
+Summary(pl.UTF-8):   Webmin - serwer FTP Proftpd
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -919,14 +919,14 @@ Requires:	proftpd
 Webmin - Configure the powerful ProFTPD FTP server. Supports all
 options in most of the standard modules.
 
-%description proftpd -l pl
-Webmin - konfiguracja serwera ProFTPD. Obs³uguje wszystkie opcje w
-wiêkszo¶ci standardowych modu³ów.
+%description proftpd -l pl.UTF-8
+Webmin - konfiguracja serwera ProFTPD. ObsÅ‚uguje wszystkie opcje w
+wiÄ™kszoÅ›ci standardowych moduÅ‚Ã³w.
 
 # CVS-PSERVER
 %package cvs-pserver
 Summary:	Webmin - CVS pserver
-Summary(pl):	Webmin - serwer CVS pserver
+Summary(pl.UTF-8):   Webmin - serwer CVS pserver
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -936,14 +936,14 @@ Requires:	cvs-pserver
 Webmin - Setup a remotely-accessible CVS server, manage users and
 browse the repository.
 
-%description cvs-pserver -l pl
-Webmin - konfiguracja zdalnego dostêpu do serwera CVS, zarz±dzanie
-u¿ytkownikami i przegl±danie repozytoriów.
+%description cvs-pserver -l pl.UTF-8
+Webmin - konfiguracja zdalnego dostÄ™pu do serwera CVS, zarzÄ…dzanie
+uÅ¼ytkownikami i przeglÄ…danie repozytoriÃ³w.
 
 # SAMBA
 %package samba
 Summary:	Webmin - Samba configuration
-Summary(pl):	Webmin - konfiguracja samby
+Summary(pl.UTF-8):   Webmin - konfiguracja samby
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -952,13 +952,13 @@ Requires:	samba
 %description samba
 Webmin - Create and edit samba file and print shares.
 
-%description samba -l pl
-Webmin - tworzenie i modyfikowanie wspó³dzielenia plików i drukarek.
+%description samba -l pl.UTF-8
+Webmin - tworzenie i modyfikowanie wspÃ³Å‚dzielenia plikÃ³w i drukarek.
 
 # openslp
 %package openslp
 Summary:	Webmin - OpenSLP Service Location Protocol
-Summary(pl):	Webmin - protoko³u OpenSLP Service Location Protocol
+Summary(pl.UTF-8):   Webmin - protokoÅ‚u OpenSLP Service Location Protocol
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -967,13 +967,13 @@ Requires:	openslp
 %description openslp
 Webmin - Configure OpenSLP Service Location Protocol.
 
-%description openslp -l pl
-Webmin - konfiguracja protoko³u OpenSLP Service Location Protocol.
+%description openslp -l pl.UTF-8
+Webmin - konfiguracja protokoÅ‚u OpenSLP Service Location Protocol.
 
 # SENTRY
 %package sentry
 Summary:	Webmin - Sentries
-Summary(pl):	Webmin - wykrywanie prób nieautoryzowanego dostêpu
+Summary(pl.UTF-8):   Webmin - wykrywanie prÃ³b nieautoryzowanego dostÄ™pu
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -985,14 +985,14 @@ Requires:	portsentry
 Webmin - Configure the portsentry, hostsentry and logcheck system
 security monitoring programs.
 
-%description sentry -l pl
-Webmin - konfigurowanie programów monitoruj±cych bezpieczeñstwo
+%description sentry -l pl.UTF-8
+Webmin - konfigurowanie programÃ³w monitorujÄ…cych bezpieczeÅ„stwo
 systemu portsentry, hostsentry i logcheck.
 
 # QMAIL
 %package qmail
 Summary:	Webmin - Qmail configuration
-Summary(pl):	Webmin - konfiguracja qmaila
+Summary(pl.UTF-8):   Webmin - konfiguracja qmaila
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -1002,13 +1002,13 @@ Requires:	qmail
 Webmin - Configure the QMail mail server, a simpler alternative to
 Sendmail.
 
-%description qmail -l pl
+%description qmail -l pl.UTF-8
 Webmin - konfiguracja qmaila - prostszej alternatywy dla Sendmaila.
 
 # SENDMAIL
 %package sendmail
 Summary:	Webmin - Sendmail configuration
-Summary(pl):	Webmin - konfiguracja sendmaila
+Summary(pl.UTF-8):   Webmin - konfiguracja sendmaila
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -1018,14 +1018,14 @@ Requires:	sendmail
 Webmin - Manage sendmail aliases, masquerading, address rewriting and
 other features.
 
-%description sendmail -l pl
-Webmin - zarz±dzanie aliasami sendmaila, maskowaniem i przepisywaniem
-adresów oraz innymi opcjami.
+%description sendmail -l pl.UTF-8
+Webmin - zarzÄ…dzanie aliasami sendmaila, maskowaniem i przepisywaniem
+adresÃ³w oraz innymi opcjami.
 
 # SQUID
 %package squid
 Summary:	Webmin - Squid proxy
-Summary(pl):	Webmin - serwer proxy Squid
+Summary(pl.UTF-8):   Webmin - serwer proxy Squid
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -1036,14 +1036,14 @@ Requires:	squid
 Webmin - Configure Squid options, ACLs, caching parameters and proxy
 users.
 
-%description squid -l pl
-Webmin - konfiguracja opcji, ACL-i, parametrów buforowania i
-u¿ytkowników dla serwera proxy Squid.
+%description squid -l pl.UTF-8
+Webmin - konfiguracja opcji, ACL-i, parametrÃ³w buforowania i
+uÅ¼ytkownikÃ³w dla serwera proxy Squid.
 
 # frox
 %package frox
 Summary:	Webmin - Frox FTP proxy server
-Summary(pl):	Webmin - serwer FTP proxy Frox
+Summary(pl.UTF-8):   Webmin - serwer FTP proxy Frox
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -1052,13 +1052,13 @@ Requires:	frox
 %description frox
 Webmin - Configure Frox, a transparent proxy for FTP clients.
 
-%description frox -l pl
-Webmin - konfiguracja Froksa - przezroczystego proxy dla klientów FTP.
+%description frox -l pl.UTF-8
+Webmin - konfiguracja Froksa - przezroczystego proxy dla klientÃ³w FTP.
 
 # sarg
 %package sarg
 Summary:	Webmin - Sarg Squid log report generation tool
-Summary(pl):	Webmin - narzêdzie do generowania raportów z logów Squida Sarg
+Summary(pl.UTF-8):   Webmin - narzÄ™dzie do generowania raportÃ³w z logÃ³w Squida Sarg
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -1068,14 +1068,14 @@ Requires:	sarg
 Webmin - Configure and schedule SARG, a tool for generating reports
 from Squid access logs.
 
-%description sarg -l pl
-Webmin - konfiguracja SARG-a - narzêdzia do generowania raportów z
-logów Squida.
+%description sarg -l pl.UTF-8
+Webmin - konfiguracja SARG-a - narzÄ™dzia do generowania raportÃ³w z
+logÃ³w Squida.
 
 # SSHD
 %package sshd
 Summary:	Webmin - SSH Server
-Summary(pl):	Webmin - serwer SSH
+Summary(pl.UTF-8):   Webmin - serwer SSH
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -1085,13 +1085,13 @@ Requires:	openssh-server
 %description sshd
 Webmin - Setup the SSH server for remote secure logins.
 
-%description sshd -l pl
+%description sshd -l pl.UTF-8
 Webmin - ustawianie serwera SSH dla bezpiecznego zdalnego logowania.
 
 # WUFTPD
 %package wuftpd
 Summary:	Webmin - Wu-Ftpd server
-Summary(pl):	Webmin - serwer Wu-Ftpd
+Summary(pl.UTF-8):   Webmin - serwer Wu-Ftpd
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -1101,14 +1101,14 @@ Requires:	wu-ftpd
 Webmin - Configure the access control, anonymous FTP and other options
 of WU-FTPd.
 
-%description wuftpd -l pl
-Webmin - konfiguracja dostêpu, anonimowego FTP i innych opcji serwera
+%description wuftpd -l pl.UTF-8
+Webmin - konfiguracja dostÄ™pu, anonimowego FTP i innych opcji serwera
 Wu-FTPd.
 
 # XINETD
 %package xinetd
 Summary:	Webmin - Xinetd
-Summary(pl):	Webmin - Xinetd
+Summary(pl.UTF-8):   Webmin - Xinetd
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -1117,14 +1117,14 @@ Requires:	xinetd
 %description xinetd
 Webmin - Edit servers handled by Xinetd, a replacement for inetd.
 
-%description xinetd -l pl
-Webmin - modyfikowanie serwerów obs³ugiwanych przez Xinetd -
+%description xinetd -l pl.UTF-8
+Webmin - modyfikowanie serwerÃ³w obsÅ‚ugiwanych przez Xinetd -
 zamiennika inetd.
 
 # NFS EXPORTS
 %package nfs
 Summary:	Webmin - NFS server configuration
-Summary(pl):	Webmin - konfiguracja serwera NFS
+Summary(pl.UTF-8):   Webmin - konfiguracja serwera NFS
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -1133,13 +1133,13 @@ Requires:	nfs-utils
 %description nfs
 Webmin - NFS server configuration.
 
-%description nfs -l pl
+%description nfs -l pl.UTF-8
 Webmin - konfiguracja serwera NFS.
 
 # QUOTA
 %package quota
 Summary:	Webmin - Quota management
-Summary(pl):	Webmin - zarz±dzanie systemem quota
+Summary(pl.UTF-8):   Webmin - zarzÄ…dzanie systemem quota
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -1149,14 +1149,14 @@ Requires:	quota
 Webmin - Setup and edit user or group disk quotas for local
 filesystems.
 
-%description quota -l pl
-Webmin - ustawianie i modyfikowanie limitów dyskowych (quot)
-u¿ytkowników i grup dla lokalnych systemów plików.
+%description quota -l pl.UTF-8
+Webmin - ustawianie i modyfikowanie limitÃ³w dyskowych (quot)
+uÅ¼ytkownikÃ³w i grup dla lokalnych systemÃ³w plikÃ³w.
 
 # SOFTWARE
 %package software
 Summary:	Webmin - Software packages
-Summary(pl):	Webmin - pakiety oprogramowania
+Summary(pl.UTF-8):   Webmin - pakiety oprogramowania
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -1166,14 +1166,14 @@ Requires:	rpm
 Webmin - Manage software packages on your system, and install new
 packages.
 
-%description software -l pl
-Webmin - zarz±dzanie pakietami oprogramowania w systemie i instalacja
-nowych pakietów.
+%description software -l pl.UTF-8
+Webmin - zarzÄ…dzanie pakietami oprogramowania w systemie i instalacja
+nowych pakietÃ³w.
 
 # CPAN
 %package cpan
 Summary:	Webmin - Cpan
-Summary(pl):	Webmin - Cpan
+Summary(pl.UTF-8):   Webmin - Cpan
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -1183,14 +1183,14 @@ Requires:	rpm
 Webmin - Install new Perl modules on your system, and view those
 already installed.
 
-%description cpan -l pl
-Webmin - instalacja nowych, oraz przegl±danie ju¿ zainstalowanych
-modu³ów Perla.
+%description cpan -l pl.UTF-8
+Webmin - instalacja nowych, oraz przeglÄ…danie juÅ¼ zainstalowanych
+moduÅ‚Ã³w Perla.
 
 # STUNNEL
 %package stunnel
 Summary:	Webmin - SSL tunnels configuration
-Summary(pl):	Webmin - konfiguracja tuneli SSL
+Summary(pl.UTF-8):   Webmin - konfiguracja tuneli SSL
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -1199,13 +1199,13 @@ Requires:	stunnel
 %description stunnel
 Webmin - SSL tunnels configuration.
 
-%description stunnel -l pl
+%description stunnel -l pl.UTF-8
 Webmin - konfiguracja tuneli SSL.
 
 # TUNNEL
 %package tunnel
 Summary:	Webmin - HTTP tunnels configuration
-Summary(pl):	Webmin - konfiguracja tuneli HTTP
+Summary(pl.UTF-8):   Webmin - konfiguracja tuneli HTTP
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -1213,13 +1213,13 @@ Requires:	%{name} = %{version}-%{release}
 %description tunnel
 Webmin - HTTP tunnels configuration.
 
-%description tunnel -l pl
+%description tunnel -l pl.UTF-8
 Webmin - konfiguracja tuneli HTTP.
 
 # STATUS
 %package monitor
 Summary:	Webmin - Event monitor
-Summary(pl):	Webmin - monitor zdarzeñ
+Summary(pl.UTF-8):   Webmin - monitor zdarzeÅ„
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -1229,14 +1229,14 @@ Requires:	crondaemon
 Webmin - View the status of services on your system and on remote
 systems.
 
-%description monitor -l pl
-Webmin - sprawdzenie stanu lokalnych us³ug systemu i zdalnych
-serwerów.
+%description monitor -l pl.UTF-8
+Webmin - sprawdzenie stanu lokalnych usÅ‚ug systemu i zdalnych
+serwerÃ³w.
 
 # SYSLOG
 %package syslog
 Summary:	Webmin - System logger
-Summary(pl):	Webmin - logi systemowe
+Summary(pl.UTF-8):   Webmin - logi systemowe
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -1246,14 +1246,14 @@ Requires:	syslog
 Webmin - Configure the syslog server on your system and view its log
 files.
 
-%description syslog -l pl
-Webmin - konfiguracja serwera syslog w systemie i przegl±danie plików
-logów.
+%description syslog -l pl.UTF-8
+Webmin - konfiguracja serwera syslog w systemie i przeglÄ…danie plikÃ³w
+logÃ³w.
 
 # LOGROTATE
 %package logrotate
 Summary:	Webmin - Log File Editor
-Summary(pl):	Webmin - edytor logów systemowych
+Summary(pl.UTF-8):   Webmin - edytor logÃ³w systemowych
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -1263,13 +1263,13 @@ Requires:	logrotate
 Webmin - Set up the automatic rotation of Apache, Squid, Syslog and
 other log files.
 
-%description logrotate -l pl
-Webmin - automatyczna rotacja plików logów Apache'a, Squida, Sysloga i
+%description logrotate -l pl.UTF-8
+Webmin - automatyczna rotacja plikÃ³w logÃ³w Apache'a, Squida, Sysloga i
 innych.
 
 %package admin-tools
 Summary:	Webmin - Admin-tools (telnet, file manager, etc)
-Summary(pl):	Webmin - narzêdzia administracyjne (telnet, zarz±dzanie plikami, itp.)
+Summary(pl.UTF-8):   Webmin - narzÄ™dzia administracyjne (telnet, zarzÄ…dzanie plikami, itp.)
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -1282,14 +1282,14 @@ Provides:	%{name}-webminlog = %{version}-%{release}
 %description admin-tools
 Webmin - Admin-tools (telnet, file manager, etc).
 
-%description admin-tools -l pl
-Webmin - Narzêdzia administracyjne (telnet, zarz±dzanie plikami,
+%description admin-tools -l pl.UTF-8
+Webmin - NarzÄ™dzia administracyjne (telnet, zarzÄ…dzanie plikami,
 itp.).
 
 # PROC, INIT, INITTAB, MOUNT
 %package system
 Summary:	Webmin - System Configuration
-Summary(pl):	Webmin - konfiguracja systemu
+Summary(pl.UTF-8):   Webmin - konfiguracja systemu
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -1301,13 +1301,13 @@ Provides:	%{name}-proc = %{version}-%{release}
 %description system
 Webmin - System Configuration.
 
-%description system -l pl
+%description system -l pl.UTF-8
 Webmin - konfiguracja systemu.
 
 # NIS
 %package nis
 Summary:	Webmin - NIS configuration
-Summary(pl):	Webmin - konfiguracja NIS
+Summary(pl.UTF-8):   Webmin - konfiguracja NIS
 Group:		Applications/System
 Requires(post):	%{name} = %{version}
 Requires:	%{name}-inetd = %{version}-%{release}
@@ -1317,14 +1317,14 @@ Requires:	%{name}-useradmin = %{version}-%{release}
 Webmin - Setup a system as an NIS client, master or slave server. Note
 that NIS+ is not supported.
 
-%description nis -l pl
-Webmin - konfiguracja systemu jako klienta, g³ównego lub zapasowego
-serwera NIS. Uwaga: NIS+ nie jest obs³ugiwany.
+%description nis -l pl.UTF-8
+Webmin - konfiguracja systemu jako klienta, gÅ‚Ã³wnego lub zapasowego
+serwera NIS. Uwaga: NIS+ nie jest obsÅ‚ugiwany.
 
 # PASSWD
 %package passwd
 Summary:	Webmin - Change Passwords
-Summary(pl):	Webmin - zmiana hase³
+Summary(pl.UTF-8):   Webmin - zmiana haseÅ‚
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name}-useradmin = %{version}-%{release}
@@ -1332,13 +1332,13 @@ Requires:	%{name}-useradmin = %{version}-%{release}
 %description passwd
 Webmin - Change Passwords.
 
-%description passwd -l pl
-Webmin - zmiana hase³.
+%description passwd -l pl.UTF-8
+Webmin - zmiana haseÅ‚.
 
 # htaccess-htpasswd
 %package htaccess-htpasswd
 Summary:	Webmin - Protected Web Directories
-Summary(pl):	Webmin - ochrona katalogów WWW
+Summary(pl.UTF-8):   Webmin - ochrona katalogÃ³w WWW
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name}-useradmin = %{version}-%{release}
@@ -1347,14 +1347,14 @@ Requires:	%{name}-useradmin = %{version}-%{release}
 Webmin - Create .htaccess and htpasswd files to protect web-acessible
 directories.
 
-%description htaccess-htpasswd -l pl
-Webmin - tworzenie plików .htaccess i htpasswd do ochrony katalogów
-dostêpnych przez WWW.
+%description htaccess-htpasswd -l pl.UTF-8
+Webmin - tworzenie plikÃ³w .htaccess i htpasswd do ochrony katalogÃ³w
+dostÄ™pnych przez WWW.
 
 # USERADMIN
 %package useradmin
 Summary:	Webmin - User account manager
-Summary(pl):	Webmin - zarz±dzanie kontami u¿ytkowników
+Summary(pl.UTF-8):   Webmin - zarzÄ…dzanie kontami uÅ¼ytkownikÃ³w
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -1362,13 +1362,13 @@ Requires:	%{name} = %{version}-%{release}
 %description useradmin
 Webmin - User account manager.
 
-%description useradmin -l pl
-Webmin - zarz±dzanie kontami u¿ytkowników.
+%description useradmin -l pl.UTF-8
+Webmin - zarzÄ…dzanie kontami uÅ¼ytkownikÃ³w.
 
 # change-user
 %package change-user
 Summary:	Webmin - Change Language and Theme
-Summary(pl):	Webmin - zmiana jêzyka i wygl±du
+Summary(pl.UTF-8):   Webmin - zmiana jÄ™zyka i wyglÄ…du
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -1377,13 +1377,13 @@ Requires:	acl
 %description change-user
 Webmin - Change Language and Theme.
 
-%description change-user -l pl
-Webmin - zmiana jêzyka i wygl±du.
+%description change-user -l pl.UTF-8
+Webmin - zmiana jÄ™zyka i wyglÄ…du.
 
 # no usermin in PLD yet # USERMIN
 %package usermin
 Summary:	Webmin - Usermin configuration
-Summary(pl):	Webmin - konfiguracja Usermina
+Summary(pl.UTF-8):   Webmin - konfiguracja Usermina
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -1391,13 +1391,13 @@ Requires:	%{name} = %{version}-%{release}
 %description usermin
 Webmin - Usermin configuration.
 
-%description usermin -l pl
+%description usermin -l pl.UTF-8
 Webmin - konfiguracja usermina.
 
 # THEMES
 %package themes
 Summary:	Webmin - Extra Themes for Webmin
-Summary(pl):	Webmin - dodatkowe motywy Webmina
+Summary(pl.UTF-8):   Webmin - dodatkowe motywy Webmina
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
@@ -1405,13 +1405,13 @@ Requires:	%{name} = %{version}-%{release}
 %description themes
 Webmin - Extra Themes for Webmin.
 
-%description themes -l pl
+%description themes -l pl.UTF-8
 Webmin - dodatkowe motywy Webmina.
 
 # SOURCES
 %package src
 Summary:	Webmin - Java sources
-Summary(pl):	Webmin - ¼ród³a w Javie
+Summary(pl.UTF-8):   Webmin - ÅºrÃ³dÅ‚a w Javie
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name}-admin-tools = %{version}-%{release}
@@ -1419,8 +1419,8 @@ Requires:	%{name}-admin-tools = %{version}-%{release}
 %description src
 Webmin - Java sources of the `file' module.
 
-%description src -l pl
-Webmin - ¼ród³a modu³u "file" napisanego czê¶ciowo w Javie.
+%description src -l pl.UTF-8
+Webmin - ÅºrÃ³dÅ‚a moduÅ‚u "file" napisanego czÄ™Å›ciowo w Javie.
 
 %prep
 %setup -q -n %{name}-%{source_version}
