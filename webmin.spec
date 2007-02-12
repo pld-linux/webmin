@@ -1,6 +1,6 @@
 %include        /usr/lib/rpm/macros.perl
 Summary:	Webmin - web-based administration
-Summary(pl):	Webmin - administracja przez WWW
+Summary(pl.UTF-8):   Webmin - administracja przez WWW
 Name:		webmin
 Version:	0.93
 # Current unofficial tarball version (be carefull; numberring incompatibility):
@@ -27,15 +27,15 @@ Webmin is a web-based interface for system administration for Unix.
 Using any browser that supports tables and forms, you can setup user
 accounts, Apache, internet services, DNS, file sharing and so on.
 
-%description -l pl
-Webmin jest narzêdziem do administrowania Uniksem poprzez WWW.
-Umo¿liwia m.in. konfigurowanie kont u¿ytkowników, Apache'a, us³ug
-internetowych, DNS-u, udostêpniania zasobów za pomoc± dowolnej
-przegl±darki obs³uguj±cej tabele i formularze
+%description -l pl.UTF-8
+Webmin jest narzÄ™dziem do administrowania Uniksem poprzez WWW.
+UmoÅ¼liwia m.in. konfigurowanie kont uÅ¼ytkownikÃ³w, Apache'a, usÅ‚ug
+internetowych, DNS-u, udostÄ™pniania zasobÃ³w za pomocÄ… dowolnej
+przeglÄ…darki obsÅ‚ugujÄ…cej tabele i formularze
 
 %package disk-tools
 Summary:	Webmin - Partition and disk management tools
-Summary(pl):	Webmin - Narzêdzia do zarz±dzania dyskami i partycjami
+Summary(pl.UTF-8):   Webmin - NarzÄ™dzia do zarzÄ…dzania dyskami i partycjami
 Group:		Applications/System
 Requires:	hdparm
 Requires:	fdisk
@@ -45,13 +45,13 @@ Prereq:		webmin
 %description disk-tools
 Webmin - Partition and disk management tools.
 
-%description disk-tools -l pl
-Webmin - Narzêdzia do zarz±dzania dyskami i partycjami.
+%description disk-tools -l pl.UTF-8
+Webmin - NarzÄ™dzia do zarzÄ…dzania dyskami i partycjami.
 
 # GRUB
 %package grub
 Summary:	Webmin - GRUB configuration
-Summary(pl):	Webmin - Konfiguracja GRUB-a
+Summary(pl.UTF-8):   Webmin - Konfiguracja GRUB-a
 Group:		Applications/System
 Requires:	grub
 Prereq:		webmin
@@ -59,13 +59,13 @@ Prereq:		webmin
 %description grub
 Webmin - GRUB configuration.
 
-%description grub -l pl
+%description grub -l pl.UTF-8
 Webmin - Konfiguracja GRUB-a.
 
 # LILO
 %package lilo
 Summary:	Webmin - LILO configuration
-Summary(pl):	Webmin - Konfiguracja LILO
+Summary(pl.UTF-8):   Webmin - Konfiguracja LILO
 Group:		Applications/System
 Requires:	lilo
 Prereq:		webmin
@@ -73,13 +73,13 @@ Prereq:		webmin
 %description lilo
 Webmin - LILO configuration.
 
-%description lilo -l pl
+%description lilo -l pl.UTF-8
 Webmin - Konfiguracja LILO.
 
 # PRINTER
 %package printer
 Summary:	Webmin - Printer administration
-Summary(pl):	Webmin - Zarz±dzanie drukarkami
+Summary(pl.UTF-8):   Webmin - ZarzÄ…dzanie drukarkami
 Group:		Applications/System
 Requires:	lpd
 Prereq:		webmin
@@ -87,13 +87,13 @@ Prereq:		webmin
 %description printer
 Webmin - Printer administration.
 
-%description printer -l pl
-Webmin - Zarz±dzanie drukarkami.
+%description printer -l pl.UTF-8
+Webmin - ZarzÄ…dzanie drukarkami.
 
 # NET
 %package net
 Summary:	Webmin - Network configuration
-Summary(pl):	Webmin - Konfiguracja sieci
+Summary(pl.UTF-8):   Webmin - Konfiguracja sieci
 Group:		Applications/System
 Prereq:		rc-scripts
 Prereq:		webmin
@@ -101,13 +101,13 @@ Prereq:		webmin
 %description net
 Webmin - Network configuration.
 
-%description net -l pl
+%description net -l pl.UTF-8
 Webmin - Konfiguracja sieci.
 
 # APACHE
 %package apache
 Summary:	Webmin - Apache webserver
-Summary(pl):	Webmin - Serwer WWW Apache
+Summary(pl.UTF-8):   Webmin - Serwer WWW Apache
 Group:		Applications/System
 Requires:	apache
 Prereq:		webmin
@@ -115,13 +115,13 @@ Prereq:		webmin
 %description apache
 Webmin - Apache webserver.
 
-%description apache -l pl
+%description apache -l pl.UTF-8
 Webmin - Serwer WWW Apache.
 
 # AT
 %package at
 Summary:	Webmin - At
-Summary(pl):	Webmin - At
+Summary(pl.UTF-8):   Webmin - At
 Group:		Applications/System
 Requires:	at
 Prereq:		webmin
@@ -129,13 +129,13 @@ Prereq:		webmin
 %description at
 Webmin - At.
 
-%description at -l pl
+%description at -l pl.UTF-8
 Webmin - At.
 
 # BIND8
 %package bind8
 Summary:	Webmin - BIND DNS server
-Summary(pl):	Webmin - Serwer DNS BIND
+Summary(pl.UTF-8):   Webmin - Serwer DNS BIND
 Group:		Applications/System
 Requires:	bind
 Prereq:		webmin
@@ -143,13 +143,13 @@ Prereq:		webmin
 %description bind8
 Webmin - BIND DNS server.
 
-%description bind8 -l pl
+%description bind8 -l pl.UTF-8
 Webmin - Serwer DNS BIND.
 
 # CRON
 %package cron
 Summary:	Webmin - Cron
-Summary(pl):	Webmin - Cron
+Summary(pl.UTF-8):   Webmin - Cron
 Group:		Applications/System
 Requires:	crondaemon
 Prereq:		webmin
@@ -157,13 +157,13 @@ Prereq:		webmin
 %description cron
 Webmin - Cron.
 
-%description cron -l pl
+%description cron -l pl.UTF-8
 Webmin - Cron.
 
 # DHCPD
 %package dhcpd
 Summary:	Webmin - DHCP server
-Summary(pl):	Webmin - Serwer DHCP
+Summary(pl.UTF-8):   Webmin - Serwer DHCP
 Group:		Applications/System
 Requires:	dhcp
 Prereq:		webmin
@@ -171,52 +171,52 @@ Prereq:		webmin
 %description dhcpd
 Webmin - DHCP server.
 
-%description dhcpd -l pl
+%description dhcpd -l pl.UTF-8
 Webmin - Serwer DHCP.
 
 # FETCHMAIL
 %package fetchmail
 Summary:	Webmin - Fetchmail
-Summary(pl):	Webmin - Fetchmail
+Summary(pl.UTF-8):   Webmin - Fetchmail
 Group:		Applications/System
 Requires:	fetchmail
 
 %description fetchmail
 Webmin - Fetchmail.
 
-%description fetchmail -l pl
+%description fetchmail -l pl.UTF-8
 Webmin - Fetchmail.
 
 # HEARTBEAT
 %package heartbeat
 Summary:	Webmin - Heartbeat Monitor
-Summary(pl):	Webmin - Monitor Heartbeat
+Summary(pl.UTF-8):   Webmin - Monitor Heartbeat
 Group:		Applications/System
 Requires:	heartbeat
 
 %description heartbeat
 Webmin - Heartbeat Monitor.
 
-%description heartbeat -l pl
+%description heartbeat -l pl.UTF-8
 Webmin - Monitor Heartbeat.
 
 # INETD
 %package inetd
 Summary:	Webmin - Inetd
-Summary(pl):	Webmin - Inetd
+Summary(pl.UTF-8):   Webmin - Inetd
 Group:		Applications/System
 Prereq:		webmin
 
 %description inetd
 Webmin - Inetd.
 
-%description inetd -l pl
+%description inetd -l pl.UTF-8
 Webmin - Inetd.
 
 # MAJORDOMO
 %package majordomo
 Summary:	Webmin - Majordomo List Manager
-Summary(pl):	Webmin - Zarz±dca list dyskusyjnych Majordomo
+Summary(pl.UTF-8):   Webmin - ZarzÄ…dca list dyskusyjnych Majordomo
 Group:		Applications/System
 Requires:	majordomo
 Requires:	webmin-sendmail = %{version}
@@ -225,13 +225,13 @@ Prereq:		webmin
 %description majordomo
 Webmin - Majordomo List Manager.
 
-%description majordomo -l pl
-Webmin - Zarz±dca list dyskusyjnych Majordomo.
+%description majordomo -l pl.UTF-8
+Webmin - ZarzÄ…dca list dyskusyjnych Majordomo.
 
 # MYSQL
 %package mysql
 Summary:	Webmin - MySQL server
-Summary(pl):	Webmin - Serwer MySQL
+Summary(pl.UTF-8):   Webmin - Serwer MySQL
 Group:		Applications/System
 Requires:	mysql-client
 Prereq:		webmin
@@ -239,26 +239,26 @@ Prereq:		webmin
 %description mysql
 Webmin - MySQL server.
 
-%description mysql -l pl
+%description mysql -l pl.UTF-8
 Webmin - Serwer MySQL.
 
 # POSTFIX
 %package postfix
 Summary:	Webmin - Postfix
-Summary(pl):	Webmin - Postfix
+Summary(pl.UTF-8):   Webmin - Postfix
 Group:		Applications/System
 Requires:	postfix
 
 %description postfix
 Webmin - Postfix.
 
-%description postfix -l pl
+%description postfix -l pl.UTF-8
 Webmin - Postfix.
 
 # POSTGRESQL
 %package postgresql
 Summary:	Webmin - PostgreSQL server
-Summary(pl):	Webmin - Serwer PostgreSQL
+Summary(pl.UTF-8):   Webmin - Serwer PostgreSQL
 Group:		Applications/System
 Requires:	postgresql-clients
 Prereq:		webmin
@@ -266,13 +266,13 @@ Prereq:		webmin
 %description postgresql
 Webmin - PostgreSQL server.
 
-%description postgresql -l pl
+%description postgresql -l pl.UTF-8
 Webmin - Serwer PostgreSQL.
 
 # PPP
 %package ppp
 Summary:	Webmin - PAP (PPP) usernames and passwords
-Summary(pl):	Webmin - Nazwy u¿ytkowników i has³a dla PAP (PPP)
+Summary(pl.UTF-8):   Webmin - Nazwy uÅ¼ytkownikÃ³w i hasÅ‚a dla PAP (PPP)
 Group:		Applications/System
 Requires:	ppp
 Prereq:		webmin
@@ -280,26 +280,26 @@ Prereq:		webmin
 %description ppp
 Webmin - PAP (PPP) usernames and passwords.
 
-%description ppp -l pl
-Webmin - Nazwy u¿ytkowników i has³a dla PAP (PPP).
+%description ppp -l pl.UTF-8
+Webmin - Nazwy uÅ¼ytkownikÃ³w i hasÅ‚a dla PAP (PPP).
 
 # PROFTPD
 %package proftpd
 Summary:	Webmin - Proftpd FTP Server
-Summary(pl):	Webmin - Serwer FTP Proftpd
+Summary(pl.UTF-8):   Webmin - Serwer FTP Proftpd
 Group:		Applications/System
 Requires:	proftpd
 
 %description proftpd
 Webmin - Proftpd FTP Server.
 
-%description proftpd -l pl
+%description proftpd -l pl.UTF-8
 Webmin - Serwer FTP Proftpd.
 
 # SAMBA
 %package samba
 Summary:	Webmin - Samba
-Summary(pl):	Webmin - Samba
+Summary(pl.UTF-8):   Webmin - Samba
 Group:		Applications/System
 Requires:	samba
 Prereq:		webmin
@@ -307,13 +307,13 @@ Prereq:		webmin
 %description samba
 Webmin - Samba.
 
-%description samba -l pl
+%description samba -l pl.UTF-8
 Webmin - Samba.
 
 # SENDMAIL
 %package sendmail
 Summary:	Webmin - Sendmail
-Summary(pl):	Webmin - Sendmail
+Summary(pl.UTF-8):   Webmin - Sendmail
 Group:		Applications/System
 Requires:	sendmail
 Prereq:		webmin
@@ -321,13 +321,13 @@ Prereq:		webmin
 %description sendmail
 Webmin - Sendmail.
 
-%description sendmail -l pl
+%description sendmail -l pl.UTF-8
 Webmin - Sendmail.
 
 # SQUID
 %package squid
 Summary:	Webmin - Squid proxy
-Summary(pl):	Webmin - Serwer proxy Squid
+Summary(pl.UTF-8):   Webmin - Serwer proxy Squid
 Group:		Applications/System
 Requires:	squid
 Prereq:		webmin
@@ -335,26 +335,26 @@ Prereq:		webmin
 %description squid
 Webmin - Squid proxy.
 
-%description squid -l pl
+%description squid -l pl.UTF-8
 Webmin - Serwer proxy Squid.
 
 # SSHD
 %package sshd
 Summary:	Webmin - SSH Server
-Summary(pl):	Webmin - Serwer SSH
+Summary(pl.UTF-8):   Webmin - Serwer SSH
 Group:		Applications/System
 Requires:	openssh-server openssh-clients
 
 %description sshd
 Webmin - SSH Server.
 
-%description sshd -l pl
+%description sshd -l pl.UTF-8
 Webmin - Serwer SSH.
 
 # WUFTPD
 %package wuftpd
 Summary:	Webmin - Wu-Ftpd server
-Summary(pl):	Webmin - Serwer Wu-Ftpd
+Summary(pl.UTF-8):   Webmin - Serwer Wu-Ftpd
 Group:		Applications/System
 Requires:	wu-ftpd
 Prereq:		webmin
@@ -362,25 +362,25 @@ Prereq:		webmin
 %description wuftpd
 Webmin - Wu-Ftpd server.
 
-%description wuftpd -l pl
+%description wuftpd -l pl.UTF-8
 Webmin - Serwer Wu-Ftpd.
 
 # XINETD
 %package xinetd
 Summary:	Webmin - Xinetd
-Summary(pl):	Webmin - Xinetd
+Summary(pl.UTF-8):   Webmin - Xinetd
 Group:		Applications/System
 
 %description xinetd
 Webmin - Xinetd.
 
-%description xinetd -l pl
+%description xinetd -l pl.UTF-8
 Webmin - Xinetd.
 
 # NFS EXPORTS
 %package nfs
 Summary:	Webmin - NFS server configuration
-Summary(pl):	Webmin - Konfiguracja serwera NFS
+Summary(pl.UTF-8):   Webmin - Konfiguracja serwera NFS
 Group:		Applications/System
 Requires:	nfsdaemon
 Prereq:		webmin
@@ -388,13 +388,13 @@ Prereq:		webmin
 %description nfs
 Webmin - NFS server configuration.
 
-%description nfs -l pl
+%description nfs -l pl.UTF-8
 Webmin - Konfiguracja serwera NFS.
 
 # QUOTA
 %package quota
 Summary:	Webmin - Quota management
-Summary(pl):	Webmin - Zarz±dzanie quota
+Summary(pl.UTF-8):   Webmin - ZarzÄ…dzanie quota
 Group:		Applications/System
 Requires:	quota
 Prereq:		webmin
@@ -402,8 +402,8 @@ Prereq:		webmin
 %description quota
 Webmin - Quota management.
 
-%description quota -l pl
-Webmin - Zarz±dzanie quota.
+%description quota -l pl.UTF-8
+Webmin - ZarzÄ…dzanie quota.
 
 # SOFTWARE
 %package software
@@ -418,7 +418,7 @@ Webmin - Software Packages.
 # STATUS
 %package monitor
 Summary:	Webmin - Event monitor
-Summary(pl):	Webmin - Monitor zdarzeñ
+Summary(pl.UTF-8):   Webmin - Monitor zdarzeÅ„
 Group:		Applications/System
 Requires:	crondaemon
 Prereq:		webmin
@@ -426,13 +426,13 @@ Prereq:		webmin
 %description monitor
 Webmin - Event monitor.
 
-%description monitor -l pl
-Webmin - Monitor zdarzeñ.
+%description monitor -l pl.UTF-8
+Webmin - Monitor zdarzeÅ„.
 
 # SYSLOG
 %package syslog
 Summary:	Webmin - System logger
-Summary(pl):	Webmin - Logi systemowe
+Summary(pl.UTF-8):   Webmin - Logi systemowe
 Group:		Applications/System
 Requires:	syslogdaemon
 Prereq:		webmin
@@ -440,40 +440,40 @@ Prereq:		webmin
 %description syslog
 Webmin - System logger.
 
-%description syslog -l pl
+%description syslog -l pl.UTF-8
 Webmin - Logi systemowe.
 
 %package admin-tools
 Summary:	Webmin - Admin-tools (telnet, file manager, etc)
-Summary(pl):	Webmin - Narzêdzia administracyjne (telnet, menad¿er plików, itp.)
+Summary(pl.UTF-8):   Webmin - NarzÄ™dzia administracyjne (telnet, menadÅ¼er plikÃ³w, itp.)
 Group:		Applications/System
 Prereq:		webmin
 
 %description admin-tools
 Webmin - Admin-tools (telnet, file manager, etc).
 
-%description admin-tools -l pl
-Webmin - Narzêdzia administracyjne (telnet, menad¿er plików, itp.).
+%description admin-tools -l pl.UTF-8
+Webmin - NarzÄ™dzia administracyjne (telnet, menadÅ¼er plikÃ³w, itp.).
 
 # PROC, INIT, INITTAB, MOUNT
 %package system
 Summary:	Webmin - System Configuration
-Summary(pl):	Webmin - Konfiguracja systemu
+Summary(pl.UTF-8):   Webmin - Konfiguracja systemu
 #Summary:	Webmin - Process Manager
-#Summary(pl):	Webmin - Zarz±dzenia procesami
+#Summary(pl.UTF-8):   Webmin - ZarzÄ…dzenia procesami
 Group:		Applications/System
 Prereq:		webmin
 
 %description system
 Webmin - System Configuration.
 
-%description system -l pl
+%description system -l pl.UTF-8
 Webmin - Konfiguracja systemu.
 
 # NIS
 %package nis
 Summary:	Webmin - NIS configuration
-Summary(pl):	Webmin - Konfiguracja NIS
+Summary(pl.UTF-8):   Webmin - Konfiguracja NIS
 Group:		Applications/System
 Requires:	webmin-useradmin = %{version}
 Requires:	webmin-inetd = %{version}
@@ -482,13 +482,13 @@ Prereq:		webmin
 %description nis
 Webmin - NIS configuration.
 
-%description nis -l pl
+%description nis -l pl.UTF-8
 Webmin - Konfiguracja NIS.
 
 # PASSWD
 %package passwd
 Summary:	Webmin - Change Passwords
-Summary(pl):	Webmin - Zmiany hase³
+Summary(pl.UTF-8):   Webmin - Zmiany haseÅ‚
 Group:		Applications/System
 Requires:	webmin-useradmin = %{version}
 Prereq:		webmin
@@ -496,32 +496,32 @@ Prereq:		webmin
 %description passwd
 Webmin - Change Passwords.
 
-%description passwd -l pl
-Webmin - Zmiany hase³.
+%description passwd -l pl.UTF-8
+Webmin - Zmiany haseÅ‚.
 
 # USERADMIN
 %package useradmin
 Summary:	Webmin - User account manager
-Summary(pl):	Webmin - Obs³uga kont u¿ytkowników
+Summary(pl.UTF-8):   Webmin - ObsÅ‚uga kont uÅ¼ytkownikÃ³w
 Group:		Applications/System
 Prereq:		webmin
 
 %description useradmin
 Webmin - User account manager.
 
-%description useradmin -l pl
-Webmin - Obs³uga kont u¿ytkowników.
+%description useradmin -l pl.UTF-8
+Webmin - ObsÅ‚uga kont uÅ¼ytkownikÃ³w.
 
 # THEMES
 %package themes
 Summary:	Webmin - Extra Themes for Webmin
-Summary(pl):	Webmin - Dodatkowe motywy Webmina
+Summary(pl.UTF-8):   Webmin - Dodatkowe motywy Webmina
 Group:		Applications/System
 
 %description themes
 Webmin - Extra Themes for Webmin.
 
-%description themes -l pl
+%description themes -l pl.UTF-8
 Webmin - Dodatkowe motywy Webmina.
 
 %prep
