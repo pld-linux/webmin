@@ -672,7 +672,7 @@ Summary(pl.UTF-8):	Konfiguracja klienta Kerberos 5
 Group:		Applications/System
 Requires(post):	%{name} = %{version}-%{release}
 Requires:	%{name} = %{version}-%{release}
-Requires:	krb5
+Requires:	heimdal
 
 %description krb5
 Webmin - Kerberos 5 client settings.
