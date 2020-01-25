@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.perl
 %define		source_version	%{version}
 %define		os_version	%(rpm -qf /etc/pld-release --qf '%%{version}' 2>/dev/null || echo ERROR)
 Summary:	Webmin - web-based administration
